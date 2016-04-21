@@ -1,0 +1,373 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="9532" systemVersion="15D21" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none">
+    <dependencies>
+        <deployment version="101000" identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="9532"/>
+        <capability name="box content view" minToolsVersion="7.0"/>
+    </dependencies>
+    <objects>
+        <customObject id="-2" userLabel="File's Owner" customClass="SCStimmenPanel">
+            <connections>
+                <outlet property="QuittungNameFeld" destination="242" id="244"/>
+                <outlet property="QuittungNamenPopTaste" destination="169" id="235"/>
+                <outlet property="QuittungOKTaste" destination="241" id="245"/>
+                <outlet property="QuittungPlusMinusTaste" destination="232" id="238"/>
+                <outlet property="QuittungTable" destination="165" id="248"/>
+                <outlet property="SchliessenTaste" destination="8" id="207"/>
+                <outlet property="StimmeEntfernenTaste" destination="195" id="206"/>
+                <outlet property="StimmeImportierenTaste" destination="192" id="204"/>
+                <outlet property="StimmeOKTaste" destination="201" id="205"/>
+                <outlet property="StimmePlusMinusTaste" destination="218" id="233"/>
+                <outlet property="StimmenNameFeld" destination="200" id="208"/>
+                <outlet property="StimmenTable" destination="133" id="202"/>
+                <outlet property="window" destination="5" id="7"/>
+            </connections>
+        </customObject>
+        <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
+        <customObject id="-3" userLabel="Application"/>
+        <window title="Stimmen und Klänge" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" animationBehavior="default" id="5" userLabel="Window">
+            <windowStyleMask key="styleMask" titled="YES" miniaturizable="YES"/>
+            <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
+            <rect key="contentRect" x="10" y="189" width="603" height="501"/>
+            <rect key="screenRect" x="0.0" y="0.0" width="1024" height="746"/>
+            <view key="contentView" id="6">
+                <rect key="frame" x="0.0" y="0.0" width="603" height="501"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <button verticalHuggingPriority="750" id="8">
+                        <rect key="frame" x="372" y="34" width="217" height="32"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <buttonCell key="cell" type="push" title="Schliessen" bezelStyle="rounded" alignment="center" borderStyle="border" inset="2" id="251">
+                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                            <font key="font" metaFont="system"/>
+                            <string key="keyEquivalent" base64-UTF8="YES">
+DQ
+</string>
+                        </buttonCell>
+                        <connections>
+                            <action selector="reportClose:" target="-2" id="213"/>
+                        </connections>
+                    </button>
+                    <button verticalHuggingPriority="750" id="9">
+                        <rect key="frame" x="212" y="34" width="123" height="32"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <buttonCell key="cell" type="push" title="Abbrechen" bezelStyle="rounded" alignment="center" borderStyle="border" inset="2" id="252">
+                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                            <font key="font" metaFont="system"/>
+                        </buttonCell>
+                        <connections>
+                            <action selector="reportCancel:" target="-2" id="211"/>
+                        </connections>
+                    </button>
+                    <box title="Box" titlePosition="noTitle" id="39">
+                        <rect key="frame" x="17" y="384" width="580" height="98"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMinY="YES"/>
+                        <view key="contentView" id="9bP-BA-kM2">
+                            <rect key="frame" x="2" y="2" width="576" height="94"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            <subviews>
+                                <imageView id="43">
+                                    <rect key="frame" x="10" y="11" width="75" height="75"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMinY="YES"/>
+                                    <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" id="258"/>
+                                </imageView>
+                                <textField verticalHuggingPriority="750" id="42">
+                                    <rect key="frame" x="122" y="39" width="443" height="44"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <textFieldCell key="cell" sendsActionOnEndEditing="YES" title="Stimmen und Quittungen" id="259">
+                                        <font key="font" metaFont="system" size="32"/>
+                                        <color key="textColor" red="0.52941179000000005" green="0.59215689000000005" blue="0.71764707999999999" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                    </textFieldCell>
+                                </textField>
+                            </subviews>
+                        </view>
+                        <color key="borderColor" white="0.0" alpha="0.41999999999999998" colorSpace="calibratedWhite"/>
+                        <color key="fillColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </box>
+                    <tabView id="69">
+                        <rect key="frame" x="13" y="76" width="588" height="304"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <font key="font" metaFont="system"/>
+                        <tabViewItems>
+                            <tabViewItem label="Stimmen" identifier="stimmen" id="70">
+                                <view key="view" id="71">
+                                    <rect key="frame" x="10" y="33" width="568" height="258"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <subviews>
+                                        <scrollView autohidesScrollers="YES" horizontalLineScroll="18" horizontalPageScroll="10" verticalLineScroll="18" verticalPageScroll="10" hasHorizontalScroller="NO" usesPredominantAxisScrolling="NO" id="132">
+                                            <rect key="frame" x="20" y="148" width="218" height="110"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <clipView key="contentView" id="3L7-tR-jzA">
+                                                <rect key="frame" x="1" y="23" width="216" height="86"/>
+                                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                <subviews>
+                                                    <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" alternatingRowBackgroundColors="YES" columnReordering="NO" columnResizing="NO" multipleSelection="NO" emptySelection="NO" autosaveColumns="NO" rowHeight="16" headerView="269" id="133">
+                                                        <rect key="frame" x="0.0" y="0.0" width="261" height="86"/>
+                                                        <autoresizingMask key="autoresizingMask"/>
+                                                        <size key="intercellSpacing" width="3" height="2"/>
+                                                        <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                        <tableViewGridLines key="gridStyleMask" vertical="YES"/>
+                                                        <color key="gridColor" name="gridColor" catalog="System" colorSpace="catalog"/>
+                                                        <tableColumns>
+                                                            <tableColumn identifier="stimmenname" editable="NO" width="213" minWidth="40" maxWidth="1000" id="135">
+                                                                <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="left" title="Stimmen">
+                                                                    <font key="font" metaFont="smallSystem"/>
+                                                                    <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
+                                                                    <color key="backgroundColor" white="0.33333299" alpha="1" colorSpace="calibratedWhite"/>
+                                                                </tableHeaderCell>
+                                                                <textFieldCell key="dataCell" lineBreakMode="truncatingTail" selectable="YES" editable="YES" alignment="left" id="266">
+                                                                    <font key="font" metaFont="cellTitle"/>
+                                                                    <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                                                    <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                                </textFieldCell>
+                                                                <tableColumnResizingMask key="resizingMask" resizeWithTable="YES"/>
+                                                            </tableColumn>
+                                                            <tableColumn identifier="userok" width="42.3818359375" minWidth="42.3818359375" maxWidth="1000" id="141">
+                                                                <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="left" title="in Liste">
+                                                                    <font key="font" metaFont="smallSystem"/>
+                                                                    <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
+                                                                    <color key="backgroundColor" name="headerColor" catalog="System" colorSpace="catalog"/>
+                                                                </tableHeaderCell>
+                                                                <buttonCell key="dataCell" type="check" bezelStyle="regularSquare" imagePosition="left" alignment="left" inset="2" id="142">
+                                                                    <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                                                    <font key="font" metaFont="cellTitle"/>
+                                                                </buttonCell>
+                                                                <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
+                                                            </tableColumn>
+                                                        </tableColumns>
+                                                    </tableView>
+                                                </subviews>
+                                                <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                            </clipView>
+                                            <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="YES" id="268">
+                                                <rect key="frame" x="-100" y="-100" width="337" height="15"/>
+                                                <autoresizingMask key="autoresizingMask"/>
+                                            </scroller>
+                                            <scroller key="verticalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="NO" id="270">
+                                                <rect key="frame" x="202" y="17" width="15" height="92"/>
+                                                <autoresizingMask key="autoresizingMask"/>
+                                            </scroller>
+                                            <tableHeaderView key="headerView" id="269">
+                                                <rect key="frame" x="0.0" y="0.0" width="261" height="23"/>
+                                                <autoresizingMask key="autoresizingMask"/>
+                                            </tableHeaderView>
+                                        </scrollView>
+                                        <button verticalHuggingPriority="750" id="192">
+                                            <rect key="frame" x="263" y="115" width="194" height="32"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <buttonCell key="cell" type="push" title="neue Stimme importieren" alternateTitle="Stimme laden" bezelStyle="rounded" alignment="center" borderStyle="border" inset="2" id="253">
+                                                <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                                <font key="font" metaFont="system"/>
+                                            </buttonCell>
+                                            <connections>
+                                                <action selector="reportStimmeImportieren:" target="-2" id="209"/>
+                                            </connections>
+                                        </button>
+                                        <button verticalHuggingPriority="750" id="195">
+                                            <rect key="frame" x="263" y="199" width="194" height="32"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <buttonCell key="cell" type="push" title="Stimme entfernen" alternateTitle="Stimme laden" bezelStyle="rounded" alignment="center" borderStyle="border" inset="2" id="254">
+                                                <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                                <font key="font" metaFont="system"/>
+                                            </buttonCell>
+                                            <connections>
+                                                <action selector="reportStimmeEntfernen:" target="-2" id="214"/>
+                                            </connections>
+                                        </button>
+                                        <box title="Neue Stimme" id="196">
+                                            <rect key="frame" x="17" y="13" width="534" height="90"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <view key="contentView" id="eG1-WY-kfL">
+                                                <rect key="frame" x="2" y="2" width="530" height="70"/>
+                                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                <subviews>
+                                                    <textField verticalHuggingPriority="750" id="200">
+                                                        <rect key="frame" x="12" y="14" width="184" height="22"/>
+                                                        <autoresizingMask key="autoresizingMask"/>
+                                                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="260">
+                                                            <font key="font" metaFont="system"/>
+                                                            <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                        </textFieldCell>
+                                                    </textField>
+                                                    <button verticalHuggingPriority="750" id="201">
+                                                        <rect key="frame" x="211" y="6" width="194" height="32"/>
+                                                        <autoresizingMask key="autoresizingMask"/>
+                                                        <buttonCell key="cell" type="push" title="Stimme übernehmen" bezelStyle="rounded" alignment="center" enabled="NO" borderStyle="border" inset="2" id="261">
+                                                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                                            <font key="font" metaFont="system"/>
+                                                        </buttonCell>
+                                                        <connections>
+                                                            <action selector="reportStimmeOK:" target="-2" id="210"/>
+                                                        </connections>
+                                                    </button>
+                                                    <textField verticalHuggingPriority="750" id="217">
+                                                        <rect key="frame" x="12" y="39" width="225" height="17"/>
+                                                        <autoresizingMask key="autoresizingMask"/>
+                                                        <textFieldCell key="cell" sendsActionOnEndEditing="YES" title="Angezeigter Name der Stimme:" id="262">
+                                                            <font key="font" metaFont="cellTitle"/>
+                                                            <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                                        </textFieldCell>
+                                                    </textField>
+                                                </subviews>
+                                            </view>
+                                            <color key="borderColor" white="0.0" alpha="0.41999999999999998" colorSpace="calibratedWhite"/>
+                                            <color key="fillColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                            <font key="titleFont" metaFont="system"/>
+                                        </box>
+                                        <segmentedControl verticalHuggingPriority="750" id="218">
+                                            <rect key="frame" x="18" y="120" width="42" height="20"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <segmentedCell key="cell" controlSize="small" borderStyle="border" alignment="left" style="automatic" trackingMode="momentary" id="255">
+                                                <font key="font" metaFont="smallSystem"/>
+                                                <segments>
+                                                    <segment label="+" imageScaling="none" width="17.5"/>
+                                                    <segment label="-" imageScaling="none" width="17.5" tag="1"/>
+                                                </segments>
+                                            </segmentedCell>
+                                            <connections>
+                                                <action selector="reportStimmePlusMinus:" target="-2" id="234"/>
+                                            </connections>
+                                        </segmentedControl>
+                                    </subviews>
+                                </view>
+                            </tabViewItem>
+                            <tabViewItem label="Quittungen" identifier="quittung" id="160">
+                                <view key="view" id="161">
+                                    <rect key="frame" x="10" y="33" width="568" height="258"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <scrollView autohidesScrollers="YES" horizontalLineScroll="18" horizontalPageScroll="10" verticalLineScroll="18" verticalPageScroll="10" hasHorizontalScroller="NO" usesPredominantAxisScrolling="NO" id="164">
+                                            <rect key="frame" x="20" y="106" width="300" height="107"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <clipView key="contentView" id="Si9-79-GUC">
+                                                <rect key="frame" x="1" y="23" width="298" height="83"/>
+                                                <autoresizingMask key="autoresizingMask"/>
+                                                <subviews>
+                                                    <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" alternatingRowBackgroundColors="YES" columnReordering="NO" columnResizing="NO" multipleSelection="NO" emptySelection="NO" autosaveColumns="NO" rowHeight="16" headerView="272" id="165">
+                                                        <rect key="frame" x="0.0" y="0.0" width="298" height="83"/>
+                                                        <autoresizingMask key="autoresizingMask"/>
+                                                        <size key="intercellSpacing" width="3" height="2"/>
+                                                        <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                        <tableViewGridLines key="gridStyleMask" vertical="YES"/>
+                                                        <color key="gridColor" name="gridColor" catalog="System" colorSpace="catalog"/>
+                                                        <tableColumns>
+                                                            <tableColumn identifier="quittungname" editable="NO" width="295" minWidth="55.29248046875" maxWidth="1000" id="166">
+                                                                <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="left" title="Quittung">
+                                                                    <font key="font" metaFont="smallSystem"/>
+                                                                    <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
+                                                                    <color key="backgroundColor" white="0.33333299" alpha="1" colorSpace="calibratedWhite"/>
+                                                                </tableHeaderCell>
+                                                                <textFieldCell key="dataCell" lineBreakMode="truncatingTail" selectable="YES" editable="YES" alignment="left" id="267">
+                                                                    <font key="font" metaFont="cellTitle"/>
+                                                                    <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                                                    <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                                </textFieldCell>
+                                                                <tableColumnResizingMask key="resizingMask" resizeWithTable="YES"/>
+                                                            </tableColumn>
+                                                        </tableColumns>
+                                                    </tableView>
+                                                </subviews>
+                                                <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                            </clipView>
+                                            <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="YES" id="271">
+                                                <rect key="frame" x="-100" y="-100" width="250" height="15"/>
+                                                <autoresizingMask key="autoresizingMask"/>
+                                            </scroller>
+                                            <scroller key="verticalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="NO" id="273">
+                                                <rect key="frame" x="-30" y="17" width="15" height="89"/>
+                                                <autoresizingMask key="autoresizingMask"/>
+                                            </scroller>
+                                            <tableHeaderView key="headerView" id="272">
+                                                <rect key="frame" x="0.0" y="0.0" width="298" height="23"/>
+                                                <autoresizingMask key="autoresizingMask"/>
+                                            </tableHeaderView>
+                                        </scrollView>
+                                        <popUpButton verticalHuggingPriority="750" tag="2" id="169">
+                                            <rect key="frame" x="17" y="222" width="306" height="26"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <popUpButtonCell key="cell" type="push" title="Quittung wählen" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" inset="2" arrowPosition="arrowAtCenter" preferredEdge="maxY" selectedItem="172" id="256">
+                                                <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
+                                                <font key="font" metaFont="cellTitle"/>
+                                                <menu key="menu" title="OtherViews" id="170">
+                                                    <items>
+                                                        <menuItem title="Quittung wählen" state="on" id="172"/>
+                                                        <menuItem title="Richtig" tag="1" id="249"/>
+                                                        <menuItem title="Falsch" tag="2" id="173"/>
+                                                        <menuItem title="Serie fertig" tag="3" id="171"/>
+                                                        <menuItem title="Falsches Zeichen" tag="4" id="220"/>
+                                                    </items>
+                                                </menu>
+                                            </popUpButtonCell>
+                                            <connections>
+                                                <action selector="reportQuittungKlasse:" target="-2" id="236"/>
+                                            </connections>
+                                        </popUpButton>
+                                        <segmentedControl verticalHuggingPriority="750" id="232">
+                                            <rect key="frame" x="326" y="103" width="49" height="20"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <segmentedCell key="cell" controlSize="small" enabled="NO" borderStyle="border" alignment="left" style="automatic" trackingMode="momentary" id="257">
+                                                <font key="font" metaFont="smallSystem"/>
+                                                <segments>
+                                                    <segment label="+" imageScaling="none" width="21"/>
+                                                    <segment label="-" imageScaling="none" width="21" tag="1"/>
+                                                </segments>
+                                            </segmentedCell>
+                                            <connections>
+                                                <action selector="reportQuittungPlusMinus:" target="-2" id="237"/>
+                                            </connections>
+                                        </segmentedControl>
+                                        <box title="Neue Quittung" id="239">
+                                            <rect key="frame" x="22" y="8" width="534" height="90"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <view key="contentView" id="dxE-hu-jHj">
+                                                <rect key="frame" x="2" y="2" width="530" height="70"/>
+                                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                <subviews>
+                                                    <textField verticalHuggingPriority="750" id="242">
+                                                        <rect key="frame" x="12" y="14" width="184" height="22"/>
+                                                        <autoresizingMask key="autoresizingMask"/>
+                                                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="263">
+                                                            <font key="font" metaFont="system"/>
+                                                            <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                        </textFieldCell>
+                                                    </textField>
+                                                    <button verticalHuggingPriority="750" id="241">
+                                                        <rect key="frame" x="211" y="6" width="194" height="32"/>
+                                                        <autoresizingMask key="autoresizingMask"/>
+                                                        <buttonCell key="cell" type="push" title="Quittung übernehmen" bezelStyle="rounded" alignment="center" enabled="NO" borderStyle="border" inset="2" id="264">
+                                                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                                            <font key="font" metaFont="system"/>
+                                                        </buttonCell>
+                                                        <connections>
+                                                            <action selector="reportQuittungOK:" target="-2" id="246"/>
+                                                        </connections>
+                                                    </button>
+                                                    <textField verticalHuggingPriority="750" id="243">
+                                                        <rect key="frame" x="12" y="39" width="225" height="17"/>
+                                                        <autoresizingMask key="autoresizingMask"/>
+                                                        <textFieldCell key="cell" sendsActionOnEndEditing="YES" title="Angezeigter Name der Quittung:" id="265">
+                                                            <font key="font" metaFont="cellTitle"/>
+                                                            <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                                        </textFieldCell>
+                                                    </textField>
+                                                </subviews>
+                                            </view>
+                                            <color key="borderColor" white="0.0" alpha="0.41999999999999998" colorSpace="calibratedWhite"/>
+                                            <color key="fillColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                            <font key="titleFont" metaFont="system"/>
+                                        </box>
+                                    </subviews>
+                                </view>
+                            </tabViewItem>
+                        </tabViewItems>
+                    </tabView>
+                </subviews>
+            </view>
+        </window>
+    </objects>
+</document>

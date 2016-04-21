@@ -1,0 +1,653 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		BD7947141CC024F300604B3D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BD7947131CC024F300604B3D /* AppDelegate.m */; };
+		BD7947171CC024F300604B3D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = BD7947161CC024F300604B3D /* main.m */; };
+		BD7947191CC024F300604B3D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BD7947181CC024F300604B3D /* Assets.xcassets */; };
+		BD79471C1CC024F300604B3D /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = BD79471A1CC024F300604B3D /* MainMenu.xib */; };
+		BD7947561CC02D6700604B3D /* rAddSubSettings.m in Sources */ = {isa = PBXBuildFile; fileRef = BD7947251CC02D6700604B3D /* rAddSubSettings.m */; };
+		BD7947581CC02D6700604B3D /* rAufgabenzeiger.m in Sources */ = {isa = PBXBuildFile; fileRef = BD7947291CC02D6700604B3D /* rAufgabenzeiger.m */; };
+		BD7947591CC02D6700604B3D /* rAVPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = BD79472B1CC02D6700604B3D /* rAVPlayer.m */; };
+		BD79475A1CC02D6700604B3D /* rDiplomFenster.m in Sources */ = {isa = PBXBuildFile; fileRef = BD79472D1CC02D6700604B3D /* rDiplomFenster.m */; };
+		BD79475B1CC02D6700604B3D /* rEinstellungenPanel.m in Sources */ = {isa = PBXBuildFile; fileRef = BD79472F1CC02D6700604B3D /* rEinstellungenPanel.m */; };
+		BD79475C1CC02D6700604B3D /* rErgebnisFeld.m in Sources */ = {isa = PBXBuildFile; fileRef = BD7947311CC02D6700604B3D /* rErgebnisFeld.m */; };
+		BD79475D1CC02D6700604B3D /* rErgebnisView.m in Sources */ = {isa = PBXBuildFile; fileRef = BD7947331CC02D6700604B3D /* rErgebnisView.m */; };
+		BD79475E1CC02D6700604B3D /* rNamenPanel.m in Sources */ = {isa = PBXBuildFile; fileRef = BD7947351CC02D6700604B3D /* rNamenPanel.m */; };
+		BD79475F1CC02D6700604B3D /* rNamenZuTestDS.m in Sources */ = {isa = PBXBuildFile; fileRef = BD7947371CC02D6700604B3D /* rNamenZuTestDS.m */; };
+		BD7947601CC02D6700604B3D /* rPrintStatistik.m in Sources */ = {isa = PBXBuildFile; fileRef = BD7947391CC02D6700604B3D /* rPrintStatistik.m */; };
+		BD7947611CC02D6700604B3D /* rQuittungDS.m in Sources */ = {isa = PBXBuildFile; fileRef = BD79473B1CC02D6700604B3D /* rQuittungDS.m */; };
+		BD7947621CC02D6700604B3D /* rRahmen.m in Sources */ = {isa = PBXBuildFile; fileRef = BD79473D1CC02D6700604B3D /* rRahmen.m */; };
+		BD7947631CC02D6700604B3D /* rReihenSettings.m in Sources */ = {isa = PBXBuildFile; fileRef = BD79473F1CC02D6700604B3D /* rReihenSettings.m */; };
+		BD7947651CC02D6700604B3D /* rSessionDS.m in Sources */ = {isa = PBXBuildFile; fileRef = BD7947431CC02D6700604B3D /* rSessionDS.m */; };
+		BD7947661CC02D6700604B3D /* rSpeaker.m in Sources */ = {isa = PBXBuildFile; fileRef = BD7947451CC02D6700604B3D /* rSpeaker.m */; };
+		BD7947671CC02D6700604B3D /* rStatistik.m in Sources */ = {isa = PBXBuildFile; fileRef = BD7947471CC02D6700604B3D /* rStatistik.m */; };
+		BD7947681CC02D6700604B3D /* rStatistikDS.m in Sources */ = {isa = PBXBuildFile; fileRef = BD7947491CC02D6700604B3D /* rStatistikDS.m */; };
+		BD7947691CC02D6700604B3D /* rStimmenPanel.m in Sources */ = {isa = PBXBuildFile; fileRef = BD79474B1CC02D6700604B3D /* rStimmenPanel.m */; };
+		BD79476A1CC02D6700604B3D /* rTestPanel.m in Sources */ = {isa = PBXBuildFile; fileRef = BD79474D1CC02D6700604B3D /* rTestPanel.m */; };
+		BD79476B1CC02D6700604B3D /* rTestZuNamenDS.m in Sources */ = {isa = PBXBuildFile; fileRef = BD79474F1CC02D6700604B3D /* rTestZuNamenDS.m */; };
+		BD79476C1CC02D6700604B3D /* rUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = BD7947511CC02D6700604B3D /* rUtils.m */; };
+		BD79476D1CC02D6700604B3D /* rVolumes.m in Sources */ = {isa = PBXBuildFile; fileRef = BD7947531CC02D6700604B3D /* rVolumes.m */; };
+		BD79476E1CC02D6700604B3D /* rZeitanzeige.m in Sources */ = {isa = PBXBuildFile; fileRef = BD7947551CC02D6700604B3D /* rZeitanzeige.m */; };
+		BD7947821CC02FF700604B3D /* rEingabeFeld.m in Sources */ = {isa = PBXBuildFile; fileRef = BD7947731CC02FF700604B3D /* rEingabeFeld.m */; };
+		BD7947831CC02FF700604B3D /* rNamenListe.m in Sources */ = {isa = PBXBuildFile; fileRef = BD7947751CC02FF700604B3D /* rNamenListe.m */; };
+		BD7947851CC02FF700604B3D /* rPasswortDialog.m in Sources */ = {isa = PBXBuildFile; fileRef = BD7947791CC02FF700604B3D /* rPasswortDialog.m */; };
+		BD7947861CC02FF700604B3D /* rPasswortEingabeFeld.m in Sources */ = {isa = PBXBuildFile; fileRef = BD79477B1CC02FF700604B3D /* rPasswortEingabeFeld.m */; };
+		BD7947871CC02FF700604B3D /* rPasswortListe.m in Sources */ = {isa = PBXBuildFile; fileRef = BD79477D1CC02FF700604B3D /* rPasswortListe.m */; };
+		BD7947881CC02FF700604B3D /* rPasswortRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = BD79477F1CC02FF700604B3D /* rPasswortRequest.m */; };
+		BD7947891CC02FF700604B3D /* rPWTimeout.m in Sources */ = {isa = PBXBuildFile; fileRef = BD7947811CC02FF700604B3D /* rPWTimeout.m */; };
+		BD7947A21CC13AD700604B3D /* SCDiplomFenster.nib in Resources */ = {isa = PBXBuildFile; fileRef = BD79478B1CC13AD700604B3D /* SCDiplomFenster.nib */; };
+		BD7947A31CC13AD700604B3D /* SCDiplomFenster~.nib in Resources */ = {isa = PBXBuildFile; fileRef = BD79478C1CC13AD700604B3D /* SCDiplomFenster~.nib */; };
+		BD7947A41CC13AD700604B3D /* SCEinstellungenPanel.nib in Resources */ = {isa = PBXBuildFile; fileRef = BD79478D1CC13AD700604B3D /* SCEinstellungenPanel.nib */; };
+		BD7947A51CC13AD700604B3D /* SCEinstellungenPanel~.nib in Resources */ = {isa = PBXBuildFile; fileRef = BD79478E1CC13AD700604B3D /* SCEinstellungenPanel~.nib */; };
+		BD7947A61CC13AD700604B3D /* SCNamenPanel.nib in Resources */ = {isa = PBXBuildFile; fileRef = BD79478F1CC13AD700604B3D /* SCNamenPanel.nib */; };
+		BD7947A71CC13AD700604B3D /* SCNamenPanel~.nib in Resources */ = {isa = PBXBuildFile; fileRef = BD7947901CC13AD700604B3D /* SCNamenPanel~.nib */; };
+		BD7947A81CC13AD700604B3D /* SCPasswortDialog.nib in Resources */ = {isa = PBXBuildFile; fileRef = BD7947911CC13AD700604B3D /* SCPasswortDialog.nib */; };
+		BD7947A91CC13AD700604B3D /* SCPasswortDialog~.nib in Resources */ = {isa = PBXBuildFile; fileRef = BD7947921CC13AD700604B3D /* SCPasswortDialog~.nib */; };
+		BD7947AA1CC13AD700604B3D /* SCPasswortListe.nib in Resources */ = {isa = PBXBuildFile; fileRef = BD7947931CC13AD700604B3D /* SCPasswortListe.nib */; };
+		BD7947AB1CC13AD700604B3D /* SCPasswortRequest.nib in Resources */ = {isa = PBXBuildFile; fileRef = BD7947941CC13AD700604B3D /* SCPasswortRequest.nib */; };
+		BD7947AC1CC13AD700604B3D /* SCPasswortRequest~.nib in Resources */ = {isa = PBXBuildFile; fileRef = BD7947951CC13AD700604B3D /* SCPasswortRequest~.nib */; };
+		BD7947AD1CC13AD700604B3D /* SCPasswortTimeoutPanel~.nib in Resources */ = {isa = PBXBuildFile; fileRef = BD7947961CC13AD700604B3D /* SCPasswortTimeoutPanel~.nib */; };
+		BD7947AE1CC13AD700604B3D /* SCPrintStatistik.nib in Resources */ = {isa = PBXBuildFile; fileRef = BD7947971CC13AD700604B3D /* SCPrintStatistik.nib */; };
+		BD7947AF1CC13AD700604B3D /* SCPrintStatistik~.nib in Resources */ = {isa = PBXBuildFile; fileRef = BD7947981CC13AD700604B3D /* SCPrintStatistik~.nib */; };
+		BD7947B01CC13AD700604B3D /* SCPWTimeoutPanel.nib in Resources */ = {isa = PBXBuildFile; fileRef = BD7947991CC13AD700604B3D /* SCPWTimeoutPanel.nib */; };
+		BD7947B11CC13AD700604B3D /* SCPWTimeoutPanel~.nib in Resources */ = {isa = PBXBuildFile; fileRef = BD79479A1CC13AD700604B3D /* SCPWTimeoutPanel~.nib */; };
+		BD7947B21CC13AD700604B3D /* SCStatistik.nib in Resources */ = {isa = PBXBuildFile; fileRef = BD79479B1CC13AD700604B3D /* SCStatistik.nib */; };
+		BD7947B31CC13AD700604B3D /* SCStimmenPanel.nib in Resources */ = {isa = PBXBuildFile; fileRef = BD79479C1CC13AD700604B3D /* SCStimmenPanel.nib */; };
+		BD7947B51CC13AD700604B3D /* SCTestPanel.nib in Resources */ = {isa = PBXBuildFile; fileRef = BD79479E1CC13AD700604B3D /* SCTestPanel.nib */; };
+		BD7947B71CC13AD700604B3D /* SCVolumes.nib in Resources */ = {isa = PBXBuildFile; fileRef = BD7947A01CC13AD700604B3D /* SCVolumes.nib */; };
+		BD7947CF1CC1444E00604B3D /* Icons in Resources */ = {isa = PBXBuildFile; fileRef = BD7947C11CC1444E00604B3D /* Icons */; };
+		BD7947E51CC2C60D00604B3D /* rRechnungserie.m in Sources */ = {isa = PBXBuildFile; fileRef = BD7947E41CC2C60D00604B3D /* rRechnungserie.m */; };
+		BD7948331CC56A5000604B3D /* Zahlen_AIFF in Resources */ = {isa = PBXBuildFile; fileRef = BD7948321CC56A5000604B3D /* Zahlen_AIFF */; };
+		BD7948381CC56C1B00604B3D /* Quittung.plist in Resources */ = {isa = PBXBuildFile; fileRef = BD7948361CC56C1B00604B3D /* Quittung.plist */; };
+		BD7948391CC56C1B00604B3D /* Zahlen.plist in Resources */ = {isa = PBXBuildFile; fileRef = BD7948371CC56C1B00604B3D /* Zahlen.plist */; };
+		BDD8A4B81CC69B5200349CEA /* Quittung_AIFF in Resources */ = {isa = PBXBuildFile; fileRef = BDD8A4B71CC69B5200349CEA /* Quittung_AIFF */; };
+		BDD8A4BC1CC8C33400349CEA /* Bilder in Resources */ = {isa = PBXBuildFile; fileRef = BDD8A4BB1CC8C33400349CEA /* Bilder */; };
+		BDD8A4BE1CC8CFA700349CEA /* duerer.tif in Resources */ = {isa = PBXBuildFile; fileRef = BDD8A4BD1CC8CFA700349CEA /* duerer.tif */; };
+		BDD8A4CA1CC8CFD500349CEA /* duerergrau.tif in Resources */ = {isa = PBXBuildFile; fileRef = BDD8A4BF1CC8CFD500349CEA /* duerergrau.tif */; };
+		BDD8A4CB1CC8CFD500349CEA /* FehlerImg.tif in Resources */ = {isa = PBXBuildFile; fileRef = BDD8A4C01CC8CFD500349CEA /* FehlerImg.tif */; };
+		BDD8A4CC1CC8CFD500349CEA /* Icons in Resources */ = {isa = PBXBuildFile; fileRef = BDD8A4C11CC8CFD500349CEA /* Icons */; };
+		BDD8A4CD1CC8CFD500349CEA /* MarkOffImg.tif in Resources */ = {isa = PBXBuildFile; fileRef = BDD8A4C21CC8CFD500349CEA /* MarkOffImg.tif */; };
+		BDD8A4CE1CC8CFD500349CEA /* MarkOffImgOld.tif in Resources */ = {isa = PBXBuildFile; fileRef = BDD8A4C31CC8CFD500349CEA /* MarkOffImgOld.tif */; };
+		BDD8A4CF1CC8CFD500349CEA /* MarkOnImg.tif in Resources */ = {isa = PBXBuildFile; fileRef = BDD8A4C41CC8CFD500349CEA /* MarkOnImg.tif */; };
+		BDD8A4D01CC8CFD500349CEA /* SessionNOImg.tif in Resources */ = {isa = PBXBuildFile; fileRef = BDD8A4C51CC8CFD500349CEA /* SessionNOImg.tif */; };
+		BDD8A4D11CC8CFD500349CEA /* SessionYESImg.tif in Resources */ = {isa = PBXBuildFile; fileRef = BDD8A4C61CC8CFD500349CEA /* SessionYESImg.tif */; };
+		BDD8A4D21CC8CFD500349CEA /* Ziel.gross.tif in Resources */ = {isa = PBXBuildFile; fileRef = BDD8A4C71CC8CFD500349CEA /* Ziel.gross.tif */; };
+		BDD8A4D31CC8CFD500349CEA /* Ziel.tif in Resources */ = {isa = PBXBuildFile; fileRef = BDD8A4C81CC8CFD500349CEA /* Ziel.tif */; };
+		BDD8A4D41CC8CFD500349CEA /* Zielfahne.tif in Resources */ = {isa = PBXBuildFile; fileRef = BDD8A4C91CC8CFD500349CEA /* Zielfahne.tif */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		BD79470F1CC024F300604B3D /* SndCalcX.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SndCalcX.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		BD7947121CC024F300604B3D /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		BD7947131CC024F300604B3D /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		BD7947161CC024F300604B3D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		BD7947181CC024F300604B3D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		BD79471B1CC024F300604B3D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		BD79471D1CC024F300604B3D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BD7947231CC0253100604B3D /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/MainMenu.strings; sourceTree = "<group>"; };
+		BD7947241CC02D6700604B3D /* rAddSubSettings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = rAddSubSettings.h; path = Source/rAddSubSettings.h; sourceTree = SOURCE_ROOT; };
+		BD7947251CC02D6700604B3D /* rAddSubSettings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = rAddSubSettings.m; path = Source/rAddSubSettings.m; sourceTree = SOURCE_ROOT; };
+		BD7947281CC02D6700604B3D /* rAufgabenzeiger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = rAufgabenzeiger.h; path = Source/rAufgabenzeiger.h; sourceTree = SOURCE_ROOT; };
+		BD7947291CC02D6700604B3D /* rAufgabenzeiger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = rAufgabenzeiger.m; path = Source/rAufgabenzeiger.m; sourceTree = SOURCE_ROOT; };
+		BD79472A1CC02D6700604B3D /* rAVPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = rAVPlayer.h; path = Source/rAVPlayer.h; sourceTree = SOURCE_ROOT; };
+		BD79472B1CC02D6700604B3D /* rAVPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = rAVPlayer.m; path = Source/rAVPlayer.m; sourceTree = SOURCE_ROOT; };
+		BD79472C1CC02D6700604B3D /* rDiplomFenster.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = rDiplomFenster.h; path = Source/rDiplomFenster.h; sourceTree = SOURCE_ROOT; };
+		BD79472D1CC02D6700604B3D /* rDiplomFenster.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = rDiplomFenster.m; path = Source/rDiplomFenster.m; sourceTree = SOURCE_ROOT; };
+		BD79472E1CC02D6700604B3D /* rEinstellungenPanel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = rEinstellungenPanel.h; path = Source/rEinstellungenPanel.h; sourceTree = SOURCE_ROOT; };
+		BD79472F1CC02D6700604B3D /* rEinstellungenPanel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = rEinstellungenPanel.m; path = Source/rEinstellungenPanel.m; sourceTree = SOURCE_ROOT; };
+		BD7947301CC02D6700604B3D /* rErgebnisFeld.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = rErgebnisFeld.h; path = Source/rErgebnisFeld.h; sourceTree = SOURCE_ROOT; };
+		BD7947311CC02D6700604B3D /* rErgebnisFeld.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = rErgebnisFeld.m; path = Source/rErgebnisFeld.m; sourceTree = SOURCE_ROOT; };
+		BD7947321CC02D6700604B3D /* rErgebnisView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = rErgebnisView.h; path = Source/rErgebnisView.h; sourceTree = SOURCE_ROOT; };
+		BD7947331CC02D6700604B3D /* rErgebnisView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = rErgebnisView.m; path = Source/rErgebnisView.m; sourceTree = SOURCE_ROOT; };
+		BD7947341CC02D6700604B3D /* rNamenPanel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = rNamenPanel.h; path = Source/rNamenPanel.h; sourceTree = SOURCE_ROOT; };
+		BD7947351CC02D6700604B3D /* rNamenPanel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = rNamenPanel.m; path = Source/rNamenPanel.m; sourceTree = SOURCE_ROOT; };
+		BD7947361CC02D6700604B3D /* rNamenZuTestDS.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = rNamenZuTestDS.h; path = Source/rNamenZuTestDS.h; sourceTree = SOURCE_ROOT; };
+		BD7947371CC02D6700604B3D /* rNamenZuTestDS.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = rNamenZuTestDS.m; path = Source/rNamenZuTestDS.m; sourceTree = SOURCE_ROOT; };
+		BD7947381CC02D6700604B3D /* rPrintStatistik.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = rPrintStatistik.h; path = Source/rPrintStatistik.h; sourceTree = SOURCE_ROOT; };
+		BD7947391CC02D6700604B3D /* rPrintStatistik.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = rPrintStatistik.m; path = Source/rPrintStatistik.m; sourceTree = SOURCE_ROOT; };
+		BD79473A1CC02D6700604B3D /* rQuittungDS.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = rQuittungDS.h; path = Source/rQuittungDS.h; sourceTree = SOURCE_ROOT; };
+		BD79473B1CC02D6700604B3D /* rQuittungDS.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = rQuittungDS.m; path = Source/rQuittungDS.m; sourceTree = SOURCE_ROOT; };
+		BD79473C1CC02D6700604B3D /* rRahmen.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = rRahmen.h; path = Source/rRahmen.h; sourceTree = SOURCE_ROOT; };
+		BD79473D1CC02D6700604B3D /* rRahmen.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = rRahmen.m; path = Source/rRahmen.m; sourceTree = SOURCE_ROOT; };
+		BD79473E1CC02D6700604B3D /* rReihenSettings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = rReihenSettings.h; path = Source/rReihenSettings.h; sourceTree = SOURCE_ROOT; };
+		BD79473F1CC02D6700604B3D /* rReihenSettings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = rReihenSettings.m; path = Source/rReihenSettings.m; sourceTree = SOURCE_ROOT; };
+		BD7947421CC02D6700604B3D /* rSessionDS.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = rSessionDS.h; path = Source/rSessionDS.h; sourceTree = SOURCE_ROOT; };
+		BD7947431CC02D6700604B3D /* rSessionDS.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = rSessionDS.m; path = Source/rSessionDS.m; sourceTree = SOURCE_ROOT; };
+		BD7947441CC02D6700604B3D /* rSpeaker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = rSpeaker.h; path = Source/rSpeaker.h; sourceTree = SOURCE_ROOT; };
+		BD7947451CC02D6700604B3D /* rSpeaker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = rSpeaker.m; path = Source/rSpeaker.m; sourceTree = SOURCE_ROOT; };
+		BD7947461CC02D6700604B3D /* rStatistik.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = rStatistik.h; path = Source/rStatistik.h; sourceTree = SOURCE_ROOT; };
+		BD7947471CC02D6700604B3D /* rStatistik.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = rStatistik.m; path = Source/rStatistik.m; sourceTree = SOURCE_ROOT; };
+		BD7947481CC02D6700604B3D /* rStatistikDS.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = rStatistikDS.h; path = Source/rStatistikDS.h; sourceTree = SOURCE_ROOT; };
+		BD7947491CC02D6700604B3D /* rStatistikDS.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = rStatistikDS.m; path = Source/rStatistikDS.m; sourceTree = SOURCE_ROOT; };
+		BD79474A1CC02D6700604B3D /* rStimmenPanel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = rStimmenPanel.h; path = Source/rStimmenPanel.h; sourceTree = SOURCE_ROOT; };
+		BD79474B1CC02D6700604B3D /* rStimmenPanel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = rStimmenPanel.m; path = Source/rStimmenPanel.m; sourceTree = SOURCE_ROOT; };
+		BD79474C1CC02D6700604B3D /* rTestPanel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = rTestPanel.h; path = Source/rTestPanel.h; sourceTree = SOURCE_ROOT; };
+		BD79474D1CC02D6700604B3D /* rTestPanel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = rTestPanel.m; path = Source/rTestPanel.m; sourceTree = SOURCE_ROOT; };
+		BD79474E1CC02D6700604B3D /* rTestZuNamenDS.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = rTestZuNamenDS.h; path = Source/rTestZuNamenDS.h; sourceTree = SOURCE_ROOT; };
+		BD79474F1CC02D6700604B3D /* rTestZuNamenDS.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = rTestZuNamenDS.m; path = Source/rTestZuNamenDS.m; sourceTree = SOURCE_ROOT; };
+		BD7947501CC02D6700604B3D /* rUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = rUtils.h; path = Source/rUtils.h; sourceTree = SOURCE_ROOT; };
+		BD7947511CC02D6700604B3D /* rUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = rUtils.m; path = Source/rUtils.m; sourceTree = SOURCE_ROOT; };
+		BD7947521CC02D6700604B3D /* rVolumes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = rVolumes.h; path = Source/rVolumes.h; sourceTree = SOURCE_ROOT; };
+		BD7947531CC02D6700604B3D /* rVolumes.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = rVolumes.m; path = Source/rVolumes.m; sourceTree = SOURCE_ROOT; };
+		BD7947541CC02D6700604B3D /* rZeitanzeige.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = rZeitanzeige.h; path = Source/rZeitanzeige.h; sourceTree = SOURCE_ROOT; };
+		BD7947551CC02D6700604B3D /* rZeitanzeige.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = rZeitanzeige.m; path = Source/rZeitanzeige.m; sourceTree = SOURCE_ROOT; };
+		BD7947721CC02FF700604B3D /* rEingabeFeld.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = rEingabeFeld.h; sourceTree = "<group>"; };
+		BD7947731CC02FF700604B3D /* rEingabeFeld.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = rEingabeFeld.m; sourceTree = "<group>"; };
+		BD7947741CC02FF700604B3D /* rNamenListe.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = rNamenListe.h; sourceTree = "<group>"; };
+		BD7947751CC02FF700604B3D /* rNamenListe.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = rNamenListe.m; sourceTree = "<group>"; };
+		BD7947781CC02FF700604B3D /* rPasswortDialog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = rPasswortDialog.h; sourceTree = "<group>"; };
+		BD7947791CC02FF700604B3D /* rPasswortDialog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = rPasswortDialog.m; sourceTree = "<group>"; };
+		BD79477A1CC02FF700604B3D /* rPasswortEingabeFeld.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = rPasswortEingabeFeld.h; sourceTree = "<group>"; };
+		BD79477B1CC02FF700604B3D /* rPasswortEingabeFeld.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = rPasswortEingabeFeld.m; sourceTree = "<group>"; };
+		BD79477C1CC02FF700604B3D /* rPasswortListe.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = rPasswortListe.h; sourceTree = "<group>"; };
+		BD79477D1CC02FF700604B3D /* rPasswortListe.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = rPasswortListe.m; sourceTree = "<group>"; };
+		BD79477E1CC02FF700604B3D /* rPasswortRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = rPasswortRequest.h; sourceTree = "<group>"; };
+		BD79477F1CC02FF700604B3D /* rPasswortRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = rPasswortRequest.m; sourceTree = "<group>"; };
+		BD7947801CC02FF700604B3D /* rPWTimeout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = rPWTimeout.h; sourceTree = "<group>"; };
+		BD7947811CC02FF700604B3D /* rPWTimeout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = rPWTimeout.m; sourceTree = "<group>"; };
+		BD79478B1CC13AD700604B3D /* SCDiplomFenster.nib */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; path = SCDiplomFenster.nib; sourceTree = "<group>"; };
+		BD79478C1CC13AD700604B3D /* SCDiplomFenster~.nib */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; path = "SCDiplomFenster~.nib"; sourceTree = "<group>"; };
+		BD79478D1CC13AD700604B3D /* SCEinstellungenPanel.nib */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; path = SCEinstellungenPanel.nib; sourceTree = "<group>"; };
+		BD79478E1CC13AD700604B3D /* SCEinstellungenPanel~.nib */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; path = "SCEinstellungenPanel~.nib"; sourceTree = "<group>"; };
+		BD79478F1CC13AD700604B3D /* SCNamenPanel.nib */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; path = SCNamenPanel.nib; sourceTree = "<group>"; };
+		BD7947901CC13AD700604B3D /* SCNamenPanel~.nib */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; path = "SCNamenPanel~.nib"; sourceTree = "<group>"; };
+		BD7947911CC13AD700604B3D /* SCPasswortDialog.nib */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; path = SCPasswortDialog.nib; sourceTree = "<group>"; };
+		BD7947921CC13AD700604B3D /* SCPasswortDialog~.nib */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; path = "SCPasswortDialog~.nib"; sourceTree = "<group>"; };
+		BD7947931CC13AD700604B3D /* SCPasswortListe.nib */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; path = SCPasswortListe.nib; sourceTree = "<group>"; };
+		BD7947941CC13AD700604B3D /* SCPasswortRequest.nib */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; path = SCPasswortRequest.nib; sourceTree = "<group>"; };
+		BD7947951CC13AD700604B3D /* SCPasswortRequest~.nib */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; path = "SCPasswortRequest~.nib"; sourceTree = "<group>"; };
+		BD7947961CC13AD700604B3D /* SCPasswortTimeoutPanel~.nib */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; path = "SCPasswortTimeoutPanel~.nib"; sourceTree = "<group>"; };
+		BD7947971CC13AD700604B3D /* SCPrintStatistik.nib */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; path = SCPrintStatistik.nib; sourceTree = "<group>"; };
+		BD7947981CC13AD700604B3D /* SCPrintStatistik~.nib */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; path = "SCPrintStatistik~.nib"; sourceTree = "<group>"; };
+		BD7947991CC13AD700604B3D /* SCPWTimeoutPanel.nib */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; path = SCPWTimeoutPanel.nib; sourceTree = "<group>"; };
+		BD79479A1CC13AD700604B3D /* SCPWTimeoutPanel~.nib */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; path = "SCPWTimeoutPanel~.nib"; sourceTree = "<group>"; };
+		BD79479B1CC13AD700604B3D /* SCStatistik.nib */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; path = SCStatistik.nib; sourceTree = "<group>"; };
+		BD79479C1CC13AD700604B3D /* SCStimmenPanel.nib */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; path = SCStimmenPanel.nib; sourceTree = "<group>"; };
+		BD79479E1CC13AD700604B3D /* SCTestPanel.nib */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; path = SCTestPanel.nib; sourceTree = "<group>"; };
+		BD7947A01CC13AD700604B3D /* SCVolumes.nib */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; path = SCVolumes.nib; sourceTree = "<group>"; };
+		BD7947C11CC1444E00604B3D /* Icons */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Icons; sourceTree = "<group>"; };
+		BD7947E31CC2C60D00604B3D /* rRechnungserie.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = rRechnungserie.h; sourceTree = "<group>"; };
+		BD7947E41CC2C60D00604B3D /* rRechnungserie.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = rRechnungserie.m; sourceTree = "<group>"; };
+		BD7948321CC56A5000604B3D /* Zahlen_AIFF */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Zahlen_AIFF; sourceTree = "<group>"; };
+		BD7948361CC56C1B00604B3D /* Quittung.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Quittung.plist; sourceTree = "<group>"; };
+		BD7948371CC56C1B00604B3D /* Zahlen.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Zahlen.plist; sourceTree = "<group>"; };
+		BDD8A4B71CC69B5200349CEA /* Quittung_AIFF */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Quittung_AIFF; sourceTree = "<group>"; };
+		BDD8A4BB1CC8C33400349CEA /* Bilder */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Bilder; sourceTree = "<group>"; };
+		BDD8A4BD1CC8CFA700349CEA /* duerer.tif */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; name = duerer.tif; path = Bilder/duerer.tif; sourceTree = "<group>"; };
+		BDD8A4BF1CC8CFD500349CEA /* duerergrau.tif */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; name = duerergrau.tif; path = Bilder/duerergrau.tif; sourceTree = "<group>"; };
+		BDD8A4C01CC8CFD500349CEA /* FehlerImg.tif */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; name = FehlerImg.tif; path = Bilder/FehlerImg.tif; sourceTree = "<group>"; };
+		BDD8A4C11CC8CFD500349CEA /* Icons */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Icons; path = Bilder/Icons; sourceTree = "<group>"; };
+		BDD8A4C21CC8CFD500349CEA /* MarkOffImg.tif */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; name = MarkOffImg.tif; path = Bilder/MarkOffImg.tif; sourceTree = "<group>"; };
+		BDD8A4C31CC8CFD500349CEA /* MarkOffImgOld.tif */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; name = MarkOffImgOld.tif; path = Bilder/MarkOffImgOld.tif; sourceTree = "<group>"; };
+		BDD8A4C41CC8CFD500349CEA /* MarkOnImg.tif */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; name = MarkOnImg.tif; path = Bilder/MarkOnImg.tif; sourceTree = "<group>"; };
+		BDD8A4C51CC8CFD500349CEA /* SessionNOImg.tif */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; name = SessionNOImg.tif; path = Bilder/SessionNOImg.tif; sourceTree = "<group>"; };
+		BDD8A4C61CC8CFD500349CEA /* SessionYESImg.tif */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; name = SessionYESImg.tif; path = Bilder/SessionYESImg.tif; sourceTree = "<group>"; };
+		BDD8A4C71CC8CFD500349CEA /* Ziel.gross.tif */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; name = Ziel.gross.tif; path = Bilder/Ziel.gross.tif; sourceTree = "<group>"; };
+		BDD8A4C81CC8CFD500349CEA /* Ziel.tif */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; name = Ziel.tif; path = Bilder/Ziel.tif; sourceTree = "<group>"; };
+		BDD8A4C91CC8CFD500349CEA /* Zielfahne.tif */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; name = Zielfahne.tif; path = Bilder/Zielfahne.tif; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		BD79470C1CC024F300604B3D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		BD7947061CC024F300604B3D = {
+			isa = PBXGroup;
+			children = (
+				BD7947111CC024F300604B3D /* SndCalcX */,
+				BD7947101CC024F300604B3D /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		BD7947101CC024F300604B3D /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				BD79470F1CC024F300604B3D /* SndCalcX.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		BD7947111CC024F300604B3D /* SndCalcX */ = {
+			isa = PBXGroup;
+			children = (
+				BDD8A4BB1CC8C33400349CEA /* Bilder */,
+				BDD8A4B71CC69B5200349CEA /* Quittung_AIFF */,
+				BD7948361CC56C1B00604B3D /* Quittung.plist */,
+				BD7948371CC56C1B00604B3D /* Zahlen.plist */,
+				BD7948321CC56A5000604B3D /* Zahlen_AIFF */,
+				BD7947C11CC1444E00604B3D /* Icons */,
+				BD7947E31CC2C60D00604B3D /* rRechnungserie.h */,
+				BD7947E41CC2C60D00604B3D /* rRechnungserie.m */,
+				BD7947BB1CC1443700604B3D /* Bilder */,
+				BD79478A1CC13AB800604B3D /* nibs */,
+				BD7947711CC02FDF00604B3D /* Passwort */,
+				BD7947121CC024F300604B3D /* AppDelegate.h */,
+				BD7947131CC024F300604B3D /* AppDelegate.m */,
+				BD7947241CC02D6700604B3D /* rAddSubSettings.h */,
+				BD7947251CC02D6700604B3D /* rAddSubSettings.m */,
+				BD7947281CC02D6700604B3D /* rAufgabenzeiger.h */,
+				BD7947291CC02D6700604B3D /* rAufgabenzeiger.m */,
+				BD79472A1CC02D6700604B3D /* rAVPlayer.h */,
+				BD79472B1CC02D6700604B3D /* rAVPlayer.m */,
+				BD79472C1CC02D6700604B3D /* rDiplomFenster.h */,
+				BD79472D1CC02D6700604B3D /* rDiplomFenster.m */,
+				BD79472E1CC02D6700604B3D /* rEinstellungenPanel.h */,
+				BD79472F1CC02D6700604B3D /* rEinstellungenPanel.m */,
+				BD7947301CC02D6700604B3D /* rErgebnisFeld.h */,
+				BD7947311CC02D6700604B3D /* rErgebnisFeld.m */,
+				BD7947321CC02D6700604B3D /* rErgebnisView.h */,
+				BD7947331CC02D6700604B3D /* rErgebnisView.m */,
+				BD7947341CC02D6700604B3D /* rNamenPanel.h */,
+				BD7947351CC02D6700604B3D /* rNamenPanel.m */,
+				BD7947361CC02D6700604B3D /* rNamenZuTestDS.h */,
+				BD7947371CC02D6700604B3D /* rNamenZuTestDS.m */,
+				BD7947381CC02D6700604B3D /* rPrintStatistik.h */,
+				BD7947391CC02D6700604B3D /* rPrintStatistik.m */,
+				BD79473A1CC02D6700604B3D /* rQuittungDS.h */,
+				BD79473B1CC02D6700604B3D /* rQuittungDS.m */,
+				BD79473C1CC02D6700604B3D /* rRahmen.h */,
+				BD79473D1CC02D6700604B3D /* rRahmen.m */,
+				BD79473E1CC02D6700604B3D /* rReihenSettings.h */,
+				BD79473F1CC02D6700604B3D /* rReihenSettings.m */,
+				BD7947421CC02D6700604B3D /* rSessionDS.h */,
+				BD7947431CC02D6700604B3D /* rSessionDS.m */,
+				BD7947441CC02D6700604B3D /* rSpeaker.h */,
+				BD7947451CC02D6700604B3D /* rSpeaker.m */,
+				BD7947461CC02D6700604B3D /* rStatistik.h */,
+				BD7947471CC02D6700604B3D /* rStatistik.m */,
+				BD7947481CC02D6700604B3D /* rStatistikDS.h */,
+				BD7947491CC02D6700604B3D /* rStatistikDS.m */,
+				BD79474A1CC02D6700604B3D /* rStimmenPanel.h */,
+				BD79474B1CC02D6700604B3D /* rStimmenPanel.m */,
+				BD79474C1CC02D6700604B3D /* rTestPanel.h */,
+				BD79474D1CC02D6700604B3D /* rTestPanel.m */,
+				BD79474E1CC02D6700604B3D /* rTestZuNamenDS.h */,
+				BD79474F1CC02D6700604B3D /* rTestZuNamenDS.m */,
+				BD7947501CC02D6700604B3D /* rUtils.h */,
+				BD7947511CC02D6700604B3D /* rUtils.m */,
+				BD7947521CC02D6700604B3D /* rVolumes.h */,
+				BD7947531CC02D6700604B3D /* rVolumes.m */,
+				BD7947541CC02D6700604B3D /* rZeitanzeige.h */,
+				BD7947551CC02D6700604B3D /* rZeitanzeige.m */,
+				BD7947181CC024F300604B3D /* Assets.xcassets */,
+				BD79471A1CC024F300604B3D /* MainMenu.xib */,
+				BD79471D1CC024F300604B3D /* Info.plist */,
+				BD7947151CC024F300604B3D /* Supporting Files */,
+			);
+			path = SndCalcX;
+			sourceTree = "<group>";
+		};
+		BD7947151CC024F300604B3D /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				BD7947161CC024F300604B3D /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		BD7947711CC02FDF00604B3D /* Passwort */ = {
+			isa = PBXGroup;
+			children = (
+				BD7947721CC02FF700604B3D /* rEingabeFeld.h */,
+				BD7947731CC02FF700604B3D /* rEingabeFeld.m */,
+				BD7947741CC02FF700604B3D /* rNamenListe.h */,
+				BD7947751CC02FF700604B3D /* rNamenListe.m */,
+				BD7947781CC02FF700604B3D /* rPasswortDialog.h */,
+				BD7947791CC02FF700604B3D /* rPasswortDialog.m */,
+				BD79477A1CC02FF700604B3D /* rPasswortEingabeFeld.h */,
+				BD79477B1CC02FF700604B3D /* rPasswortEingabeFeld.m */,
+				BD79477C1CC02FF700604B3D /* rPasswortListe.h */,
+				BD79477D1CC02FF700604B3D /* rPasswortListe.m */,
+				BD79477E1CC02FF700604B3D /* rPasswortRequest.h */,
+				BD79477F1CC02FF700604B3D /* rPasswortRequest.m */,
+				BD7947801CC02FF700604B3D /* rPWTimeout.h */,
+				BD7947811CC02FF700604B3D /* rPWTimeout.m */,
+			);
+			name = Passwort;
+			sourceTree = "<group>";
+		};
+		BD79478A1CC13AB800604B3D /* nibs */ = {
+			isa = PBXGroup;
+			children = (
+				BD79478B1CC13AD700604B3D /* SCDiplomFenster.nib */,
+				BD79478C1CC13AD700604B3D /* SCDiplomFenster~.nib */,
+				BD79478D1CC13AD700604B3D /* SCEinstellungenPanel.nib */,
+				BD79478E1CC13AD700604B3D /* SCEinstellungenPanel~.nib */,
+				BD79478F1CC13AD700604B3D /* SCNamenPanel.nib */,
+				BD7947901CC13AD700604B3D /* SCNamenPanel~.nib */,
+				BD7947911CC13AD700604B3D /* SCPasswortDialog.nib */,
+				BD7947921CC13AD700604B3D /* SCPasswortDialog~.nib */,
+				BD7947931CC13AD700604B3D /* SCPasswortListe.nib */,
+				BD7947941CC13AD700604B3D /* SCPasswortRequest.nib */,
+				BD7947951CC13AD700604B3D /* SCPasswortRequest~.nib */,
+				BD7947961CC13AD700604B3D /* SCPasswortTimeoutPanel~.nib */,
+				BD7947971CC13AD700604B3D /* SCPrintStatistik.nib */,
+				BD7947981CC13AD700604B3D /* SCPrintStatistik~.nib */,
+				BD7947991CC13AD700604B3D /* SCPWTimeoutPanel.nib */,
+				BD79479A1CC13AD700604B3D /* SCPWTimeoutPanel~.nib */,
+				BD79479B1CC13AD700604B3D /* SCStatistik.nib */,
+				BD79479C1CC13AD700604B3D /* SCStimmenPanel.nib */,
+				BD79479E1CC13AD700604B3D /* SCTestPanel.nib */,
+				BD7947A01CC13AD700604B3D /* SCVolumes.nib */,
+			);
+			name = nibs;
+			sourceTree = "<group>";
+		};
+		BD7947BB1CC1443700604B3D /* Bilder */ = {
+			isa = PBXGroup;
+			children = (
+				BDD8A4BF1CC8CFD500349CEA /* duerergrau.tif */,
+				BDD8A4C01CC8CFD500349CEA /* FehlerImg.tif */,
+				BDD8A4C11CC8CFD500349CEA /* Icons */,
+				BDD8A4C21CC8CFD500349CEA /* MarkOffImg.tif */,
+				BDD8A4C31CC8CFD500349CEA /* MarkOffImgOld.tif */,
+				BDD8A4C41CC8CFD500349CEA /* MarkOnImg.tif */,
+				BDD8A4C51CC8CFD500349CEA /* SessionNOImg.tif */,
+				BDD8A4C61CC8CFD500349CEA /* SessionYESImg.tif */,
+				BDD8A4C71CC8CFD500349CEA /* Ziel.gross.tif */,
+				BDD8A4C81CC8CFD500349CEA /* Ziel.tif */,
+				BDD8A4C91CC8CFD500349CEA /* Zielfahne.tif */,
+				BDD8A4BD1CC8CFA700349CEA /* duerer.tif */,
+			);
+			name = Bilder;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		BD79470E1CC024F300604B3D /* SndCalcX */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BD7947201CC024F300604B3D /* Build configuration list for PBXNativeTarget "SndCalcX" */;
+			buildPhases = (
+				BD79470B1CC024F300604B3D /* Sources */,
+				BD79470C1CC024F300604B3D /* Frameworks */,
+				BD79470D1CC024F300604B3D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SndCalcX;
+			productName = SndCalcX;
+			productReference = BD79470F1CC024F300604B3D /* SndCalcX.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		BD7947071CC024F300604B3D /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0720;
+				ORGANIZATIONNAME = "Ruedi Heimlicher";
+				TargetAttributes = {
+					BD79470E1CC024F300604B3D = {
+						CreatedOnToolsVersion = 7.2.1;
+					};
+				};
+			};
+			buildConfigurationList = BD79470A1CC024F300604B3D /* Build configuration list for PBXProject "SndCalcX" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = BD7947061CC024F300604B3D;
+			productRefGroup = BD7947101CC024F300604B3D /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				BD79470E1CC024F300604B3D /* SndCalcX */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		BD79470D1CC024F300604B3D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BD7947A81CC13AD700604B3D /* SCPasswortDialog.nib in Resources */,
+				BDD8A4D21CC8CFD500349CEA /* Ziel.gross.tif in Resources */,
+				BDD8A4CC1CC8CFD500349CEA /* Icons in Resources */,
+				BDD8A4D11CC8CFD500349CEA /* SessionYESImg.tif in Resources */,
+				BDD8A4D41CC8CFD500349CEA /* Zielfahne.tif in Resources */,
+				BD7947A21CC13AD700604B3D /* SCDiplomFenster.nib in Resources */,
+				BD7947191CC024F300604B3D /* Assets.xcassets in Resources */,
+				BD7947A91CC13AD700604B3D /* SCPasswortDialog~.nib in Resources */,
+				BD79471C1CC024F300604B3D /* MainMenu.xib in Resources */,
+				BD7947CF1CC1444E00604B3D /* Icons in Resources */,
+				BDD8A4D01CC8CFD500349CEA /* SessionNOImg.tif in Resources */,
+				BD7947A71CC13AD700604B3D /* SCNamenPanel~.nib in Resources */,
+				BD7947B21CC13AD700604B3D /* SCStatistik.nib in Resources */,
+				BDD8A4CF1CC8CFD500349CEA /* MarkOnImg.tif in Resources */,
+				BDD8A4D31CC8CFD500349CEA /* Ziel.tif in Resources */,
+				BDD8A4BE1CC8CFA700349CEA /* duerer.tif in Resources */,
+				BDD8A4CE1CC8CFD500349CEA /* MarkOffImgOld.tif in Resources */,
+				BDD8A4CA1CC8CFD500349CEA /* duerergrau.tif in Resources */,
+				BDD8A4BC1CC8C33400349CEA /* Bilder in Resources */,
+				BD7947B11CC13AD700604B3D /* SCPWTimeoutPanel~.nib in Resources */,
+				BD7948331CC56A5000604B3D /* Zahlen_AIFF in Resources */,
+				BDD8A4CD1CC8CFD500349CEA /* MarkOffImg.tif in Resources */,
+				BD7947AB1CC13AD700604B3D /* SCPasswortRequest.nib in Resources */,
+				BD7947A51CC13AD700604B3D /* SCEinstellungenPanel~.nib in Resources */,
+				BD7947A61CC13AD700604B3D /* SCNamenPanel.nib in Resources */,
+				BD7947A41CC13AD700604B3D /* SCEinstellungenPanel.nib in Resources */,
+				BD7947B71CC13AD700604B3D /* SCVolumes.nib in Resources */,
+				BDD8A4B81CC69B5200349CEA /* Quittung_AIFF in Resources */,
+				BD7947B31CC13AD700604B3D /* SCStimmenPanel.nib in Resources */,
+				BD7947AD1CC13AD700604B3D /* SCPasswortTimeoutPanel~.nib in Resources */,
+				BD7947AE1CC13AD700604B3D /* SCPrintStatistik.nib in Resources */,
+				BD7947B51CC13AD700604B3D /* SCTestPanel.nib in Resources */,
+				BDD8A4CB1CC8CFD500349CEA /* FehlerImg.tif in Resources */,
+				BD7948381CC56C1B00604B3D /* Quittung.plist in Resources */,
+				BD7947AA1CC13AD700604B3D /* SCPasswortListe.nib in Resources */,
+				BD7947AF1CC13AD700604B3D /* SCPrintStatistik~.nib in Resources */,
+				BD7947AC1CC13AD700604B3D /* SCPasswortRequest~.nib in Resources */,
+				BD7947B01CC13AD700604B3D /* SCPWTimeoutPanel.nib in Resources */,
+				BD7948391CC56C1B00604B3D /* Zahlen.plist in Resources */,
+				BD7947A31CC13AD700604B3D /* SCDiplomFenster~.nib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		BD79470B1CC024F300604B3D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BD7947581CC02D6700604B3D /* rAufgabenzeiger.m in Sources */,
+				BD79475A1CC02D6700604B3D /* rDiplomFenster.m in Sources */,
+				BD7947651CC02D6700604B3D /* rSessionDS.m in Sources */,
+				BD79476C1CC02D6700604B3D /* rUtils.m in Sources */,
+				BD79476A1CC02D6700604B3D /* rTestPanel.m in Sources */,
+				BD7947681CC02D6700604B3D /* rStatistikDS.m in Sources */,
+				BD7947871CC02FF700604B3D /* rPasswortListe.m in Sources */,
+				BD7947561CC02D6700604B3D /* rAddSubSettings.m in Sources */,
+				BD7947171CC024F300604B3D /* main.m in Sources */,
+				BD7947851CC02FF700604B3D /* rPasswortDialog.m in Sources */,
+				BD7947821CC02FF700604B3D /* rEingabeFeld.m in Sources */,
+				BD7947891CC02FF700604B3D /* rPWTimeout.m in Sources */,
+				BD7947881CC02FF700604B3D /* rPasswortRequest.m in Sources */,
+				BD7947861CC02FF700604B3D /* rPasswortEingabeFeld.m in Sources */,
+				BD7947691CC02D6700604B3D /* rStimmenPanel.m in Sources */,
+				BD79476D1CC02D6700604B3D /* rVolumes.m in Sources */,
+				BD7947601CC02D6700604B3D /* rPrintStatistik.m in Sources */,
+				BD79476B1CC02D6700604B3D /* rTestZuNamenDS.m in Sources */,
+				BD7947661CC02D6700604B3D /* rSpeaker.m in Sources */,
+				BD7947671CC02D6700604B3D /* rStatistik.m in Sources */,
+				BD79475E1CC02D6700604B3D /* rNamenPanel.m in Sources */,
+				BD7947831CC02FF700604B3D /* rNamenListe.m in Sources */,
+				BD7947591CC02D6700604B3D /* rAVPlayer.m in Sources */,
+				BD7947611CC02D6700604B3D /* rQuittungDS.m in Sources */,
+				BD79475D1CC02D6700604B3D /* rErgebnisView.m in Sources */,
+				BD7947631CC02D6700604B3D /* rReihenSettings.m in Sources */,
+				BD7947621CC02D6700604B3D /* rRahmen.m in Sources */,
+				BD7947E51CC2C60D00604B3D /* rRechnungserie.m in Sources */,
+				BD7947141CC024F300604B3D /* AppDelegate.m in Sources */,
+				BD79475B1CC02D6700604B3D /* rEinstellungenPanel.m in Sources */,
+				BD79475F1CC02D6700604B3D /* rNamenZuTestDS.m in Sources */,
+				BD79475C1CC02D6700604B3D /* rErgebnisFeld.m in Sources */,
+				BD79476E1CC02D6700604B3D /* rZeitanzeige.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		BD79471A1CC024F300604B3D /* MainMenu.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				BD79471B1CC024F300604B3D /* Base */,
+				BD7947231CC0253100604B3D /* de */,
+			);
+			name = MainMenu.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		BD79471E1CC024F300604B3D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		BD79471F1CC024F300604B3D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		BD7947211CC024F300604B3D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = SndCalcX/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = RH.SndCalcX;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		BD7947221CC024F300604B3D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = SndCalcX/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = RH.SndCalcX;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		BD79470A1CC024F300604B3D /* Build configuration list for PBXProject "SndCalcX" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BD79471E1CC024F300604B3D /* Debug */,
+				BD79471F1CC024F300604B3D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BD7947201CC024F300604B3D /* Build configuration list for PBXNativeTarget "SndCalcX" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BD7947211CC024F300604B3D /* Debug */,
+				BD7947221CC024F300604B3D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = BD7947071CC024F300604B3D /* Project object */;
+}

@@ -1,0 +1,47 @@
+{
+    IBClasses = (
+        {CLASS = FirstResponder; LANGUAGE = ObjC; SUPERCLASS = NSObject; }, 
+        {CLASS = "java.lang.Object"; LANGUAGE = Java; }, 
+        {
+            CLASS = rNetzwerkDrawer; 
+            LANGUAGE = ObjC; 
+            OUTLETS = {Button = id; }; 
+            SUPERCLASS = NSDrawer; 
+        }, 
+        {
+            ACTIONS = {
+                Abbrechen = id; 
+                HomeDirectory = id; 
+                VolumeOK = id; 
+                reportAnmelden = id; 
+                reportAuswahlen = id; 
+                reportOpenNetwork = id; 
+                toggleDrawer = id; 
+            }; 
+            CLASS = rVolumes; 
+            LANGUAGE = ObjC; 
+            OUTLETS = {
+                AbbrechenKnopf = id; 
+                AnmeldenKnopf = id; 
+                AuswahlenKnopf = id; 
+                ComputerimNetzString = id; 
+                DialogTitelSting = id; 
+                NetworkTable = id; 
+                NetzwerkDrawer = id; 
+                NetzwerkKnopf = id; 
+                OKKnopf = id; 
+                OderString = id; 
+                PrufenKnopf = id; 
+                RecPlayIcon = id; 
+                StartString = id; 
+                SuchenKnopf = id; 
+                TitelString = id; 
+                UserTable = NSTableView; 
+                VolumesPop = id; 
+                window = id; 
+            }; 
+            SUPERCLASS = NSWindowController; 
+        }
+    ); 
+    IBVersion = 1; 
+}

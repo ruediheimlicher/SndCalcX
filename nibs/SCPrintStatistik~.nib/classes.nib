@@ -1,0 +1,32 @@
+{
+    IBClasses = (
+        {CLASS = FirstResponder; LANGUAGE = ObjC; SUPERCLASS = NSObject; }, 
+        {CLASS = NSDatePicker; LANGUAGE = ObjC; SUPERCLASS = NSControl; }, 
+        {
+            ACTIONS = {
+                reportAdminNamen = id; 
+                reportAdminTestNamen = id; 
+                reportAnzahlZeigen = id; 
+                reportCancel = id; 
+                reportClose = id; 
+                reportPrint = id; 
+                reportTestNamen = id; 
+            }; 
+            CLASS = rStatistik; 
+            LANGUAGE = ObjC; 
+            OUTLETS = {
+                AnzahlFeld = id; 
+                AnzahlZeigenPopKnopf = id; 
+                CancelTaste = id; 
+                DatumFeld = id; 
+                IconFeld = id; 
+                NamenFeld = id; 
+                SchliessenTaste = id; 
+                TestTable = id; 
+                TitelFeld = id; 
+            }; 
+            SUPERCLASS = NSWindowController; 
+        }
+    ); 
+    IBVersion = 1; 
+}

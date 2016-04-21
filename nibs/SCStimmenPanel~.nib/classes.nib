@@ -1,0 +1,83 @@
+{
+    IBClasses = (
+        {CLASS = FirstResponder; LANGUAGE = ObjC; SUPERCLASS = NSObject; }, 
+        {CLASS = NSSegmentedControl; LANGUAGE = ObjC; SUPERCLASS = NSControl; }, 
+        {
+            ACTIONS = {
+                reportCancel = id; 
+                reportClose = id; 
+                reportQuittungEntfernen = id; 
+                reportQuittungImportieren = id; 
+                reportQuittungKlasse = id; 
+                reportQuittungOK = id; 
+                reportQuittungPlusMinus = id; 
+                reportStimmeEntfernen = id; 
+                reportStimmeImportieren = id; 
+                reportStimmeOK = id; 
+                reportStimmePlusMinus = id; 
+            }; 
+            CLASS = SCStimmenPanel; 
+            LANGUAGE = ObjC; 
+            OUTLETS = {
+                DokumenteSucher = id; 
+                QuittungEntfernenTaste = id; 
+                QuittungImportierenTaste = id; 
+                QuittungNameFeld = id; 
+                QuittungNamenPopTaste = id; 
+                QuittungOKTaste = id; 
+                QuittungPlusMinusTaste = id; 
+                QuittungTable = id; 
+                SchliessenTaste = id; 
+                StimmeEntfernenTaste = id; 
+                StimmeImportierenTaste = id; 
+                StimmeOKTaste = id; 
+                StimmePlusMinusTaste = id; 
+                StimmenNameFeld = id; 
+                StimmenTable = id; 
+            }; 
+            SUPERCLASS = NSWindowController; 
+        }, 
+        {
+            ACTIONS = {
+                reportAnzahl = id; 
+                reportBearbeiten = id; 
+                reportCancel = id; 
+                reportClose = id; 
+                reportDelete = id; 
+                reportEinsetzen = id; 
+                reportForAll = id; 
+                reportNamen = id; 
+                reportSaveTest = id; 
+                reportTestForAll = id; 
+                reportTestNamen = id; 
+                reportZeit = id; 
+            }; 
+            CLASS = SCTestPanel; 
+            LANGUAGE = ObjC; 
+            OUTLETS = {
+                AnzahlAufgabenFeld = id; 
+                AnzahlPopTaste = id; 
+                BearbeitenTaste = id; 
+                DeleteTaste = id; 
+                EingabeFeld = id; 
+                EinsetzenTaste = id; 
+                IconFeld = id; 
+                NamenWahlTaste = id; 
+                NamenZuTestTable = id; 
+                SaveTestTaste = id; 
+                SchliessenTaste = id; 
+                TestForAllTaste = id; 
+                TestTabFeld = id; 
+                TestTable = id; 
+                TestWahlTaste = id; 
+                TestZuNamenTable = id; 
+                ZeitFeld = id; 
+                ZeitPopTaste = id; 
+                aktivCheckbox = id; 
+                forAllCheckbox = id; 
+            }; 
+            SUPERCLASS = NSWindowController; 
+        }
+    ); 
+    IBVersion = 1; 
+}

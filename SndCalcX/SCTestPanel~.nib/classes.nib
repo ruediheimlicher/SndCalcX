@@ -1,0 +1,69 @@
+{
+    IBClasses = (
+        {CLASS = FirstResponder; LANGUAGE = ObjC; SUPERCLASS = NSObject; }, 
+        {CLASS = NSSegmentedControl; LANGUAGE = ObjC; SUPERCLASS = NSControl; }, 
+        {
+            ACTIONS = {
+                closeDrawer = id; 
+                openDrawer = id; 
+                reportAnzahl = id; 
+                reportBearbeiten = id; 
+                reportCancel = id; 
+                reportClose = id; 
+                reportDelete = id; 
+                reportEinsetzen = id; 
+                reportForAll = id; 
+                reportForNone = id; 
+                reportNamen = id; 
+                reportNeuerTestAktiv = id; 
+                reportNeuerTestForAll = id; 
+                reportSaveTest = id; 
+                reportSaveTestTaste = id; 
+                reportSettingAlsTestSichern = id; 
+                reportTestAusAllenEntfernen = id; 
+                reportTestForAll = id; 
+                reportTestInAlleEinsetzen = id; 
+                reportTestNamen = id; 
+                reportTestToAll = id; 
+                reportUpDown = id; 
+                reportZeit = id; 
+            }; 
+            CLASS = SCTestPanel; 
+            LANGUAGE = ObjC; 
+            OUTLETS = {
+                AnzahlAufgabenFeld = id; 
+                AnzahlPopTaste = id; 
+                BearbeitenTaste = id; 
+                DeleteTaste = id; 
+                EingabeFeld = id; 
+                EinsetzenTaste = id; 
+                IconFeld = id; 
+                NamenWahlTaste = id; 
+                NamenZuTestTable = id; 
+                SaveTestTaste = id; 
+                SchliessenTaste = id; 
+                SetTestForAllTaste = id; 
+                SettingsBox = id; 
+                SettingsDrawer = id; 
+                SettingsPfeil = id; 
+                TestAusAllenEntfernenTaste = id; 
+                TestForAllTaste = id; 
+                TestForNoneTaste = id; 
+                TestInAlleEinsetzenTaste = id; 
+                TestTabFeld = id; 
+                TestTable = id; 
+                TestWahlTaste = id; 
+                TestZuNamenTable = id; 
+                UpDownTaste = id; 
+                ZeitFeld = id; 
+                ZeitPopTaste = id; 
+                aktivCheckbox = id; 
+                closeDrawerTaste = id; 
+                forAllCheckbox = id; 
+                myOutlet = id; 
+            }; 
+            SUPERCLASS = NSWindowController; 
+        }
+    ); 
+    IBVersion = 1; 
+}

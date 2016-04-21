@@ -1,0 +1,29 @@
+{
+    IBClasses = (
+        {CLASS = FirstResponder; LANGUAGE = ObjC; SUPERCLASS = NSObject; }, 
+        {
+            ACTIONS = {reportFinish = id; reportWeiterfahren = id; }; 
+            CLASS = NSObject; 
+            LANGUAGE = ObjC; 
+        }, 
+        {
+            ACTIONS = {reportErgebnisseAnschauen = id; }; 
+            CLASS = rDiplomFenster; 
+            LANGUAGE = ObjC; 
+            OUTLETS = {
+                AnschauenTaste = id; 
+                AnzahlString = id; 
+                FehlerString = id; 
+                FinishTaste = id; 
+                SichernCheckbox = id; 
+                TitelString = id; 
+                WeiterTaste = id; 
+                WeiterfahrenString = id; 
+                ZeitString = id; 
+                ZielImage = id; 
+            }; 
+            SUPERCLASS = NSWindowController; 
+        }
+    ); 
+    IBVersion = 1; 
+}

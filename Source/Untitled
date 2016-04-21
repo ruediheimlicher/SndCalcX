@@ -1,0 +1,82 @@
+
+- (void)showTestPanel:(id)sender
+{
+	[self closeSessionDrawer:NULL];
+
+
+//	if (AdminPWOK || [self checkAdminZugang])//PW schon angegeben innerhalb Timeout
+
+
+	{
+		[self stopTimeout];
+		if (!TestPanel)
+		{
+			//NSLog(@"init TestPanel");
+			TestPanel=[[rTestPanel alloc]init];
+		}
+		
+		//NSLog(@"TestPanel window: %d",[[TestPanel window] description]);
+		[self stopAdminTimeout];
+		
+		//NSLog(@"TestPanel retainCount: %d",[TestPanel retainCount]);
+		
+		NSModalSession TestSession=[NSApp beginModalSessionForWindow:[TestPanel window]];
+		
+		//Array der vorhandenen Tests
+		NSMutableArray* TestDicArray;
+		if ([PListDic objectForKey:@"testarray"])
+		{
+			//NSLog(@"showTestPanel	PListDic objectForKey: testarray : %@",[[PListDic objectForKey:@"testarray"] description]);
+			TestDicArray=(NSMutableArray*)[PListDic objectForKey:@"testarray"];
+			[TestDicArray retain];
+			//NSLog(@"TestDicArray retainCount: %d",[TestDicArray retainCount]);
+			//NSLog(@"showTestPanel	TestDicArray : %@",[TestDicArray description]);
+			[TestPanel setTestDicArray:TestDicArray];
+			
+			if (Modus==kTrainingModus)
+			{	
+				[TestPanel setAnzahlItems:[AnzahlPopKnopf itemTitles] mitItem:[AnzahlPopKnopf indexOfSelectedItem]];	
+			}
+			else
+			{
+				[TestPanel setAnzahlItems:[AnzahlPopKnopf itemTitles] mitItem:0];	
+			}
+			
+			
+			
+			if (Modus==kTrainingModus)
+			{	
+				[TestPanel setZeitItems:[ZeitPopKnopf itemTitles] mitItem:[ZeitPopKnopf indexOfSelectedItem]];	
+			}
+			else
+			{
+				[TestPanel setZeitItems:[ZeitPopKnopf itemTitles] mitItem:0];	
+			}
+			
+		}
+		
+		else
+		{
+			TestDicArray=[[NSMutableArray alloc]initWithCapacity:0];
+			[TestDicArray retain];
+			[PListDic setObject:TestDicArray forKey:@"testarray"];
+		}
+		
+		NSMutableArray* tempNamenDicArray=(NSMutableArray*)[Utils NamenDicArrayAnPfad:SndCalcPfad];
+		[tempNamenDicArray retain];
+		[TestPanel setNamenDicArray:tempNamenDicArray];
+		NSString* tempName=[[tempNamenDicArray objectAtIndex:0]objectForKey:@"name"];
+		//NSLog(@" %@",tempName);
+		[TestPanel setNamenWahlTasteMitNamen:tempName];//ersten Namen auswaehlen
+		[TestPanel setTestWahlTasteMitTest:NULL];//ersten Namen auswaehlen
+		
+		//	int modalAntwort = [NSApp runModalForWindow:[TestPanel window]];
+		int modalAntwort=0;
+		
+		[self showWindow:TestPanel];
+		[[TestPanel window] makeKeyAndOrderFront:NULL];
+		[NSApp endModalSession:TestSession];
+		//[self startTimeout];
+		
+	}//passwort
+}
