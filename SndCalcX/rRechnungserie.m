@@ -764,7 +764,7 @@ short Minvon(short ersteZahl, short zweiteZahl);
       //																				Reihenfolge der gew√§hlten Operationen bestimmen
       //Operation1vektor=new short[dieSeriedaten.AnzahlAufgaben];
       //Operation1vektor= malloc(sizeof(short[dieSeriedaten.AnzahlAufgaben]));
-      Operation1vektor= malloc(sizeof(short[dieSeriedaten.AnzahlAufgaben]));
+      Operation1vektor= malloc(sizeof(short[kArraygrenze]));
       
       cSeriedaten tempseriedaten = [self  Objc2CmitSeriedaten:dieSeriedaten];
       Operationenverteilen(Operation1vektor,tempseriedaten);
@@ -873,6 +873,7 @@ short Minvon(short ersteZahl, short zweiteZahl);
       rAufgabenDaten* tempAufgabendaten =[returnAufgabenArray objectAtIndex:i];
       //printf("neueSerie %d returnAufgabenArray var0: %d,\n",i,tempAufgabendaten->var[0]);
    }
+   free (Operation1vektor);
    //printf("neueSerie ganz zu Ende\n");
    return returnAufgabenArray ;
 }
@@ -1473,7 +1474,7 @@ void Zahlenvektorbestimmen(short * derVektor,short	untereGrenze, short obereGren
       //derVektor[nummer]=untereGrenze+randomVektor[nummer];
       //AaKontrollvektor[nummer]=derVektor[nummer];
    }
-  // free( randomVektor[]);
+   free(randomVektor);
    
    
 }

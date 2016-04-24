@@ -7,8 +7,10 @@
 //
 
 #import <Cocoa/Cocoa.h>
-//#import <QuickTime/QuickTime.h>
+#import <QuickTime/QuickTime.h>
 #import <QTKit/QTKit.h>
+#import <AVFoundation/AVFoundation.h>
+
 #import "rStimmenPanel.h"
 
 @interface rSpeaker : NSObject {
@@ -17,6 +19,10 @@ NSDictionary*			QuittungPlistDic;
 //Movie						QTMovieArray[40];
 NSArray*					ZahlenDicArray;
 NSArray*					QuittungDicArray;
+   
+
+AVQueuePlayer*       AufgabenPlayerX;
+   NSMutableArray*   QueueArray;
 
 QTMovieView *			AufgabenPlayer;
 QTMovie*					AufgabenQTKitMovie;
@@ -50,6 +56,12 @@ rStimmenPanel*			StimmenPanel;
 - (BOOL)readQuittungen;
 - (IBAction)showStimmenPanel:(id)sender;
 - (NSDictionary*)chooseStimme;
+
+- (NSURL*)URLvonZahl:(int)dieZahl;
+- (NSArray*)URLArrayvonZahl:(int)dieZahl;
+
+- (NSURL*)URLvonOperation:(int)dieOperation;
+- (NSURL*)URLvonQuittung:(int)dieQuittung;
 - (long)setZahlTrackVon:(int)dieZahl mitOffset:(long)derOffset;
 - (long)setOpTrackVon:(int)dieOperation mitOffset:(long)derOffset;
 -(QTTime)setOpQTKitTrackVon:(int)dieOperation mitOffset:(QTTime)derOffset;
