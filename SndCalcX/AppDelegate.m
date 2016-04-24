@@ -446,7 +446,7 @@ const short     kSerieFertig = 5003;
       id einTestDic;
       while (einTestDic=(NSMutableDictionary*)[TestEnum nextObject])
       {
-         NSLog(@"TestDic: ",[einTestDic description]);
+         NSLog(@"finishlaunching TestDic: %@",[einTestDic description]);
          
          if ([einTestDic objectForKey:@"seriedatendic"])
          {
@@ -1779,9 +1779,10 @@ const short     kSerieFertig = 5003;
    [Aufgabenzeiger setAnzahl:0];
    [ErgebnisRahmenFeld setMark:-1];
    
-   
-   AufgabenSerie = [[rRechnungserie alloc]initWithAnzahl:RechnungSeriedaten.AnzahlAufgaben];
-   
+   if (!(AufgabenSerie))
+   {
+      AufgabenSerie = [[rRechnungserie alloc]initWithAnzahl:RechnungSeriedaten.AnzahlAufgaben];
+   }
    
    AufgabenArray = [[NSArray alloc]initWithArray:[AufgabenSerie neueRechnungserie:RechnungSeriedaten]]; // NSArray
    
@@ -2198,7 +2199,7 @@ const short     kSerieFertig = 5003;
    //NSLog(@"					AnzahlAufgaben: %d",AnzahlAufgaben);
    //MaximalZeit=[[ZeitPopKnopf titleOfSelectedItem]intValue];
    aktuelleAufgabenNummer=1;
-   [StartTaste setTitle:NSLocalizedString(@"Start",@"Start")];
+   [StartTaste setTitle:NSLocalizedString(@"Start",@"LOS")];
    [AufgabenNummerFeld setIntValue:1];
    [ZeitFeld setIntValue:MaximalZeit];
    NSString* ZeitLimiteString=[NSString stringWithFormat:@"%d Sekunden",MaximalZeit];
@@ -2238,78 +2239,7 @@ const short     kSerieFertig = 5003;
    
    return;
    
-   //NSLog(@"neueSerie: nummer: %d var 0: %d op 0: %d var 1: %d var 2: %d",AufgabenDatenArray[0].aktuelleAufgabennummer,AufgabenDatenArray[0].var[0],AufgabenDatenArray[0].op[0],AufgabenDatenArray[0].var[1],AufgabenDatenArray[0].var[2]);
-   
-  
-   NSMutableArray* tempAufgabenArray=[[NSMutableArray alloc]initWithCapacity:0];
-   //NSLog(@"tempAufgabenDatenArray: nach neueSerie");
-   int zeile;
-   for (zeile=0;zeile<RechnungSeriedaten.AnzahlAufgaben;zeile++)
-   {
-      //NSLog(@"neueSerie: zeile: %d",zeile);
-      //NSLog(@"neueSerie: nummer: %d var 0: %d op 0: %d var 1: %d var 2: %d",AufgabenDatenArray[zeile].aktuelleAufgabennummer,AufgabenDatenArray[zeile].var[0],AufgabenDatenArray[zeile].op[0],AufgabenDatenArray[zeile].var[1],AufgabenDatenArray[zeile].var[2]);
-      //AufgabenNummer
-      
-      AufgabenDatenArray[zeile] = [[rAufgabenDaten alloc]init];
-      NSMutableDictionary* tempAufgabenDic=[[NSMutableDictionary alloc]initWithCapacity:0];
-      [tempAufgabenDic setObject:[NSNumber numberWithInt:AufgabenDatenArray[zeile].aktuelleAufgabennummer]
-                          forKey:@"aufgabennummer"];
-      
-      //Var 0
-      [tempAufgabenDic setObject:[NSNumber numberWithInt:AufgabenDatenArray[zeile]->var[0]]
-                          forKey:@"var0"];
-      
-      //Var 1
-      [tempAufgabenDic setObject:[NSNumber numberWithInt:AufgabenDatenArray[zeile]->var[1]]
-                          forKey:@"var1"];
-      
-      AufgabenDatenArray[zeile].aktuelleAufgabennummer = zeile;
-      //Op
-      NSString* Operator;
-      int op0 = AufgabenDatenArray[zeile]->op[0];
-      switch(AufgabenDatenArray[zeile]->op[0])
-      {
-         case 1://Plus
-         {
-            Operator=@"+";
-         }break;
-            
-         case 2://Minus
-         {
-            Operator=@"-";
-         }break;
-            
-            
-         case 3://Mal
-         {
-            Operator=@"*";
-         }break;
-      }//switch
-      [tempAufgabenDic setObject:Operator
-                          forKey:@"operatorzeichen"];
-      
-      [tempAufgabenDic setObject:[NSNumber numberWithInt:AufgabenDatenArray[zeile]->op[0]+2000]
-                          forKey:@"op0"];
-      
-      //Ergebnis
-      [tempAufgabenDic setObject:[NSNumber numberWithInt:AufgabenDatenArray[zeile]->var[2]]
-                          forKey:@"var2"];
-      //NSLog(@"tempAufgabenDic: %@",[tempAufgabenDic description]);
-      [tempAufgabenArray addObject:tempAufgabenDic];
-      
-   }
-   
-   //	NSLog(@"tempAufgabenArray: %@",[tempAufgabenArray description]);
-   
-   
-   //AufgabenArray=[tempAufgabenArray copy];
-   AufgabenArray=[NSArray arrayWithArray:tempAufgabenArray];
-   [StartTaste setEnabled:YES];
-   [StartTaste setKeyEquivalent:@"\r"];
-   [[self window]makeFirstResponder:StartTaste];
-   [ErgebnisFeld resetFalschesZeichen];
-   //[self startTimeout];
-   //NSLog(@"neue Serie ende");
+    //NSLog(@"neue Serie ende");
 }
 
 - (rSeriedaten*)SerieDatenVonDic:(NSDictionary*)derSerieDatenDic
@@ -2994,8 +2924,8 @@ const short     kSerieFertig = 5003;
       {
          NSLog(@"tempAufgabenDic: %@",[tempAufgabenDic description]);
          //[Aufgabenzeiger setAnzahl:aktuelleAufgabenNummer];
-         [[self window]makeFirstResponder:self];
-         AufgabeOK=[Speaker AufgabeAb:tempAufgabenDic];
+         //[[self window]makeFirstResponder:self];
+         BOOL SpeakerAufgabeOK=[Speaker AufgabeAb:tempAufgabenDic];
          
          // Play wird im Speaker aufgerufen
          
@@ -4316,7 +4246,7 @@ const short     kSerieFertig = 5003;
 
 - (void)closeSessionDrawer:(id)sender
 {
-   //NSLog(@"closeSessionDrawer state vorher: %d",[SessionDrawerTaste state]);
+   NSLog(@"closeSessionDrawer state vorher: %d",[SessionDrawerTaste state]);
    
    [SessionDrawer close];
    [SessionDrawerTaste setState:NO];

@@ -201,11 +201,11 @@ short Minvon(short ersteZahl, short zweiteZahl);
    {
       if (anzAufgaben<kMaxAnzahlAufgaben)
       {
-         cRechnungSeriedaten.AnzahlAufgaben=anzAufgaben;
+         RechnungSeriedaten.AnzahlAufgaben=anzAufgaben;
       }
       else
       {
-         cRechnungSeriedaten.AnzahlAufgaben=kMaxAnzahlAufgaben;
+         RechnungSeriedaten.AnzahlAufgaben=kMaxAnzahlAufgaben;
       }
       AddobereGrenze=89;
       AdduntereGrenze=10;

@@ -1217,11 +1217,14 @@ return tempStimmenNamenArray;
 	if (derAufgabenDic)
 	{
       
+      
+      
       NSDictionary* AttrDic = [NSDictionary dictionaryWithObject:[NSNumber numberWithBool:YES] forKey:QTMovieEditableAttribute];
       AufgabenQTKitMovie  = [[QTMovie alloc]initWithAttributes: AttrDic error:NULL];
       [AufgabenQTKitMovie setAttribute:[NSNumber numberWithBool:YES] forKey:QTMovieEditableAttribute];
       
       QTTime QTTrackPos = QTZeroTime;
+      
 		int Aufgabennummer=0;
 		NSNumber* AufgabenNumber=[derAufgabenDic objectForKey:@"aufgabennummer"];
 		if (AufgabenNumber)
@@ -1245,7 +1248,12 @@ return tempStimmenNamenArray;
 		{
 			op0=[Op0Number intValue];
 		}
-		//NSLog(@"AufgabeAb: Nummer: %d var0: %d var1: %d op0: %d",Aufgabennummer,var0,var1,op0);
+      NSNumber* Var2Number=[derAufgabenDic objectForKey:@"var2"];
+      if (Var2Number)
+      {
+         var2=[Var2Number intValue];
+      }
+		NSLog(@"AufgabeAb: Nummer: %d var0: %d var1: %d op0: %d var2: %d",Aufgabennummer,var0,var1,op0,var2);
       //NSLog(@"AufgabeAb: Nummer: var0:%d",var0);
 
       QTTrackPos = [self setZahlQTKitTrackVon:var0 mitOffset:QTTrackPos];
