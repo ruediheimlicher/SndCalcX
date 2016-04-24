@@ -1,0 +1,20 @@
+{
+    IBClasses = (
+        {CLASS = FirstResponder; LANGUAGE = ObjC; SUPERCLASS = NSObject; }, 
+        {
+            ACTIONS = {reportCancel = id; reportClose = id; reportEntfernen = id; }; 
+            CLASS = SCNamenPanel; 
+            LANGUAGE = ObjC; 
+            OUTLETS = {
+                EntfernenTaste = id; 
+                IconFeld = id; 
+                NamenFeld = id; 
+                NamenTable = id; 
+                NamenView = id; 
+                VornamenFeld = id; 
+            }; 
+            SUPERCLASS = NSWindowController; 
+        }
+    ); 
+    IBVersion = 1; 
+}

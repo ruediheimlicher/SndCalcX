@@ -19,13 +19,16 @@
                 <outlet property="AnzahlPopKnopf" destination="UEb-eS-501" id="s14-bB-RoM"/>
                 <outlet property="AufgabenNummerFeld" destination="ZVw-yW-5fZ" id="vVx-bw-9XG"/>
                 <outlet property="Bild" destination="Ame-SR-3fT" id="PNC-ws-RNz"/>
+                <outlet property="DrawerSchliessenTaste" destination="Q7h-CK-zFA" id="U44-Yh-fYI"/>
                 <outlet property="ErgebnisFeld" destination="3TR-dk-PRw" id="lL8-j9-zMm"/>
                 <outlet property="ErgebnisRahmenFeld" destination="o8i-8h-chC" id="ZWs-M6-2PW"/>
+                <outlet property="ErgebnisseTaste" destination="Qgh-jV-RFy" id="GaW-Uk-WRC"/>
                 <outlet property="IconView" destination="oIt-28-1ib" id="hls-Q1-XdY"/>
                 <outlet property="LogoutKnopf" destination="Lj7-2I-PNa" id="DiR-pe-RTz"/>
                 <outlet property="NamenPopKnopf" destination="D6p-9a-Ttt" id="JeT-Sj-xSw"/>
                 <outlet property="OKTaste" destination="W8D-fz-pMa" id="RJD-VZ-hZY"/>
                 <outlet property="StartTaste" destination="Ekv-i0-nnw" id="I7U-1h-QfK"/>
+                <outlet property="TestPopKnopf" destination="eIH-ID-Kel" id="oF4-cc-5z1"/>
                 <outlet property="ZeitFeld" destination="ZHi-Eb-NUY" id="cja-Op-osS"/>
                 <outlet property="ZeitLimiteFeld" destination="APM-ZC-vLe" id="mcD-dp-phn"/>
                 <outlet property="ZeitPopKnopf" destination="6KR-eb-dHv" id="Hi9-LQ-MlK"/>
@@ -799,6 +802,9 @@
                                                 <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                 <font key="font" metaFont="system" size="24"/>
                                             </buttonCell>
+                                            <connections>
+                                                <action selector="OKTastenAktion:" target="Voe-Tx-rLC" id="Qae-89-E2q"/>
+                                            </connections>
                                         </button>
                                         <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kQU-cO-bhO">
                                             <rect key="frame" x="3" y="111" width="7" height="12"/>
@@ -1051,6 +1057,9 @@
                                                 <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                 <font key="font" metaFont="system"/>
                                             </buttonCell>
+                                            <connections>
+                                                <action selector="showStatistik:" target="Voe-Tx-rLC" id="aeQ-Du-DLZ"/>
+                                            </connections>
                                         </button>
                                         <button horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lHf-qq-Jef">
                                             <rect key="frame" x="137" y="178" width="21" height="20"/>
@@ -1100,6 +1109,56 @@
             </view>
             <point key="canvasLocation" x="303" y="271.5"/>
         </window>
+        <customView id="wpH-xU-io3" userLabel="View">
+            <rect key="frame" x="0.0" y="0.0" width="635" height="162"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+            <subviews>
+                <button hidden="YES" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Q7h-CK-zFA">
+                    <rect key="frame" x="492" y="10" width="133" height="23"/>
+                    <buttonCell key="cell" type="squareTextured" title="Schliessen" bezelStyle="texturedSquare" alignment="center" borderStyle="border" inset="2" id="nB8-4m-7ns">
+                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                        <font key="font" metaFont="system"/>
+                    </buttonCell>
+                    <connections>
+                        <action selector="closeDrawer:" target="Voe-Tx-rLC" id="Tyb-Mv-2cl"/>
+                    </connections>
+                </button>
+                <button hidden="YES" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="LbE-8H-Zgc">
+                    <rect key="frame" x="492" y="44" width="133" height="23"/>
+                    <buttonCell key="cell" type="squareTextured" title="Als Test sichern" bezelStyle="texturedSquare" alignment="center" borderStyle="border" inset="2" id="yqZ-VN-JDg">
+                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                        <font key="font" metaFont="system"/>
+                    </buttonCell>
+                </button>
+                <tabView fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="64W-zZ-r89">
+                    <rect key="frame" x="5" y="1" width="486" height="160"/>
+                    <font key="font" metaFont="system"/>
+                    <tabViewItems>
+                        <tabViewItem label="Reihen" identifier="1" id="EmU-5n-Dtn">
+                            <view key="view" ambiguous="YES" id="m1j-aY-9mW">
+                                <rect key="frame" x="10" y="33" width="466" height="114"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            </view>
+                        </tabViewItem>
+                        <tabViewItem label="Addition/Subtraktion" identifier="2" id="oXv-V7-AAJ">
+                            <view key="view" id="8u5-r7-2ID">
+                                <rect key="frame" x="10" y="33" width="466" height="114"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                            </view>
+                        </tabViewItem>
+                    </tabViewItems>
+                </tabView>
+            </subviews>
+            <point key="canvasLocation" x="405.5" y="729"/>
+        </customView>
+        <drawer preferredEdge="minY" trailingOffset="15" id="mBB-9v-0fR">
+            <size key="contentSize" width="200" height="200"/>
+            <size key="minContentSize" width="50" height="50"/>
+            <size key="maxContentSize" width="600" height="400"/>
+            <connections>
+                <outlet property="contentView" destination="wpH-xU-io3" id="lBf-G4-TFD"/>
+            </connections>
+        </drawer>
     </objects>
     <resources>
         <image name="Adam_Ries" width="128" height="128"/>

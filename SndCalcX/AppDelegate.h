@@ -30,7 +30,7 @@
 #import "rSessionDS.h"
 #import "rEinstellungenPanel.h"
 
-struct Seriedaten;
+struct cSeriedaten;
 
 @interface AppDelegate : NSObject <NSApplicationDelegate,NSTableViewDelegate,NSTableViewDataSource>
 {
@@ -39,7 +39,9 @@ struct Seriedaten;
    rSeriedaten    *           RechnungSeriedaten;
    rUtils*                    Utils;
    NSMutableArray*				VolumesArray;
-   //rSeriedaten*               ProgPrefs;
+   
+   rRechnungserie*            AufgabenSerie;
+   
    rReihenSettings*           ReihenSettings;
    rAddSubSettings*           AddSubSettings;
    rSpeaker*                  Speaker;
@@ -176,6 +178,7 @@ struct Seriedaten;
 - (IBAction)setAnzahlAufgaben:(id)sender;
 //
 - (IBAction)neueSerie:(id)sender;
+- (rRechnungserie*)neueSerieMitSeriedaten:(rSeriedaten*) seriedaten;
 - (NSDictionary*)SerieDatenDicVonScratch;
 - (NSDictionary*)PListDicVonSettings;
 - (NSDictionary*)SerieDatenDicVon:(rSeriedaten*)dieSerieDaten;
@@ -233,11 +236,11 @@ struct Seriedaten;
 - (void)toggleSessionDrawer:(id)sender;
 - (void)openSessionDrawer:(id)sender;
 
-- (void)closeSessionDrawer:(id)sender;
+- (IBAction)closeSessionDrawer:(id)sender;
 - (void)setupSessionDrawer;
 - (IBAction)neueSession:(id)sender;
 - (IBAction)SessionAktualisieren:(id)sender;
-- (void)showStatistik:(id)sender;
+- (IBAction)showStatistik:(id)sender;
 - (void)showStatistikFor:(NSString*)derName mitDic:(NSDictionary*)derDic;
 - (IBAction)goToBeginning:(id)sender;
 - (IBAction)goToEnd:(id)sender;

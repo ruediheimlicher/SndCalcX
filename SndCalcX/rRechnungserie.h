@@ -10,6 +10,11 @@
 
 //#import "rRechnung.h"
 
+#define kMaxAnzVariablen   4
+#define	kMaxVariablen     6
+#define 	kMaxOperationen   4
+
+#define 	kMaxAnzOperationen   4
 
 #define MAXANZREIHEN 48
 #define  	kBisZehn 1
@@ -48,6 +53,10 @@ long Zehnerpot(short diePot);
 /********************************************************************************/
 short Maxvon(short ersteZahl, short zweiteZahl);
 short Minvon(short ersteZahl, short zweiteZahl);
+//**********************************************************************************
+
+//**********************************************************************************
+//const short 	kMaxAnzVariablen=6;
 
 /********************************************************************************/
 //*****************************************************************
@@ -55,13 +64,85 @@ short Minvon(short ersteZahl, short zweiteZahl);
 
 //**********************************************************************************
 //**********************************************************************************
+typedef struct
+{
+   char 		Testname[32];
+   short	Testnummer;
+   short 	AnzahlAufgaben,AnzahlReihen;
+   
+   short 	Addition,Subtraktion,Multiplikation,Division;
+   short 	ASBereich, ASzweiteZahl, ASZehnerU, ASHunderterU;
+   short	ASmaxZahlVorn;
+   
+   short		Reihenliste[kMaxAnzReihen];
+   
+   //short	MultDivmitAdd,MultDivmitSub,MultDivErgkleiner20;
+   short 	MultDivZehnerpotenz1,MultDivZehnerpotenz2;
+   
+   short 	Zeit;
+   
+}TestRecord;
+//**********************************************************************************
+
+//**********************************************************************************
+typedef struct
+{
+   short		AnzahlAufgaben,AnzahlReihen;
+   
+   short		Addition,Subtraktion,Multiplikation,Division;
+   short		MDZehnerReihen,MDHunderterReihen;
+   short		MDKleines1Mal1,MDGrosses1Mal1;
+   short		ASBereich, ASzweiteZahl, ASZehnerU, ASHunderterU;
+   short	 	ASmaxZahlVorn;
+   
+   short		Reihenliste[kMaxAnzReihen];
+   short		MultDivZehnerpotenz1,MultDivZehnerpotenz2;
+   
+   short		MultDivmitAdd,MultDivmitSub,MultDivErgkleiner20;
+   
+   short		Variante,Zeit,Volume;
+   TestRecord	TestDaten[kMaxAnzahlTests];
+}ProgPrefsRecord;
+//**********************************************************************************
+//*********************************************
+typedef struct
+{
+   
+   short				aktuelleAufgabennummer;
+   short 				var[kMaxAnzVariablen];
+   short 				op[kMaxAnzOperationen];
+   
+}cAufgabendaten;
+
+//*********************************************
+//*********************************************
+typedef struct seriedaten
+{
+   short 	AnzahlAufgaben,AnzahlReihen;
+   
+   short 	Addition,Subtraktion,Multiplikation,Division;
+   short 	ASBereich, ASzweiteZahl, ASZehnerU, ASHunderterU;
+   short    ASmaxZahlVorn;
+   
+   short    Reihenliste[kMaxAnzahlReihen];
+   
+   short    MultDivmitAdd,MultDivmitSub,MultDivErgkleiner20;
+   short 	MultDivZehnerpotenz1,MultDivZehnerpotenz2;
+   
+   short 	Variante,Zeit,Volume;
+   
+}cSeriedaten;
+
+
+//**********************************************************************************
 //**********************************************************************************
 //**********************************************************************************
 
 //**********************************************************************************
 @interface rSeriedaten : NSObject
 {
-   //short		AnzahlAufgaben,AnzahlReihen;
+   int		AnzahlAufgaben,AnzahlReihen;
+   cSeriedaten Seriedaten;
    /*
    short		Addition,Subtraktion,Multiplikation,Division;
    short		MDZehnerReihen,MDHunderterReihen;
@@ -77,9 +158,9 @@ short Minvon(short ersteZahl, short zweiteZahl);
    short		Variante,Zeit,Volume;
     */
 @public
-   short             Reihenliste[MAXANZREIHEN];
+   int             Reihenliste[MAXANZREIHEN];
 }
-@property short      AnzahlAufgaben,AnzahlReihen;
+@property (nonatomic )int      AnzahlAufgaben,AnzahlReihen;
 @property short		Addition,Subtraktion,Multiplikation,Division;
 @property short		MDZehnerReihen,MDHunderterReihen;
 @property short		MDKleines1Mal1,MDGrosses1Mal1;
@@ -92,7 +173,9 @@ short Minvon(short ersteZahl, short zweiteZahl);
 
 @property short		Variante,Zeit,Volume;
 
-
+- (void)setzeAnzahlAufgaben:(short)anzaufgaben;
+- (cSeriedaten)getcSeriedaten;
+- (cSeriedaten)Objc2CmitSeriedaten:(rSeriedaten*)seriedaten;
 @end
 
 /* *******************************************************************************/
@@ -110,6 +193,9 @@ short Minvon(short ersteZahl, short zweiteZahl);
 @end
 
 @interface rObjcAufgabendaten : NSObject
+
+
+
 @end
 /********************************************************************************/
 
@@ -134,4 +220,60 @@ short Minvon(short ersteZahl, short zweiteZahl);
 
 @end
 /********************************************************************************/
+/********************************************************************************/
+@interface rRechnungserie : NSObject
+{
+   short    mitEinleitung;
+   short    Listennummer;
+   short		AddobereGrenze,SubobereGrenze;
+   short	 	AdduntereGrenze,SubuntereGrenze;
+   short    anzahlStellen;
+   short    Repvektor[48];
+   
+   rAufgabe	*ersteAufgabe, *aktuelleAufgabe;
+   short		*Nummernvektor;
+
+   cSeriedaten cRechnungSeriedaten;
+   rSeriedaten* RechnungSeriedaten;
+}
+- (id)initWithAnzahl:(int)anzAufgaben;
+- (void)setSeriedaten:(rSeriedaten*)dieSeriedaten;
+- (NSArray*)neueRechnungserie:(rSeriedaten*)dieSeriedaten ;
+- (cSeriedaten*)getDaten;
+- (void)					AddSubBereichbestimmen;
+- (void)AufgabeinListe:(rAufgabe *)	dieAufgabe;
+
+
+// C-Funktionen
+short						getaktuelleNummer();
+void						setDaten(cSeriedaten);
+void						setOperation(short);
+void						Aufgabenbestimmen();
+
+void						Zahlenverteilen(short * derVektor,short	n);
+void						Zahlenverteilenab1(short * derVektor,short	n);
+void						Zahlenverteilenab2(short * derVektor,short	n);
+void						Zahlenvektorbestimmen(short * derVektor,short	untereGrenze, short obereGrenze,short n);
+
+//void						neueSerie(ProgPrefsRecord dieSeriedaten,cAufgabendaten* derAufgabenDatenArray);
+void 						Serieweg();
+short						Randomzahl(short dasMin,short dasMax);
+void                 Operationenverteilen(short *	, cSeriedaten);
+void 						Reihenfolgebestimmen(short*,short,short);
+void 						Reihenfolgebestimmenab1(short*,short,short);
+void 						Reihenfolgebestimmenab2(short*,short,short);
+//void						AufgabeinListe(rAufgabe *	);
+void						Aufgabenlisteleeren();
+short						getAktuellesErgebnis();
+short						getAnzahlAufgaben();
+short 					Seriefertig();
+short 					RepTest(short *, short dieZahl);
+void						RepSet(short *, short dieZahl);
+void 						RepReset(short *);
+void						Serieschreiben();
+
+@end
+
+/********************************************************************************/
+
 /********************************************************************************/

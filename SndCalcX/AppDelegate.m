@@ -240,7 +240,7 @@ const short     kSerieFertig = 5003;
       //NSArray*  NetzwerkVolumesArray = [Utils NetzwerkVolumesArray];
       //NSLog(@"NetzwerkVolumesArray: %@",[NetzwerkVolumesArray description]);
       NSArray* NetworkDatenArray=[Utils UsersMitSndCalcDatenArray];
-      NSLog(@"NetworkDatenArray: %@",[NetworkDatenArray description]);
+     // NSLog(@"NetworkDatenArray: %@",[NetworkDatenArray description]);
       
       if ([NetworkDatenArray count]==1)//Noch nicht eingeloggt
       {
@@ -279,7 +279,7 @@ const short     kSerieFertig = 5003;
       VolumesPanel=[[rVolumes alloc]init];
       
       SndCalcPfad=[self chooseSndCalcPfadMitUserArray:NetworkDatenArray];
-      NSLog(@"awake: SndCalcPfad: %@",SndCalcPfad);
+     // NSLog(@"awake: SndCalcPfad: %@",SndCalcPfad);
       BOOL PListBusy=YES;
       int runde=0;
       while (PListBusy)
@@ -354,7 +354,7 @@ const short     kSerieFertig = 5003;
       //	saveObjectForCallback(self);
       //[self DebugStep:@"nach saveObjectForCallback"];
       
-      Speaker=[[rSpeaker alloc]init];
+       Speaker=[[rSpeaker alloc]init];
       if (Speaker)
       {
          [Speaker setVolume:Volume];
@@ -369,7 +369,7 @@ const short     kSerieFertig = 5003;
       
       //	[[[self window]contentView]addSubview:[Speaker AufgabenPlayer]];
       
-      
+       Aufgabe = [[rAufgabe alloc ]init];
       
       BOOL ZahlenOK=[Speaker readZahlen];
       //NSLog(@"awake: nach readZahlen    ZahlenOK: %d",ZahlenOK);
@@ -446,7 +446,7 @@ const short     kSerieFertig = 5003;
       id einTestDic;
       while (einTestDic=(NSMutableDictionary*)[TestEnum nextObject])
       {
-         //NSLog(@"TestDic: ",[einTestDic description]);
+         NSLog(@"TestDic: ",[einTestDic description]);
          
          if ([einTestDic objectForKey:@"seriedatendic"])
          {
@@ -460,7 +460,7 @@ const short     kSerieFertig = 5003;
                [TestDicArray addObject:einTestDic];
             }
          }
-         else	//Seriedaten unvollständig
+         else	//cSeriedaten unvollständig
          {
             NSLog(@"Test nicht geladen %@:",[einTestDic description]);
             [einTestDic setObject:[NSNumber numberWithBool:NO]forKey:@"aktiv"];
@@ -635,7 +635,7 @@ const short     kSerieFertig = 5003;
       //NSLog(@"wake end");
    }
    
-   Aufgabe = [[rAufgabe alloc ]init];
+  
    NSArray* varArray = [NSArray arrayWithObjects:[NSNumber numberWithInt:1], [NSNumber numberWithInt:2],[NSNumber numberWithInt:3],nil];
    [Aufgabe setAufgabendaten:[NSDictionary dictionaryWithObjectsAndKeys:varArray, @"var",nil]];
    int var1 = [Aufgabe getVariable:0];
@@ -857,7 +857,7 @@ const short     kSerieFertig = 5003;
          //NSLog(@"readPListAnPfad:	PListDic mit SerieDatenDic FromScratch: %@",[PListDic description]);
       }
       
-      SerieDatenDic=[self SerieDatenVonDic:PListDic];
+     // SerieDatenDic=[self SerieDatenVonDic:PListDic];
       
       if ([PListDic objectForKey:@"volume"])
       {
@@ -1672,32 +1672,21 @@ const short     kSerieFertig = 5003;
    return SeriedatenOK;
 }
 
-- (IBAction)neueSerie:(id)sender
+- (rRechnungserie*)neueSerieMitSeriedaten:(rSeriedaten*) seriedaten
 {
+   NSLog(@"\neueSerieMitSeriedaten: %d",seriedaten.AnzahlAufgaben);
+// /*
    int multOK=[ReihenSettings checkSettings];
    int addsubOK=[AddSubSettings checkSettings];
-   //NSLog(@"\nneueSerie                                      multOK: %d          addsubOK: %d",multOK,addsubOK);
-   
-   
+   NSLog(@"\neueSerieMitSeriedaten                                      multOK: %d          addsubOK: %d",multOK,addsubOK);
+
    [self closeSessionDrawer:NULL];
-   //NSLog(@"neue Serie begin");
-   //NSLog(@"neueSerie Anfang: SeriedatenDic: %@\n",[SerieDatenDic description]);
    [ErgebnisRahmenFeld setHidden:YES];
    //	[ErgebnisView setMark:0];
    //	[ErgebnisView setString:@""];
    [ErgebnisFeld setMark:0];
    [ErgebnisFeld setStringValue:@""];
    [self closeAufgabenDrawer:NULL];
-   /*
-    if ([SettingsDrawer state]==NSDrawerOpenState)
-    {
-    //NSLog(@"neueSerie: SettingsDrawer =NSDrawerOpenState");
-    [SerieDatenDic setObject:@"Training" forKey:@"testname"];
-    [SerieDatenDic addEntriesFromDictionary:[self SerieDatenDicAusSettings]];
-    [self closeDrawer:NULL];
-    //NSLog(@"neueSerie nach closeDrawer: SeriedatenDic: %@\n",[SerieDatenDic description]);
-    }
-    */
    NSDictionary* tempStatusDic=[self StatusVonSerieDatenDic:SerieDatenDic];
    if ([TestPopKnopf numberOfItems])
    {
@@ -1705,7 +1694,7 @@ const short     kSerieFertig = 5003;
       //NSLog(@"tempStatusDic: %@ SerieDatenOK: %d",[tempStatusDic description],SerieDatenOK);
       if(SerieDatenOK==NO)
       {
-         return;
+         return nil;
       }
       
       switch ([[tempStatusDic objectForKey:@"complete"]intValue])
@@ -1730,7 +1719,15 @@ const short     kSerieFertig = 5003;
    //NSLog(@"timeIntervalSinceNow: %qi",[[NSDate date] timeIntervalSinceNow]);
    
    //NSLog(@"neueSerie: random: %d ",random());
-   RechnungSeriedaten=[self SerieDatenVonDic:SerieDatenDic];
+ 
+ // */
+   NSLog(@"neueSerieMitSeriedaten: SerieDatenDic: %@ ",SerieDatenDic);
+  // RechnungSeriedaten=[self SerieDatenVonDic:SerieDatenDic];
+   
+   //RechnungSeriedaten = seriedaten;
+   
+   NSLog(@"RechnungSeriedaten AnzahlAufgaben: %d",RechnungSeriedaten.AnzahlAufgaben);
+   NSLog(@"RechnungSeriedaten MDKleines1Mal1: %d",RechnungSeriedaten.MDKleines1Mal1);
    
    
    
@@ -1782,46 +1779,56 @@ const short     kSerieFertig = 5003;
    [Aufgabenzeiger setAnzahl:0];
    [ErgebnisRahmenFeld setMark:-1];
    
-   /*
-   if (!AufgabenSerie)
-   {
-      AufgabenSerie = malloc(size(rAufgabenSerie));
-      AufgabenSerie=new rSerie(SerieDaten.AnzahlAufgaben);
-   }
-   */
-   //NSLog(@"neueSerie: %d",SerieDaten.AnzahlAufgaben);
    
-   rAufgabenDaten*  AufgabenDatenArray[kMaxAnzahlAufgaben];
+   AufgabenSerie = [[rRechnungserie alloc]initWithAnzahl:RechnungSeriedaten.AnzahlAufgaben];
+   
+   
+   AufgabenArray = [[NSArray alloc]initWithArray:[AufgabenSerie neueRechnungserie:RechnungSeriedaten]]; // NSArray
+   
+   
+   //rAufgabenDaten*  AufgabenDatenArray[kMaxAnzahlAufgaben];
+   
    //NSLog(@"neueSerie: Add: %d  Sub: %d  Mult: %d",SerieDaten.Addition,RechnungSeriedaten.Subtraktion,SerieDaten.Multiplikation);
    
-//   AufgabenSerie->neueSerie(SerieDaten,AufgabenDatenArray);
-
-   //NSLog(@"neueSerie: nummer: %d var 0: %d op 0: %d var 1: %d var 2: %d",AufgabenDatenArray[0].aktuelleAufgabennummer,AufgabenDatenArray[0].var[0],AufgabenDatenArray[0].op[0],AufgabenDatenArray[0].var[1],AufgabenDatenArray[0].var[2]);
+   
+   //   AufgabenSerie->neueSerie(SerieDaten,AufgabenDatenArray);
+   
+   
    
    NSMutableArray* tempAufgabenArray=[[NSMutableArray alloc]initWithCapacity:0];
    //NSLog(@"tempAufgabenDatenArray: nach neueSerie");
    int zeile;
    for (zeile=0;zeile<RechnungSeriedaten.AnzahlAufgaben;zeile++)
    {
+      rAufgabenDaten* tempAufgabendaten = [AufgabenArray objectAtIndex:zeile];
       //NSLog(@"neueSerie: zeile: %d",zeile);
       //NSLog(@"neueSerie: nummer: %d var 0: %d op 0: %d var 1: %d var 2: %d",AufgabenDatenArray[zeile].aktuelleAufgabennummer,AufgabenDatenArray[zeile].var[0],AufgabenDatenArray[zeile].op[0],AufgabenDatenArray[zeile].var[1],AufgabenDatenArray[zeile].var[2]);
       //AufgabenNummer
+      
+      //AufgabenDatenArray[zeile] = [[rAufgabenDaten alloc]init];
+      
       NSMutableDictionary* tempAufgabenDic=[[NSMutableDictionary alloc]initWithCapacity:0];
-      [tempAufgabenDic setObject:[NSNumber numberWithInt:AufgabenDatenArray[zeile].aktuelleAufgabennummer]
-                          forKey:@"aufgabennummer"];
+      int nr =tempAufgabendaten.aktuelleAufgabennummer;
+      
+      [tempAufgabenDic setObject:[NSNumber numberWithInt:tempAufgabendaten.aktuelleAufgabennummer] forKey:@"aufgabennummer"];
       
       //Var 0
-      [tempAufgabenDic setObject:[NSNumber numberWithInt:AufgabenDatenArray[zeile]->var[0]]
+      
+      [tempAufgabenDic setObject:[NSNumber numberWithInt:tempAufgabendaten->var[0]]
                           forKey:@"var0"];
       
       //Var 1
-      [tempAufgabenDic setObject:[NSNumber numberWithInt:AufgabenDatenArray[zeile]->var[1]]
+      [tempAufgabenDic setObject:[NSNumber numberWithInt:tempAufgabendaten->var[1]]
                           forKey:@"var1"];
       
+      //AufgabenDatenArray[zeile].aktuelleAufgabennummer = zeile;
+   
       
       //Op
       NSString* Operator;
-      switch(AufgabenDatenArray[zeile]->op[0])
+      int op0 = tempAufgabendaten->op[0];
+      
+      switch(op0)
       {
          case 1://Plus
          {
@@ -1842,18 +1849,18 @@ const short     kSerieFertig = 5003;
       [tempAufgabenDic setObject:Operator
                           forKey:@"operatorzeichen"];
       
-      [tempAufgabenDic setObject:[NSNumber numberWithInt:AufgabenDatenArray[zeile]->op[0]+2000]
+      [tempAufgabenDic setObject:[NSNumber numberWithInt:op0+2000]
                           forKey:@"op0"];
       
       //Ergebnis
-      [tempAufgabenDic setObject:[NSNumber numberWithInt:AufgabenDatenArray[zeile]->var[2]]
+      [tempAufgabenDic setObject:[NSNumber numberWithInt:tempAufgabendaten->var[2]]
                           forKey:@"var2"];
-      //NSLog(@"tempAufgabenDic: %@",[tempAufgabenDic description]);
+      NSLog(@"tempAufgabenDic: %@",[tempAufgabenDic description]);
       [tempAufgabenArray addObject:tempAufgabenDic];
       
    }
    
-   //	NSLog(@"tempAufgabenArray: %@",[tempAufgabenArray description]);
+   	NSLog(@"tempAufgabenArray: %@",[tempAufgabenArray description]);
    
    
    //AufgabenArray=[tempAufgabenArray copy];
@@ -1864,18 +1871,22 @@ const short     kSerieFertig = 5003;
    [ErgebnisFeld resetFalschesZeichen];
    //[self startTimeout];
    //NSLog(@"neue Serie ende");
+   return nil;
 }
 
+/*
 - (rSeriedaten*)SerieDatenVonDic:(NSDictionary*)derSerieDatenDic
 {
    int DatenOK=0;
    rSeriedaten* tempSerieDaten = [[rSeriedaten alloc]init];
+   NSLog(@"tempSerieDaten AnzahlAufgaben: %d",tempSerieDaten.AnzahlAufgaben);
    NSIndexSet* BoolBereich=[NSIndexSet indexSetWithIndexesInRange:NSMakeRange(0,2)];
    
    NSIndexSet* AnzBereich=[NSIndexSet indexSetWithIndexesInRange:NSMakeRange(1,24)];
    NSNumber* tempAnzNumber=[derSerieDatenDic objectForKey:@"anzahlaufgaben"];
    if (tempAnzNumber&&[AnzBereich containsIndex:[tempAnzNumber intValue]])
    {
+      [tempSerieDaten setzeAnzahlAufgaben:[tempAnzNumber intValue]];
       tempSerieDaten.AnzahlAufgaben=[tempAnzNumber intValue];
    }
    else
@@ -2079,7 +2090,447 @@ const short     kSerieFertig = 5003;
       tempSerieDaten.Subtraktion=0;
       
    }
+   NSLog(@"tempSerieDaten AnzahlAufgaben: %d",tempSerieDaten.AnzahlAufgaben);
+   NSLog(@"tempSerieDaten MDKleines1Mal1: %d",tempSerieDaten.MDKleines1Mal1);
    
+   NSLog(@"SerieDateVonDic tempSerieDaten : %@",[tempSerieDaten description]);
+   return tempSerieDaten;
+   
+   return nil;
+}
+*/
+
+- (IBAction)neueSerie:(id)sender
+{
+   
+   
+   int multOK=[ReihenSettings checkSettings];
+   int addsubOK=[AddSubSettings checkSettings];
+   //NSLog(@"\nneueSerie                                      multOK: %d          addsubOK: %d",multOK,addsubOK);
+   
+   
+   [self closeSessionDrawer:NULL];
+   //NSLog(@"neue Serie begin");
+   //NSLog(@"neueSerie Anfang: SeriedatenDic: %@\n",[SerieDatenDic description]);
+   [ErgebnisRahmenFeld setHidden:YES];
+   //	[ErgebnisView setMark:0];
+   //	[ErgebnisView setString:@""];
+   [ErgebnisFeld setMark:0];
+   [ErgebnisFeld setStringValue:@""];
+   [self closeAufgabenDrawer:NULL];
+   /*
+    if ([SettingsDrawer state]==NSDrawerOpenState)
+    {
+    //NSLog(@"neueSerie: SettingsDrawer =NSDrawerOpenState");
+    [SerieDatenDic setObject:@"Training" forKey:@"testname"];
+    [SerieDatenDic addEntriesFromDictionary:[self SerieDatenDicAusSettings]];
+    [self closeDrawer:NULL];
+    //NSLog(@"neueSerie nach closeDrawer: SeriedatenDic: %@\n",[SerieDatenDic description]);
+    }
+    */
+   NSDictionary* tempStatusDic=[self StatusVonSerieDatenDic:SerieDatenDic];
+   if ([TestPopKnopf numberOfItems])
+   {
+      BOOL SerieDatenOK=[self checkSerieDatenDic:SerieDatenDic vonTest:[TestPopKnopf titleOfSelectedItem]];
+      //NSLog(@"tempStatusDic: %@ SerieDatenOK: %d",[tempStatusDic description],SerieDatenOK);
+      if(SerieDatenOK==NO)
+      {
+         return;
+      }
+      
+      switch ([[tempStatusDic objectForKey:@"complete"]intValue])
+      {
+         case 0://keine Operation aktiviert
+         {
+            NSLog(@"neueSerie: ex");
+         }break;
+            
+            
+      }//switch
+      
+      
+   }//if numberOfItems
+   
+   [AblaufzeitTimer invalidate];
+   //NSLog(@"timeIntervalSince1970: %f",[[NSDate date] timeIntervalSince1970]);
+   //srand(time(NULL));
+   //srand([[NSDate date] timeIntervalSince1970]);
+   srandom((unsigned int)[[NSDate date] timeIntervalSince1970]);
+   //srand(time(0));
+   //NSLog(@"timeIntervalSinceNow: %qi",[[NSDate date] timeIntervalSinceNow]);
+   
+   //NSLog(@"neueSerie: random: %d ",random());
+   RechnungSeriedaten=[self SerieDatenVonDic:SerieDatenDic];
+   NSLog(@"RechnungSeriedaten AnzahlAufgaben: %d",RechnungSeriedaten.AnzahlAufgaben);
+   NSLog(@"RechnungSeriedaten MDKleines1Mal1: %d",RechnungSeriedaten.MDKleines1Mal1);
+
+   
+   
+   if (Modus==kTrainingModus)
+   {
+      RechnungSeriedaten.AnzahlAufgaben=[[AnzahlPopKnopf selectedItem]tag];
+      RechnungSeriedaten.Zeit=[[ZeitPopKnopf selectedItem]tag];
+      [ZeitPopKnopf setHidden:NO];
+      [AnzahlPopKnopf setHidden:NO];
+      [ZeitLimiteFeld setHidden:YES];
+      [AnzahlFeld setHidden:YES];
+      
+   }
+   else
+   {
+      [ZeitPopKnopf setHidden:YES];
+      [AnzahlPopKnopf setHidden:YES];
+      [ZeitLimiteFeld setHidden:NO];
+      [AnzahlFeld setHidden:NO];
+      
+   }
+   
+   abgelaufeneZeit=0;
+   anzRichtig=0;
+   anzFehler=0;
+   MaximalZeit=RechnungSeriedaten.Zeit;
+   //NSLog(@"neue Serie: Zeit: %d",MaximalZeit);
+   AnzahlAufgaben=RechnungSeriedaten.AnzahlAufgaben;
+   
+   [AnzahlPopKnopf selectItemAtIndex:[AnzahlPopKnopf indexOfItemWithTag:RechnungSeriedaten.AnzahlAufgaben]];
+   [ZeitPopKnopf selectItemAtIndex:[ZeitPopKnopf indexOfItemWithTag:RechnungSeriedaten.Zeit]];
+   //AnzahlAufgaben=[[AnzahlPopKnopf titleOfSelectedItem]intValue];
+   //NSLog(@"					AnzahlAufgaben: %d",AnzahlAufgaben);
+   //MaximalZeit=[[ZeitPopKnopf titleOfSelectedItem]intValue];
+   aktuelleAufgabenNummer=1;
+   [StartTaste setTitle:NSLocalizedString(@"Start",@"Start")];
+   [AufgabenNummerFeld setIntValue:1];
+   [ZeitFeld setIntValue:MaximalZeit];
+   NSString* ZeitLimiteString=[NSString stringWithFormat:@"%d Sekunden",MaximalZeit];
+   [ZeitLimiteFeld setStringValue:ZeitLimiteString];
+   
+   [Zeitanzeige setMax:MaximalZeit];
+   [Zeitanzeige setZeit:0];
+   //[Aufgabenzeiger setAnzAufgaben:[[AnzahlPopKnopf titleOfSelectedItem]intValue]];
+   [Aufgabenzeiger setAnzAufgaben:AnzahlAufgaben];
+   NSString* AnzahlString=[NSString stringWithFormat:@"%d Aufgaben",AnzahlAufgaben];
+   
+   [AnzahlFeld setStringValue:AnzahlString];
+   [Aufgabenzeiger setAnzahl:0];
+   [ErgebnisRahmenFeld setMark:-1];
+   
+   /*
+   if (!AufgabenSerie)
+   {
+      AufgabenSerie = malloc(size(rAufgabenSerie));
+      AufgabenSerie=new rSerie(SerieDaten.AnzahlAufgaben);
+   }
+   */
+   //NSLog(@"neueSerie: %d",SerieDaten.AnzahlAufgaben);
+   
+   
+   rAufgabenDaten*  AufgabenDatenArray[kMaxAnzahlAufgaben];
+ 
+   
+   //NSLog(@"neueSerie: Add: %d  Sub: %d  Mult: %d",SerieDaten.Addition,RechnungSeriedaten.Subtraktion,SerieDaten.Multiplikation);
+//   AufgabenSerie->neueSerie(SerieDaten,AufgabenDatenArray);
+   
+ // Ersatz:
+   
+// - (rSeriedaten*)neueSerie:(ProgPrefsRecord)dieSeriedaten AufgabenDaten:(cAufgabendaten*) derAufgabenDatenArray
+   
+   AufgabenSerie = [self neueSerieMitSeriedaten:RechnungSeriedaten]; //
+   
+   return;
+   
+   //NSLog(@"neueSerie: nummer: %d var 0: %d op 0: %d var 1: %d var 2: %d",AufgabenDatenArray[0].aktuelleAufgabennummer,AufgabenDatenArray[0].var[0],AufgabenDatenArray[0].op[0],AufgabenDatenArray[0].var[1],AufgabenDatenArray[0].var[2]);
+   
+  
+   NSMutableArray* tempAufgabenArray=[[NSMutableArray alloc]initWithCapacity:0];
+   //NSLog(@"tempAufgabenDatenArray: nach neueSerie");
+   int zeile;
+   for (zeile=0;zeile<RechnungSeriedaten.AnzahlAufgaben;zeile++)
+   {
+      //NSLog(@"neueSerie: zeile: %d",zeile);
+      //NSLog(@"neueSerie: nummer: %d var 0: %d op 0: %d var 1: %d var 2: %d",AufgabenDatenArray[zeile].aktuelleAufgabennummer,AufgabenDatenArray[zeile].var[0],AufgabenDatenArray[zeile].op[0],AufgabenDatenArray[zeile].var[1],AufgabenDatenArray[zeile].var[2]);
+      //AufgabenNummer
+      
+      AufgabenDatenArray[zeile] = [[rAufgabenDaten alloc]init];
+      NSMutableDictionary* tempAufgabenDic=[[NSMutableDictionary alloc]initWithCapacity:0];
+      [tempAufgabenDic setObject:[NSNumber numberWithInt:AufgabenDatenArray[zeile].aktuelleAufgabennummer]
+                          forKey:@"aufgabennummer"];
+      
+      //Var 0
+      [tempAufgabenDic setObject:[NSNumber numberWithInt:AufgabenDatenArray[zeile]->var[0]]
+                          forKey:@"var0"];
+      
+      //Var 1
+      [tempAufgabenDic setObject:[NSNumber numberWithInt:AufgabenDatenArray[zeile]->var[1]]
+                          forKey:@"var1"];
+      
+      AufgabenDatenArray[zeile].aktuelleAufgabennummer = zeile;
+      //Op
+      NSString* Operator;
+      int op0 = AufgabenDatenArray[zeile]->op[0];
+      switch(AufgabenDatenArray[zeile]->op[0])
+      {
+         case 1://Plus
+         {
+            Operator=@"+";
+         }break;
+            
+         case 2://Minus
+         {
+            Operator=@"-";
+         }break;
+            
+            
+         case 3://Mal
+         {
+            Operator=@"*";
+         }break;
+      }//switch
+      [tempAufgabenDic setObject:Operator
+                          forKey:@"operatorzeichen"];
+      
+      [tempAufgabenDic setObject:[NSNumber numberWithInt:AufgabenDatenArray[zeile]->op[0]+2000]
+                          forKey:@"op0"];
+      
+      //Ergebnis
+      [tempAufgabenDic setObject:[NSNumber numberWithInt:AufgabenDatenArray[zeile]->var[2]]
+                          forKey:@"var2"];
+      //NSLog(@"tempAufgabenDic: %@",[tempAufgabenDic description]);
+      [tempAufgabenArray addObject:tempAufgabenDic];
+      
+   }
+   
+   //	NSLog(@"tempAufgabenArray: %@",[tempAufgabenArray description]);
+   
+   
+   //AufgabenArray=[tempAufgabenArray copy];
+   AufgabenArray=[NSArray arrayWithArray:tempAufgabenArray];
+   [StartTaste setEnabled:YES];
+   [StartTaste setKeyEquivalent:@"\r"];
+   [[self window]makeFirstResponder:StartTaste];
+   [ErgebnisFeld resetFalschesZeichen];
+   //[self startTimeout];
+   //NSLog(@"neue Serie ende");
+}
+
+- (rSeriedaten*)SerieDatenVonDic:(NSDictionary*)derSerieDatenDic
+{
+   int DatenOK=0;
+   rSeriedaten* tempSerieDaten = [[rSeriedaten alloc]init];
+   NSLog(@"tempSerieDaten AnzahlAufgaben: %d",tempSerieDaten.AnzahlAufgaben);
+   NSIndexSet* BoolBereich=[NSIndexSet indexSetWithIndexesInRange:NSMakeRange(0,2)];
+   
+   NSIndexSet* AnzBereich=[NSIndexSet indexSetWithIndexesInRange:NSMakeRange(1,24)];
+   NSNumber* tempAnzNumber=[derSerieDatenDic objectForKey:@"anzahlaufgaben"];
+   if (tempAnzNumber&&[AnzBereich containsIndex:[tempAnzNumber intValue]])
+   {
+      [tempSerieDaten setzeAnzahlAufgaben:[tempAnzNumber intValue]];
+      tempSerieDaten.AnzahlAufgaben=[tempAnzNumber intValue];
+   }
+   else
+   {
+      tempSerieDaten.AnzahlAufgaben=12;
+   }
+   
+   NSIndexSet* ZeitBereich=[NSIndexSet indexSetWithIndexesInRange:NSMakeRange(10,120)];
+   NSNumber* tempZeitNumber=[derSerieDatenDic objectForKey:@"zeit"];
+   //NSLog(@"SerieDatenDic: tempZeitNumber: %@",[tempZeitNumber description]);
+   if (tempZeitNumber&&[ZeitBereich containsIndex:[tempZeitNumber intValue]])
+   {
+      tempSerieDaten.Zeit=[tempZeitNumber intValue];
+   }
+   else
+   {
+      tempSerieDaten.Zeit=120;
+   }
+   
+   //Multiplikation
+   NSNumber* tempMultiplikationNumber=[derSerieDatenDic objectForKey:@"multiplikation"];
+   if (tempMultiplikationNumber&&[BoolBereich containsIndex:[tempMultiplikationNumber intValue]])
+   {
+      tempSerieDaten.Multiplikation=[tempMultiplikationNumber intValue];
+   }
+   else
+   {
+      tempSerieDaten.Multiplikation=1;
+   }
+   
+   NSIndexSet* AnzReihenBereich=[NSIndexSet indexSetWithIndexesInRange:NSMakeRange(0,30)];
+   NSNumber* tempAnzahlReihenNumber=[derSerieDatenDic objectForKey:@"anzahlreihen"];
+   if (tempAnzahlReihenNumber&&[AnzReihenBereich containsIndex:[tempAnzahlReihenNumber intValue]])
+   {
+      tempSerieDaten.AnzahlReihen=[tempAnzahlReihenNumber intValue];
+   }
+   else
+   {
+      if (tempSerieDaten.Multiplikation)
+      {
+         tempSerieDaten.AnzahlReihen=8;
+      }
+   }
+   
+   NSArray* tempReihenArray=[derSerieDatenDic objectForKey:@"reihenarray"];
+   if (tempReihenArray&&[tempReihenArray count])
+   {
+      for (int i=0;i<kMaxAnzReihen;i++)
+      {
+         if (i<[tempReihenArray count])
+         {
+            tempSerieDaten->Reihenliste[i]=[[tempReihenArray objectAtIndex:i]intValue];
+         }
+         else
+         {
+            tempSerieDaten->Reihenliste[i]=0;
+         }
+      }//for i
+   }
+   else//Keine Reihen
+   {
+      for (int i=0;i<kMaxAnzReihen;i++)
+      {
+         if (i<tempSerieDaten.AnzahlReihen)
+         {
+            tempSerieDaten->Reihenliste[i]=i+1;
+         }
+         else
+         {
+            tempSerieDaten->Reihenliste[i]=0;
+         }
+      }//for i
+      
+   }
+   
+   //ZehnerReihen
+   NSNumber* tempZehnerReihenNumber=[derSerieDatenDic objectForKey:@"zehnerreihen"];
+   if (tempZehnerReihenNumber &&[BoolBereich containsIndex:[tempZehnerReihenNumber intValue]])
+   {
+      tempSerieDaten.MDZehnerReihen=[tempZehnerReihenNumber intValue];
+   }
+   else
+   {
+      tempSerieDaten.MDZehnerReihen=0;
+   }
+   
+   //HunderterReihen
+   NSNumber* tempHunderterReihenNumber=[derSerieDatenDic objectForKey:@"hunderterreihen"];
+   if (tempHunderterReihenNumber &&[BoolBereich containsIndex:[tempHunderterReihenNumber intValue]])
+   {
+      tempSerieDaten.MDHunderterReihen=[tempHunderterReihenNumber intValue];
+   }
+   else
+   {
+      tempSerieDaten.MDHunderterReihen=0;
+   }
+   
+   //Kleines1Mal1
+   NSNumber* tempKleines1Mal1Number=[derSerieDatenDic objectForKey:@"kleines1mal1"];
+   if (tempKleines1Mal1Number  &&[BoolBereich containsIndex:[tempKleines1Mal1Number intValue]])
+   {
+      tempSerieDaten.MDKleines1Mal1=[tempKleines1Mal1Number intValue];
+   }
+   else
+   {
+      tempSerieDaten.MDKleines1Mal1=1;
+   }
+   
+   //Grosses1Mal1
+   NSNumber* tempGrosses1Mal1Number=[derSerieDatenDic objectForKey:@"grosses1mal1"];
+   if (tempGrosses1Mal1Number  &&[BoolBereich containsIndex:[tempGrosses1Mal1Number intValue]])
+   {
+      tempSerieDaten.MDGrosses1Mal1=[tempGrosses1Mal1Number intValue];
+   }
+   else
+   {
+      tempSerieDaten.MDGrosses1Mal1=0;
+   }
+   tempSerieDaten.MultDivZehnerpotenz1=0;
+   tempSerieDaten.MultDivZehnerpotenz2=0;
+   tempSerieDaten.Division=0;
+   tempSerieDaten.MultDivZehnerpotenz1=0;
+   tempSerieDaten.MultDivZehnerpotenz2=0;
+   tempSerieDaten.MultDivmitAdd=0;
+   tempSerieDaten.MultDivmitSub=0;
+   
+   //Addition
+   NSNumber* AddSubEin=[derSerieDatenDic objectForKey:@"addsubein"];
+   if (AddSubEin&&[AddSubEin intValue]==1)//AddSub ist eingeschaltet
+   {
+      NSNumber* tempAdditionNumber=[derSerieDatenDic objectForKey:@"addition"];
+      if (tempAdditionNumber &&[BoolBereich containsIndex:[tempAdditionNumber intValue]])
+      {
+         tempSerieDaten.Addition=[tempAdditionNumber intValue];
+      }
+      else
+      {
+         tempSerieDaten.Addition=0;
+      }
+      
+      //Subtraktion
+      NSNumber* tempSubtraktionNumber=[derSerieDatenDic objectForKey:@"subtraktion"];
+      if (tempSubtraktionNumber &&[BoolBereich containsIndex:[tempSubtraktionNumber intValue]])
+      {
+         tempSerieDaten.Subtraktion=[tempSubtraktionNumber intValue];
+      }
+      else
+      {
+         tempSerieDaten.Subtraktion=0;
+      }
+      
+      //Bereich
+      NSIndexSet* AddSubBereichSet=[NSIndexSet indexSetWithIndexesInRange:NSMakeRange(0,6)];
+      //NSLog(@"AddSubBereichSet: %@",[AddSubBereichSet description]);
+      NSNumber* tempBereichNumber=[derSerieDatenDic objectForKey:@"bereich"];
+      if (tempBereichNumber &&[AddSubBereichSet containsIndex:[tempBereichNumber intValue]])
+      {
+         tempSerieDaten.ASBereich=[tempBereichNumber intValue]+1;
+      }
+      else
+      {
+         tempSerieDaten.ASBereich=1;
+      }
+      
+      //zweiteZahl
+      NSNumber* tempZweiteZahlNumber=[derSerieDatenDic objectForKey:@"zweitezahl"];
+      if (tempZweiteZahlNumber &&[AddSubBereichSet containsIndex:[tempZweiteZahlNumber intValue]])
+      {
+         tempSerieDaten.ASzweiteZahl=[tempZweiteZahlNumber intValue]+1;
+      }
+      else
+      {
+         tempSerieDaten.ASzweiteZahl=1;
+      }
+      
+      //ZehnerU
+      NSNumber* tempZehnerUNumber=[derSerieDatenDic objectForKey:@"zehneru"];
+      if (tempZehnerUNumber &&[AddSubBereichSet containsIndex:[tempZehnerUNumber intValue]])
+      {
+         tempSerieDaten.ASZehnerU=[tempZehnerUNumber intValue]+1;
+      }
+      else
+      {
+         tempSerieDaten.ASZehnerU=1;
+      }
+      
+      //ZehnerU
+      NSNumber* tempHunderterUNumber=[derSerieDatenDic objectForKey:@"hunderteru"];
+      if (tempHunderterUNumber &&[AddSubBereichSet containsIndex:[tempHunderterUNumber intValue]])
+      {
+         tempSerieDaten.ASHunderterU=[tempHunderterUNumber intValue]+1;
+      }
+      else
+      {
+         tempSerieDaten.ASHunderterU=1;
+      }
+   }//if AddSubEin
+   else
+   {
+      tempSerieDaten.Addition=0;
+      tempSerieDaten.Subtraktion=0;
+      
+   }
+    NSLog(@"tempSerieDaten AnzahlAufgaben: %d",tempSerieDaten.AnzahlAufgaben);
+   NSLog(@"tempSerieDaten MDKleines1Mal1: %d",tempSerieDaten.MDKleines1Mal1);
+
+    NSLog(@"SerieDateVonDic tempSerieDaten : %@",[tempSerieDaten description]);
    return tempSerieDaten;
 }
 
@@ -3934,7 +4385,7 @@ const short     kSerieFertig = 5003;
 
 
 
-- (void)showAufgaben//:(AufgabenDatenRecord*)  AufgabenDatenArray
+- (void)showAufgaben//:(cAufgabendaten*)  AufgabenDatenArray
 {
    [self closeSessionDrawer:NULL];
    //NSLog(@"showAufgaben: AufgabenArray: %@",[AufgabenArray description]);
@@ -4354,7 +4805,7 @@ const short     kSerieFertig = 5003;
                      }
                      NSString* MessageString=[NSString stringWithFormat:@"%@",t0,t1];
                      [Warnung setMessageText:[NSString stringWithFormat:NSLocalizedString(@"Settings for test: %@ incorrect",@"Einstellungen für Test: '%@' sind nicht korrekt"),t1]];
-                     NSString* s2=NSLocalizedString(@"No data for serie.",@"Keine Seriedaten vorhanden.");
+                     NSString* s2=NSLocalizedString(@"No data for serie.",@"Keine cSeriedaten vorhanden.");
                      NSString* s1=NSLocalizedString(@"Error:",@"Fehler:");
                      NSString* InformationString=[NSString stringWithFormat:@"%@\n%@",s1,s2];
                      [Warnung setInformativeText:InformationString];
