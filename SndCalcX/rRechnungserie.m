@@ -7,7 +7,7 @@
 //
 
 #import "rRechnungserie.h"
-
+#include <stdio.h>
 #define  kArraygrenze 48
 
 #define GRENZE 48
@@ -292,25 +292,28 @@ short Minvon(short ersteZahl, short zweiteZahl);
    NSLog(@"Rechnungserie neueRechnungserie dieSeriedaten anz: %d Add: %d Sub: %d Mult: %d",anzaufgaben,dieSeriedaten.Addition,dieSeriedaten.Subtraktion,dieSeriedaten.Multiplikation );
    short Einer=0, Zehner=0,Hunderter=0;
 
-   short	AddResultatvektor[48];		//?
-   short	SubResultatvektor[48]={0};		//?
+   short	AddResultatvektor[kArraygrenze];		//?
+   short	SubResultatvektor[kArraygrenze]={0};		//?
    
-   short 	AddSubResultatvektor[48]={0};
-   short	AddSubVar1vektor[48]={0};
-   short	AddSubResultatRepvektor[48];
-   short	AddSubVar1Repvektor[48];
+   short 	AddSubResultatvektor[kArraygrenze]={0};
+   short	AddSubVar1vektor[kArraygrenze]={0};
+   short	AddSubResultatRepvektor[kArraygrenze];
+   short	AddSubVar1Repvektor[kArraygrenze];
    
    short	*	MultVar0vektor={0};
    short	*	MultVar1vektor={0};
    short	*	MultResultatvektor={0};
    short	*	Operation1vektor={0};
    
+   printf("A\n");
    RepReset(AddSubResultatRepvektor);
+    printf("B\n");
    RepReset(AddSubVar1Repvektor);
+    printf("C\n");
    //GetDateTime((unsigned long *) &qd.randSeed);
    
    typedef short Reihenfaktor[10];
-   short tempVar1vektor[kArraygrenze]={0};
+//   short tempVar1vektor[kArraygrenze]={0};
    //printf("SerieDaten.Multiplikation: %d\n",dieSeriedaten.Multiplikation);
    if  (!dieSeriedaten.Addition && !dieSeriedaten.Subtraktion && ! dieSeriedaten.Multiplikation)
    {
@@ -461,7 +464,7 @@ short Minvon(short ersteZahl, short zweiteZahl);
             
             //
             //tempminVar1=Minvon(minVar1,tempErgebnis-1);
-            //printf("neueSerie: nr:  %d	tempminVar1: %d tempmaxVar1: %d  tempErgebnis: %d\n",nummer,tempminVar1,tempmaxVar1,tempErgebnis);
+            printf("neueSerie: nr:  %d	tempminVar1: %d tempmaxVar1: %d  tempErgebnis: %d\n",nummer,tempminVar1,tempmaxVar1,tempErgebnis);
             
             // AddSub-Daten fuer Aufgabe eintragen
             AddSubDaten[nummer].OGrenze=tempmaxVar1;  //OGrenze fuer 2. Zahl
@@ -627,25 +630,41 @@ short Minvon(short ersteZahl, short zweiteZahl);
             //printf("neueSerie:Aufgabennummer: %d Laufnummer: %d\n",Aufgabennummer,Laufnummer);
             tempSummand=AddSubDaten[Laufnummer].Summand;
             tempErgebnis=AddSubDaten[Laufnummer].Ergebnis;
-            if ((!RepTest(AddSubVar1Repvektor,tempSummand))&&(!RepTest(AddSubResultatRepvektor,tempErgebnis)))
+            if (tempSummand)
             {
-               AddSubResultatvektor[Aufgabennummer]=tempErgebnis;
-               AddSubVar1vektor[Aufgabennummer]=tempSummand;
-               RepSet(AddSubVar1Repvektor,tempSummand);
-               RepSet(AddSubResultatRepvektor,tempErgebnis);
-               Aufgabennummer++;
+               printf("neueSerie:Aufgabennummer: %d Laufnummer: %d\t tempSummand: %d tempErgebnis: %d\n",Aufgabennummer,Laufnummer,tempSummand,tempErgebnis);
+               if ((!RepTest(AddSubVar1Repvektor,tempSummand))&&(!RepTest(AddSubResultatRepvektor,tempErgebnis)))
+               {
+                  AddSubResultatvektor[Aufgabennummer]=tempErgebnis;
+                  AddSubVar1vektor[Aufgabennummer]=tempSummand;
+                  printf("L\n");
+                  RepSet(AddSubVar1Repvektor,tempSummand);
+                  printf("M\n");
+                  RepSet(AddSubResultatRepvektor,tempErgebnis);
+                  printf("N\n");
+                  
+                  Aufgabennummer++;
+               }
+               else
+               {
+                  
+               }
+               Laufnummer++;
+               if ((Laufnummer==kArraygrenze)&&(Aufgabennummer-1<=dieSeriedaten.AnzahlAufgaben))
+               {
+                  
+                  printf("U\tlaufnummer: %d \n",Laufnummer);
+                  RepReset(AddSubVar1Repvektor);
+                  printf("V\n");
+                  RepReset(AddSubResultatRepvektor);
+                  printf("W\n");
+                  Laufnummer=Aufgabennummer;
+               }
             }
             else
             {
+               break;;
             }
-            Laufnummer++;
-            if ((Laufnummer==kArraygrenze)&&(Aufgabennummer-1<=dieSeriedaten.AnzahlAufgaben))
-            {
-               RepReset(AddSubVar1Repvektor);
-               RepReset(AddSubResultatRepvektor);
-               Laufnummer=Aufgabennummer;
-            }
-            
          }//while Aufgabennummer
          
          
@@ -672,17 +691,19 @@ short Minvon(short ersteZahl, short zweiteZahl);
          }
          //																				F√ºr jede ausgew√§hlte Reihe wird eine Zeile angelegt
          //Reihenfaktorarray= new short * [dieSeriedaten.AnzahlReihen];
-         Reihenfaktorarray = malloc(sizeof(short[dieSeriedaten.AnzahlReihen]));
+         //Reihenfaktorarray = malloc(sizeof(short[dieSeriedaten.AnzahlReihen]));
+         
+         short Reihenfaktorarray[kArraygrenze][kArraygrenze]={0};
          for (short zeile=0;zeile<dieSeriedaten.AnzahlReihen;zeile++)
          {
-            Reihenfaktorarray[zeile]=malloc(sizeof(short[kArraygrenze]));	//Randomzahlen f√ºr die erste Variable
+            //Reihenfaktorarray[zeile]=malloc(sizeof(short[kArraygrenze]));	//Randomzahlen f√ºr die erste Variable
             
             // 7.12.2011: Grenze auf 8 red, 10* xy fällt weg
             
             Reihenfolgebestimmenab2(Reihenfaktorarray[zeile],8,kArraygrenze);
          }
          //																		2. Varilable:		Reihenfolge der Reihen bestimmen
-         ReihenposArray=malloc(sizeof(short[kArraygrenze]));
+         short ReihenposArray[kArraygrenze] = {0};
          Reihenfolgebestimmen(ReihenposArray,dieSeriedaten.AnzahlReihen,kArraygrenze);
          
          for (short i=0;i<kArraygrenze;i++)
@@ -691,11 +712,12 @@ short Minvon(short ersteZahl, short zweiteZahl);
          {AaKontrollvektor[i]=ReihenposArray[i];}
          
          //MultVar0vektor=new short[cRechnungSeriedaten.AnzahlAufgaben];
-         MultVar0vektor= malloc(sizeof(short[dieSeriedaten.AnzahlAufgaben]));
+         //MultVar0vektor= malloc(sizeof(short[dieSeriedaten.AnzahlAufgaben]));
+         short MultVar0vektor[kArraygrenze]={0};
 
          //MultVar1vektor=new short[cRechnungSeriedaten.AnzahlAufgaben];
-         MultVar1vektor= malloc(sizeof(short[dieSeriedaten.AnzahlAufgaben]));
-
+        // MultVar1vektor= malloc(sizeof(short[dieSeriedaten.AnzahlAufgaben]));
+         short MultVar1vektor[kArraygrenze]={0};
          
          short Aufgabennummer=0,Laufnummer=0,Durchgang=0;;
          short schonDa=0;
@@ -764,8 +786,8 @@ short Minvon(short ersteZahl, short zweiteZahl);
       //																				Reihenfolge der gew√§hlten Operationen bestimmen
       //Operation1vektor=new short[dieSeriedaten.AnzahlAufgaben];
       //Operation1vektor= malloc(sizeof(short[dieSeriedaten.AnzahlAufgaben]));
-      Operation1vektor= malloc(sizeof(short[kArraygrenze]));
-      
+      //Operation1vektor= malloc(sizeof(short[kArraygrenze]));
+      short Operation1vektor[kArraygrenze]={0};
       cSeriedaten tempseriedaten = [self  Objc2CmitSeriedaten:dieSeriedaten];
       Operationenverteilen(Operation1vektor,tempseriedaten);
       
@@ -870,10 +892,10 @@ short Minvon(short ersteZahl, short zweiteZahl);
    for (short i=0;i < [returnAufgabenArray  count];i++)
    {
       
-      rAufgabenDaten* tempAufgabendaten =[returnAufgabenArray objectAtIndex:i];
+      //rAufgabenDaten* tempAufgabendaten =[returnAufgabenArray objectAtIndex:i];
       //printf("neueSerie %d returnAufgabenArray var0: %d,\n",i,tempAufgabendaten->var[0]);
    }
-   free (Operation1vektor);
+  // free (Operation1vektor);
    //printf("neueSerie ganz zu Ende\n");
    return returnAufgabenArray ;
 }
@@ -905,8 +927,8 @@ short Minvon(short ersteZahl, short zweiteZahl);
          {
             
             //int t=arc4random();
-            int t=arc4random_uniform(1234);
-            int r =arc4random_uniform(10);
+            //int t=arc4random_uniform(1234);
+            //int r =arc4random_uniform(10);
             //Elementvektor[i].b=abs((int)random());
             //
             Elementvektor[i].b= arc4random_uniform(1234);
@@ -1350,7 +1372,7 @@ void Zahlenvektorbestimmen(short * derVektor,short	untereGrenze, short obereGren
    //printf("Zahlenvektorbestimmen untereGrenze: %d\t obereGrenze: %d \t AnzahlElemente: %d\n",untereGrenze,obereGrenze,AnzahlElemente);
 
    short randEiner[10]={0}, randZehner[10]={0},randHunderter[10]={0};
-   short* 	randomVektor;
+   short* 	randomVektor[kArraygrenze]={};
    short tempAnzahlElemente;
    
    
@@ -1364,8 +1386,7 @@ void Zahlenvektorbestimmen(short * derVektor,short	untereGrenze, short obereGren
    }
    //printf("Zahlenvektorbestimmen tempAnzahlElemente: %d\n",tempAnzahlElemente);
    
-   randomVektor=malloc(sizeof( short[tempAnzahlElemente]));
-   
+   //randomVektor=malloc(sizeof( short[tempAnzahlElemente]));
    if (untereGrenze>obereGrenze)
    {
       obereGrenze=untereGrenze+1;//Schutz vor Fehleingabe
@@ -1474,7 +1495,7 @@ void Zahlenvektorbestimmen(short * derVektor,short	untereGrenze, short obereGren
       //derVektor[nummer]=untereGrenze+randomVektor[nummer];
       //AaKontrollvektor[nummer]=derVektor[nummer];
    }
-   free(randomVektor);
+//   free(randomVektor);
    
    
 }
@@ -1482,7 +1503,7 @@ void Zahlenvektorbestimmen(short * derVektor,short	untereGrenze, short obereGren
 //*****************************************************************
 short RepTest(short * derVektor, short dieZahl)
 {
-   for (short k=0;k<kArraygrenze;k++)
+   for (short k=0;k<sizeof(derVektor);k++)
    {
       if (dieZahl==derVektor[k])
       {
@@ -1507,7 +1528,7 @@ void RepSet(short * derVektor,short dieZahl)
          ok=1;
       }//if
       k++;
-      if (k==kArraygrenze)
+      if (k==sizeof(derVektor))
       {ok=1;}
    }//while
 }//RepSet
@@ -1515,7 +1536,10 @@ void RepSet(short * derVektor,short dieZahl)
 //*****************************************************************
 void RepReset(short * derVektor)
 {
-   for (short k=0;k<kArraygrenze;k++)
+   short x=0;
+   int l= sizeof(derVektor);
+   printf("represet l: %d\n",l);
+   for (short k=0;k<sizeof(derVektor);k++)
    {derVektor[k]=0;}
    
 }

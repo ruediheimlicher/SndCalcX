@@ -1543,7 +1543,7 @@ return tempStimmenNamenArray;
 		NSAlert* SoundWarnung=[[NSAlert alloc]init];
 		NSString* t=NSLocalizedString(@"Missing Sound",@"Fehlender Ton");
 		NSString* i0=NSLocalizedString(@"The sound for the number: %d could not be loaded.",@"Die Tondatei für diE Zahl: %d konnte nicht gefunden werden.");
-		NSString* i1=[NSString stringWithFormat:@"%@",i0,FehlendeZahl];
+		NSString* i1=[NSString stringWithFormat:@"%@ %@",i0,FehlendeZahl];
 		NSString* b1=NSLocalizedString(@"Terminate",@"Beenden");
 		[SoundWarnung addButtonWithTitle:b1];
 		[SoundWarnung setMessageText:t];
@@ -1558,17 +1558,10 @@ return tempStimmenNamenArray;
 - (BOOL)AufgabeAb:(NSDictionary*)derAufgabenDic
 {
 	BOOL AufgabeOK=YES;
-
+   
 	if (derAufgabenDic)
 	{
       
-      
-      
-      NSDictionary* AttrDic = [NSDictionary dictionaryWithObject:[NSNumber numberWithBool:YES] forKey:QTMovieEditableAttribute];
-      AufgabenQTKitMovie  = [[QTMovie alloc]initWithAttributes: AttrDic error:NULL];
-      [AufgabenQTKitMovie setAttribute:[NSNumber numberWithBool:YES] forKey:QTMovieEditableAttribute];
-      
-      QTTime QTTrackPos = QTZeroTime;
       
 		int Aufgabennummer=0;
 		NSNumber* AufgabenNumber=[derAufgabenDic objectForKey:@"aufgabennummer"];
