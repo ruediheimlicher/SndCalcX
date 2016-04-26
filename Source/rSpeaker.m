@@ -861,7 +861,7 @@ return tempStimmenNamenArray;
    NSMutableArray* tempURLArray = [[NSMutableArray alloc]initWithCapacity:0];
    //NSLog(@"setQTKitZahlTrackVon: %d derOffset: %lld",dieZahl, derOffset.timeValue);
    NSArray* IDArray=[ZahlenDicArray valueForKey:@"ID"];
-   NSLog(@"IDArray: %@",[IDArray description]);
+   //NSLog(@"IDArray: %@",[IDArray description]);
    int GermanOffset=20000;
    int IDOffset=GermanOffset;
    int FehlendeZahl=0;
@@ -873,9 +873,9 @@ return tempStimmenNamenArray;
       NSLog(@"zehnfehler");
       //		goto bail;
    }
-   NSLog(@"ZehnIndex: %ld\t%ld",ZehnIndex,(long)ZehnIndex);
+   //NSLog(@"ZehnIndex: %ld\t%ld",ZehnIndex,(long)ZehnIndex);
    NSString* zehnPfad = [[ZahlenDicArray objectAtIndex:ZehnIndex]objectForKey:@"zahlpfad"];
-   NSLog(@"zehnPfad: %@",zehnPfad);
+  // NSLog(@"zehnPfad: %@",zehnPfad);
    
    if ([fm fileExistsAtPath:zehnPfad])
    {
@@ -889,7 +889,7 @@ return tempStimmenNamenArray;
       [fehlerarray addObject:[NSNumber numberWithInt:100]];
       //return QTZeroTime;
    }
-   NSLog(@"HundertIndex: %ld",HundertIndex);
+  // NSLog(@"HundertIndex: %ld",HundertIndex);
    NSString* hundertPfad = [[ZahlenDicArray objectAtIndex:HundertIndex]objectForKey:@"zahlpfad"];
  
    NSUInteger TausendIndex=[IDArray indexOfObject:[[NSNumber numberWithInt:IDOffset+1000] stringValue]];
@@ -899,7 +899,7 @@ return tempStimmenNamenArray;
       [fehlerarray addObject:[NSNumber numberWithInt:1000]];
       //return QTZeroTime;
    }
-   NSLog(@"TausendIndex: %ld",TausendIndex);
+   //NSLog(@"TausendIndex: %ld",TausendIndex);
    NSString* tausendPfad = [[ZahlenDicArray objectAtIndex:TausendIndex]objectForKey:@"zahlpfad"];
 
    // Tausender feststellen
@@ -917,7 +917,7 @@ return tempStimmenNamenArray;
          [fehlerarray addObject:[NSNumber numberWithInt:Tausender]];
          //return QTZeroTime;
       }
-      NSLog(@"TausenderIndex: %ld",TausenderIndex);
+     // NSLog(@"TausenderIndex: %ld",TausenderIndex);
       NSString* tausenderPfad = [[ZahlenDicArray objectAtIndex:TausenderIndex]objectForKey:@"zahlpfad"];
       
       // Tracks einsetzen
@@ -952,7 +952,7 @@ return tempStimmenNamenArray;
             [fehlerarray addObject:[NSNumber numberWithInt:Hunderter]];
             //return QTZeroTime;
          }
-         NSLog(@"HunderterIndex: %ld",HunderterIndex);
+     //    NSLog(@"HunderterIndex: %ld",HunderterIndex);
          NSString* hunderterPfad = [[ZahlenDicArray objectAtIndex:HunderterIndex]objectForKey:@"zahlpfad"];
 
          
@@ -1192,8 +1192,8 @@ return tempStimmenNamenArray;
    //NSLog(@"setQTKitZahlTrackVon: %d derOffset: %lld",dieZahl, derOffset.timeValue);
    NSArray* IDArray=[ZahlenDicArray valueForKey:@"ID"];
    NSArray* NameArray=[ZahlenDicArray valueForKey:@"name"];
-   NSLog(@"IDArray: %@",[IDArray description]);
-   NSLog(@"NameArray: %@",[NameArray description]);
+   //NSLog(@"IDArray: %@",[IDArray description]);
+   //NSLog(@"NameArray: %@",[NameArray description]);
    int GermanOffset=20000;
    int IDOffset=GermanOffset;
    int FehlendeOperation=0;
@@ -1230,7 +1230,7 @@ return tempStimmenNamenArray;
    }
    //NSLog(@"OpIndex: %ld\t%ld",OpIndex,(long)ZehnIndex);
    NSString* opPfad = [[ZahlenDicArray objectAtIndex:OpIndex]objectForKey:@"zahlpfad"];
-   NSLog(@"opPfad: %@",opPfad);
+   //NSLog(@"opPfad: %@",opPfad);
    
    if ([fm fileExistsAtPath:opPfad])
    {
@@ -1658,7 +1658,7 @@ return tempStimmenNamenArray;
       NSArray* var2Array = [self URLArrayvonZahl:var2];
 
       NSURL* op0URL = [self URLvonOperation:op0];
-      NSLog(@"var0Array: %@",var0Array);
+  //    NSLog(@"var0Array: %@",var0Array);
       [QueueArray removeAllObjects];
       for (int i=0;i<var0Array.count;i++)
       {

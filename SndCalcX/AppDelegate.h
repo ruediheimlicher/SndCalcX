@@ -54,21 +54,25 @@ struct cSeriedaten;
    rTestPanel*                TestPanel;
    rVolumes*                  VolumesPanel;
    rNamenPanel*               NamenPanel;
-   IBOutlet NSPopUpButton*             NamenPopKnopf;
+  
    NSArray*                   AufgabenArray;
    NSArray*                   AufgabenDicArray;
    IBOutlet NSDrawer*          AufgabenDrawer;
    NSTextView*                DrawerView;
    IBOutlet NSMenu*           AblaufMenu;
-   IBOutlet NSPopUpButton*		ZeitPopKnopf;
+   
+   IBOutlet NSPopUpButton*    NamenPopKnopf;
+   IBOutlet NSPopUpButton*		ZeitPpKnopf;
    IBOutlet NSPopUpButton*		AnzahlPopKnopf;
+   
+   
    IBOutlet NSTextField*		AnzahlFeld;
    
    IBOutlet NSButton *			OKTaste;
    IBOutlet NSButton *			ErgebnisseTaste;
    IBOutlet NSImageView *		IconFeld;
    IBOutlet NSView *          IconView;
-   IBOutlet NSView *		DuererFeld;
+   IBOutlet NSView *          DuererFeld;
    IBOutlet NSButton *			StartTaste;
    IBOutlet NSButton *			neueSerieTaste;
    
@@ -84,8 +88,10 @@ struct cSeriedaten;
    IBOutlet NSBox*				RechnungsBox;
    IBOutlet NSBox*				AufgabenBox;
    IBOutlet NSBox*				ZeitBox;
+
    IBOutlet NSTextField*		ZeitFeld;
    IBOutlet NSTextField*		ZeitLimiteFeld;
+
    IBOutlet NSTextField*		AufgabenNummerFeld;
    NSTimer*                   AblaufzeitTimer;
    NSTimer*                   DiplomTimer;
@@ -140,28 +146,28 @@ struct cSeriedaten;
    int						aktuelleAufgabenNummer;
    int						anzRichtig;
    int						anzFehler;
-   BOOL					verify;
+   BOOL                 verify;
    IBOutlet NSImageView*			Bild;
    int						Modus;
    int						Status;
-   BOOL					AufgabeOK;
-   float					Volume;
-   BOOL					TimerValid;
+   BOOL                 AufgabeOK;
+   float                Volume;
+   BOOL                 TimerValid;
    int						UserTimeout;
    int						AdminTimeout;
    int						farbig;
    
-   NSTimer*				AdminTimeoutTimer;
+   NSTimer*             AdminTimeoutTimer;
    rPasswortRequest*		PasswortRequest;
-   BOOL					mitAdminPasswort;
-   BOOL					AdminPWOK;
+   BOOL                 mitAdminPasswort;
+   BOOL                 AdminPWOK;
    NSMutableDictionary*	AdminPasswortDic;
-   NSTimer*				TeminateAdminPWTimer;
+   NSTimer*             TeminateAdminPWTimer;
    NSDate*					SessionDatum;
    NSString*				Stimme;
    NSMutableDictionary*	QuittungDic;
    
-   NSTimer* falschesZeichenTimer;
+   NSTimer*             falschesZeichenTimer;
 
 }
 - (NSWindow*)window;

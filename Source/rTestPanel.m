@@ -2419,7 +2419,7 @@ NSLog(@"reportSettingAlsTestSichern: SerieDatenDic: %@",[SerieDatenDic descripti
 
 //[TestPanel selectEingabeFeld];
 //[TestPanel setAnzahl:[AnzahlPopKnopf indexOfSelectedItem]];
-//[TestPanel setZeit:[ZeitPopKnopf indexOfSelectedItem]];
+//[TestPanel setZeit:[ZeitPpKnopf indexOfSelectedItem]];
 
 }
 

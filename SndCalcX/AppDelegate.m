@@ -404,6 +404,7 @@ const short     kSerieFertig = 5003;
       [ZeitFeld setStringValue:@"0"];
       [ZeitFeld display];
       [ZeitFeld setToolTip:@"Restzeit"];
+      
       //[OKTaste setToolTip:@"Eingabe fertig"];
       //[StartTaste setToolTip:@"Aufgabe ausgeben"];
       //[ErgebnisFeld setDelegate:self];
@@ -471,14 +472,14 @@ const short     kSerieFertig = 5003;
       
       //NSMutableArray* TestDicArray=(NSMutableArray*)
       
-      //NSLog(@"ZeitArray aus Pop: %@",[[ZeitPopKnopf itemArray] description]);
+      //NSLog(@"ZeitArray aus Pop: %@",[[ZeitPpKnopf itemArray] description]);
       NSArray* ZeitArray=[NSArray arrayWithObjects:@"120 s",@"90 s",@"60 s",@"30 s",@"10 s",nil];
       //NSLog(@"ZeitArray: %@",[ZeitArray description]);
       
-      [ZeitPopKnopf removeAllItems];
-      [ZeitPopKnopf addItemsWithTitles:ZeitArray];
-      //	[self DebugStep:@"nach ZeitPopKnopf"];
-      NSEnumerator* ItemEnum=[[ZeitPopKnopf itemArray] objectEnumerator];
+      [ZeitPpKnopf removeAllItems];
+      [ZeitPpKnopf addItemsWithTitles:ZeitArray];
+      //	[self DebugStep:@"nach ZeitPpKnopf"];
+      NSEnumerator* ItemEnum=[[ZeitPpKnopf itemArray] objectEnumerator];
       id einItem;
       while (einItem=[ItemEnum nextObject])
       {
@@ -504,8 +505,8 @@ const short     kSerieFertig = 5003;
       
       
       
-      //NSLog(@"ZeitArray aus Pop nach load: %@",[[ZeitPopKnopf itemArray] description]);
-      [ZeitPopKnopf selectItemAtIndex:0];
+      //NSLog(@"ZeitArray aus Pop nach load: %@",[[ZeitPpKnopf itemArray] description]);
+      [ZeitPpKnopf selectItemAtIndex:0];
       
       if (TestDicArray &&[TestDicArray count])
       {
@@ -534,12 +535,12 @@ const short     kSerieFertig = 5003;
       {
          [TestPopKnopf setEnabled: NO];
          [ModusOption selectCellAtRow:1 column:0];
-         [ZeitPopKnopf setEnabled:YES];
+         [ZeitPpKnopf setEnabled:YES];
          [AnzahlPopKnopf setEnabled:YES];
          
          
       }
-      
+      [AnzahlPopKnopf setEnabled:YES];
       //[self DebugStep:@"nach setTestPopKnopf"];
       //NSLog(@"awake: SndCalcPfad: %@",SndCalcPfad);
       NSMutableArray* tempNamenDicArray=(NSMutableArray*)[Utils NamenDicArrayAnPfad:SndCalcPfad];
@@ -591,7 +592,7 @@ const short     kSerieFertig = 5003;
       [[AblaufMenu itemWithTag:kStimmeTag] setAction:@selector(showStimmenPanel:)];
       
       [NamenPopKnopf setToolTip:NSLocalizedString(@"Choose a name.",@"Einen Namen auswählen.")];
-      [ZeitPopKnopf setToolTip:NSLocalizedString(@"Only in training mode:\n Maximal amount of time for a serie.",@"Zeit wählen.")];
+      [ZeitPpKnopf setToolTip:NSLocalizedString(@"Only in training mode:\n Maximal amount of time for a serie.",@"Zeit wählen.")];
       [AnzahlPopKnopf setToolTip:NSLocalizedString(@"Only in training mode:\n Numer of tasks in a serie.",@"Anzahl wählen.")];
       [OKTaste setToolTip:NSLocalizedString(@"Check the result.",@"Ergebnis testen.")];
       [StartTaste setToolTip:NSLocalizedString(@"Start the serie of tasks.",@"Die Aufgabenserie starten.")];
@@ -1430,7 +1431,7 @@ const short     kSerieFertig = 5003;
    [tempPListDic addEntriesFromDictionary:AddSubSettingsDic];
    //NSLog(@"tempPListDic mit Add: %@",[tempPListDic description]);
    [tempPListDic setObject:[NSNumber numberWithInt:[[AnzahlPopKnopf titleOfSelectedItem]intValue]] forKey:@"anzahlaufgaben"];
-   [tempPListDic setObject:[NSNumber numberWithInt:[[ZeitPopKnopf titleOfSelectedItem]intValue]] forKey:@"zeit"];
+   [tempPListDic setObject:[NSNumber numberWithInt:[[ZeitPpKnopf titleOfSelectedItem]intValue]] forKey:@"zeit"];
    return  tempPListDic;
 }
 
@@ -1734,8 +1735,8 @@ const short     kSerieFertig = 5003;
    if (Modus==kTrainingModus)
    {
       RechnungSeriedaten.AnzahlAufgaben=[[AnzahlPopKnopf selectedItem]tag];
-      RechnungSeriedaten.Zeit=[[ZeitPopKnopf selectedItem]tag];
-      [ZeitPopKnopf setHidden:NO];
+      RechnungSeriedaten.Zeit=[[ZeitPpKnopf selectedItem]tag];
+      [ZeitPpKnopf setHidden:NO];
       [AnzahlPopKnopf setHidden:NO];
       [ZeitLimiteFeld setHidden:YES];
       [AnzahlFeld setHidden:YES];
@@ -1743,10 +1744,17 @@ const short     kSerieFertig = 5003;
    }
    else
    {
-      [ZeitPopKnopf setHidden:YES];
+      [ZeitPpKnopf setHidden:YES];
       [AnzahlPopKnopf setHidden:YES];
       [ZeitLimiteFeld setHidden:NO];
       [AnzahlFeld setHidden:NO];
+
+      /*
+      [ZeitPpKnopf setHidden:YES];
+      [AnzahlPopKnopf setHidden:YES];
+      [ZeitLimiteFeld setHidden:NO];
+      [AnzahlFeld setHidden:NO];
+       */
       
    }
    
@@ -1758,10 +1766,10 @@ const short     kSerieFertig = 5003;
    AnzahlAufgaben=RechnungSeriedaten.AnzahlAufgaben;
    
    [AnzahlPopKnopf selectItemAtIndex:[AnzahlPopKnopf indexOfItemWithTag:RechnungSeriedaten.AnzahlAufgaben]];
-   [ZeitPopKnopf selectItemAtIndex:[ZeitPopKnopf indexOfItemWithTag:RechnungSeriedaten.Zeit]];
+   [ZeitPpKnopf selectItemAtIndex:[ZeitPpKnopf indexOfItemWithTag:RechnungSeriedaten.Zeit]];
    //AnzahlAufgaben=[[AnzahlPopKnopf titleOfSelectedItem]intValue];
    //NSLog(@"					AnzahlAufgaben: %d",AnzahlAufgaben);
-   //MaximalZeit=[[ZeitPopKnopf titleOfSelectedItem]intValue];
+   //MaximalZeit=[[ZeitPpKnopf titleOfSelectedItem]intValue];
    aktuelleAufgabenNummer=1;
    [StartTaste setTitle:NSLocalizedString(@"Start",@"Start")];
    [AufgabenNummerFeld setIntValue:1];
@@ -1867,7 +1875,7 @@ const short     kSerieFertig = 5003;
       //Ergebnis
       [tempAufgabenDic setObject:[NSNumber numberWithInt:tempAufgabendaten->var[2]]
                           forKey:@"var2"];
-      NSLog(@"tempAufgabenDic: %@",[tempAufgabenDic description]);
+      //NSLog(@"tempAufgabenDic: %@",[tempAufgabenDic description]);
       [tempAufgabenArray addObject:tempAufgabenDic];
       
    }
@@ -2181,8 +2189,8 @@ const short     kSerieFertig = 5003;
    if (Modus==kTrainingModus)
    {
       RechnungSeriedaten.AnzahlAufgaben=[[AnzahlPopKnopf selectedItem]tag];
-      RechnungSeriedaten.Zeit=[[ZeitPopKnopf selectedItem]tag];
-      [ZeitPopKnopf setHidden:NO];
+      RechnungSeriedaten.Zeit=[[ZeitPpKnopf selectedItem]tag];
+      [ZeitPpKnopf setHidden:NO];
       [AnzahlPopKnopf setHidden:NO];
       [ZeitLimiteFeld setHidden:YES];
       [AnzahlFeld setHidden:YES];
@@ -2190,7 +2198,7 @@ const short     kSerieFertig = 5003;
    }
    else
    {
-      [ZeitPopKnopf setHidden:YES];
+      [ZeitPpKnopf setHidden:YES];
       [AnzahlPopKnopf setHidden:YES];
       [ZeitLimiteFeld setHidden:NO];
       [AnzahlFeld setHidden:NO];
@@ -2205,10 +2213,10 @@ const short     kSerieFertig = 5003;
    AnzahlAufgaben=RechnungSeriedaten.AnzahlAufgaben;
    
    [AnzahlPopKnopf selectItemAtIndex:[AnzahlPopKnopf indexOfItemWithTag:RechnungSeriedaten.AnzahlAufgaben]];
-   [ZeitPopKnopf selectItemAtIndex:[ZeitPopKnopf indexOfItemWithTag:RechnungSeriedaten.Zeit]];
+   [ZeitPpKnopf selectItemAtIndex:[ZeitPpKnopf indexOfItemWithTag:RechnungSeriedaten.Zeit]];
    //AnzahlAufgaben=[[AnzahlPopKnopf titleOfSelectedItem]intValue];
    //NSLog(@"					AnzahlAufgaben: %d",AnzahlAufgaben);
-   //MaximalZeit=[[ZeitPopKnopf titleOfSelectedItem]intValue];
+   //MaximalZeit=[[ZeitPpKnopf titleOfSelectedItem]intValue];
    aktuelleAufgabenNummer=1;
    [StartTaste setTitle:NSLocalizedString(@"Start",@"LOS")];
    [AufgabenNummerFeld setIntValue:1];
@@ -2481,7 +2489,7 @@ const short     kSerieFertig = 5003;
    rSeriedaten* tempSerieDaten;
    tempSerieDaten.AnzahlAufgaben=[[AnzahlPopKnopf titleOfSelectedItem]intValue];
    
-   tempSerieDaten.Zeit=[[ZeitPopKnopf titleOfSelectedItem]intValue];
+   tempSerieDaten.Zeit=[[ZeitPpKnopf titleOfSelectedItem]intValue];
    
    //Multiplikation
    NSDictionary* tempReihenSettingsDic=[ReihenSettings getSettings];
@@ -2726,7 +2734,7 @@ const short     kSerieFertig = 5003;
    NSMutableDictionary* tempDic=[[NSMutableDictionary alloc]initWithCapacity:0];
    [tempDic setObject:[NSNumber numberWithInt:[[AnzahlPopKnopf titleOfSelectedItem]intValue]] forKey:@"anzahlaufgaben"];
    //	NSLog(@"SerieDatenDicAusSettings	1");
-   [tempDic setObject:[NSNumber numberWithInt:[[ZeitPopKnopf titleOfSelectedItem]intValue]] forKey:@"zeit"];
+   [tempDic setObject:[NSNumber numberWithInt:[[ZeitPpKnopf titleOfSelectedItem]intValue]] forKey:@"zeit"];
    //	NSLog(@"SerieDatenDicAusSettings	2");
    //Multiplikation
    NSDictionary* tempReihenSettingsDic=[ReihenSettings getSettings];
@@ -2841,7 +2849,7 @@ const short     kSerieFertig = 5003;
 {
    return;
    [NamenPopKnopf setEnabled:derStatus];
-   [ZeitPopKnopf setEnabled:derStatus];
+   [ZeitPpKnopf setEnabled:derStatus];
    [AnzahlPopKnopf setEnabled:derStatus];
    [OKTaste setEnabled:derStatus];
    [StartTaste setEnabled:derStatus];
@@ -3981,7 +3989,7 @@ const short     kSerieFertig = 5003;
 }
 -(IBAction)toggleDrawer:(id)sender
 {
-   //NSLog(@"toggleDrawer state: %d  OK: %d  Modus: %d",[sender state],OK,Modus);
+   NSLog(@"toggleDrawer state: %d  AufgabeOK: %d  Modus: %d",[sender state],AufgabeOK,Modus);
    [self closeSessionDrawer:NULL];
    if (AufgabeOK)
    {
@@ -4040,7 +4048,7 @@ const short     kSerieFertig = 5003;
                   [StartTaste setEnabled:NO];
                   [neueSerieTaste  setEnabled:YES];
                   [AnzahlPopKnopf  setEnabled:YES];
-                  [ZeitPopKnopf  setEnabled:YES];
+                  [ZeitPpKnopf  setEnabled:YES];
                   [StartTaste setKeyEquivalent:@""];
                   //						[SettingsPfeil setKeyEquivalent:@"\r"];
                   //						[[self window]makeFirstResponder:SettingsPfeil];
@@ -4100,7 +4108,7 @@ const short     kSerieFertig = 5003;
       [StartTaste setEnabled:NO];
       [neueSerieTaste  setEnabled:YES];
       [AnzahlPopKnopf  setEnabled:YES];
-      [ZeitPopKnopf  setEnabled:YES];
+      [ZeitPpKnopf  setEnabled:YES];
       [StartTaste setKeyEquivalent:@""];
       [SettingAlsTestSichernTaste setKeyEquivalent:@"\r"];
       [[self window]makeFirstResponder:SettingAlsTestSichernTaste];
@@ -4123,7 +4131,7 @@ const short     kSerieFertig = 5003;
    [self showTestPanel:NULL];
    [TestPanel selectEingabeFeld];
    [TestPanel setAnzahl:[AnzahlPopKnopf indexOfSelectedItem]];
-   [TestPanel setZeit:[ZeitPopKnopf indexOfSelectedItem]];
+   [TestPanel setZeit:[ZeitPpKnopf indexOfSelectedItem]];
    
 }
 
@@ -4796,14 +4804,14 @@ const short     kSerieFertig = 5003;
       [self closeSessionDrawer:NULL];
       Modus=kTestModus;
       [AnzahlPopKnopf setEnabled:NO];
-      [ZeitPopKnopf setEnabled:NO];
+      [ZeitPpKnopf setEnabled:NO];
       [SettingsPfeil setEnabled: NO];
       [self closeDrawer:NULL];
       [self resetTest];
       [self neueSerie:NULL];
       [NamenPopKnopf setEnabled:YES];
       [TestPopKnopf setEnabled:NO];
-      [ZeitPopKnopf setHidden:YES];
+      [ZeitPpKnopf setHidden:YES];
       [AnzahlPopKnopf setHidden:YES];
       [ZeitLimiteFeld setHidden:NO];
       [AnzahlFeld setHidden:NO];
@@ -4813,12 +4821,12 @@ const short     kSerieFertig = 5003;
    {
       Modus=kTrainingModus;
       [AnzahlPopKnopf setEnabled:YES];
-      [ZeitPopKnopf setEnabled:YES];
+      [ZeitPpKnopf setEnabled:YES];
       [SettingsPfeil setEnabled: YES];
       [NamenPopKnopf setEnabled:NO];
       [TestPopKnopf setEnabled:NO];
       [self stopTimeout];
-      [ZeitPopKnopf setHidden:NO];
+      [ZeitPpKnopf setHidden:NO];
       [AnzahlPopKnopf setHidden:NO];
       [ZeitLimiteFeld setHidden:YES];
       [AnzahlFeld setHidden:YES];
@@ -5919,11 +5927,11 @@ const short     kSerieFertig = 5003;
          
          if (Modus==kTrainingModus)
          {
-            [TestPanel setZeitItems:[ZeitPopKnopf itemTitles] mitItem:[ZeitPopKnopf indexOfSelectedItem]];
+            [TestPanel setZeitItems:[ZeitPpKnopf itemTitles] mitItem:[ZeitPpKnopf indexOfSelectedItem]];
          }
          else
          {
-            [TestPanel setZeitItems:[ZeitPopKnopf itemTitles] mitItem:0];
+            [TestPanel setZeitItems:[ZeitPpKnopf itemTitles] mitItem:0];
          }
          
       }
@@ -5956,7 +5964,7 @@ const short     kSerieFertig = 5003;
          //		modalAntwort=[NSApp runModalForWindow:[TestPanel window]];
          [TestPanel showWindow:NULL];
          [TestPanel setAnzahlItems:[AnzahlPopKnopf itemTitles] mitItem:[AnzahlPopKnopf indexOfSelectedItem]];
-         [TestPanel setZeitItems:[ZeitPopKnopf itemTitles] mitItem:[ZeitPopKnopf indexOfSelectedItem]];
+         [TestPanel setZeitItems:[ZeitPpKnopf itemTitles] mitItem:[ZeitPpKnopf indexOfSelectedItem]];
          [[TestPanel window] makeKeyAndOrderFront:NULL];
          
          //		[NSApp endModalSession:TestLauf];
@@ -6038,7 +6046,7 @@ const short     kSerieFertig = 5003;
             Modus=kTestModus;
             [ModusOption selectCellAtRow:0 column:0];
             [AnzahlPopKnopf setEnabled:NO];
-            [ZeitPopKnopf setEnabled:NO];
+            [ZeitPpKnopf setEnabled:NO];
             
             
             
@@ -6170,7 +6178,7 @@ const short     kSerieFertig = 5003;
       if ([[note userInfo]objectForKey:@"zeit"])
       {
          NSString* ZeitString=[[note userInfo]objectForKey:@"zeit"];
-         [ZeitPopKnopf selectItemWithTitle:[[note userInfo]objectForKey:@"zeit"]];
+         [ZeitPpKnopf selectItemWithTitle:[[note userInfo]objectForKey:@"zeit"]];
          [ZeitFeld setIntValue:[ZeitString intValue]];
       }
       
@@ -6182,7 +6190,7 @@ const short     kSerieFertig = 5003;
       [self openDrawer:self];
    }
    
-   [TestPanel setZeitItems:[ZeitPopKnopf itemTitles] mitItem:[ZeitPopKnopf indexOfSelectedItem]];
+   [TestPanel setZeitItems:[ZeitPpKnopf itemTitles] mitItem:[ZeitPpKnopf indexOfSelectedItem]];
    [TestPanel setAnzahlItems:[AnzahlPopKnopf itemTitles] mitItem:[AnzahlPopKnopf indexOfSelectedItem]];
    
    BOOL en=NO;

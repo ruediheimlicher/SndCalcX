@@ -16,11 +16,10 @@
         <customObject id="Voe-Tx-rLC" customClass="AppDelegate">
             <connections>
                 <outlet property="AnzahlFeld" destination="fwt-sq-Ojn" id="ou1-cu-6LO"/>
-                <outlet property="AnzahlPopKnopf" destination="UEb-eS-501" id="s14-bB-RoM"/>
+                <outlet property="AufgabenBox" destination="5LQ-NU-ssQ" id="L0l-Fd-yih"/>
                 <outlet property="AufgabenDrawer" destination="mBB-9v-0fR" id="ddE-wD-1HF"/>
                 <outlet property="AufgabenNummerFeld" destination="ZVw-yW-5fZ" id="vVx-bw-9XG"/>
                 <outlet property="Bild" destination="Ame-SR-3fT" id="PNC-ws-RNz"/>
-                <outlet property="DrawerSchliessenTaste" destination="Q7h-CK-zFA" id="U44-Yh-fYI"/>
                 <outlet property="ErgebnisFeld" destination="3TR-dk-PRw" id="lL8-j9-zMm"/>
                 <outlet property="ErgebnisRahmenFeld" destination="o8i-8h-chC" id="ZWs-M6-2PW"/>
                 <outlet property="ErgebnisseTaste" destination="Qgh-jV-RFy" id="GaW-Uk-WRC"/>
@@ -31,11 +30,14 @@
                 <outlet property="SessionDatumFeld" destination="fa6-52-HLq" id="8ls-fC-uZq"/>
                 <outlet property="SessionDrawer" destination="c7i-9t-a0e" id="jJq-sj-2yO"/>
                 <outlet property="SessionTable" destination="wLu-oD-aPw" id="zy0-7K-rMC"/>
+                <outlet property="SettingsPfeil" destination="O7j-3f-4nk" id="8YY-Bf-9nW"/>
                 <outlet property="StartTaste" destination="Ekv-i0-nnw" id="I7U-1h-QfK"/>
                 <outlet property="TestPopKnopf" destination="eIH-ID-Kel" id="oF4-cc-5z1"/>
-                <outlet property="ZeitFeld" destination="ZHi-Eb-NUY" id="cja-Op-osS"/>
-                <outlet property="ZeitLimiteFeld" destination="APM-ZC-vLe" id="mcD-dp-phn"/>
-                <outlet property="ZeitPopKnopf" destination="6KR-eb-dHv" id="Hi9-LQ-MlK"/>
+                <outlet property="VolumeSchieber" destination="0kM-KI-Hmz" id="IfJ-t5-OQu"/>
+                <outlet property="ZeitBox" destination="QYv-ru-evk" id="hg1-Md-Jt7"/>
+                <outlet property="ZeitFeld" destination="VqP-Ix-2G9" id="d2f-En-oNM"/>
+                <outlet property="ZeitLimiteFeld" destination="APM-ZC-vLe" id="IJV-9h-AYr"/>
+                <outlet property="ZeitPpKnopf" destination="6KR-eb-dHv" id="J3P-ib-lNm"/>
                 <outlet property="neueSerieTaste" destination="EDN-OK-hL0" id="Kuj-AF-9Te"/>
                 <outlet property="window" destination="QvC-M9-y7g" id="gIp-Ho-8D9"/>
             </connections>
@@ -734,14 +736,14 @@
         <window title="SndCalcX" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" animationBehavior="default" id="QvC-M9-y7g">
             <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
-            <rect key="contentRect" x="335" y="390" width="672" height="463"/>
+            <rect key="contentRect" x="335" y="390" width="672" height="468"/>
             <rect key="screenRect" x="0.0" y="0.0" width="1680" height="1027"/>
             <view key="contentView" id="EiT-Mj-1SZ">
-                <rect key="frame" x="0.0" y="0.0" width="672" height="463"/>
+                <rect key="frame" x="0.0" y="0.0" width="672" height="468"/>
                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                 <subviews>
                     <view fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="uns-Wt-min">
-                        <rect key="frame" x="0.0" y="72" width="815" height="391"/>
+                        <rect key="frame" x="0.0" y="77" width="815" height="391"/>
                         <subviews>
                             <box fixedFrame="YES" title="Box" titlePosition="noTitle" translatesAutoresizingMaskIntoConstraints="NO" id="523-1u-pna">
                                 <rect key="frame" x="10" y="235" width="467" height="151"/>
@@ -816,6 +818,9 @@
                                                 <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                 <font key="font" metaFont="system"/>
                                             </buttonCell>
+                                            <connections>
+                                                <action selector="toggleAufgabenDrawer:" target="Voe-Tx-rLC" id="RKu-F4-wXR"/>
+                                            </connections>
                                         </button>
                                         <customView fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3TR-dk-PRw" customClass="rErgebnisFeld">
                                             <rect key="frame" x="271" y="40" width="84" height="36"/>
@@ -832,25 +837,6 @@
                                     <rect key="frame" x="2" y="2" width="463" height="64"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
-                                        <popUpButton verticalHuggingPriority="750" fixedFrame="YES" tag="16" translatesAutoresizingMaskIntoConstraints="NO" id="UEb-eS-501">
-                                            <rect key="frame" x="385" y="37" width="70" height="22"/>
-                                            <popUpButtonCell key="cell" type="push" title="24" bezelStyle="rounded" alignment="left" controlSize="small" lineBreakMode="truncatingTail" enabled="NO" state="on" borderStyle="border" tag="24" inset="2" arrowPosition="arrowAtCenter" preferredEdge="maxY" selectedItem="cTp-QI-aBr" id="Yg8-WJ-rCO">
-                                                <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
-                                                <font key="font" metaFont="smallSystem"/>
-                                                <menu key="menu" title="OtherViews" id="QgG-Kb-Kg2">
-                                                    <items>
-                                                        <menuItem title="24" state="on" tag="24" id="cTp-QI-aBr"/>
-                                                        <menuItem title="16" tag="16" id="B3D-6c-kB1"/>
-                                                        <menuItem title="12" tag="12" id="fD3-if-4aK"/>
-                                                        <menuItem title="6" tag="6" id="dbK-9l-ay8"/>
-                                                        <menuItem title="2" tag="2" id="bqj-zJ-Hq2"/>
-                                                    </items>
-                                                </menu>
-                                            </popUpButtonCell>
-                                            <connections>
-                                                <action selector="setAnzahlAufgaben:" target="Voe-Tx-rLC" id="ys2-Me-b6f"/>
-                                            </connections>
-                                        </popUpButton>
                                         <textField verticalHuggingPriority="750" fixedFrame="YES" preferredMaxLayoutWidth="56" translatesAutoresizingMaskIntoConstraints="NO" id="ZqM-Ak-CsG">
                                             <rect key="frame" x="305" y="42" width="60" height="17"/>
                                             <textFieldCell key="cell" sendsActionOnEndEditing="YES" alignment="right" title="Anzahl:" id="zhY-qV-mUK">
@@ -867,9 +853,28 @@
                                                 <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                             </textFieldCell>
                                         </textField>
+                                        <popUpButton verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fv7-2l-GhJ">
+                                            <rect key="frame" x="379" y="35" width="76" height="26"/>
+                                            <popUpButtonCell key="cell" type="push" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" borderStyle="border" inset="2" id="9Hg-3I-guA">
+                                                <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
+                                                <font key="font" metaFont="menu"/>
+                                                <menu key="menu" id="6Li-bW-fv0">
+                                                    <items>
+                                                        <menuItem title="6" id="pnD-f3-KOm"/>
+                                                        <menuItem title="12" state="on" id="6Hy-KK-zDs">
+                                                            <modifierMask key="keyEquivalentModifierMask" option="YES" command="YES"/>
+                                                        </menuItem>
+                                                        <menuItem title="24" id="OkA-d6-K8N"/>
+                                                    </items>
+                                                </menu>
+                                            </popUpButtonCell>
+                                            <connections>
+                                                <action selector="setAnzahlAufgaben:" target="Voe-Tx-rLC" id="YyP-Pd-DbY"/>
+                                            </connections>
+                                        </popUpButton>
                                         <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fwt-sq-Ojn">
-                                            <rect key="frame" x="374" y="24" width="79" height="17"/>
-                                            <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" state="on" alignment="right" id="WsC-82-Ph9">
+                                            <rect key="frame" x="376" y="37" width="81" height="21"/>
+                                            <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" state="on" alignment="right" drawsBackground="YES" id="WsC-82-Ph9">
                                                 <font key="font" metaFont="cellTitle"/>
                                                 <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
                                                 <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -887,38 +892,11 @@
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <textField verticalHuggingPriority="750" fixedFrame="YES" preferredMaxLayoutWidth="48" translatesAutoresizingMaskIntoConstraints="NO" id="QaZ-SO-Lqn">
-                                            <rect key="frame" x="313" y="36" width="52" height="16"/>
+                                            <rect key="frame" x="310" y="37" width="52" height="16"/>
                                             <textFieldCell key="cell" sendsActionOnEndEditing="YES" alignment="right" title="Limite:" id="TM6-7F-Esb">
                                                 <font key="font" metaFont="system"/>
                                                 <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                 <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                                            </textFieldCell>
-                                        </textField>
-                                        <popUpButton verticalHuggingPriority="750" fixedFrame="YES" tag="120" translatesAutoresizingMaskIntoConstraints="NO" id="6KR-eb-dHv">
-                                            <rect key="frame" x="380" y="31" width="74" height="22"/>
-                                            <popUpButtonCell key="cell" type="push" title="120 s" bezelStyle="rounded" alignment="left" controlSize="small" lineBreakMode="truncatingTail" enabled="NO" state="on" borderStyle="borderAndBezel" tag="120" inset="2" arrowPosition="arrowAtCenter" preferredEdge="maxY" selectedItem="NXH-ez-FAx" id="s2w-7r-ite">
-                                                <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
-                                                <font key="font" metaFont="smallSystem"/>
-                                                <menu key="menu" title="OtherViews" id="NDw-bs-8Hn">
-                                                    <items>
-                                                        <menuItem title="120 s" state="on" tag="120" id="NXH-ez-FAx"/>
-                                                        <menuItem title="90 s" tag="90" id="Psw-0N-Kka"/>
-                                                        <menuItem title="60 s" tag="60" id="kvk-CC-u2e"/>
-                                                        <menuItem title="30 s" tag="30" id="w5K-BP-LJU"/>
-                                                        <menuItem title="10 s" tag="10" id="Sug-iM-Ztg"/>
-                                                    </items>
-                                                </menu>
-                                            </popUpButtonCell>
-                                            <connections>
-                                                <action selector="setMaxZeit:" target="Voe-Tx-rLC" id="WDe-Dw-R18"/>
-                                            </connections>
-                                        </popUpButton>
-                                        <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ZHi-Eb-NUY">
-                                            <rect key="frame" x="409" y="9" width="45" height="22"/>
-                                            <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" alignment="center" drawsBackground="YES" id="JDm-ma-h9x">
-                                                <font key="font" metaFont="cellTitle"/>
-                                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                                <color key="backgroundColor" red="0.93367350100000002" green="0.44791018960000001" blue="0.070088051260000006" alpha="1" colorSpace="calibratedRGB"/>
                                             </textFieldCell>
                                         </textField>
                                         <textField verticalHuggingPriority="750" fixedFrame="YES" preferredMaxLayoutWidth="110" translatesAutoresizingMaskIntoConstraints="NO" id="CpW-tE-REB">
@@ -929,8 +907,35 @@
                                                 <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                             </textFieldCell>
                                         </textField>
+                                        <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="VqP-Ix-2G9">
+                                            <rect key="frame" x="411" y="5" width="37" height="21"/>
+                                            <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" alignment="center" drawsBackground="YES" id="Kh3-3R-vsb">
+                                                <font key="font" metaFont="cellTitle"/>
+                                                <color key="textColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                <color key="backgroundColor" red="1" green="0.087442080529999994" blue="0.11901216570000001" alpha="1" colorSpace="calibratedRGB"/>
+                                            </textFieldCell>
+                                        </textField>
+                                        <popUpButton fixedFrame="YES" tag="120" translatesAutoresizingMaskIntoConstraints="NO" id="6KR-eb-dHv">
+                                            <rect key="frame" x="386" y="33" width="62" height="18"/>
+                                            <popUpButtonCell key="cell" type="bevel" title="30 s" bezelStyle="rounded" alignment="center" controlSize="small" lineBreakMode="truncatingTail" state="on" tag="30" inset="2" arrowPosition="arrowAtCenter" preferredEdge="maxY" selectedItem="w5K-BP-LJU" id="s2w-7r-ite">
+                                                <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
+                                                <font key="font" metaFont="smallSystem"/>
+                                                <menu key="menu" title="OtherViews" id="NDw-bs-8Hn">
+                                                    <items>
+                                                        <menuItem title="120 s" tag="120" id="NXH-ez-FAx"/>
+                                                        <menuItem title="90 s" tag="90" id="Psw-0N-Kka"/>
+                                                        <menuItem title="60 s" tag="60" id="kvk-CC-u2e"/>
+                                                        <menuItem title="30 s" state="on" tag="30" id="w5K-BP-LJU"/>
+                                                        <menuItem title="10 s" tag="10" id="Sug-iM-Ztg"/>
+                                                    </items>
+                                                </menu>
+                                            </popUpButtonCell>
+                                            <connections>
+                                                <action selector="setMaxZeit:" target="Voe-Tx-rLC" id="kas-Wd-KEU"/>
+                                            </connections>
+                                        </popUpButton>
                                         <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="APM-ZC-vLe">
-                                            <rect key="frame" x="357" y="9" width="88" height="17"/>
+                                            <rect key="frame" x="366" y="31" width="91" height="21"/>
                                             <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" state="on" alignment="right" id="yiY-lD-8ur">
                                                 <font key="font" metaFont="cellTitle"/>
                                                 <color key="textColor" red="1" green="0.2118092775" blue="0.026102542879999999" alpha="1" colorSpace="calibratedRGB"/>
@@ -988,15 +993,19 @@
                                         </matrix>
                                         <popUpButton verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="eIH-ID-Kel">
                                             <rect key="frame" x="153" y="38" width="297" height="26"/>
-                                            <popUpButtonCell key="cell" type="push" title="Training" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" enabled="NO" state="on" borderStyle="borderAndBezel" inset="2" arrowPosition="arrowAtCenter" preferredEdge="maxY" selectedItem="pof-33-Iqy" id="NN4-Dz-Pc4">
+                                            <popUpButtonCell key="cell" type="push" title="Test" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" enabled="NO" state="on" borderStyle="borderAndBezel" inset="2" arrowPosition="arrowAtCenter" preferredEdge="maxY" selectedItem="X6o-lb-MSI" id="NN4-Dz-Pc4">
                                                 <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
                                                 <font key="font" metaFont="menu"/>
                                                 <menu key="menu" title="OtherViews" id="j3I-62-v9E">
                                                     <items>
-                                                        <menuItem title="Training" state="on" id="pof-33-Iqy"/>
+                                                        <menuItem title="Training" id="pof-33-Iqy"/>
+                                                        <menuItem title="Test" state="on" id="X6o-lb-MSI"/>
                                                     </items>
                                                 </menu>
                                             </popUpButtonCell>
+                                            <connections>
+                                                <action selector="setTest:" target="Voe-Tx-rLC" id="jwR-lh-wjT"/>
+                                            </connections>
                                         </popUpButton>
                                         <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="O7j-3f-4nk">
                                             <rect key="frame" x="156" y="10" width="135" height="23"/>
@@ -1004,6 +1013,9 @@
                                                 <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
                                                 <font key="font" metaFont="system"/>
                                             </buttonCell>
+                                            <connections>
+                                                <action selector="toggleDrawer:" target="Voe-Tx-rLC" id="9tU-c2-cCv"/>
+                                            </connections>
                                         </button>
                                     </subviews>
                                 </view>
@@ -1111,13 +1123,9 @@
                             </button>
                         </subviews>
                     </view>
-                    <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="apd-xk-chR">
-                        <rect key="frame" x="308" y="18" width="48" height="48"/>
-                        <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="Adam_Ries" id="xzI-Pm-N5O"/>
-                    </imageView>
                 </subviews>
             </view>
-            <point key="canvasLocation" x="303" y="271.5"/>
+            <point key="canvasLocation" x="341" y="265"/>
         </window>
         <customView id="wpH-xU-io3" userLabel="View">
             <rect key="frame" x="0.0" y="0.0" width="635" height="162"/>
@@ -1251,7 +1259,7 @@
                     </tableHeaderView>
                 </scrollView>
             </subviews>
-            <point key="canvasLocation" x="-61" y="711"/>
+            <point key="canvasLocation" x="-62" y="753"/>
         </customView>
         <drawer preferredEdge="minY" trailingOffset="15" id="c7i-9t-a0e">
             <size key="contentSize" width="200" height="200"/>
@@ -1263,9 +1271,11 @@
                 <outlet property="parentWindow" destination="QvC-M9-y7g" id="1yy-OX-UyK"/>
             </connections>
         </drawer>
+        <menuItem title="Training" state="on" id="hUY-hi-HlR"/>
+        <menuItem title="Training" state="on" id="HKp-hS-5FX"/>
+        <menuItem title="Training" state="on" id="2Ci-E0-0qg"/>
     </objects>
     <resources>
-        <image name="Adam_Ries" width="128" height="128"/>
         <image name="duerergrau" width="267" height="271"/>
     </resources>
 </document>
