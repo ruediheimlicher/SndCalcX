@@ -279,17 +279,108 @@ short Minvon(short ersteZahl, short zweiteZahl);
    return tempdaten;
 }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 - (NSMutableArray*)neueRechnungserie:(rSeriedaten*)dieSeriedaten ;
 {
    NSMutableArray* returnAufgabenArray = [[NSMutableArray alloc]initWithCapacity:0];
-   //fprintf(stderr,"neueSerie Start\n");
+   printf("neueRechnungserie Start anz: %d\n",dieSeriedaten.AnzahlAufgaben);
 //   cRechnungSeriedaten = [self Objc2CmitSeriedaten:dieSeriedaten];
    //cRechnungSeriedaten.AnzahlAufgaben=dieSeriedaten.AnzahlAufgaben;
    //srand([[NSDate date] timeIntervalSince1970]);
    //printf("neueSerie 1\n");
    //int anzahl=10;
    int anzaufgaben = dieSeriedaten.AnzahlAufgaben;
-   NSLog(@"Rechnungserie neueRechnungserie dieSeriedaten anz: %d Add: %d Sub: %d Mult: %d",anzaufgaben,dieSeriedaten.Addition,dieSeriedaten.Subtraktion,dieSeriedaten.Multiplikation );
+   NSLog(@"Rechnungserie neueRechnungserie dieSeriedaten \nanz: %d \nAdd: %d \nSub: %d \nMult: %d\n",
+         anzaufgaben,
+         dieSeriedaten.Addition,
+         dieSeriedaten.Subtraktion,
+         dieSeriedaten.Multiplikation );
+ //ASBereich, ASzweiteZahl, ASZehnerU, ASHunderterU;
+   NSLog(@"\nASBereich: %d \nASzweiteZahl: %d \nASZehnerU: %d \nASHunderterU: %d\n",
+   
+         dieSeriedaten.ASBereich,
+         dieSeriedaten.ASzweiteZahl,
+         dieSeriedaten.ASZehnerU,
+         dieSeriedaten.ASHunderterU);
+
+   
+   
    short Einer=0, Zehner=0,Hunderter=0;
 
    short	AddResultatvektor[kArraygrenze];		//?
@@ -337,7 +428,7 @@ short Minvon(short ersteZahl, short zweiteZahl);
       short	*	ReihenposArray={0};
       //																				1.Variable:		Faktoren der Reihenaufgaben
       
-      struct rAddSubDaten{short UGrenze,OGrenze,Bereich, Summand, Ergebnis;}	AddSubDaten[48];
+      struct rAddSubDaten{short UGrenze,OGrenze,Bereich, Summand, Ergebnis;}	AddSubDaten[kArraygrenze];
       
       //printf("neueRechnungSerie Add: %d  Sub: %d  Mult: %d\n",dieSeriedaten.Addition,dieSeriedaten.Subtraktion,dieSeriedaten.Multiplikation);
       
@@ -352,12 +443,14 @@ short Minvon(short ersteZahl, short zweiteZahl);
          [self AddSubBereichbestimmen];
          
          // 2. Resultate fuer alle Aufgaben bestimmen
-         Zahlenvektorbestimmen(AddSubResultatvektor,	AdduntereGrenze,  AddobereGrenze, 48);
+     //    printf("AdduntereGrenze %d  AddobereGrenze: %d\n",AdduntereGrenze,  AddobereGrenze);
+         Zahlenvektorbestimmen(AddSubResultatvektor,	AdduntereGrenze,  AddobereGrenze, kArraygrenze);
+         //Zahlenvektorbestimmen(AddSubResultatvektor,	10,  99, 48);
          
          printf("Rechnungserie neueSerie: AddSubResultatvektor\n");
          for (int i=0;i<kArraygrenze;i++)
          {
-            //printf("%d\t%d\n",i,AddSubResultatvektor[i]);
+            printf("%d\t%d\n",i,AddSubResultatvektor[i]);
          }
 
          printf("neueSerie: 2\n");
@@ -368,9 +461,9 @@ short Minvon(short ersteZahl, short zweiteZahl);
          {
             AaKontrollvektor[i]=AddSubResultatvektor[i];
          }
-         for (short i=0;i<kArraygrenze;i++)
+         //for (short i=0;i<kArraygrenze;i++)
          {
-            printf("%d\t AddSubResultatvektor: %d \tAaKontrollvektor: %d\n",i,AddSubResultatvektor[i],AaKontrollvektor[i]);
+            //printf("%d\t AddSubResultatvektor: %d \tAaKontrollvektor: %d\n",i,AddSubResultatvektor[i],AaKontrollvektor[i]);
          }
 
          short minVar1=1,maxVar1=1;
@@ -401,15 +494,14 @@ short Minvon(short ersteZahl, short zweiteZahl);
          short hoppla=0;
          
          /*
-          Fuer jede Aufgabe ein Ergebnis und einen passsenden Bereich, in dem die zweite Variable
-          liegen kann generieren
+          Fuer jede Aufgabe ein Ergebnis und einen passsenden Bereich generieren, in dem die zweite Variable liegen kann
           */
 
          for (short nummer=0;nummer<kArraygrenze;nummer++)
          {
             //printf("%d\t AddSubResultatvektor(nummer): %d \n",nummer,AddSubResultatvektor[nummer]);
             short tempErgebnis=AddSubResultatvektor[nummer];
-            
+            printf("%d\t tempErgebnis: %d \n",nummer,tempErgebnis);
             short einer=tempErgebnis%10;
             short zehner=tempErgebnis/10;
             short tempvar0=0;
@@ -425,15 +517,15 @@ short Minvon(short ersteZahl, short zweiteZahl);
             if ((dieSeriedaten.ASBereich>kBisZehn)&&(dieSeriedaten.ASzweiteZahl==kBisZehn))//Bereich min bis 20
                //if ((SerieDaten.ASBereich>kZehnbisZwanzig)&&(SerieDaten.ASzweiteZahl==kBisZehn))
                
-               switch(dieSeriedaten.ASZehnerU)					//Bereich bei Zehneruebergang anpassen
+            switch(dieSeriedaten.ASZehnerU)					//Bereich bei Zehneruebergang anpassen
             {
                case kNie:
-                  if (einer==1)			//Bereich vergr√∂ssern
+                  if (einer==1)			//Bereich vergroessern
                   {
                      einer+=1;
                      tempErgebnis+=1;
                   }
-                  tempmaxVar1=einer;//zur√ºck auf den Zehner
+                  tempmaxVar1=einer;//zurueck auf den Zehner
                   tempminVar1=1;
                   break;//ohneZehnerU
                   
@@ -476,28 +568,34 @@ short Minvon(short ersteZahl, short zweiteZahl);
          }//for nummer
          
          //printf("neueSerie: 5\n");
-         for (short ii=0;ii<anzaufgaben;ii++)
+         for (short ii=0;ii<kArraygrenze;ii++)
          {
             //printf("%d\t OGrenze: %d\t UGrenze: %d\t Bereich: %d\t Ergebnis: %d\n",ii,AddSubDaten[ii].OGrenze,AddSubDaten[ii].UGrenze,AddSubDaten[ii].Bereich,AddSubDaten[ii].Ergebnis);
             
             //AaKontrollvektor[ii]=AddSubDaten[ii].Ergebnis*1000+AddSubDaten[ii].Bereich;
             AlKontrollvektor[ii]=(long)AddSubDaten[ii].Ergebnis*1000+AddSubDaten[ii].Bereich;
          }
-         //printf("neueSerie: 6\n");
+         
          /*
           Jede Aufgabe hat jetzt ein Ergebnis und einen passsenden Bereich, in dem die zweite Variable
           liegen kann
           */
          
          short tempBereich=maxVar1;								//max moeglicher Bereich, bei erster Var ist er 1
-         //Kleinsten Bereich in AddSubDaten suchen. Das ist die Aufgabe mit kleinsten Auswahlmöglichkeiten
+         
+         printf("neueSerie  anzaufgaben: %d tempBereich: %d\n",anzaufgaben,tempBereich);
+         
+         //Kleinsten Bereich in Array AddSubDaten suchen. Das ist die Aufgabe mit kleinsten Auswahlmöglichkeiten
 
          for (short k=0;k<anzaufgaben;k++)                                                                                {
             if (AddSubDaten[k].Bereich<=tempBereich)
-            {tempBereich=AddSubDaten[k].Bereich;}
-            //ergibt Startbereich fuer while
+            {
+               tempBereich=AddSubDaten[k].Bereich;
+            printf("%d\t tempBereich: %d\n",k,tempBereich);
+            }
+            //ergibt Startbereich fuer while, meistens 1
          }
-         //printf("maxVar1: %d\t tempBereich: %d\n",maxVar1,tempBereich);
+         printf("maxVar1: %d\t tempBereich: %d\n",maxVar1,tempBereich);
          
          short DatenimBereich=0;							//Anzahl der im tempbereich liegenden Datensaetze
          short AufgabenNrvektor[kArraygrenze]={0};	//Aufgabennummern der im tempbereich liegenden Datensaetze
@@ -508,6 +606,10 @@ short Minvon(short ersteZahl, short zweiteZahl);
          short tempErgebnis=0;
          short tempUGrenze=0;
          
+        /*
+         AufgabenNrVektor enthaelt die Nummern der Aufgaben am index 'DatenimBereich'
+         */
+       
          while (tempBereich<=(maxVar1)) // nach oben abtasten
          {
             for (short ii=0;ii<kArraygrenze;ii++)//Vektor leeren
@@ -515,12 +617,14 @@ short Minvon(short ersteZahl, short zweiteZahl);
                AufgabenNrvektor[ii]=0;
             }
             
-            DatenimBereich=0;  // moegliche Werte im Bereich?
-            for (short tempNummer=0;tempNummer<dieSeriedaten.AnzahlAufgaben;tempNummer++)	//Bereiche abfragen
+            DatenimBereich=0;  // gibt es moegliche Werte im Bereich?
+           // for (short tempNummer=0;tempNummer<dieSeriedaten.AnzahlAufgaben;tempNummer++)	//Bereiche abfragen
+ for (short tempNummer=0;tempNummer<kArraygrenze;tempNummer++)	//Bereiche abfragen
             {
-               //printf("AddSubDaten(%d):\t AddSubDaten[tempNummer].Bereich: %d Ergebnis: %d\n",tempNummer,AddSubDaten[tempNummer].Bereich,AddSubDaten[tempNummer].Ergebnis);
+               printf("AddSubDaten(%d):\t AddSubDaten.Bereich: %d Ergebnis: %d\n",tempNummer,AddSubDaten[tempNummer].Bereich,AddSubDaten[tempNummer].Ergebnis);
                if (AddSubDaten[tempNummer].Bereich==tempBereich)			//Aufgabe mit gleichem Bereich
                {
+                  printf("\tim Bereich:tempNummer: %d\t DatenimBereich: %d\n",tempNummer,DatenimBereich);
                   AufgabenNrvektor[DatenimBereich]=tempNummer;			//Aufgabennummer merken
                   
                   //14.9.06
@@ -529,7 +633,7 @@ short Minvon(short ersteZahl, short zweiteZahl);
                }
             }//for tempNummer
             
-            //printf("neueSerie: DatenimBereich: %d\n",DatenimBereich);
+            printf("Anzahl Daten im Bereich %d: %d\n",tempBereich,DatenimBereich);
             if (DatenimBereich) // Es hat Aufgaben im tempbereich
             {
                for (short ii=0;ii<kArraygrenze;ii++)
@@ -550,7 +654,6 @@ short Minvon(short ersteZahl, short zweiteZahl);
                      case kOffen:
                         if ((dieSeriedaten.ASBereich>kBisZwanzig)&&(dieSeriedaten.ASzweiteZahl==kBisZehn))
                         {
-                           
                            tempSummandvektor[i]=maxVar1-tempSummandvektor[i];
                         }
                         break;
@@ -595,6 +698,7 @@ short Minvon(short ersteZahl, short zweiteZahl);
             
             for (short ii=0;ii<anzaufgaben;ii++)
             {
+               //printf("%d\t tempSummandvektor: %d\n",ii,tempSummandvektor[ii]);
                if (ii<DatenimBereich)
                   AaKontrollvektor[ii]=tempSummandvektor[ii];
                else
@@ -603,6 +707,8 @@ short Minvon(short ersteZahl, short zweiteZahl);
             
             for (short i=0;i<DatenimBereich;i++)
             {
+               printf("%d\t tempSummandvektor: %d\n",i,tempSummandvektor[i]);
+
                AddSubDaten[AufgabenNrvektor[i]].Summand=tempSummandvektor[i];
             }
             //delete[] tempSummandvektor;
@@ -612,10 +718,13 @@ short Minvon(short ersteZahl, short zweiteZahl);
          }//while tempBereich<10)
          
          
-         //printf("AddSubResultatvektor 2\n");
-         for (short i=0;i<dieSeriedaten.AnzahlAufgaben;i++)
+         
+         printf("AddSubResultatvektor 2\n");
+         //for (short i=0;i<dieSeriedaten.AnzahlAufgaben;i++)
+         for (short i=0;i<kArraygrenze;i++)
          {
-            //printf("%d\t AddSubResultatvektor: %d\n",i,AddSubResultatvektor[i]);
+            printf("%d\t tempSummandvektor: %d\t",i,tempSummandvektor[i]);
+            printf(" AddSubResultatvektor: %d\n",AddSubResultatvektor[i]);
          }
   
          
@@ -625,7 +734,7 @@ short Minvon(short ersteZahl, short zweiteZahl);
          tempSummand=0;
          tempErgebnis=0;
          
-         while ((Aufgabennummer < dieSeriedaten.AnzahlAufgaben)&&(Laufnummer<GRENZE))
+         while ((Aufgabennummer < dieSeriedaten.AnzahlAufgaben)&&(Laufnummer<kArraygrenze))
          {
             //printf("neueSerie:Aufgabennummer: %d Laufnummer: %d\n",Aufgabennummer,Laufnummer);
             tempSummand=AddSubDaten[Laufnummer].Summand;
@@ -638,6 +747,7 @@ short Minvon(short ersteZahl, short zweiteZahl);
                   AddSubResultatvektor[Aufgabennummer]=tempErgebnis;
                   AddSubVar1vektor[Aufgabennummer]=tempSummand;
                   printf("L\n");
+                  // Summand im AddSubVar1Repvektor speichern, soll wiederholung verhindern
                   RepSet(AddSubVar1Repvektor,tempSummand);
                   printf("M\n");
                   RepSet(AddSubResultatRepvektor,tempErgebnis);
@@ -1237,7 +1347,7 @@ short	 Randomzahl(short dasMin,short dasMax)
    //double r=fabs(random());
    //	printf("dasMin: %d							dasMax: %d",dasMin,dasMax);
    //
-   double r=fabs(random());
+   double r=labs(random());
    
    //
    double rr=labs(random());
@@ -1372,7 +1482,7 @@ void Zahlenvektorbestimmen(short * derVektor,short	untereGrenze, short obereGren
    //printf("Zahlenvektorbestimmen untereGrenze: %d\t obereGrenze: %d \t AnzahlElemente: %d\n",untereGrenze,obereGrenze,AnzahlElemente);
 
    short randEiner[10]={0}, randZehner[10]={0},randHunderter[10]={0};
-   short* 	randomVektor[kArraygrenze]={};
+   short 	randomVektor[kArraygrenze]={0};
    short tempAnzahlElemente;
    
    
@@ -1400,8 +1510,10 @@ void Zahlenvektorbestimmen(short * derVektor,short	untereGrenze, short obereGren
    {
       if (intervall)
       {
-         short* 	AngebotVektor;
-         AngebotVektor= malloc(sizeof( short[intervall]));
+     //    160426 malloc entfernt
+    //     short* 	AngebotVektor;
+    //     AngebotVektor= malloc(sizeof( short[intervall]));
+         short 	AngebotVektor[kArraygrenze] = {0};
          short nr=0;
          short voll=0;
          while(voll==0)
@@ -1422,7 +1534,7 @@ void Zahlenvektorbestimmen(short * derVektor,short	untereGrenze, short obereGren
          {
             derVektor[nummer]=untereGrenze+randomVektor[nummer];
          }
-         free (AngebotVektor);
+ //        free (AngebotVektor);
       }
       else
       {
@@ -1435,6 +1547,7 @@ void Zahlenvektorbestimmen(short * derVektor,short	untereGrenze, short obereGren
    else
       
    {
+      
       short Einer=0, Zehner=0,Hunderter=0;
       short tempZahl=0;
       Einer=intervall%10;
@@ -1489,7 +1602,7 @@ void Zahlenvektorbestimmen(short * derVektor,short	untereGrenze, short obereGren
       }//for nummer
    }
    
-   for (short nummer=0;nummer<tempAnzahlElemente;nummer++)
+   //for (short nummer=0;nummer<tempAnzahlElemente;nummer++)
    {
       //printf("%d\t derVektor(i): %d\n",nummer,derVektor[nummer]);
       //derVektor[nummer]=untereGrenze+randomVektor[nummer];
@@ -1503,7 +1616,7 @@ void Zahlenvektorbestimmen(short * derVektor,short	untereGrenze, short obereGren
 //*****************************************************************
 short RepTest(short * derVektor, short dieZahl)
 {
-   for (short k=0;k<sizeof(derVektor);k++)
+   for (short k=0;k<kArraygrenze;k++)
    {
       if (dieZahl==derVektor[k])
       {
@@ -1525,10 +1638,11 @@ void RepSet(short * derVektor,short dieZahl)
       if (derVektor[k]==0)
       {
          derVektor[k]=dieZahl;
+         printf("RepSet dieZahl: %d pos: %d\n",dieZahl, k);
          ok=1;
       }//if
       k++;
-      if (k==sizeof(derVektor))
+      if (k==kArraygrenze)
       {ok=1;}
    }//while
 }//RepSet
@@ -1536,10 +1650,10 @@ void RepSet(short * derVektor,short dieZahl)
 //*****************************************************************
 void RepReset(short * derVektor)
 {
-   short x=0;
-   int l= sizeof(derVektor);
-   printf("represet l: %d\n",l);
-   for (short k=0;k<sizeof(derVektor);k++)
+   //short x=0;
+   //int l= sizeof(derVektor);
+   //printf("represet l: %d\n",l);
+   for (short k=0;k<kArraygrenze;k++)
    {derVektor[k]=0;}
    
 }

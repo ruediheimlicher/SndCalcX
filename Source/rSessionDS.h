@@ -17,7 +17,7 @@ NSColor* Balkenfarbe;
 
 @end
 
-@interface rSessionDS : NSObject 
+@interface rSessionDS : NSObject <NSTableViewDataSource,NSTableViewDelegate>
 {
 NSMutableArray*		SessionDicArray;
 }

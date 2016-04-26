@@ -42,6 +42,7 @@ NSMutableDictionary*	QuittungSelektionDic;
 rStimmenPanel*			StimmenPanel;
 
 }
+@property(nonatomic) AVPlayerActionAtItemEnd actionAtItemEnd;
 - (id)init;
 - (void)setStimme:(NSString*)dieStimme;
 - (NSString*)Stimme;

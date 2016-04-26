@@ -25,52 +25,46 @@ const short  kMaxElemente=12;
 @implementation rSpeaker
 - (id)init
 {
-//NSLog(@"rSpeaker init");
-self=[super init];
-
-//AufgabenPlayer=[[NSMovieView alloc]initWithFrame:NSMakeRect(0,0,0,0)];
-    // setup a callback for our movie so QuickTime will call us when the
-     //   movie finishes playing 
-
+   //NSLog(@"rSpeaker init");
+   self=[super init];
+   
+   //AufgabenPlayer=[[NSMovieView alloc]initWithFrame:NSMakeRect(0,0,0,0)];
+   // setup a callback for our movie so QuickTime will call us when the
+   //   movie finishes playing
+   
    //NSLog(@"kFullVolume: %f kNoVolume: %f",kFullVolume,kNoVolume);
-//PlayerVolume=kFullVolume;//0x0010;
-PlayerVolume=120.0;
-Stimme=@"home";
+   //PlayerVolume=kFullVolume;//0x0010;
+   PlayerVolume=120.0;
+   Stimme=@"home";
    
    QueueArray = [[NSMutableArray alloc]initWithCapacity:0];
-
-	NSNotificationCenter * nc;
-	nc=[NSNotificationCenter defaultCenter];
-	[nc addObserver:self
-		   selector:@selector(NeueStimmeAktion:)
-			   name:@"neueStimme"
-			 object:nil];
-	
-
-	[nc addObserver:self
-		   selector:@selector(StimmeAktion:)
-			   name:@"Stimme"
-			 object:nil];
-	
-	[nc addObserver:self
-		   selector:@selector(QuittungAktion:)
-			   name:@"Quittung"
-			 object:nil];
-	
-	QuittungSelektionDic=[[NSMutableDictionary alloc]initWithCapacity:0];
-/*
-   [nc addObserver:self
-		   selector:@selector(AufgabeFertigAktion:)
-			   name:QTMovieDidEndNotification
-			 object:AufgabenQTKitMovie];
    
-   [nc addObserver:self 
-          selector:@selector(QTKitQuittungFertigAktion:) 
-              name:QTMovieDidEndNotification 
-            object:QuittungenQTKitMovie];
-
-*/
-return self;
+   NSNotificationCenter * nc;
+   nc=[NSNotificationCenter defaultCenter];
+   [nc addObserver:self
+          selector:@selector(NeueStimmeAktion:)
+              name:@"neueStimme"
+            object:nil];
+   
+   
+   [nc addObserver:self
+          selector:@selector(StimmeAktion:)
+              name:@"Stimme"
+            object:nil];
+   
+   [nc addObserver:self
+          selector:@selector(QuittungAktion:)
+              name:@"Quittung"
+            object:nil];
+   
+   [nc addObserver:self
+          selector:@selector(playerItemDidReachEnd:)
+              name:AVPlayerItemDidPlayToEndTimeNotification
+            object:[QueueArray lastObject]];
+   
+   QuittungSelektionDic=[[NSMutableDictionary alloc]initWithCapacity:0];
+   
+   return self;
 }
 
 
@@ -569,7 +563,7 @@ return tempStimmenNamenArray;
 //	NSArray* sortArray=[tempZahlenArray sortedArrayUsingDescriptors:[NSArray arrayWithObjects:desc,nil]];
    
 	ZahlenDicArray=[NSArray arrayWithArray:[tempZahlenDicArray sortedArrayUsingDescriptors:[NSArray arrayWithObjects:desc,nil]]];
-	NSLog(@"readZahlen	  ZahlenDicArray: %@	",[ZahlenDicArray description]);
+	//NSLog(@"readZahlen	  ZahlenDicArray: %@	",[ZahlenDicArray description]);
 	
 	
 	return readOK;
@@ -871,12 +865,12 @@ return tempStimmenNamenArray;
    int GermanOffset=20000;
    int IDOffset=GermanOffset;
    int FehlendeZahl=0;
-   long ZehnIndex=[IDArray indexOfObject:[[NSNumber numberWithInt:IDOffset+10] stringValue]];
-   if (ZehnIndex<0)//Zahl nicht im Array
+   NSUInteger ZehnIndex=[IDArray indexOfObject:[[NSNumber numberWithInt:IDOffset+10] stringValue]];
+   if (ZehnIndex == NSNotFound)//Zahl nicht im Array
    {
       FehlendeZahl=10;
       [fehlerarray addObject:[NSNumber numberWithInt:10]];
-      NSLog(@"FehlendeZahl");
+      NSLog(@"zehnfehler");
       //		goto bail;
    }
    NSLog(@"ZehnIndex: %ld\t%ld",ZehnIndex,(long)ZehnIndex);
@@ -888,18 +882,20 @@ return tempStimmenNamenArray;
       //[tempURLArray addObject:[NSURL fileURLWithPath:zehnPfad]];
    }
    
-   NSInteger HundertIndex=[IDArray indexOfObject:[[NSNumber numberWithInt:IDOffset+100] stringValue]];
-   if (HundertIndex<0)
+   NSUInteger HundertIndex=[IDArray indexOfObject:[[NSNumber numberWithInt:IDOffset+100] stringValue]];
+   if (HundertIndex == NSNotFound)
    {
+      NSLog(@"hundertfehler");
       [fehlerarray addObject:[NSNumber numberWithInt:100]];
       //return QTZeroTime;
    }
    NSLog(@"HundertIndex: %ld",HundertIndex);
    NSString* hundertPfad = [[ZahlenDicArray objectAtIndex:HundertIndex]objectForKey:@"zahlpfad"];
  
-   NSInteger TausendIndex=[IDArray indexOfObject:[[NSNumber numberWithInt:IDOffset+1000] stringValue]];
-   if (TausendIndex<0)
+   NSUInteger TausendIndex=[IDArray indexOfObject:[[NSNumber numberWithInt:IDOffset+1000] stringValue]];
+   if (TausendIndex == NSNotFound)
    {
+      NSLog(@"tausendfehler");
       [fehlerarray addObject:[NSNumber numberWithInt:1000]];
       //return QTZeroTime;
    }
@@ -910,13 +906,14 @@ return tempStimmenNamenArray;
    int Tausender=dieZahl/1000; //      TAUSENDER
    
    // Pfad dazu
-   if (Tausender>0)			//Es hat Tausender
+   if (Tausender >0)			//Es hat Tausender
    {
       //NSLog(@"Beginn Tausender: %d",Tausender);
       // lage des Tausenders im Zahlarray feststellen
-      long TausenderIndex=[IDArray indexOfObject:[[NSNumber numberWithInt:IDOffset+Tausender] stringValue]];
-      if (TausenderIndex<0)
+      NSUInteger TausenderIndex=[IDArray indexOfObject:[[NSNumber numberWithInt:IDOffset+Tausender] stringValue]];
+      if (TausenderIndex == NSNotFound )
       {
+         NSLog(@"tausenderfehler");
          [fehlerarray addObject:[NSNumber numberWithInt:Tausender]];
          //return QTZeroTime;
       }
@@ -948,9 +945,10 @@ return tempStimmenNamenArray;
             HunderterID+=1000;
          }
          
-         long HunderterIndex=[IDArray indexOfObject:[[NSNumber numberWithInt:HunderterID] stringValue]];
-         if (HunderterIndex<0)
+         NSUInteger HunderterIndex=[IDArray indexOfObject:[[NSNumber numberWithInt:HunderterID] stringValue]];
+         if (HunderterIndex == NSNotFound)
          {
+            NSLog(@"hunderterfehler");
             [fehlerarray addObject:[NSNumber numberWithInt:Hunderter]];
             //return QTZeroTime;
          }
@@ -994,11 +992,12 @@ return tempStimmenNamenArray;
             {
                EinerID+=1000;	//		"ein"
             }
-            int EinerIndex=[IDArray indexOfObject:[[NSNumber numberWithInt:EinerID] stringValue]];
+            NSUInteger EinerIndex=[IDArray indexOfObject:[[NSNumber numberWithInt:EinerID] stringValue]];
             //NSLog(@"EinerIndex");
             
-            if (EinerIndex<0)
+            if (EinerIndex == NSNotFound)
             {
+               NSLog(@"Zehner>1 einerfehler: %d index: %ld",Einer,EinerIndex);
                [fehlerarray addObject:[NSNumber numberWithInt:Einer]];
               
             }
@@ -1022,16 +1021,14 @@ return tempStimmenNamenArray;
                
             }
             
-            int UndIndex=[IDArray indexOfObject:[[NSNumber numberWithInt:UndID] stringValue]];
+            NSUInteger UndIndex=[IDArray indexOfObject:[[NSNumber numberWithInt:UndID] stringValue]];
             //NSLog(@"UndIndex");
-            if (UndIndex<0)
+            if (UndIndex == NSNotFound)
             {
+               NSLog(@"undfehler");
                [fehlerarray addObject:@"und"];
             }
             NSString* undPfad = [[ZahlenDicArray objectAtIndex:UndIndex]objectForKey:@"zahlpfad"];
-            
-            // QTMovie fuer "und"
-            
             
             // Einer einsetzen
             // Track fuer Einer einsetzen
@@ -1039,8 +1036,6 @@ return tempStimmenNamenArray;
             {
                [tempURLArray addObject:[NSURL fileURLWithPath:einerPfad]];
             }
-
-            
             
             // "und" einsetzen: Es folgen noch Zehner
             // Track fuer "und" einsetzen
@@ -1055,10 +1050,11 @@ return tempStimmenNamenArray;
          }//  if einer>0 (zehner >0)
          
          ZehnerID=IDOffset+10*Zehner;		// "-ig anhängen: Zehner=2 muss fuer die ID 20 geben
-         int ZehnerIndex=[IDArray indexOfObject:[[NSNumber numberWithInt:ZehnerID] stringValue]];
+         NSUInteger ZehnerIndex=[IDArray indexOfObject:[[NSNumber numberWithInt:ZehnerID] stringValue]];
          //NSLog(@"ZehnerIndex");
-         if (ZehnerIndex<0)
+         if (ZehnerIndex == NSNotFound)
          {
+            NSLog(@"zehnerfehler");
             [fehlerarray addObject:[NSNumber numberWithInt:Zehner]];
          }
          NSString* zehnerPfad = [[ZahlenDicArray objectAtIndex:ZehnerIndex]objectForKey:@"zahlpfad"];
@@ -1077,11 +1073,12 @@ return tempStimmenNamenArray;
          if ((Einer>=0)&&(Einer<=2))//10,11,12
          {
             EinerID=IDOffset+10+Einer;
-            int EinerIndex=[IDArray indexOfObject:[[NSNumber numberWithInt:EinerID] stringValue]];
+            NSUInteger EinerIndex=[IDArray indexOfObject:[[NSNumber numberWithInt:EinerID] stringValue]];
             //NSLog(@"EinerIndex");
             
-            if (EinerIndex<0)
+            if (EinerIndex == NSNotFound)
             {
+               NSLog(@"(Einer>=0)&&(Einer<=2)einerfehler: %d index: %ld",Einer,EinerIndex);
                [fehlerarray addObject:[NSNumber numberWithInt:Einer]];
             }
             NSString* einerPfad = [[ZahlenDicArray objectAtIndex:EinerIndex]objectForKey:@"zahlpfad"];
@@ -1104,11 +1101,12 @@ return tempStimmenNamenArray;
                EinerID+=1000;
             }
             
-            int EinerIndex=[IDArray indexOfObject:[[NSNumber numberWithInt:EinerID] stringValue]];
+            NSUInteger EinerIndex=[IDArray indexOfObject:[[NSNumber numberWithInt:EinerID] stringValue]];
             //NSLog(@"EinerIndex");
             
-            if (EinerIndex<0)
+            if (EinerIndex == NSNotFound)
             {
+               NSLog(@"13 - 19 einerfehler: %d index: %ld",Einer,EinerIndex);
                [fehlerarray addObject:[NSNumber numberWithInt:Einer]];
             }
             NSString* einerPfad = [[ZahlenDicArray objectAtIndex:EinerIndex]objectForKey:@"zahlpfad"];
@@ -1123,10 +1121,11 @@ return tempStimmenNamenArray;
             
             //		Zehner von 13 - 19
             ZehnerID=IDOffset+10;
-            int ZehnerIndex=[IDArray indexOfObject:[[NSNumber numberWithInt:ZehnerID] stringValue]];
+            NSUInteger ZehnerIndex=[IDArray indexOfObject:[[NSNumber numberWithInt:ZehnerID] stringValue]];
             //NSLog(@"ZehnerIndex");
-            if (ZehnerIndex<0)
+            if (ZehnerIndex == NSNotFound)
             {
+               NSLog(@"zehnerfehler");
                [fehlerarray addObject:[NSNumber numberWithInt:Zehner]];
             }
             NSString* zehnerPfad = [[ZahlenDicArray objectAtIndex:ZehnerIndex]objectForKey:@"zahlpfad"];
@@ -1144,15 +1143,16 @@ return tempStimmenNamenArray;
       //NSLog(@"setZahlTrack ende Zehner vor nur einer");
    }//if Zehner>0
    
-   else	//nur Einer
+   else if (Einer)	//nur Einer
    {
       
       EinerID=IDOffset+Einer;
-      int EinerIndex=[IDArray indexOfObject:[[NSNumber numberWithInt:EinerID] stringValue]];
+      NSUInteger EinerIndex=[IDArray indexOfObject:[[NSNumber numberWithInt:EinerID] stringValue]];
       //NSLog(@"Nur Einer: EinerIndex: %d",EinerIndex);
       
-      if (EinerIndex<0)
+      if (EinerIndex == NSNotFound)
       {
+         NSLog(@"nur Einer einerfehler: %d index: %ld",Einer,EinerIndex);
          [fehlerarray addObject:[NSNumber numberWithInt:Einer]];
       }
       NSString* einerPfad = [[ZahlenDicArray objectAtIndex:EinerIndex]objectForKey:@"zahlpfad"];
@@ -1176,7 +1176,7 @@ return tempStimmenNamenArray;
       [fehlerarray addObject:@"fehler"];
       return fehlerarray;
    }
-   NSLog(@"tempURLArray: %@",tempURLArray);
+   //NSLog(@"tempURLArray: %@",tempURLArray);
    if (tempURLArray.count)
    {
       return tempURLArray;
@@ -1186,7 +1186,58 @@ return tempStimmenNamenArray;
 
 - (NSURL*)URLvonOperation:(int)dieOperation
 {
+   NSFileManager* fm = [NSFileManager defaultManager];
+   NSMutableArray* fehlerarray = [[NSMutableArray alloc]initWithCapacity:0];
+   //NSMutableArray* tempURLArray = [[NSMutableArray alloc]initWithCapacity:0];
+   //NSLog(@"setQTKitZahlTrackVon: %d derOffset: %lld",dieZahl, derOffset.timeValue);
+   NSArray* IDArray=[ZahlenDicArray valueForKey:@"ID"];
+   NSArray* NameArray=[ZahlenDicArray valueForKey:@"name"];
+   NSLog(@"IDArray: %@",[IDArray description]);
+   NSLog(@"NameArray: %@",[NameArray description]);
+   int GermanOffset=20000;
+   int IDOffset=GermanOffset;
+   int FehlendeOperation=0;
+    NSString* Operator;
+   switch(dieOperation-2000)
+   {
+      case 1://Plus
+      {
+         Operator=@"plus";
+      }break;
+         
+      case 2://Minus
+      {
+         Operator=@"minus";
+      }break;
+         
+         
+      case 3://Mal
+      {
+         Operator=@"mal";
+      }break;
+   }//switch
+
+   long OpIndex=[NameArray indexOfObject:Operator];
    
+   
+   
+   if (OpIndex == NSNotFound)//Zahl nicht im Array
+   {
+      FehlendeOperation=10;
+      [fehlerarray addObject:[NSNumber numberWithInt:dieOperation]];
+      NSLog(@"FehlendeOperation: %@",Operator);
+      //		goto bail;
+   }
+   //NSLog(@"OpIndex: %ld\t%ld",OpIndex,(long)ZehnIndex);
+   NSString* opPfad = [[ZahlenDicArray objectAtIndex:OpIndex]objectForKey:@"zahlpfad"];
+   NSLog(@"opPfad: %@",opPfad);
+   
+   if ([fm fileExistsAtPath:opPfad])
+   {
+      NSURL* opURL = [NSURL fileURLWithPath:opPfad];
+      return opURL;
+   }
+
    return nil;
 }
 
@@ -1603,26 +1654,41 @@ return tempStimmenNamenArray;
 
        */
       NSArray* var0Array = [self URLArrayvonZahl:var0];
+      NSArray* var1Array = [self URLArrayvonZahl:var1];
+      NSArray* var2Array = [self URLArrayvonZahl:var2];
+
+      NSURL* op0URL = [self URLvonOperation:op0];
       NSLog(@"var0Array: %@",var0Array);
-      
+      [QueueArray removeAllObjects];
       for (int i=0;i<var0Array.count;i++)
       {
          [QueueArray addObject:[[AVPlayerItem alloc] initWithURL:var0Array[i]]];
+      
+      }
+      
+      [QueueArray addObject:[[AVPlayerItem alloc] initWithURL:op0URL]];
+      
+      for (int i=0;i<var1Array.count;i++)
+      {
+         [QueueArray addObject:[[AVPlayerItem alloc] initWithURL:var1Array[i]]];
+         
       }
       //[QueueArray addObjectsFromArray:var0Array];
       
-      
-      AufgabenPlayerX = [[AVQueuePlayer alloc]initWithItems:QueueArray];
+      if ([[AufgabenPlayerX items]count])
+      {
+         [AufgabenPlayerX removeAllItems];
+      }
+      AufgabenPlayerX = [AVQueuePlayer queuePlayerWithItems:QueueArray];
+      /*
+   }
+      else
+      {
+         AufgabenPlayerX = [[AVQueuePlayer alloc]initWithItems:QueueArray];
+      }
+      */
       [AufgabenPlayerX play];
  	
-//     [AufgabenQTKitMovie gotoBeginning];
-      NSNotificationCenter *nc = [NSNotificationCenter defaultCenter];
-      [nc addObserver:self
-             selector:@selector(QTKitAufgabeFertigAktion:)
-                 name:QTMovieDidEndNotification
-               object:AufgabenQTKitMovie];
-
-		[AufgabenQTKitMovie play];
       
 
 	}//if tempAufgabenDic
@@ -1632,6 +1698,19 @@ return tempStimmenNamenArray;
 		return NO;
 	}
 	return AufgabeOK;
+}
+- (void)playerItemDidReachEnd:(NSNotification *)notification {
+   // Do stuff here
+    //NSLog(@"AufgabenPlayerX actionAtItemEnd: %ld",AufgabenPlayerX.actionAtItemEnd);
+   if (AufgabenPlayerX.currentItem == AufgabenPlayerX.items.lastObject)
+   {
+      NSLog(@"letztes item da");
+     
+   }
+   else
+   {
+     // NSLog(@"item da");
+   }
 }
 
 

@@ -76,7 +76,7 @@
 
 - (void)setSessionDicArrayMitDicArray:(NSArray*) derDicArray mitDatum:(NSDate*)dasDatum
 {
-//	NSLog(@"setSessionDicArrayMitDicArray:	Datum: %@\nDicArray: %@",[dasDatum description],[derDicArray description]);
+	NSLog(@"setSessionDicArrayMitDicArray:	Datum: %@\nDicArray: %@",[dasDatum description],[derDicArray description]);
 	
 	NSEnumerator* DicEnum=[derDicArray objectEnumerator];
 	

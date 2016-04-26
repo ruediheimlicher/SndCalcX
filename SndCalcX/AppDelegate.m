@@ -61,7 +61,7 @@ const short     kSerieFertig = 5003;
    
    //char * 		p="\0";
    strcpy(s,"  \0");
-
+   AufgabenArray = [NSArray array];
    // Insert code here to initialize your application
    // init
    NSNotificationCenter * nc;
@@ -305,7 +305,7 @@ const short     kSerieFertig = 5003;
       
        //[self DebugStep:@"nach readPListAnPfad"];
       
-      //NSLog(@"SndCalcPfad: %@\nPListDic: %@",SndCalcPfad,[PListDic description]);
+      NSLog(@"SndCalcPfad: %@\nPListDic: %@",SndCalcPfad,[PListDic description]);
       
       //	NSLog(@"SndCalcPfad: %@\nPListDic: %@",SndCalcPfad,[PListDic description]);
       
@@ -377,7 +377,7 @@ const short     kSerieFertig = 5003;
       BOOL QuittungenOK=[Speaker readQuittungen];
       //NSLog(@"awake: nach readQuittungen     QuittungenOK: %d",QuittungenOK);
       //	[self DebugStep:@"nach Speaker readQuittungen"];
-      AnzahlAufgaben=24;
+      AnzahlAufgaben=12;
       anzRichtig=0;
       anzFehler=0;
       NSRect AufgabenBoxRect=[AufgabenBox frame];
@@ -446,7 +446,7 @@ const short     kSerieFertig = 5003;
       id einTestDic;
       while (einTestDic=(NSMutableDictionary*)[TestEnum nextObject])
       {
-         NSLog(@"finishlaunching TestDic: %@",[einTestDic description]);
+         //NSLog(@"finishlaunching TestDic: %@",[einTestDic description]);
          
          if ([einTestDic objectForKey:@"seriedatendic"])
          {
@@ -642,9 +642,9 @@ const short     kSerieFertig = 5003;
    //end awake
    RechnungSeriedaten = [[rSeriedaten alloc]init];
    RechnungSeriedaten.AnzahlReihen=0;
-   RechnungSeriedaten.AnzahlAufgaben = kMaxAnzahlAufgaben;
-   RechnungSeriedaten.ASBereich = kBisZehn;
-   RechnungSeriedaten.ASBereich=kZehnbisZwanzig;
+   RechnungSeriedaten.AnzahlAufgaben = 12;//kMaxAnzahlAufgaben;
+   //RechnungSeriedaten.ASBereich = kBisZehn;
+   //RechnungSeriedaten.ASBereich=kZehnbisZwanzig;
    RechnungSeriedaten.ASBereich=kZweistellig;
    RechnungSeriedaten.ASzweiteZahl=kBisZehn;
    //ASzweiteZahl=kZehnbisZwanzig;
@@ -1784,7 +1784,18 @@ const short     kSerieFertig = 5003;
       AufgabenSerie = [[rRechnungserie alloc]initWithAnzahl:RechnungSeriedaten.AnzahlAufgaben];
    }
    
-   AufgabenArray = [[NSArray alloc]initWithArray:[AufgabenSerie neueRechnungserie:RechnungSeriedaten]]; // NSArray
+   //NSArray* neuerArray =[AufgabenSerie neueRechnungserie:RechnungSeriedaten];
+   
+   if (AufgabenDicArray)
+   {
+      NSLog(@"AufgabenDicArray schon da: RechnungSeriedaten: %@",RechnungSeriedaten);
+       AufgabenDicArray = [AufgabenSerie neueRechnungserie:RechnungSeriedaten];
+   }
+   else
+   {
+       NSLog(@"AufgabenDicArray neu: RechnungSeriedaten: %@",RechnungSeriedaten);
+   AufgabenDicArray = [[NSArray alloc]initWithArray:[AufgabenSerie neueRechnungserie:RechnungSeriedaten]]; // NSArray
+   }
    
    
    //rAufgabenDaten*  AufgabenDatenArray[kMaxAnzahlAufgaben];
@@ -1801,7 +1812,7 @@ const short     kSerieFertig = 5003;
    int zeile;
    for (zeile=0;zeile<RechnungSeriedaten.AnzahlAufgaben;zeile++)
    {
-      rAufgabenDaten* tempAufgabendaten = [AufgabenArray objectAtIndex:zeile];
+      rAufgabenDaten* tempAufgabendaten = [AufgabenDicArray objectAtIndex:zeile];
       //NSLog(@"neueSerie: zeile: %d",zeile);
       //NSLog(@"neueSerie: nummer: %d var 0: %d op 0: %d var 1: %d var 2: %d",AufgabenDatenArray[zeile].aktuelleAufgabennummer,AufgabenDatenArray[zeile].var[0],AufgabenDatenArray[zeile].op[0],AufgabenDatenArray[zeile].var[1],AufgabenDatenArray[zeile].var[2]);
       //AufgabenNummer
@@ -1861,7 +1872,7 @@ const short     kSerieFertig = 5003;
       
    }
    
-   	NSLog(@"tempAufgabenArray: %@",[tempAufgabenArray description]);
+   	//NSLog(@"tempAufgabenArray: %@",[tempAufgabenArray description]);
    
    
    //AufgabenArray=[tempAufgabenArray copy];
@@ -2922,7 +2933,7 @@ const short     kSerieFertig = 5003;
       NSDictionary* tempAufgabenDic=[AufgabenArray objectAtIndex:aktuelleAufgabenNummer-1];
       if(tempAufgabenDic)
       {
-         NSLog(@"tempAufgabenDic: %@",[tempAufgabenDic description]);
+         //NSLog(@"tempAufgabenDic: %@",[tempAufgabenDic description]);
          //[Aufgabenzeiger setAnzahl:aktuelleAufgabenNummer];
          //[[self window]makeFirstResponder:self];
          BOOL SpeakerAufgabeOK=[Speaker AufgabeAb:tempAufgabenDic];
@@ -3484,7 +3495,7 @@ const short     kSerieFertig = 5003;
    }
 }
 
-- (void)ErgebnisFeldAktion:(id)sender
+- (IBAction)ErgebnisFeldAktion:(id)sender
 {
    //NSLog(@"Controller  ErgebnisFeldAktion: %@ verify: %d",[ErgebnisFeld stringValue],verify);
    
@@ -4141,17 +4152,20 @@ const short     kSerieFertig = 5003;
    //[AufgabenDrawer setMaxContentSize:contentSize];
 }
 
-- (void)openAufgabenDrawer:(id)sender
+- (IBAction)openAufgabenDrawer:(id)sender
 {
    [self closeSessionDrawer:NULL];
    [AufgabenDrawer openOnEdge:NSMaxXEdge];
 }
 
-- (void)closeAufgabenDrawer:(id)sender {[AufgabenDrawer close];}
-
-- (void)toggleAufgabenDrawer:(id)sender
+- (IBAction)closeAufgabenDrawer:(id)sender
 {
-   //NSLog(@"AufgabenDrawer");
+   [AufgabenDrawer close];
+}
+
+- (IBAction)toggleAufgabenDrawer:(id)sender
+{
+   NSLog(@"toggleAufgabenDrawer");
    [self closeSessionDrawer:NULL];
    NSRect r=[[[self window]contentView]frame];
    NSPoint p=[[[self window]contentView]frame].origin;
@@ -4163,11 +4177,11 @@ const short     kSerieFertig = 5003;
    } else
    {
       
-      if (!AufgabenDrawer)
+     // if (!AufgabenDrawer)
       {
          [self setupAufgabenDrawer];
       }
-      [AufgabenDrawer openOnEdge:NSMaxXEdge];
+     
       
       //NSLog(@"AufgabenDrawer canDraw?: %d",[[AufgabenDrawer contentView] canDraw]);
       
@@ -4199,6 +4213,7 @@ const short     kSerieFertig = 5003;
       [[AufgabenDrawer contentView]addSubview:DrawerView];
       
       [self showAufgaben];
+       [AufgabenDrawer openOnEdge:NSMaxXEdge];
    }
 }
 
@@ -4208,8 +4223,9 @@ const short     kSerieFertig = 5003;
    
 }
 
-- (void)toggleSessionDrawer:(id)sender
+- (IBAction)toggleSessionDrawer:(id)sender
 {
+   
    NSDrawerState state = (NSDrawerState)[SessionDrawer state];
    NSLog(@"toggleSessionDrawer state: %d",state);
    
@@ -4228,7 +4244,7 @@ const short     kSerieFertig = 5003;
    }
    else
    {
-      
+      [self closeAufgabenDrawer:NULL];
       [self setupSessionDrawer];
       SessionTimer=[NSTimer scheduledTimerWithTimeInterval:10.0
                                                     target:self
@@ -4239,14 +4255,15 @@ const short     kSerieFertig = 5003;
       [SessionDrawer openOnEdge:NSMaxXEdge];
    }
 }
-- (void)openSessionDrawer:(id)sender
+- (IBAction)openSessionDrawer:(id)sender
 {
-   
+   [self closeAufgabenDrawer:NULL];
+   [SessionDrawer openOnEdge:NSMaxXEdge];
 }
 
-- (void)closeSessionDrawer:(id)sender
+- (IBAction)closeSessionDrawer:(id)sender
 {
-   NSLog(@"closeSessionDrawer state vorher: %d",[SessionDrawerTaste state]);
+   NSLog(@"closeSessionDrawer state vorher: %d",(int)[SessionDrawerTaste state]);
    
    [SessionDrawer close];
    [SessionDrawerTaste setState:NO];
@@ -4318,7 +4335,7 @@ const short     kSerieFertig = 5003;
 - (void)showAufgaben//:(cAufgabendaten*)  AufgabenDatenArray
 {
    [self closeSessionDrawer:NULL];
-   //NSLog(@"showAufgaben: AufgabenArray: %@",[AufgabenArray description]);
+   NSLog(@"showAufgaben: AufgabenArray: %@",[AufgabenArray description]);
    NSMutableParagraphStyle* TitelStil=[[NSMutableParagraphStyle alloc]init];
    //[TitelStil setTabStops:[NSArray array]];//default weg
    //NSTextTab* TitelTab1=[[[NSTextTab alloc]initWithType:NSLeftTabStopType location:50]autorelease];
@@ -4502,7 +4519,7 @@ const short     kSerieFertig = 5003;
 
 
 
-- (void)setLosTaste:(id)sender
+- (IBAction)setLosTaste:(id)sender
 {
    
    [StartTaste  setTitle:@"Weiter"];
@@ -4763,12 +4780,12 @@ const short     kSerieFertig = 5003;
    
 }
 
-- (void)saveTest:(id)sender
+- (IBAction)saveTest:(id)sender
 {
    NSLog(@"saveTest");
 }
 
-- (void)setModus:(id)sender
+- (IBAction)setModus:(id)sender
 {
    
    
@@ -5279,7 +5296,7 @@ const short     kSerieFertig = 5003;
    
 }
 
-- (void)showNamenPanel:(id)sender
+- (IBAction)showNamenPanel:(id)sender
 {
    NSLog(@"showNamenPanel:		start");
    if (AdminPWOK || [self checkAdminZugang])//PW schon angegeben innerhalb Timeout
@@ -5526,7 +5543,7 @@ const short     kSerieFertig = 5003;
 }
 
 
-- (void)showStatistik:(id)sender
+- (IBAction)showStatistik:(id)sender
 {
    //NSLog(@"\n\nshowStatistik\n");
    [self stopTimeout];
@@ -5855,7 +5872,7 @@ const short     kSerieFertig = 5003;
 }
 
 
-- (void)showTestPanel:(id)sender
+- (IBAction)showTestPanel:(id)sender
 {
    [self closeSessionDrawer:NULL];
    [self reportLogout:NULL];
@@ -6622,7 +6639,7 @@ const short     kSerieFertig = 5003;
 //
 //////////
 
-- (void)resetPlayButtonForMovieStopState:(id)sender
+- (IBAction)resetPlayButtonForMovieStopState:(id)sender
 {
    /* reset button text to "play" text */
    [playButton setTitle:@">"];
@@ -6953,13 +6970,13 @@ objectValueForTableColumn:(NSTableColumn *)aTableColumn
    return err;
 }
 
-- (void)terminate:(id)sender
+- (IBAction)terminate:(id)sender
 {
    NSLog(@"terminate");
    [self BeendenAktion:NULL];
 }
 
-- (void)BeendenAktion:(id)sender
+- (IBAction)BeendenAktion:(id)sender
 {
    [self savePListAktion:nil];
    [Speaker deleteMovieFiles];

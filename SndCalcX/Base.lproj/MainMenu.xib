@@ -17,6 +17,7 @@
             <connections>
                 <outlet property="AnzahlFeld" destination="fwt-sq-Ojn" id="ou1-cu-6LO"/>
                 <outlet property="AnzahlPopKnopf" destination="UEb-eS-501" id="s14-bB-RoM"/>
+                <outlet property="AufgabenDrawer" destination="mBB-9v-0fR" id="ddE-wD-1HF"/>
                 <outlet property="AufgabenNummerFeld" destination="ZVw-yW-5fZ" id="vVx-bw-9XG"/>
                 <outlet property="Bild" destination="Ame-SR-3fT" id="PNC-ws-RNz"/>
                 <outlet property="DrawerSchliessenTaste" destination="Q7h-CK-zFA" id="U44-Yh-fYI"/>
@@ -27,6 +28,9 @@
                 <outlet property="LogoutKnopf" destination="Lj7-2I-PNa" id="DiR-pe-RTz"/>
                 <outlet property="NamenPopKnopf" destination="D6p-9a-Ttt" id="JeT-Sj-xSw"/>
                 <outlet property="OKTaste" destination="W8D-fz-pMa" id="RJD-VZ-hZY"/>
+                <outlet property="SessionDatumFeld" destination="fa6-52-HLq" id="8ls-fC-uZq"/>
+                <outlet property="SessionDrawer" destination="c7i-9t-a0e" id="jJq-sj-2yO"/>
+                <outlet property="SessionTable" destination="wLu-oD-aPw" id="zy0-7K-rMC"/>
                 <outlet property="StartTaste" destination="Ekv-i0-nnw" id="I7U-1h-QfK"/>
                 <outlet property="TestPopKnopf" destination="eIH-ID-Kel" id="oF4-cc-5z1"/>
                 <outlet property="ZeitFeld" destination="ZHi-Eb-NUY" id="cja-Op-osS"/>
@@ -830,12 +834,12 @@
                                     <subviews>
                                         <popUpButton verticalHuggingPriority="750" fixedFrame="YES" tag="16" translatesAutoresizingMaskIntoConstraints="NO" id="UEb-eS-501">
                                             <rect key="frame" x="385" y="37" width="70" height="22"/>
-                                            <popUpButtonCell key="cell" type="push" bezelStyle="rounded" alignment="left" controlSize="small" lineBreakMode="truncatingTail" enabled="NO" borderStyle="borderAndBezel" inset="2" arrowPosition="arrowAtCenter" preferredEdge="maxY" id="Yg8-WJ-rCO">
+                                            <popUpButtonCell key="cell" type="push" title="24" bezelStyle="rounded" alignment="left" controlSize="small" lineBreakMode="truncatingTail" enabled="NO" state="on" borderStyle="border" tag="24" inset="2" arrowPosition="arrowAtCenter" preferredEdge="maxY" selectedItem="cTp-QI-aBr" id="Yg8-WJ-rCO">
                                                 <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
                                                 <font key="font" metaFont="smallSystem"/>
                                                 <menu key="menu" title="OtherViews" id="QgG-Kb-Kg2">
                                                     <items>
-                                                        <menuItem title="24" tag="24" id="cTp-QI-aBr"/>
+                                                        <menuItem title="24" state="on" tag="24" id="cTp-QI-aBr"/>
                                                         <menuItem title="16" tag="16" id="B3D-6c-kB1"/>
                                                         <menuItem title="12" tag="12" id="fD3-if-4aK"/>
                                                         <menuItem title="6" tag="6" id="dbK-9l-ay8"/>
@@ -1067,6 +1071,9 @@
                                                 <behavior key="behavior" pushIn="YES" changeBackground="YES" changeGray="YES" lightByContents="YES"/>
                                                 <font key="font" metaFont="system"/>
                                             </buttonCell>
+                                            <connections>
+                                                <action selector="toggleSessionDrawer:" target="Voe-Tx-rLC" id="h3G-dl-VUe"/>
+                                            </connections>
                                         </button>
                                         <customView fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="oIt-28-1ib">
                                             <rect key="frame" x="11" y="205" width="152" height="152"/>
@@ -1098,6 +1105,9 @@
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
                                 </buttonCell>
+                                <connections>
+                                    <action selector="toggleAufgabenDrawer:" target="Voe-Tx-rLC" id="Crq-Ir-iMk"/>
+                                </connections>
                             </button>
                         </subviews>
                     </view>
@@ -1136,7 +1146,7 @@
                     <tabViewItems>
                         <tabViewItem label="Reihen" identifier="1" id="EmU-5n-Dtn">
                             <view key="view" ambiguous="YES" id="m1j-aY-9mW">
-                                <rect key="frame" x="10" y="33" width="466" height="114"/>
+                                <rect key="frame" x="10" y="33" width="135" height="0.0"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             </view>
                         </tabViewItem>
@@ -1151,12 +1161,106 @@
             </subviews>
             <point key="canvasLocation" x="405.5" y="729"/>
         </customView>
-        <drawer preferredEdge="minY" trailingOffset="15" id="mBB-9v-0fR">
+        <drawer trailingOffset="15" id="mBB-9v-0fR">
             <size key="contentSize" width="200" height="200"/>
             <size key="minContentSize" width="50" height="50"/>
             <size key="maxContentSize" width="600" height="400"/>
             <connections>
-                <outlet property="contentView" destination="wpH-xU-io3" id="lBf-G4-TFD"/>
+                <outlet property="delegate" destination="Voe-Tx-rLC" id="40f-dI-4zZ"/>
+                <outlet property="parentWindow" destination="QvC-M9-y7g" id="roQ-u6-vwb"/>
+            </connections>
+        </drawer>
+        <customView id="05h-sO-nCg" userLabel="View1">
+            <rect key="frame" x="0.0" y="0.0" width="198" height="340"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <subviews>
+                <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fa6-52-HLq">
+                    <rect key="frame" x="68" y="307" width="116" height="25"/>
+                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" id="DNh-BU-tvg">
+                        <font key="font" metaFont="system" size="14"/>
+                        <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+                <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="124-rd-gfP">
+                    <rect key="frame" x="10" y="314" width="63" height="18"/>
+                    <textFieldCell key="cell" sendsActionOnEndEditing="YES" title="Session:" id="4kE-4j-TNt">
+                        <font key="font" metaFont="system" size="14"/>
+                        <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+                <scrollView fixedFrame="YES" autohidesScrollers="YES" horizontalLineScroll="16" horizontalPageScroll="10" verticalLineScroll="16" verticalPageScroll="10" hasHorizontalScroller="NO" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XjN-G9-2Gs">
+                    <rect key="frame" x="13" y="20" width="171" height="279"/>
+                    <clipView key="contentView" ambiguous="YES" id="Evk-we-AqZ">
+                        <rect key="frame" x="1" y="0.0" width="169" height="278"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" columnReordering="NO" multipleSelection="NO" autosaveColumns="NO" rowHeight="14" headerView="ZUP-Fn-hqf" id="wLu-oD-aPw">
+                                <rect key="frame" x="0.0" y="0.0" width="169" height="255"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <size key="intercellSpacing" width="3" height="2"/>
+                                <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                <tableViewGridLines key="gridStyleMask" vertical="YES"/>
+                                <color key="gridColor" name="gridColor" catalog="System" colorSpace="catalog"/>
+                                <tableColumns>
+                                    <tableColumn identifier="name" editable="NO" width="126" minWidth="40" maxWidth="1000" id="3Nd-ic-ygr">
+                                        <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="left" title="Name">
+                                            <font key="font" metaFont="smallSystem"/>
+                                            <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="backgroundColor" white="0.33333298560000002" alpha="1" colorSpace="calibratedWhite"/>
+                                        </tableHeaderCell>
+                                        <textFieldCell key="dataCell" lineBreakMode="truncatingTail" selectable="YES" editable="YES" alignment="left" id="dYZ-rw-qUD">
+                                            <font key="font" metaFont="smallSystem"/>
+                                            <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                        </textFieldCell>
+                                    </tableColumn>
+                                    <tableColumn identifier="session" editable="NO" width="37" minWidth="8" maxWidth="1000" id="sAc-52-wJ1">
+                                        <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="left">
+                                            <font key="font" metaFont="smallSystem"/>
+                                            <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="backgroundColor" white="0.33333298560000002" alpha="1" colorSpace="calibratedWhite"/>
+                                        </tableHeaderCell>
+                                        <textFieldCell key="dataCell" lineBreakMode="truncatingTail" selectable="YES" editable="YES" alignment="left" id="78q-qm-jiS">
+                                            <font key="font" metaFont="smallSystem"/>
+                                            <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                        </textFieldCell>
+                                        <tableColumnResizingMask key="resizingMask" resizeWithTable="YES"/>
+                                    </tableColumn>
+                                </tableColumns>
+                                <connections>
+                                    <outlet property="dataSource" destination="Voe-Tx-rLC" id="UCI-0Z-V33"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
+                    </clipView>
+                    <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="YES" id="ymh-jr-eq5">
+                        <rect key="frame" x="-100" y="-100" width="150" height="15"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </scroller>
+                    <scroller key="verticalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="NO" id="IdK-e3-RbR">
+                        <rect key="frame" x="-14" y="23" width="15" height="0.0"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </scroller>
+                    <tableHeaderView key="headerView" id="ZUP-Fn-hqf">
+                        <rect key="frame" x="0.0" y="0.0" width="169" height="23"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </tableHeaderView>
+                </scrollView>
+            </subviews>
+            <point key="canvasLocation" x="-61" y="711"/>
+        </customView>
+        <drawer preferredEdge="minY" trailingOffset="15" id="c7i-9t-a0e">
+            <size key="contentSize" width="200" height="200"/>
+            <size key="minContentSize" width="50" height="50"/>
+            <size key="maxContentSize" width="600" height="400"/>
+            <connections>
+                <outlet property="contentView" destination="05h-sO-nCg" id="qsf-Ry-qsw"/>
+                <outlet property="delegate" destination="Voe-Tx-rLC" id="JXw-ba-qmR"/>
+                <outlet property="parentWindow" destination="QvC-M9-y7g" id="1yy-OX-UyK"/>
             </connections>
         </drawer>
     </objects>
