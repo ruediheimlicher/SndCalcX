@@ -5338,7 +5338,7 @@ const short     kSerieFertig = 5003;
          {
             //NSLog(@"\n\n");NSLog(@"\n\n");
             //NSLog(@"vor");
-          //  NSArray* tempArray = [NamenPanel getNamenDicArray];
+            //NSArray* tempArray = [NamenPanel holeNamenDicArray];
             NSMutableArray* tempNamenDicArray=[[NSMutableArray alloc]initWithArray:[NamenPanel NamenDicArray]];
             //eventuell Aenderung in "aktiv"
             

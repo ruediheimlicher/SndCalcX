@@ -442,11 +442,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Source/rTestPanel.m"
-            timestampString = "483441462.668771"
+            timestampString = "483442052.082325"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "3221"
-            endingLineNumber = "3221"
+            startingLineNumber = "3220"
+            endingLineNumber = "3220"
             landmarkName = "-tabView:willSelectTabViewItem:"
             landmarkType = "5">
          </BreakpointContent>
@@ -474,11 +474,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Source/rTestPanel.m"
-            timestampString = "483441462.668771"
+            timestampString = "483442052.082325"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "3234"
-            endingLineNumber = "3234"
+            startingLineNumber = "3233"
+            endingLineNumber = "3233"
             landmarkName = "-tabView:willSelectTabViewItem:"
             landmarkType = "5">
          </BreakpointContent>
@@ -506,11 +506,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Source/rTestPanel.m"
-            timestampString = "483441462.668771"
+            timestampString = "483442052.082325"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "2277"
-            endingLineNumber = "2277"
+            startingLineNumber = "2276"
+            endingLineNumber = "2276"
             landmarkName = "-setNamenZuTestDSForTest:"
             landmarkType = "5">
          </BreakpointContent>
@@ -522,11 +522,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Source/rTestPanel.m"
-            timestampString = "483441462.668771"
+            timestampString = "483442052.082325"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "2381"
-            endingLineNumber = "2381"
+            startingLineNumber = "2380"
+            endingLineNumber = "2380"
             landmarkName = "-setNamenZuTestDSForTest:"
             landmarkType = "5">
          </BreakpointContent>
@@ -570,12 +570,44 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Source/rTestPanel.m"
-            timestampString = "483441462.668771"
+            timestampString = "483442052.082325"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "3338"
-            endingLineNumber = "3338"
+            startingLineNumber = "3337"
+            endingLineNumber = "3337"
             landmarkName = "-tabView:willSelectTabViewItem:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SndCalcX/AppDelegate.m"
+            timestampString = "483442872.602243"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "5337"
+            endingLineNumber = "5337"
+            landmarkName = "-showNamenPanel:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Source/rNamenPanel.m"
+            timestampString = "483443217.154839"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "105"
+            endingLineNumber = "105"
+            landmarkName = "-setNamenDicArray:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

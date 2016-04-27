@@ -85,15 +85,24 @@ return neuerName;
 {
 return [NamenArray copy];
 }
+- (NSArray*)NamenArray
+{
+   return [NamenArray copy];
+}
 
-- (NSArray*)getNamenDicArray
+- (NSArray*)holeNamenDicArray
 {
 return [NamenDicArray copy];
 }
 
+- (NSArray*)NamenDicArray
+{
+   return [NamenDicArray copy];
+}
+
 - (void)setNamenDicArray:(NSArray*)derDicArray
 {
-//NSLog(@"NamenPanel setNamenDicArray: derDicArray: %@",[derDicArray description]);
+NSLog(@"NamenPanel setNamenDicArray: derDicArray: %@",[derDicArray description]);
 [NamenDicArray removeAllObjects];
 [NamenDicArray addObjectsFromArray:derDicArray];
 [NamenTable reloadData];

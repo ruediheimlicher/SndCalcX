@@ -24,7 +24,9 @@
 - (IBAction)reportClose:(id)sender;
 - (NSString*)neuerName;
 - (NSArray*)getNamenArray;
-- (NSArray*)getNamenDicArray;
+- (NSArray*)NamenArray;
+- (NSArray*)holeNamenDicArray;
+- (NSArray*)NamenDicArray;
 - (void)setNamenDicArray:(NSArray*)derDicArray;
 
 - (NSString*)stringSauberVon:(NSString*)derString;
