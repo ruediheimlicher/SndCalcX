@@ -1,7 +1,7 @@
 #import <Cocoa/Cocoa.h>
 
 
-@interface rNamenZuTestDS : NSObject <NSTableViewDataSource>
+@interface rNamenZuTestDS : NSObject <NSTableViewDataSource,NSTableViewDelegate>
 
 {
 NSMutableArray*				NamenZuTestDicArray;

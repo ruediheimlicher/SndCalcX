@@ -83,7 +83,7 @@ Aus NamenDicArray der PList den NamenZuTestDicArray aufbauen
 - (void)addTestZuTestListe:(NSString*)derTest zuNamen:(NSString*)derUser
 {
 NSArray* tempNamenArray=[NamenZuTestDicArray valueForKey:@"name"];
-int index=[tempNamenArray indexOfObject:derUser];
+long index=[tempNamenArray indexOfObject:derUser];
 if (index<NSNotFound)//User ist da
 {
 	NSMutableDictionary* tempNamenDic=(NSMutableDictionary*)[NamenZuTestDicArray objectAtIndex:index];

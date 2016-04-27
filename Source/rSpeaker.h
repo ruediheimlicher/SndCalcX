@@ -66,7 +66,6 @@ rStimmenPanel*			StimmenPanel;
 - (long)setZahlTrackVon:(int)dieZahl mitOffset:(long)derOffset;
 - (long)setOpTrackVon:(int)dieOperation mitOffset:(long)derOffset;
 -(QTTime)setOpQTKitTrackVon:(int)dieOperation mitOffset:(QTTime)derOffset;
--(QTTime)setZahlQTKitTrackVon:(int)dieZahl mitOffset:(QTTime)derOffset;
 
 - (long)setQuittungTrackVon:(int)dieQuittung mitOffset:(long)derOffset;
 - (QTTime)setQTKitQuittungVon:(int)dieQuittung mitOffset:(QTTime)derOffset;

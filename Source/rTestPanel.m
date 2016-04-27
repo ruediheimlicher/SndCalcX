@@ -921,8 +921,8 @@ if (startPos<[TestDicArray count])//mindestens Item auf zweitunterster Zeile
 				
 				NSString* neuerTestName=[EingabeFeld stringValue];//Name fŸr einen neuen Test
 				//NSLog(@"neuerTestName: %@",neuerTestName);
-				int doppelIndex=[tempTestNamenArray indexOfObject:neuerTestName];
-				int insertIndex=0;
+				NSUInteger doppelIndex=[tempTestNamenArray indexOfObject:neuerTestName];
+				NSInteger insertIndex=0;
 				//NSLog(@"doppelIndex: %d",doppelIndex);
 				//NSLog(@"tempTestNamenArray: %@   neuerTestName: %@  doppelIndex: %d",[tempTestNamenArray description],neuerTestName,doppelIndex);
 				
@@ -1001,7 +1001,7 @@ if (startPos<[TestDicArray count])//mindestens Item auf zweitunterster Zeile
 					if ([forAllCheckbox state])
 					{
 						NSArray* tempNamenArray=[NamenDicArray valueForKey:@"name"];
-						int index=[tempNamenArray indexOfObject:aktuellerUser];
+						NSUInteger index=[tempNamenArray indexOfObject:aktuellerUser];
 						//NSLog(@"reportSaveTest forAll:	aktuellerUser: %@",aktuellerUser);
 						if (!(index==NSNotFound))
 						{
@@ -1095,8 +1095,8 @@ if (startPos<[TestDicArray count])//mindestens Item auf zweitunterster Zeile
 					
 				NSString* neuerTestName=[EingabeFeld stringValue];//Name fŸr einen neuen Test
 				NSLog(@"neuerTestName: %@",neuerTestName);
-				int doppelIndex=[tempTestNamenArray indexOfObject:neuerTestName];
-				int insertIndex=-1;
+				NSUInteger doppelIndex=[tempTestNamenArray indexOfObject:neuerTestName];
+				NSInteger insertIndex=-1;
 				NSLog(@"doppelIndex: %d",doppelIndex);
 				//NSLog(@"tempTestNamenArray: %@   neuerTestName: %@  doppelIndex: %d",[tempTestNamenArray description],neuerTestName,doppelIndex);
 				
@@ -1174,7 +1174,7 @@ if (startPos<[TestDicArray count])//mindestens Item auf zweitunterster Zeile
 					if ([forAllCheckbox state])
 					{
 						NSArray* tempNamenArray=[NamenDicArray valueForKey:@"name"];
-						int index=[tempNamenArray indexOfObject:aktuellerUser];
+						NSUInteger index=[tempNamenArray indexOfObject:aktuellerUser];
 						//NSLog(@"reportSaveTest forAll:	aktuellerUser: %@",aktuellerUser);
 						if (!(index==NSNotFound))
 						{
@@ -1286,7 +1286,7 @@ if ([[EingabeFeld stringValue]length])
 	
 	NSString* neuerTestName=[EingabeFeld stringValue];//Name fŸr einen neuen Test
 	//NSLog(@"neuerTestName: %@",neuerTestName);
-	int doppelIndex=[tempTestNamenArray indexOfObject:neuerTestName];
+	NSUInteger doppelIndex=[tempTestNamenArray indexOfObject:neuerTestName];
 	//NSLog(@"doppelIndex: %d",doppelIndex);
 	//NSLog(@"tempTestNamenArray: %@   neuerTestName: %@  doppelIndex: %d",[tempTestNamenArray description],neuerTestName,doppelIndex);
 	
@@ -1300,7 +1300,7 @@ if ([[EingabeFeld stringValue]length])
 		[OrdnerWarnung setMessageText:NSLocalizedString(@"Name Already Exists",@"Name schon vorhanden")];
 		[OrdnerWarnung setInformativeText:NSLocalizedString(@"The test must have another name to be saved.",@"Der Test muss einen andern Namen bekommen, um gesichert werden zu kšnnen.")];
 		
-		int modalAntwort=[OrdnerWarnung runModal];
+		NSUInteger modalAntwort=[OrdnerWarnung runModal];
 		switch (modalAntwort)
 		{
 			case NSAlertFirstButtonReturn://zurŸck
@@ -1352,7 +1352,7 @@ if ([[EingabeFeld stringValue]length])
 	if ([forAllCheckbox state])
 	{
 		NSArray* tempNamenArray=[NamenDicArray valueForKey:@"name"];
-		int index=[tempNamenArray indexOfObject:aktuellerUser];
+		NSUInteger index=[tempNamenArray indexOfObject:aktuellerUser];
 		//NSLog(@"reportSaveTest forAll:	aktuellerUser: %@",aktuellerUser);
 		if (!(index==NSNotFound))
 		{
@@ -1822,7 +1822,7 @@ dirty=YES;
 			
 			NSString* neuerTestName=[EingabeFeld stringValue];//Name fŸr einen neuen Test
 															  //NSLog(@"neuerTestName: %@",neuerTestName);
-				int doppelIndex=[tempTestNamenArray indexOfObject:neuerTestName];
+				NSUInteger doppelIndex=[tempTestNamenArray indexOfObject:neuerTestName];
 				//NSLog(@"doppelIndex: %d",doppelIndex);
 				//NSLog(@"tempTestNamenArray: %@   neuerTestName: %@  doppelIndex: %d",[tempTestNamenArray description],neuerTestName,doppelIndex);
 				
@@ -1909,7 +1909,7 @@ dirty=YES;
 		NSArray* letzterUserTestArray=[TestZuNamenDS aktivTestForUserArray];
 		
 		NSArray* tempNamenArray=[NamenDicArray valueForKey:@"name"];
-		int index=[tempNamenArray indexOfObject:[NamenWahlTaste titleOfSelectedItem]];
+		NSUInteger index=[tempNamenArray indexOfObject:[NamenWahlTaste titleOfSelectedItem]];
 		if ((index<NSNotFound))
 		{
 			[[NamenDicArray objectAtIndex:index]setObject:letzterUserTestArray forKey:@"usertestarray"];
@@ -1937,7 +1937,7 @@ dirty=YES;
 		NSArray* letzterUserTestArray=[TestZuNamenDS aktivTestForUserArray];//aktive Tests von User
 		
 		NSArray* tempNamenArray=[NamenDicArray valueForKey:@"name"];
-		int index=[tempNamenArray indexOfObject:derUser];
+		NSUInteger index=[tempNamenArray indexOfObject:derUser];
 		if (index<NSNotFound)
 		{
 			[[NamenDicArray objectAtIndex:index]setObject:letzterUserTestArray forKey:@"usertestarray"];
@@ -1970,7 +1970,7 @@ dirty=YES;
 	
 	NSArray* tempNamenArray=[NamenDicArray valueForKey:@"name"];
 	//index von derUser im tempNamenArray suchen
-	int namenIndex=[tempNamenArray indexOfObject:derUser];
+	long namenIndex=[tempNamenArray indexOfObject:derUser];
 	
 	if (namenIndex==NSNotFound)//ungueltiger Name
 		{
@@ -2012,7 +2012,7 @@ dirty=YES;
 	id einTestDic;
 	while (einTestDic=[TestEnum nextObject])
 	{
-		//NSLog(@"einTestDic: %@",[einTestDic description]);
+		NSLog(@"einTestDic: %@",[einTestDic description]);
 		if ([einTestDic objectForKey:@"testname"])
 		{
 			//Test aufnehmen sofern aktiviert
@@ -2093,7 +2093,7 @@ dirty=YES;
 	int anzTest=0;
 	NSArray* tempNamenArray=[NamenDicArray valueForKey:@"name"];
 	//index von derUser im tempNamenArray suchen
-	int namenIndex=[tempNamenArray indexOfObject:derUser];
+	NSUInteger namenIndex=[tempNamenArray indexOfObject:derUser];
 	
 	if (namenIndex==NSNotFound)//leerer Name
 	{
@@ -2129,12 +2129,15 @@ if ([NamenZuTestDS isDirty]&&[TestWahlTaste titleOfSelectedItem])
 
 
 	//in TestZuNamen wurde die Checkbox  userOK angeklickt
-	//NSLog(@"TestZuNamenCheckboxAktion: Zeile: %d",[sender selectedRow]);
+	NSLog(@"TestZuNamenCheckboxAktion: Zeile: %ld",[sender selectedRow]);
 	//Dic vor Aenderung
 	if ([NamenWahlTaste indexOfSelectedItem])
    {
-      
-      NSMutableDictionary* tempNamenDic= [(NSMutableArray*)[TestZuNamenTable dataSource] objectAtIndex:[sender selectedRow]];
+      //NSArray* tempArray =[TestZuNamenDS TestZuNamenDicArray];
+     // long zeile = [sender selectedRow];
+     // NSMutableDictionary* tempNamenDic= (NSMutableArray*)[tempArray objectAtIndex:zeile];
+      NSMutableDictionary* tempNamenDic= [(NSMutableArray*)[(rTestZuNamenDS*)[TestZuNamenTable dataSource] TestZuNamenDicArray]objectAtIndex:[sender selectedRow]];
+
       BOOL testOKStatus=[[tempNamenDic objectForKey:@"userok"]boolValue];
       NSString* tempUserName=[NamenWahlTaste titleOfSelectedItem];
       NSString* tempTestName=[tempNamenDic objectForKey:@"testname"];
@@ -2182,7 +2185,7 @@ if ([NamenZuTestDS isDirty]&&[TestWahlTaste titleOfSelectedItem])
 	//in NamenZuTest wurde die Checkbox testok angeklickt
 
 //	NSLog(@"NamenZuTestCheckboxAktion: Zeile: %d\n\n",[sender selectedRow]);
-   NSMutableDictionary* tempNamenDic= [(NSMutableArray*)[NamenZuTestTable dataSource] objectAtIndex:[sender selectedRow]];
+   NSMutableDictionary* tempNamenDic= [(NSMutableArray*)[(rNamenZuTestDS*)[NamenZuTestTable dataSource] NamenZuTestDicArray]objectAtIndex:[sender selectedRow]];
 
    
 	BOOL namenOKStatus=[[tempNamenDic objectForKey:@"testok"]boolValue];
@@ -2190,7 +2193,7 @@ if ([NamenZuTestDS isDirty]&&[TestWahlTaste titleOfSelectedItem])
 	NSString* tempUserName=[tempNamenDic objectForKey:@"name"];
 //	NSLog(@"NamenZuTestCheckboxAktion Zeile: %d	status: %d	UserName: %@ CheckboxStatus: %d",[sender selectedRow],namenOKStatus,tempUserName,CheckboxStatus);
 	
-	int namenIndex=[[NamenDicArray valueForKey:@"name"]indexOfObject:tempUserName];//Daten fuer tempUsername
+	NSUInteger namenIndex=[[NamenDicArray valueForKey:@"name"]indexOfObject:tempUserName];//Daten fuer tempUsername
 //	NSLog(@"NamenZuTestCheckbox %@ namenIndex: %d",[[NamenDicArray valueForKey:@"name"]description],namenIndex);
 	if (namenIndex<NSNotFound)
 	{
@@ -2271,7 +2274,7 @@ if ([NamenZuTestDS isDirty]&&[TestWahlTaste titleOfSelectedItem])
 	
 //	NSLog(@"setNamenZuTestDSForTest	Testname: %@",derTest);
 	NSString* tempTestName=@"";
-	int index=[TestWahlTaste indexOfSelectedItem];
+	long index=[TestWahlTaste indexOfSelectedItem];
 	if (index)
 	{
 		tempTestName=derTest;//Einen String mit derTest an die Table senden: Checkbox enablen
@@ -2282,7 +2285,7 @@ if ([NamenZuTestDS isDirty]&&[TestWahlTaste titleOfSelectedItem])
 //	NSLog(@"setNamenZuTestDSForTest:		tempTestNamenArray: %@",[tempTestNamenArray description]);
 	//Ist der ausgewŠhlte Test in TestDicArray?
 	
-	int testIndex=[tempTestNamenArray indexOfObject:derTest];
+	long testIndex=[tempTestNamenArray indexOfObject:derTest];
 	
 	if (testIndex<NSNotFound)
 	{
@@ -3186,7 +3189,7 @@ return SerieDatenDic;
   
 - (void)tableViewSelectionDidChange:(NSNotification *)aNotification
 {
-	//NSLog(@"ProjektListe tableViewSelectionDidChange");
+	NSLog(@"TestListe tableViewSelectionDidChange");
 	if ([TestTable numberOfSelectedRows]==0)
 	{
 		[DeleteTaste setEnabled:NO];
@@ -3210,8 +3213,8 @@ return SerieDatenDic;
 
 - (void)tabView:(NSTabView *)tabView willSelectTabViewItem:(NSTabViewItem *)tabViewItem
 {
-	//	NSLog(@"TestTabFeld aktuelles TabViewItem: %@",[[TestTabFeld selectedTabViewItem] label]);
-	//	NSLog(@"TestTabFeld willSelectTabViewItem: %@",[tabViewItem label]);
+		NSLog(@"TestTabFeld aktuelles TabViewItem: %@",[[TestTabFeld selectedTabViewItem] label]);
+		NSLog(@"TestTabFeld willSelectTabViewItem: %@",[tabViewItem label]);
 	
 	//		Bisheriges Item abschliessen
 	switch ([[[TestTabFeld selectedTabViewItem] identifier]intValue])
@@ -3329,7 +3332,9 @@ return SerieDatenDic;
 			
 			if (selektierteZeile>=0)//eine Zeile ist selektiert
 			{
-            NSMutableDictionary* tempTestDic= [(NSMutableArray*)[TestZuNamenTable dataSource] objectAtIndex:selektierteZeile];
+            //      NSMutableDictionary* tempNamenDic= [(NSMutableArray*)[(rTestZuNamenDS*)[TestZuNamenTable dataSource] TestZuNamenDicArray]objectAtIndex:[sender selectedRow]];
+
+            NSMutableDictionary* tempTestDic= [(NSMutableArray*)[(rTestZuNamenDS*)[TestZuNamenTable dataSource] TestZuNamenDicArray]objectAtIndex:selektierteZeile];
 
 				//NSDictionary* tempTestDic=[[[TestZuNamenTable dataSource]TestZuNamenDicArray]objectAtIndex:selektierteZeile];
 				NSString* tempTestName=[tempTestDic objectForKey:@"testname"];

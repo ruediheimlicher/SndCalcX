@@ -345,15 +345,6 @@ const short     kSerieFertig = 5003;
     //  [Bild setImage: [NSImage imageNamed: @"duerergrau"]];
       
       
-      /* we must initialize the movie toolbox before calling
-       any of it's functions */
-      //		[self DebugStep:@"vor EnterMovies"];
-      //	EnterMovies();
-      //[self DebugStep:@"nach EnterMovies"];
-      
-      //	saveObjectForCallback(self);
-      //[self DebugStep:@"nach saveObjectForCallback"];
-      
        Speaker=[[rSpeaker alloc]init];
       if (Speaker)
       {
@@ -454,7 +445,7 @@ const short     kSerieFertig = 5003;
             //NSLog(@"Test  geladen: %@",[einTestDic description]);
             
             BOOL statusOK=[[[self StatusVonSerieDatenDic:[einTestDic objectForKey:@"seriedatendic"]]objectForKey:@"complete"]boolValue];
-            //NSLog(@"Test  geladen: %@",[einTestDic description]);
+            NSLog(@"Test  geladen: statusOK: %d\n%@",statusOK,[einTestDic description]);
             //NSLog(@"Test  geladen: statusOK: %d",statusOK);
             if (statusOK)
             {
@@ -3220,7 +3211,7 @@ const short     kSerieFertig = 5003;
    NSMutableArray* tempNamenArray=(NSMutableArray*)[[Utils NamenDicArrayAnPfad:SndCalcPfad]valueForKey:@"name"];
    
    
-   int namenIndex=-1;
+   long namenIndex=-1;
    if (tempNamenArray && [tempNamenArray count])//Es hat Namendics
    {
       //			NSMutableArray* tempNamenDicArray=(NSMutableArray*)[PListDic objectForKey:@"namendicarray"];
@@ -3339,7 +3330,7 @@ const short     kSerieFertig = 5003;
       NSMutableArray* tempNamenArray=(NSMutableArray*)[[Utils NamenDicArrayAnPfad:SndCalcPfad]valueForKey:@"name"];
       
       
-      int namenIndex=-1;
+      long namenIndex=-1;
       if (tempNamenArray && [tempNamenArray count])//Es hat Namendics
       {
          //			NSMutableArray* tempNamenDicArray=(NSMutableArray*)[PListDic objectForKey:@"namendicarray"];
@@ -4597,7 +4588,7 @@ const short     kSerieFertig = 5003;
          //NSLog(@"setTest: TestDicArray: %@",[TestDicArray description]);
          if (TestDicArray)
          {
-            int Testindex=-1;
+            long Testindex=-1;
             
             NSArray* TestNamenArray=[TestDicArray valueForKey:@"testname"];
             if([TestNamenArray count])
@@ -4662,7 +4653,7 @@ const short     kSerieFertig = 5003;
          //			NSLog(@"resetTest: TestDicArray: %@",[TestDicArray description]);
          if (TestDicArray)
          {
-            int Testindex=-1;
+            long Testindex=-1;
             
             NSArray* TestNamenArray=[TestDicArray valueForKey:@"testname"];
             if([TestNamenArray count])
@@ -4727,7 +4718,7 @@ const short     kSerieFertig = 5003;
          //NSLog(@"setTest: TestDicArray: %@",[TestDicArray description]);
          if (TestDicArray)
          {
-            int Testindex=-1;
+            long Testindex=-1;
             
             NSArray* TestNamenArray=[TestDicArray valueForKey:@"testname"];
             if([TestNamenArray count])
@@ -5008,7 +4999,7 @@ const short     kSerieFertig = 5003;
          if (tempNamenArray)//Es hat Namen
          {
             [Statistik setBenutzerPop: tempNamenArray];//Benutzer in NamenPop setzen
-            int namenIndex=[tempNamenArray indexOfObject:[NamenPopKnopf titleOfSelectedItem]];
+            long namenIndex=[tempNamenArray indexOfObject:[NamenPopKnopf titleOfSelectedItem]];
             if ((namenIndex<NSNotFound) &&!(namenIndex==NSNotFound))//Name ist vorhanden
             {
                
@@ -5420,7 +5411,7 @@ const short     kSerieFertig = 5003;
                      
                      NSMutableArray* tempNamenArray=[[tempNamenDicArray valueForKey:@"name"]mutableCopy];
                      //[tempNamenArray removeObject:@" "];
-                     int DoppelIndex=[tempNamenArray indexOfObject:[neuerNamenDic objectForKey:@"name"]];
+                     long DoppelIndex=[tempNamenArray indexOfObject:[neuerNamenDic objectForKey:@"name"]];
                      if (DoppelIndex==NSNotFound)//Name noch nicht da
                      {
                         [tempNamenDicArray addObject:neuerNamenDic];
@@ -5567,7 +5558,7 @@ const short     kSerieFertig = 5003;
          if (tempNamenArray)
          {
             //NSLog(@"tempNamenArray: %@",[tempNamenArray description]);
-            int namenIndex=[tempNamenArray indexOfObject:[NamenPopKnopf titleOfSelectedItem]];
+            long namenIndex=[tempNamenArray indexOfObject:[NamenPopKnopf titleOfSelectedItem]];
             //NSLog(@"tempNamenArray: namenIndex: %d",namenIndex);
             if ((namenIndex<NSNotFound)&&!(namenIndex==NSNotFound))//Name ist vorhanden
             {
@@ -5848,7 +5839,7 @@ const short     kSerieFertig = 5003;
  NSLog(@"Name: %@",[einObjekt objectForKey:@"name"]);
  if ([NamenArray containsObject:[einObjekt objectForKey:@"name"]])//es hat alte Daten zu diesem Namen
  {
- int index=[NamenArray indexOfObject:[einObjekt objectForKey:@"name"]];//index im neuen Array
+ long index=[NamenArray indexOfObject:[einObjekt objectForKey:@"name"]];//index im neuen Array
  NSLog(@"name: %@ index: %d",[einObjekt objectForKey:@"name"],index);
  NSLog(@"ErgebnisDic Old: %@",[[einObjekt valueForKey:@"ergebnisdicarray"]description]);
  if ([[einObjekt valueForKey:@"ergebnisdicarray"]count])//es hat Daten
@@ -6083,7 +6074,7 @@ const short     kSerieFertig = 5003;
              
              NSLog(@"TestPanel neuerTestDic: %@nn",[neuerTestDic description]);
              
-             int DoppelIndex=[[TestDicArray valueForKey:@"testname"]indexOfObject:[neuerTestDic objectForKey:@"testname"]];
+             long DoppelIndex=[[TestDicArray valueForKey:@"testname"]indexOfObject:[neuerTestDic objectForKey:@"testname"]];
              
              if (DoppelIndex==NSNotFound)//Test noch nicht da
              {
@@ -6161,7 +6152,7 @@ const short     kSerieFertig = 5003;
       if (tempTestArray)
       {
          NSArray* tempTestnamenArray=[tempTestArray valueForKey:@"testname"];
-         int index=[tempTestnamenArray indexOfObject:tempTestname];
+         long index=[tempTestnamenArray indexOfObject:tempTestname];
          if (index<NSNotFound)
          {
             tempSeriedatenDic=[[tempTestArray objectAtIndex:index]objectForKey:@"seriedatendic"];
@@ -7331,7 +7322,7 @@ objectValueForTableColumn:(NSTableColumn *)aTableColumn
       {
          NSArray* tempTestNamenArray=[tempTestDicArray valueForKey:@"testname"];
          //			NSLog(@"tempTestNamenArray: %@",[tempTestNamenArray description]);
-         int index=[tempTestNamenArray indexOfObject:tempTestName];
+         long index=[tempTestNamenArray indexOfObject:tempTestName];
          if (!(index==NSNotFound))
          {
             NSLog(@"deleteTest: %@",tempTestName);

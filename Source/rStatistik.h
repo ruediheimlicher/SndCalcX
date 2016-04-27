@@ -82,7 +82,7 @@ BOOL		farbig;
 
 
 
-@interface rStatistik : NSWindowController <NSComboBoxDataSource,NSTableViewDataSource>
+@interface rStatistik : NSWindowController <NSComboBoxDataSource,NSTableViewDataSource,NSTableViewDelegate>
 {
     IBOutlet	id                      CancelTaste;
     IBOutlet	id                      SchliessenTaste;

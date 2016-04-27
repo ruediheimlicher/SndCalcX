@@ -816,7 +816,7 @@ NSLog(@"Utils saveTestName: %@	anPfad: %@",derTestName,derPfad);
 			{
 				NSMutableArray* tempTestDicArray=[[NSMutableArray alloc]initWithArray:[tempPListDic objectForKey:@"testarray"]];
 				NSArray*	tempTestNamenArray=[tempTestDicArray valueForKey:@"testname"];
-				int index=[tempTestNamenArray indexOfObject:derTestName];
+				NSUInteger index=[tempTestNamenArray indexOfObject:derTestName];
 				if (index==NSNotFound)//Testname noch nicht da
 				{
 					[tempTestDicArray addObject:derTestName];
@@ -854,7 +854,7 @@ BOOL istOrdner=NO;
 			{
 				NSMutableArray* tempTestDicArray=[tempPListDic objectForKey:@"testarray"];
 				NSArray*	tempTestNamenArray=[tempTestDicArray valueForKey:@"testname"];
-				int index=[tempTestNamenArray indexOfObject:derTestName];
+				NSUInteger index=[tempTestNamenArray indexOfObject:derTestName];
 				if (index<NSNotFound)//Testname ist da
 				{
 					NSNumber* StatusNumber=[NSNumber numberWithBool:derStatus];
@@ -899,7 +899,7 @@ BOOL istOrdner=NO;
 //				NSLog(@"Utils deleteTestName: tempTestDicArray: %@",[tempTestDicArray description]);
 				NSArray*	tempTestNamenArray=[tempTestDicArray valueForKey:@"testname"];
 //				NSLog(@"Utils deleteTestName: tempTestNamenArray: %@",[tempTestNamenArray description]);
-				int index=[tempTestNamenArray indexOfObject:derTestName];
+				NSUInteger index=[tempTestNamenArray indexOfObject:derTestName];
 				if (!(index==NSNotFound))
 				{
 				//	NSLog(@"delete Test: %@",derTestName);
@@ -1177,8 +1177,8 @@ BOOL istOrdner=NO;
 									
 									if (tempErgebnisDicArray)//Array existiert
 									{
-										int durchlauf=[tempErgebnisDicArray count];
-										int ergebnisindex=-1;
+										NSUInteger durchlauf=[tempErgebnisDicArray count];
+										NSInteger ergebnisindex=-1;
 										while ((ergebnisindex<NSNotFound)&&durchlauf)
 										{
 											ergebnisindex=[[tempErgebnisDicArray valueForKey:@"testname"]indexOfObject:derTest];
@@ -1692,7 +1692,7 @@ return SessionBehaltenTag;
 				NSArray* tempTestArray=[tempPListDic objectForKey:@"testarray"];
 //				NSLog(@"Utils setAktivInPList: tempTestArray vor set : %@",[[tempPListDic objectForKey:@"testarray"]description]);
 				
-				int index=[[tempTestArray valueForKey:@"testname"]indexOfObject:derTest];
+				NSUInteger index=[[tempTestArray valueForKey:@"testname"]indexOfObject:derTest];
 				if (index<NSNotFound)//Test existiert
 				{
 					NSMutableDictionary* tempTestDic=(NSMutableDictionary*)[[tempPListDic objectForKey:@"testarray"]objectAtIndex:index];
@@ -1952,7 +1952,7 @@ Gibt die Volumes im Ordner 'Network' zurück
 				NSMutableArray* tempDicArray=[[NSMutableArray alloc]initWithArray:[tempDic objectForKey:@"ergebnisdicarray"]];
 				NSArray* tempDatumArray=[tempDicArray valueForKey:@"datum"];
 				//NSLog(@"tempDatumArray: %@",[tempDatumArray description]);
-				int datumIndex=[tempDatumArray indexOfObject:dasDatum];
+				NSUInteger datumIndex=[tempDatumArray indexOfObject:dasDatum];
 				if (!(datumIndex==NSNotFound))
 				{
 					//NSLog(@"User: %@	datumIndex: %d",derUser,datumIndex);

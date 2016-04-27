@@ -6,7 +6,7 @@
 #import "rReihenSettings.h"
 #import "rAddSubSettings.h"
 
-@interface rTestPanel : NSWindowController <NSTableViewDataSource>
+@interface rTestPanel : NSWindowController <NSTableViewDataSource,NSTableViewDelegate>
 {
     IBOutlet	id						EingabeFeld;
     IBOutlet	id						SchliessenTaste;

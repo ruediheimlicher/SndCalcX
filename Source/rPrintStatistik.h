@@ -3,7 +3,7 @@
 #import <Cocoa/Cocoa.h>
 #import "rStatistik.h"
 
-@interface rPrintStatistik : rStatistik
+@interface rPrintStatistik : rStatistik <NSTableViewDataSource,NSTableViewDelegate>
 
 {
 NSTextField*		TitelFeld;

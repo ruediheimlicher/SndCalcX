@@ -969,7 +969,7 @@ NSLog(@"Mittelwert von angezeigten");
 {
 //neue oder geänderte Note in AdminStatistikDicArray eintragen
 	NSArray* tempNamenArray=[AdminStatistikDicArray valueForKey:@"name"];
-	int namenindex;
+	NSUInteger namenindex;
 	//NSLog(@"updateAdminStatistikDicArrayMitNoteChangedDic: NoteChangedDic: %@",[derNoteChangedDic description]);
 
 	NSString* tempName=[derNoteChangedDic objectForKey:@"name"];
@@ -1001,7 +1001,7 @@ NSLog(@"Mittelwert von angezeigten");
 //NSLog(@"updateAdminStatistikDicArrayMitNoteChangedArray: derNoteArray: %@",[derNoteArray description]);
 	NSArray* tempNamenArray=[AdminStatistikDicArray valueForKey:@"name"];
 	//NSLog(@"tempNamenArray: retaincount: %d: ",[tempNamenArray retainCount]);
-	int namenindex;
+	NSUInteger namenindex;
 	NSEnumerator* NoteEnum=[derNoteArray objectEnumerator];
 	id einDic;
 	while (einDic=[NoteEnum nextObject])
@@ -1035,7 +1035,7 @@ NSLog(@"Mittelwert von angezeigten");
 	if ([note objectForKey:@"name"])
 	{
 		NSArray* tempNamenArray=[AdminStatistikDicArray valueForKey:@"name"];
-		int namenindex;
+		NSUInteger namenindex;
 		NSString* tempName=[note objectForKey:@"name"];
 		if (tempName)//Dic fuer Name ist da
 		{
@@ -1149,7 +1149,7 @@ if ([[note userInfo]objectForKey:@"art"])
 		{
 		return;
 		}
-	int deleteIndex=[TestTable selectedRow];
+	NSUInteger deleteIndex=[TestTable selectedRow];
 	
    NSMutableDictionary* deleteDic;//=(NSMutableDictionary*)[[TestTable dataSource]DicForRow:deleteIndex];
 	
@@ -1162,7 +1162,7 @@ if ([[note userInfo]objectForKey:@"art"])
 	
 	//Test in AdminStatistikDicArray suchen und entfernen
 	NSArray* tempNamenArray=[AdminStatistikDicArray valueForKey:@"name"];
-	int namenIndex=[tempNamenArray indexOfObject:deleteName];
+	NSUInteger namenIndex=[tempNamenArray indexOfObject:deleteName];
 	if (namenIndex==NSNotFound){return;}
 	
 	NSMutableDictionary* AdminStatistikDic=[AdminStatistikDicArray objectAtIndex:namenIndex];
@@ -1173,7 +1173,7 @@ if ([[note userInfo]objectForKey:@"art"])
 			NSMutableArray* tempDicArray=[[NSMutableArray alloc]initWithArray:[AdminStatistikDic objectForKey:@"ergebnisdicarray"]];
 			NSArray* tempDatumArray=[tempDicArray valueForKey:@"datum"];
 			//NSLog(@"tempDatumArray: %@",[tempDatumArray description]);
-			int datumIndex=[tempDatumArray indexOfObject:deleteDatum];
+			NSUInteger datumIndex=[tempDatumArray indexOfObject:deleteDatum];
 			if (!(datumIndex==NSNotFound))
 			{
 				//NSLog(@"deleteName: %@	datumIndex: %d",deleteName,datumIndex);
@@ -1427,7 +1427,7 @@ if ([StatistikTimer isValid])
 	//NSLog(@"reportTestnamen	AdminStatistikDicArray: %@",[AdminStatistikDicArray description]);
 	//NSLog(@"reportTestnamen	StatistikDicArray: %@",[StatistikDicArray description]);
 	NSArray* tempUserNamenArray=[AdminStatistikDicArray valueForKey:@"name"];//Liste der User
-	int index=[tempUserNamenArray indexOfObject:derName];
+	NSUInteger index=[tempUserNamenArray indexOfObject:derName];
 	if (!(index==NSNotFound))//Der Name ist da
 	{
 		anzTestForUser=0;
@@ -1578,7 +1578,7 @@ if ([StatistikTimer isValid])
 	NSLog(@"ErgebnisDicArrayForTest: %@ forUser: %@",derTest, derUser);
 	//NSLog(@"reportTestnamen	StatistikDicArray: %@",[StatistikDicArray description]);
 	NSArray* tempUserNamenArray=[AdminStatistikDicArray valueForKey:@"name"];//Liste der User
-	int index=[tempUserNamenArray indexOfObject:derUser];
+	NSUInteger index=[tempUserNamenArray indexOfObject:derUser];
 	if (!(index==NSNotFound))//Der Name ist da
 	{
 		anzTestForUser=0;
@@ -1739,7 +1739,7 @@ return returnDicArrayVonTest;
 	//NSLog(@"reportTestnamen	AdminStatistikDicArray: %@",[AdminStatistikDicArray description]);
 	//NSLog(@"reportTestnamen	StatistikDicArray: %@",[StatistikDicArray description]);
 	NSArray* tempUserNamenArray=[AdminStatistikDicArray valueForKey:@"name"];//Liste der User
-	int index=[tempUserNamenArray indexOfObject:derName];
+	NSUInteger index=[tempUserNamenArray indexOfObject:derName];
 	if (index<NSNotFound)//Der Name ist da
 	{
 	
@@ -1772,7 +1772,7 @@ return returnDicArrayVonTest;
 	ZeitBedarf=0.0;
 	AnzahlRichtige=0;
 	NSArray* tempUserNamenArray=[AdminStatistikDicArray valueForKey:@"name"];//Liste der User
-	int index=[tempUserNamenArray indexOfObject:derUser];
+	NSUInteger index=[tempUserNamenArray indexOfObject:derUser];
 	if (index<NSNotFound)//Der Name ist da
 	{
 		NSString* noteString=[[AdminStatistikDicArray objectAtIndex:index]objectForKey:@"note"];

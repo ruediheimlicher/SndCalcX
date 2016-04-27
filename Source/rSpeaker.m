@@ -310,7 +310,7 @@ return Stimme;
 				NSString* tempStimmenName=[tempZiffernTeileArray objectAtIndex:0];//erster Teil des Namens
 				//NSLog(@"tempStimmenName: %@  ",tempStimmenName);
 				
-				int StimmenNamenIndex=[[tempStimmenNamenArray valueForKey:@"stimmenname"]indexOfObject:tempStimmenName];
+				long StimmenNamenIndex=[[tempStimmenNamenArray valueForKey:@"stimmenname"]indexOfObject:tempStimmenName];
 				if(StimmenNamenIndex==NSNotFound)//StimmenName noch nicht vorhanden
 				{
 					NSMutableDictionary* tempStimmenNamenDic=[[NSMutableDictionary alloc]initWithCapacity:0];
@@ -349,9 +349,9 @@ return tempStimmenNamenArray;
 	NSFileManager *Filemanager=[NSFileManager defaultManager];
 	//BOOL StimmenArrayOK=YES;
 	NSString* ResourcenPfad=[[NSBundle mainBundle]resourcePath];
-   NSLog(@"QuittungNamenArrayDicAusResources ResourcenPfad: %@" , ResourcenPfad);
+   //NSLog(@"QuittungNamenArrayDicAusResources ResourcenPfad: %@" , ResourcenPfad);
    NSString *str=[[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:@"Zahlen_AIFF"];
-   NSLog(@"QuittungNamenArrayDicAusResources str: %@" , str);
+   //NSLog(@"QuittungNamenArrayDicAusResources str: %@" , str);
 
 	//Zahlen.plist lesen: Liste der benötigten Ziffern
 	NSDictionary* tempQuittungPListDic;
@@ -360,7 +360,7 @@ return tempStimmenNamenArray;
 	if ([Filemanager fileExistsAtPath:QuittungPlistPfad])
 	{
 		tempQuittungPListDic=[NSDictionary dictionaryWithContentsOfFile:QuittungPlistPfad];
-		NSLog(@"tempQuittungPListDic: %@",[tempQuittungPListDic description]);
+		//NSLog(@"tempQuittungPListDic: %@",[tempQuittungPListDic description]);
 		
 	}
 	else
@@ -776,7 +776,7 @@ return tempStimmenNamenArray;
    
    
 	//NSLog(@"Beginn Quittung: %d QuittungID: %d",dieQuittung,QuittungID);
-	int QuittungIndex=[IDArray indexOfObject:[[NSNumber numberWithInt:QuittungID] stringValue]];
+	long QuittungIndex=[IDArray indexOfObject:[[NSNumber numberWithInt:QuittungID] stringValue]];
 	//NSLog(@"QuittungIndex: %d",QuittungIndex);
 	if (QuittungIndex<0)
    {
@@ -819,7 +819,7 @@ return tempStimmenNamenArray;
 	
 	
 	//NSLog(@"Beginn Operation: %d OperationID: %d",dieOperation,OperationID);
-	int OperationIndex=[IDArray indexOfObject:[[NSNumber numberWithInt:OperationID] stringValue]];
+	long OperationIndex=[IDArray indexOfObject:[[NSNumber numberWithInt:OperationID] stringValue]];
 	
 	//NSLog(@"OperationIndex: %d",OperationIndex);
 	if (OperationIndex<0)
@@ -1249,362 +1249,6 @@ return tempStimmenNamenArray;
 
 
 
--(QTTime)setZahlQTKitTrackVon:(int)dieZahl mitOffset:(QTTime)derOffset
-{
-
-	//NSLog(@"setQTKitZahlTrackVon: %d derOffset: %lld",dieZahl, derOffset.timeValue);
-	NSArray* IDArray=[ZahlenDicArray valueForKey:@"ID"];
-//	NSLog(@"IDArray: %@",[IDArray description]);
-	int GermanOffset=20000;
-	int IDOffset=GermanOffset;
-	//int TrackOK=YES;
-	int FehlendeZahl=0;
-   QTTime Start = derOffset;
-
-	int ZehnIndex=[IDArray indexOfObject:[[NSNumber numberWithInt:IDOffset+10] stringValue]];
-	if (ZehnIndex<0)//Zahl nicht im Array
-	{
-		FehlendeZahl=10;
-      NSLog(@"FehlendeZahl"); 
-//		goto bail;
-	}
-	int HundertIndex=[IDArray indexOfObject:[[NSNumber numberWithInt:IDOffset+100] stringValue]];
-	if (HundertIndex<0)
-	{
-		return QTZeroTime;
-	}
-	
-   // Movie fuer "Hundert" nach der Hunderterzahl
-   QTMovie* HundertQTKitMovie=[[ZahlenDicArray objectAtIndex:HundertIndex]objectForKey:@"movie"];
-   QTTime HundertQTKitTrackDauer = [HundertQTKitMovie duration];
-
-   // Movie fuer "Tausend" nach der Tausenderzahl
-	int TausendIndex=[IDArray indexOfObject:[[NSNumber numberWithInt:IDOffset+1000] stringValue]];
-	if (TausendIndex<0)
-	{
-		return QTZeroTime;
-	}
-   
-   QTMovie* TausendQTKitMovie=[[ZahlenDicArray objectAtIndex:TausendIndex]objectForKey:@"movie"];
-   QTTime TausendQTKitTrackDauer = [TausendQTKitMovie duration];
-
-	//NSLog(@"Begin Zahlen lesen");
-	
-	//													TAUSENDER
-	
-   // Tausender feststellen
-	int Tausender=dieZahl/1000;
-	
-   // Movie dazu
-   QTMovie* TausenderQTKitMovie;
-   if (Tausender>0)			//Es hat Tausender
-	{
-		//NSLog(@"Beginn Tausender: %d",Tausender);
-      // lage des Tausenders im Zahlarray feststellen
-		int TausenderIndex=[IDArray indexOfObject:[[NSNumber numberWithInt:IDOffset+Tausender] stringValue]];
-		if (TausenderIndex<0)
-		{
-			return QTZeroTime;
-		}
-      TausenderQTKitMovie=[[ZahlenDicArray objectAtIndex:TausenderIndex]objectForKey:@"movie"];
-      QTTime TausenderQTKitTrackDauer = [TausenderQTKitMovie duration];
-      
-      // Track einsetzen
-      [AufgabenQTKitMovie insertSegmentOfMovie:TausenderQTKitMovie 
-                                     timeRange:QTMakeTimeRange(QTZeroTime,TausenderQTKitTrackDauer) 
-                                        atTime:[AufgabenQTKitMovie duration]];
-      Start.timeValue+=TausenderQTKitTrackDauer.timeValue;
-      
-      // "Tausend" einfuegen
-      [AufgabenQTKitMovie insertSegmentOfMovie:TausendQTKitMovie 
-                                     timeRange:QTMakeTimeRange(QTZeroTime,TausendQTKitTrackDauer) 
-                                        atTime:[AufgabenQTKitMovie duration]];
-      Start.timeValue+=TausenderQTKitTrackDauer.timeValue;
-
-  	
-   }//if Tausender>0
-	//NSLog(@"Ende Tausender");
-	
-	
-	
-	//														HUNDERTER
-	
-	int Hunderter=(dieZahl%1000)/100;
-   // Movie dazu
-   QTMovie* HunderterQTKitMovie;
-
-	if (Hunderter>0)			//Es hat Hunderter
-	{	
-		//NSLog(@"Beginn Hunderter: %d",Hunderter);
-		int HunderterID=IDOffset+Hunderter;
-		if ((Hunderter>1)||((Hunderter==1)&&(Tausender>0)))//Mehr als ein Hunderter oder mit Tausendern
-		{
-			if (Hunderter==1) // 'ein' anstatt 'eins'
-			{
-				HunderterID+=1000;
-			}
-         
-         int HunderterIndex=[IDArray indexOfObject:[[NSNumber numberWithInt:HunderterID] stringValue]];
-         if (HunderterIndex<0)
-         {
-            return QTZeroTime;
-         }
-         // QTMovie fuer Hunderter einrichten
-         HunderterQTKitMovie = [[ZahlenDicArray objectAtIndex:HunderterIndex]objectForKey:@"movie"];
-         
-         // Trackdauer dazu
-         QTTime HunderterQTKitTrackDauer = [HunderterQTKitMovie duration];
-         
-         // Track fuer Hunderter einsetzen
-         
-         
-         // Hunderterzahl einsetzen
-         [AufgabenQTKitMovie insertSegmentOfMovie:HunderterQTKitMovie 
-                                        timeRange:QTMakeTimeRange(QTZeroTime,HunderterQTKitTrackDauer) 
-                                           atTime:[AufgabenQTKitMovie duration]];
-         Start.timeValue+=HunderterQTKitTrackDauer.timeValue;
-         
-      }
-      // "Hundert" einsetzen. Wenn Hunderter = 1: kein "ein" davor   
-      [AufgabenQTKitMovie insertSegmentOfMovie:HundertQTKitMovie 
-                                     timeRange:QTMakeTimeRange(QTZeroTime,HundertQTKitTrackDauer) 
-                                        atTime:[AufgabenQTKitMovie duration]];
-      Start.timeValue+=HundertQTKitTrackDauer.timeValue;
-      
-      
-      
-   }//if Hunderter>0
-	//NSLog(@"Ende Hunderter");
-	
-	
-	//														Zehner
-	
-	int Zehner=((dieZahl%1000)%100)/10;
-   QTMovie* ZehnerQTKitMovie;
-	QTMovie* ZehnerMovie;
-   
-  
-	
-//   Movie ZehnerQTMovie=nil;
-	int ZehnerID=0;
-      
-	//														Einer
-	int Einer=dieZahl%10;								
-   QTMovie* EinerQTKitMovie;
-	
-   int EinerID=0;
-	
-   QTMovie* UndQTKitMovie;
-	int UndID=0;
-	
-	
-	if (Zehner>0)			// Es hat Zehner
-	{
-		if (Zehner>1)		// Ab 20
-		{
-         if (Einer>0)
-         {
-            EinerID=IDOffset+Einer;
-            if (Einer==1)
-            {
-               EinerID+=1000;	//		"ein"
-            }
-            int EinerIndex=[IDArray indexOfObject:[[NSNumber numberWithInt:EinerID] stringValue]];
-            //NSLog(@"EinerIndex");
-            
-            if (EinerIndex<0)
-            {
-               return QTZeroTime;
-            }
-            
-            // QTMovie fuer Einer
-            EinerQTKitMovie=[[ZahlenDicArray objectAtIndex:EinerIndex]objectForKey:@"movie"];
-            QTTime EinerQTKitTrackDauer = [EinerQTKitMovie duration];
-            
-             
-            if ((Zehner==2)||(Zehner==3)||(Zehner==6))	// Zahlen mit "un"
-            {
-               if (Einer>0)
-               {
-                  UndID=IDOffset+kUn;
-               }
-            }
-            else                                         // Zahlen mit "und"
-            {
-               if (Einer>0)
-               {
-                  UndID=IDOffset+kUnd;	
-               }
-               
-            }
-            
-            int UndIndex=[IDArray indexOfObject:[[NSNumber numberWithInt:UndID] stringValue]];
-            //NSLog(@"UndIndex");
-            if (UndIndex<0)
-            {
-               return QTZeroTime;
-            }
-            
-            // QTMovie fuer "und"
-            UndQTKitMovie=[[ZahlenDicArray objectAtIndex:UndIndex]objectForKey:@"movie"];
-            QTTime UndQTKitTrackDauer = [UndQTKitMovie duration];
-            
-            
-            // Einer einsetzen
-            [AufgabenQTKitMovie insertSegmentOfMovie:EinerQTKitMovie 
-                                           timeRange:QTMakeTimeRange(QTZeroTime,EinerQTKitTrackDauer) 
-                                              atTime:[AufgabenQTKitMovie duration]];
-            Start.timeValue+=EinerQTKitTrackDauer.timeValue;
-            
-            
-             
-            // "und" einsetzen: Es folgen noch Zehner
-            [AufgabenQTKitMovie insertSegmentOfMovie:UndQTKitMovie 
-                                           timeRange:QTMakeTimeRange(QTZeroTime,UndQTKitTrackDauer) 
-                                              atTime:[AufgabenQTKitMovie duration]];
-            Start.timeValue+=UndQTKitTrackDauer.timeValue;
-            
-            
-				
-            //NSLog(@"setZahlTrack ende einer");		
-         }//  if einer>0 (zehner >0)
-         
-         ZehnerID=IDOffset+10*Zehner;		// "-ig anhängen: Zehner=2 muss fuer die ID 20 geben
-         int ZehnerIndex=[IDArray indexOfObject:[[NSNumber numberWithInt:ZehnerID] stringValue]];
-         //NSLog(@"ZehnerIndex");
-         if (ZehnerIndex<0)
-         {
-            return QTZeroTime;
-         }
-         ZehnerQTKitMovie=[[ZahlenDicArray objectAtIndex:ZehnerIndex]objectForKey:@"movie"];
-         QTTime ZehnerQTKitTrackDauer = [ZehnerQTKitMovie duration];
-        
-         // Zehner einsetzen
-         [AufgabenQTKitMovie insertSegmentOfMovie:ZehnerQTKitMovie 
-                                        timeRange:QTMakeTimeRange(QTZeroTime,ZehnerQTKitTrackDauer) 
-                                           atTime:[AufgabenQTKitMovie duration]];
-         Start.timeValue+=ZehnerQTKitTrackDauer.timeValue;
-         
-		}           // if Zehner>1
-      else        //	10 - 19
-		{
-         if ((Einer>=0)&&(Einer<=2))//10,11,12
-         {
-            EinerID=IDOffset+10+Einer;
-            int EinerIndex=[IDArray indexOfObject:[[NSNumber numberWithInt:EinerID] stringValue]];
-            //NSLog(@"EinerIndex");
-            
-            if (EinerIndex<0)
-            {
-               return QTZeroTime;
-            }
-            EinerQTKitMovie=[[ZahlenDicArray objectAtIndex:EinerIndex]objectForKey:@"movie"];
-            QTTime EinerQTKitTrackDauer = [EinerQTKitMovie duration];
-
-            // Einer einsetzen
-            [AufgabenQTKitMovie insertSegmentOfMovie:EinerQTKitMovie 
-                                           timeRange:QTMakeTimeRange(QTZeroTime,EinerQTKitTrackDauer) 
-                                              atTime:[AufgabenQTKitMovie duration]];
-            Start.timeValue+=EinerQTKitTrackDauer.timeValue;
-
-         }
-         else //13 - 19
-         {
-            
-            EinerID=IDOffset+Einer;
-            
-            if ((Einer==6) || (Einer==7) || (Einer==8))//17, 18. 19
-            {
-               EinerID+=1000;
-            }
-            
-            int EinerIndex=[IDArray indexOfObject:[[NSNumber numberWithInt:EinerID] stringValue]];
-            //NSLog(@"EinerIndex");
-            
-            if (EinerIndex<0)
-            {
-               return QTZeroTime;
-            }
-            
-            EinerQTKitMovie=[[ZahlenDicArray objectAtIndex:EinerIndex]objectForKey:@"movie"];
-            QTTime EinerQTKitTrackDauer = [EinerQTKitMovie duration];
-            // Einer einsetzen
-            [AufgabenQTKitMovie insertSegmentOfMovie:EinerQTKitMovie 
-                                           timeRange:QTMakeTimeRange(QTZeroTime,EinerQTKitTrackDauer) 
-                                              atTime:[AufgabenQTKitMovie duration]];
-            Start.timeValue+=EinerQTKitTrackDauer.timeValue;
-            
-            
-            //		Zehner von 13 - 19
-            ZehnerID=IDOffset+10;		
-            int ZehnerIndex=[IDArray indexOfObject:[[NSNumber numberWithInt:ZehnerID] stringValue]];
-            //NSLog(@"ZehnerIndex");
-            if (ZehnerIndex<0)
-            {
-               return QTZeroTime;
-            }
-            ZehnerQTKitMovie=[[ZahlenDicArray objectAtIndex:ZehnerIndex]objectForKey:@"movie"];
-            QTTime ZehnerQTKitTrackDauer = [ZehnerQTKitMovie duration];
-            // Zehner einsetzen
-            [AufgabenQTKitMovie insertSegmentOfMovie:ZehnerQTKitMovie 
-                                           timeRange:QTMakeTimeRange(QTZeroTime,ZehnerQTKitTrackDauer) 
-                                              atTime:[AufgabenQTKitMovie duration]];
-            Start.timeValue+=ZehnerQTKitTrackDauer.timeValue;
-           
-         }
-         
-		}
-      //NSLog(@"setZahlTrack ende Zehner vor nur einer");
-	}//if Zehner>0
-	
-	else	//nur Einer
-	{
-	
-      EinerID=IDOffset+Einer;
-		int EinerIndex=[IDArray indexOfObject:[[NSNumber numberWithInt:EinerID] stringValue]];
-		//NSLog(@"Nur Einer: EinerIndex: %d",EinerIndex);
-		
-		if (EinerIndex<0)
-		{
-			return QTZeroTime;
-		}
-      // QTMovie holen
-		QTMovie* EinerQTKitMovie=[[ZahlenDicArray objectAtIndex:EinerIndex]objectForKey:@"movie"];
-      //NSLog(@"Start: %lld",Start.timeValue);
-      
-      // Trackdauer bestimmen
-      QTTime QTKitEinerTrackDauer = [EinerQTKitMovie duration];
-      //NSLog(@"QTKitEinerTrackDauer: %lld duration: %lld",QTKitEinerTrackDauer.timeValue,[AufgabenQTKitMovie duration].timeValue);
-      //Track einfuegen
-//      [AufgabenQTKitMovie setAttribute:[NSNumber numberWithBool:YES] forKey:QTMovieEditableAttribute];
-
-      [AufgabenQTKitMovie insertSegmentOfMovie:EinerQTKitMovie 
-                                     timeRange:QTMakeTimeRange(QTZeroTime,QTKitEinerTrackDauer) 
-                                        atTime:[AufgabenQTKitMovie duration]];
-                                                                                          // Trackdauer addieren
-      Start.timeValue+=QTKitEinerTrackDauer.timeValue;
-	
-	}
-//	NSLog(@"Zahl: %d Tausender: %d Hunderter: %d Zehner: %d Einer: %d",dieZahl,Tausender,Hunderter, Zehner, Einer);
-//   [AufgabenQTKitMovie play];
-   
-	return Start;
-	
-	//bail:
-		NSAlert* SoundWarnung=[[NSAlert alloc]init];
-		NSString* t=NSLocalizedString(@"Missing Sound",@"Fehlender Ton");
-		NSString* i0=NSLocalizedString(@"The sound for the number: %d could not be loaded.",@"Die Tondatei für diE Zahl: %d konnte nicht gefunden werden.");
-		NSString* i1=[NSString stringWithFormat:@"%@ %@",i0,FehlendeZahl];
-		NSString* b1=NSLocalizedString(@"Terminate",@"Beenden");
-		[SoundWarnung addButtonWithTitle:b1];
-		[SoundWarnung setMessageText:t];
-		[SoundWarnung setInformativeText:i1];
-		
-		int modalAntwort=[SoundWarnung runModal];
-		
-   NSLog(@"setZahlTracK End");
-	return QTZeroTime;
-}
 
 - (BOOL)AufgabeAb:(NSDictionary*)derAufgabenDic
 {

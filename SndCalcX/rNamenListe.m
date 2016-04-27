@@ -159,7 +159,7 @@ extern NSString* OK;
 		if(EntfernenName)
 		{
 			NSArray* tempNamenArray=[NamenArray valueForKey:@"namen"];
-			int deleteIndex=[tempNamenArray indexOfObject:EntfernenName];
+			long deleteIndex=[tempNamenArray indexOfObject:EntfernenName];
 			
 			if (deleteIndex>=0)//EntfernenName ist vorhanden
 			{

@@ -74,7 +74,7 @@
 		
 	}
 	
-	int index=[[StimmenTableArray valueForKey:@"stimmenname"]indexOfObject:dieStimme];
+	NSUInteger index=[[StimmenTableArray valueForKey:@"stimmenname"]indexOfObject:dieStimme];
 	//NSLog(@"stimmenname aktivieren: 	index: %d	Stimmenname: %@",index,[StimmenTableArray valueForKey:@"stimmenname"]);
 	if (index<NSNotFound)//Stimme ist in Liste
 	{
@@ -441,7 +441,7 @@ NSString* deleteStimme=[self StimmenName];
 		
 	NSString* tempselectedQuittung=[[QuittungDS QuittungSelektionDic] objectForKey:modKlasse];
 	
-	int index=[[[QuittungDS QuittungDicArray] valueForKey:@"quittungname"]indexOfObject:tempselectedQuittung];
+	NSUInteger index=[[[QuittungDS QuittungDicArray] valueForKey:@"quittungname"]indexOfObject:tempselectedQuittung];
 	//NSLog(@"Quittungen: %@	index: %d",[[[QuittungDS QuittungDicArray] valueForKey:@"quittungname"]description],index);
 	if (index<NSNotFound)
 	{
@@ -820,7 +820,7 @@ NSString* deleteStimme=[self StimmenName];
 //	NSLog(@"deleteStimme: removeFehlerArray: %@",[removeFehlerArray description]);
 	if ([removeFehlerArray count]==0)//Entfernen erfolgreich
 	{
-	int deleteIndex=[[StimmenTableArray valueForKey:@"stimmenname"]indexOfObject:[self StimmenName]];
+	NSUInteger deleteIndex=[[StimmenTableArray valueForKey:@"stimmenname"]indexOfObject:[self StimmenName]];
 	if (deleteIndex<NSNotFound)
 	{
 	[StimmenTableArray removeObjectAtIndex:deleteIndex];

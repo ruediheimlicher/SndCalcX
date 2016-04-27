@@ -80,7 +80,7 @@
 - (void)addTestZuTestListe:(NSString*)derTest zuNamen:(NSString*)derUser
 {
 NSArray* tempNamenArray=[TestZuNamenDicArray valueForKey:@"testname"];
-int index=[tempNamenArray indexOfObject:derUser];
+NSUInteger index=[tempNamenArray indexOfObject:derUser];
 if (index<NSNotFound)//User ist da
 {
 	NSMutableDictionary* tempNamenDic=(NSMutableDictionary*)[TestZuNamenDicArray objectAtIndex:index];
@@ -153,13 +153,13 @@ if (index<NSNotFound)//User ist da
 
 	}
 	dirty=NO;
-	NSLog(@"anzTest: d",[self anzTestForUser]);
+	NSLog(@"anzTest: %d",[self anzTestForUser]);
 }//setTestlisteZuNamen
 
 - (void)setUserOK:(int)derStatus forTest:(NSString*)derTest 
 {
 	//userokfŸr letzten test in userArray reseten nach checkboxaktion
-	int index=[[TestZuNamenDicArray valueForKey:@"testname"]indexOfObject:derTest];
+	NSUInteger index=[[TestZuNamenDicArray valueForKey:@"testname"]indexOfObject:derTest];
 	if (index<NSNotFound)
 	{
 	[[TestZuNamenDicArray objectAtIndex:index]setObject:[NSNumber numberWithInt:derStatus]forKey:@"userok"];
@@ -249,7 +249,7 @@ dirty=derStatus;
 #pragma mark -
 #pragma mark SessionTable Data Source:
 
-- (int)numberOfRowsInTableView:(NSTableView *)aTableView
+- (long)numberOfRowsInTableView:(NSTableView *)aTableView
 {
     return [TestZuNamenDicArray count];
 }
@@ -257,7 +257,7 @@ dirty=derStatus;
 
 - (id)tableView:(NSTableView *)aTableView
     objectValueForTableColumn:(NSTableColumn *)aTableColumn 
-			row:(int)rowIndex
+			row:(long)rowIndex
 {
 	//NSLog(@"objectValueForTableColumn");
     NSDictionary *einNamenDic;
@@ -276,7 +276,7 @@ dirty=derStatus;
 - (void)tableView:(NSTableView *)aTableView 
    setObjectValue:(id)anObject 
    forTableColumn:(NSTableColumn *)aTableColumn 
-			  row:(int)rowIndex
+			  row:(long)rowIndex
 {
 	//NSLog(@"setObjectValue ForTableColumn: %@",[aTableColumn identifier]);
 	if ([self anzTestForUser]==1)
@@ -320,13 +320,13 @@ dirty=derStatus;
 	dirty=YES;
 }
 
-- (BOOL)tableView:(NSTableView *)tableView shouldSelectRow:(int)row
+- (BOOL)tableView:(NSTableView *)tableView shouldSelectRow:(long)row
 {
 //	NSLog(@"shouldSelectRow");  
 	return YES;
 }
 
-- (void)tableView:(NSTableView *)tableView willDisplayCell:(id)cell forTableColumn:(NSTableColumn *)tableColumn row:(int)row
+- (void)tableView:(NSTableView *)tableView willDisplayCell:(id)cell forTableColumn:(NSTableColumn *)tableColumn row:(long)row
 {
 	NSDictionary* einDic=[TestZuNamenDicArray objectAtIndex:row];
 	//NSLog(@"willDisplayCell einDic: %@",[einDic description]);
