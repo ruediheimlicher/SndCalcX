@@ -3818,6 +3818,7 @@ const short     kSerieFertig = 5003;
     [RichtigSnd play];
     }
     */
+   QuittungOK=0
 }
 
 - (void)FalschSoundAb
@@ -3834,6 +3835,7 @@ const short     kSerieFertig = 5003;
     [FalschSnd play];
     }
     */
+   QuittungOK=0;
 }
 
 
@@ -3843,6 +3845,7 @@ const short     kSerieFertig = 5003;
    [tempQuittungDic setObject:[NSNumber numberWithInt:kSerieFertig]
                        forKey:@"quittung"];
    BOOL QuittungOK=[Speaker QuittungAb:tempQuittungDic];
+   ;
    /*
     NSSound* FertigSnd=[NSSound soundNamed:@"Fertig"];
     if (FertigSnd)
@@ -3850,6 +3853,7 @@ const short     kSerieFertig = 5003;
     [FertigSnd play];
     }
     */
+   QuittungOK=0
 }
 
 
@@ -4018,7 +4022,7 @@ const short     kSerieFertig = 5003;
 }
 -(IBAction)toggleDrawer:(id)sender
 {
-   NSLog(@"toggleDrawer state: %d  AufgabeOK: %d  Modus: %d",[sender state],AufgabeOK,Modus);
+   //NSLog(@"toggleDrawer state: %d  AufgabeOK: %d  Modus: %d",[sender state],AufgabeOK,Modus);
    [self closeSessionDrawer:NULL];
    if (AufgabeOK)
    {
@@ -4159,8 +4163,8 @@ const short     kSerieFertig = 5003;
    
    [self showTestPanel:NULL];
    [TestPanel selectEingabeFeld];
-   [TestPanel setAnzahl:[AnzahlPopKnopf indexOfSelectedItem]];
-   [TestPanel setZeit:[ZeitPpKnopf indexOfSelectedItem]];
+   [TestPanel setAnzahl:(int)[AnzahlPopKnopf indexOfSelectedItem]];
+   [TestPanel setZeit:(int)[ZeitPpKnopf indexOfSelectedItem]];
    
 }
 
@@ -4264,7 +4268,7 @@ const short     kSerieFertig = 5003;
 {
    
    NSDrawerState state = (NSDrawerState)[SessionDrawer state];
-   NSLog(@"toggleSessionDrawer state: %d",state);
+  // NSLog(@"toggleSessionDrawer state: %d",state);
    
    if (NSDrawerOpeningState == state || NSDrawerOpenState == state)
       
@@ -4300,7 +4304,7 @@ const short     kSerieFertig = 5003;
 
 - (IBAction)closeSessionDrawer:(id)sender
 {
-   NSLog(@"closeSessionDrawer state vorher: %d",(int)[SessionDrawerTaste state]);
+   //NSLog(@"closeSessionDrawer state vorher: %d",(int)[SessionDrawerTaste state]);
    
    [SessionDrawer close];
    [SessionDrawerTaste setState:NO];
