@@ -1733,7 +1733,7 @@ const short     kSerieFertig = 5003;
    
    // RechnungSeriedaten=[self SerieDatenVonDic:SerieDatenDic];
    
-   //RechnungSeriedaten = seriedaten;
+   RechnungSeriedaten = seriedaten;
    
    //NSLog(@"RechnungSeriedaten AnzahlAufgaben: %d",RechnungSeriedaten.AnzahlAufgaben);
    //NSLog(@"RechnungSeriedaten MDKleines1Mal1: %d",RechnungSeriedaten.MDKleines1Mal1);
