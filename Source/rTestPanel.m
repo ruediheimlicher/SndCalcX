@@ -2678,7 +2678,7 @@ while (eineTaste=[TastenEnum nextObject])
 
 -(IBAction)openDrawer:(id)sender
 {
-NSLog(@"openSettingsDrawer");
+NSLog(@"openTestDrawer");
 //if (OK)
 {
 if (SerieDatenDic)

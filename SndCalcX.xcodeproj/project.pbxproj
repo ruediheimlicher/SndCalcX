@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BD776B2C1CD0FAC700B28FE8 /* rResultatFeld.m in Sources */ = {isa = PBXBuildFile; fileRef = BD776B2B1CD0FAC700B28FE8 /* rResultatFeld.m */; };
 		BD7947141CC024F300604B3D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BD7947131CC024F300604B3D /* AppDelegate.m */; };
 		BD7947171CC024F300604B3D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = BD7947161CC024F300604B3D /* main.m */; };
 		BD7947191CC024F300604B3D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BD7947181CC024F300604B3D /* Assets.xcassets */; };
@@ -17,7 +18,6 @@
 		BD79475A1CC02D6700604B3D /* rDiplomFenster.m in Sources */ = {isa = PBXBuildFile; fileRef = BD79472D1CC02D6700604B3D /* rDiplomFenster.m */; };
 		BD79475B1CC02D6700604B3D /* rEinstellungenPanel.m in Sources */ = {isa = PBXBuildFile; fileRef = BD79472F1CC02D6700604B3D /* rEinstellungenPanel.m */; };
 		BD79475C1CC02D6700604B3D /* rErgebnisFeld.m in Sources */ = {isa = PBXBuildFile; fileRef = BD7947311CC02D6700604B3D /* rErgebnisFeld.m */; };
-		BD79475D1CC02D6700604B3D /* rErgebnisView.m in Sources */ = {isa = PBXBuildFile; fileRef = BD7947331CC02D6700604B3D /* rErgebnisView.m */; };
 		BD79475E1CC02D6700604B3D /* rNamenPanel.m in Sources */ = {isa = PBXBuildFile; fileRef = BD7947351CC02D6700604B3D /* rNamenPanel.m */; };
 		BD79475F1CC02D6700604B3D /* rNamenZuTestDS.m in Sources */ = {isa = PBXBuildFile; fileRef = BD7947371CC02D6700604B3D /* rNamenZuTestDS.m */; };
 		BD7947601CC02D6700604B3D /* rPrintStatistik.m in Sources */ = {isa = PBXBuildFile; fileRef = BD7947391CC02D6700604B3D /* rPrintStatistik.m */; };
@@ -83,6 +83,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		BD776B2A1CD0FAC700B28FE8 /* rResultatFeld.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = rResultatFeld.h; sourceTree = "<group>"; };
+		BD776B2B1CD0FAC700B28FE8 /* rResultatFeld.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = rResultatFeld.m; sourceTree = "<group>"; };
 		BD79470F1CC024F300604B3D /* SndCalcX.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SndCalcX.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BD7947121CC024F300604B3D /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		BD7947131CC024F300604B3D /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -103,8 +105,6 @@
 		BD79472F1CC02D6700604B3D /* rEinstellungenPanel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = rEinstellungenPanel.m; path = Source/rEinstellungenPanel.m; sourceTree = SOURCE_ROOT; };
 		BD7947301CC02D6700604B3D /* rErgebnisFeld.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = rErgebnisFeld.h; path = Source/rErgebnisFeld.h; sourceTree = SOURCE_ROOT; };
 		BD7947311CC02D6700604B3D /* rErgebnisFeld.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = rErgebnisFeld.m; path = Source/rErgebnisFeld.m; sourceTree = SOURCE_ROOT; };
-		BD7947321CC02D6700604B3D /* rErgebnisView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = rErgebnisView.h; path = Source/rErgebnisView.h; sourceTree = SOURCE_ROOT; };
-		BD7947331CC02D6700604B3D /* rErgebnisView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = rErgebnisView.m; path = Source/rErgebnisView.m; sourceTree = SOURCE_ROOT; };
 		BD7947341CC02D6700604B3D /* rNamenPanel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = rNamenPanel.h; path = Source/rNamenPanel.h; sourceTree = SOURCE_ROOT; };
 		BD7947351CC02D6700604B3D /* rNamenPanel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = rNamenPanel.m; path = Source/rNamenPanel.m; sourceTree = SOURCE_ROOT; };
 		BD7947361CC02D6700604B3D /* rNamenZuTestDS.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = rNamenZuTestDS.h; path = Source/rNamenZuTestDS.h; sourceTree = SOURCE_ROOT; };
@@ -248,8 +248,8 @@
 				BD79472F1CC02D6700604B3D /* rEinstellungenPanel.m */,
 				BD7947301CC02D6700604B3D /* rErgebnisFeld.h */,
 				BD7947311CC02D6700604B3D /* rErgebnisFeld.m */,
-				BD7947321CC02D6700604B3D /* rErgebnisView.h */,
-				BD7947331CC02D6700604B3D /* rErgebnisView.m */,
+				BD776B2A1CD0FAC700B28FE8 /* rResultatFeld.h */,
+				BD776B2B1CD0FAC700B28FE8 /* rResultatFeld.m */,
 				BD7947341CC02D6700604B3D /* rNamenPanel.h */,
 				BD7947351CC02D6700604B3D /* rNamenPanel.m */,
 				BD7947361CC02D6700604B3D /* rNamenZuTestDS.h */,
@@ -487,6 +487,7 @@
 				BD7947881CC02FF700604B3D /* rPasswortRequest.m in Sources */,
 				BD7947861CC02FF700604B3D /* rPasswortEingabeFeld.m in Sources */,
 				BD7947691CC02D6700604B3D /* rStimmenPanel.m in Sources */,
+				BD776B2C1CD0FAC700B28FE8 /* rResultatFeld.m in Sources */,
 				BD79476D1CC02D6700604B3D /* rVolumes.m in Sources */,
 				BD7947601CC02D6700604B3D /* rPrintStatistik.m in Sources */,
 				BD79476B1CC02D6700604B3D /* rTestZuNamenDS.m in Sources */,
@@ -496,7 +497,6 @@
 				BD7947831CC02FF700604B3D /* rNamenListe.m in Sources */,
 				BD7947591CC02D6700604B3D /* rAVPlayer.m in Sources */,
 				BD7947611CC02D6700604B3D /* rQuittungDS.m in Sources */,
-				BD79475D1CC02D6700604B3D /* rErgebnisView.m in Sources */,
 				BD7947631CC02D6700604B3D /* rReihenSettings.m in Sources */,
 				BD7947621CC02D6700604B3D /* rRahmen.m in Sources */,
 				BD7947E51CC2C60D00604B3D /* rRechnungserie.m in Sources */,

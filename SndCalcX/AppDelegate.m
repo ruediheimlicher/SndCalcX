@@ -309,7 +309,7 @@ const short     kSerieFertig = 5003;
       
       //	NSLog(@"SndCalcPfad: %@\nPListDic: %@",SndCalcPfad,[PListDic description]);
       
-      NSColor* HintergrundFarbe=[NSColor colorWithDeviceRed:220.0/255.0 green:255.0/255.0 blue:234.0/255.0 alpha:1.0];
+      NSColor* HintergrundFarbe=[NSColor colorWithDeviceRed:230.0/255.0 green:255.0/255.0 blue:234.0/255.0 alpha:1.0];
       
       
       [[self window]setBackgroundColor:HintergrundFarbe];
@@ -332,12 +332,21 @@ const short     kSerieFertig = 5003;
       
       [self setSettings:SerieDatenDic];
       
-      
-      [[RechnungsBox contentView]addSubview:ErgebnisFeld];
-      [[[self window]contentView]addSubview:RechnungsBox ];
+  //    [[RechnungsBox contentView]addSubview:ErgebnisFeld];
+  //    [[[self window]contentView]addSubview:RechnungsBox ];
       
       [[RechnungsBox contentView]addSubview:ErgebnisRahmenFeld];
       
+      NSRect f =[ErgebnisRahmenFeld frame];
+      ResultatFeld = [[rResultatFeld alloc]initWithFrame:NSInsetRect(f, 12.0, 12.0)];
+      [ResultatFeld setAction:@selector(ErgebnisFeldAktion:)];
+      [ResultatFeld setBordered:YES];
+      
+      [ResultatFeld setResultatFeld];
+      
+      [ResultatFeld setDelegate:self];
+      
+      [[RechnungsBox contentView]addSubview:ResultatFeld];
       
       NSImage* myImage = [NSImage imageNamed: @"Duerer"];
       [NSApp setApplicationIconImage: myImage];
@@ -398,11 +407,16 @@ const short     kSerieFertig = 5003;
       
       //[OKTaste setToolTip:@"Eingabe fertig"];
       //[StartTaste setToolTip:@"Aufgabe ausgeben"];
-      //[ErgebnisFeld setDelegate:self];
       
+    //  NSRect frame = [ErgebnisFeld frame];
+     // ErgebnisFeld = [[rErgebnisFeld alloc]initWithFrame:frame];
+     // [ErgebnisFeld setDelegate:self];
       
+     // NSLog(@"Rahmen: \nx: %f y: %f\nb: %f h: %f",frame.origin.x,frame.origin.y,frame.size.width, frame.size.height);
+
       //[ErgebnisFeld setAction:NULL];
       verify=NO;
+      /*
       [ErgebnisFeld setErgebnisFeld];
       [ErgebnisFeld setAction:@selector(ErgebnisFeldAktion:)];
       //	[ErgebnisFeld setAction:NULL];
@@ -410,7 +424,7 @@ const short     kSerieFertig = 5003;
       [ErgebnisFeld setTarget:self];
       rEingabeCheck* EingabeTest=[[rEingabeCheck alloc]init];
       [ErgebnisFeld setFormatter:EingabeTest];
-      
+      */
       [TestPopKnopf removeAllItems];
       //[TestPopKnopf addItemWithTitle:@"Training"];
       
@@ -645,6 +659,7 @@ const short     kSerieFertig = 5003;
    {
       RechnungSeriedaten->Reihenliste[i]=0;
    }
+
 
 }
 
@@ -1677,7 +1692,7 @@ const short     kSerieFertig = 5003;
    //	[ErgebnisView setMark:0];
    //	[ErgebnisView setString:@""];
    [ErgebnisFeld setMark:0];
-   [ErgebnisFeld setStringValue:@""];
+   [ErgebnisFeld setStringValue:@"x"];
    [self closeAufgabenDrawer:NULL];
    NSDictionary* tempStatusDic=[self StatusVonSerieDatenDic:SerieDatenDic];
    if ([TestPopKnopf numberOfItems])
@@ -1714,12 +1729,14 @@ const short     kSerieFertig = 5003;
  
  // */
    NSLog(@"neueSerieMitSeriedaten: SerieDatenDic: %@ ",SerieDatenDic);
-  // RechnungSeriedaten=[self SerieDatenVonDic:SerieDatenDic];
+  
+   
+   // RechnungSeriedaten=[self SerieDatenVonDic:SerieDatenDic];
    
    //RechnungSeriedaten = seriedaten;
    
-   NSLog(@"RechnungSeriedaten AnzahlAufgaben: %d",RechnungSeriedaten.AnzahlAufgaben);
-   NSLog(@"RechnungSeriedaten MDKleines1Mal1: %d",RechnungSeriedaten.MDKleines1Mal1);
+   //NSLog(@"RechnungSeriedaten AnzahlAufgaben: %d",RechnungSeriedaten.AnzahlAufgaben);
+   //NSLog(@"RechnungSeriedaten MDKleines1Mal1: %d",RechnungSeriedaten.MDKleines1Mal1);
    
    
    
@@ -1792,8 +1809,8 @@ const short     kSerieFertig = 5003;
    }
    else
    {
-       NSLog(@"AufgabenDicArray neu: RechnungSeriedaten: %@",RechnungSeriedaten);
-   AufgabenDicArray = [[NSArray alloc]initWithArray:[AufgabenSerie neueRechnungserie:RechnungSeriedaten]]; // NSArray
+       //NSLog(@"AufgabenDicArray neu: RechnungSeriedaten: %@",RechnungSeriedaten);
+      AufgabenDicArray = [[NSArray alloc]initWithArray:[AufgabenSerie neueRechnungserie:RechnungSeriedaten]]; // NSArray
    }
    
    
@@ -1879,7 +1896,8 @@ const short     kSerieFertig = 5003;
    [StartTaste setEnabled:YES];
    [StartTaste setKeyEquivalent:@"\r"];
    [[self window]makeFirstResponder:StartTaste];
-   [ErgebnisFeld resetFalschesZeichen];
+   //[ErgebnisFeld resetFalschesZeichen];
+   [ResultatFeld resetFalschesZeichen];
    //[self startTimeout];
    //NSLog(@"neue Serie ende");
    return nil;
@@ -2126,8 +2144,8 @@ const short     kSerieFertig = 5003;
    [ErgebnisRahmenFeld setHidden:YES];
    //	[ErgebnisView setMark:0];
    //	[ErgebnisView setString:@""];
-   [ErgebnisFeld setMark:0];
-   [ErgebnisFeld setStringValue:@""];
+  // [ErgebnisFeld setMark:0];
+  // [ErgebnisFeld setStringValue:@""];
    [self closeAufgabenDrawer:NULL];
    /*
     if ([SettingsDrawer state]==NSDrawerOpenState)
@@ -2852,6 +2870,7 @@ const short     kSerieFertig = 5003;
 {
    //[self markReset];
    [self closeSessionDrawer:NULL];
+   //[ResultatFeld setIntValue:123];
    //NSLog(@"nextAufgabe Ab: Start");
    if (([NamenPopKnopf indexOfSelectedItem]==0)&&(Modus==kTestModus))//Kein Name
    {
@@ -2896,7 +2915,11 @@ const short     kSerieFertig = 5003;
    BOOL AufgabeOK=YES;
    //[ErgebnisFeld setStringValue:@""];
    //	[ErgebnisView setString:@""];
-   [ErgebnisFeld setStringValue:@""];
+   [ErgebnisFeld setStringValue:@"x"];
+   
+   
+   [ResultatFeld setMark:0];
+   
    
    //	NSLog(@"\n									NextAufgabeAb: Titel: %@ aktuelleAufgabenNummer: %d\n",[sender title],aktuelleAufgabenNummer);
    //NSLog(@"Loc: %@",NSLocalizedString(@"End",@"Fertig"));
@@ -2952,13 +2975,21 @@ const short     kSerieFertig = 5003;
    
    
    
+   [ResultatFeld setEnabled:YES];
+   [ResultatFeld setEditable:YES];
+   [ResultatFeld setSelectable:YES];
+   [ResultatFeld selectText:NULL];
+   [ResultatFeld setReady:YES];
+   [[self window]makeFirstResponder:ResultatFeld];
+  
+   /*
    
    [ErgebnisFeld setEditable:YES];
    [ErgebnisFeld setSelectable:YES];
    [ErgebnisFeld selectText:NULL];
    [ErgebnisFeld setReady:YES];
    [[self window]makeFirstResponder:ErgebnisFeld];
-   
+   */
    //	NSLog(@"NextAufgabeAb end\n\n");
 }
 
@@ -3100,7 +3131,7 @@ const short     kSerieFertig = 5003;
 {
    
    [ErgebnisRahmenFeld setHidden:YES];
-   //NSLog(@"SndCalcController AufgabelesenFertigAktion: note: %@",[[note userInfo]description]);
+   NSLog(@"SndCalcController AufgabelesenFertigAktion: note: %@",[[note userInfo]description]);
    NSNumber* AufgabenStatusNumber=(NSNumber*)[[note userInfo]objectForKey:@"fertig"];
    int status=(int)[AufgabenStatusNumber intValue];
    
@@ -3122,7 +3153,7 @@ const short     kSerieFertig = 5003;
                                                    selector:@selector(AblaufzeitTimerFunktion:)
                                                    userInfo:nil
                                                     repeats:YES];
-   //NSLog(@"AufgabelesenFertigAktion AblaufzeitTimer gestartet");
+   NSLog(@"AufgabelesenFertigAktion AblaufzeitTimer gestartet");
    TimerValid=YES;
    AufgabeOK=YES;
    [self setOK:YES];
@@ -3496,7 +3527,7 @@ const short     kSerieFertig = 5003;
 
 - (IBAction)ErgebnisFeldAktion:(id)sender
 {
-   //NSLog(@"Controller  ErgebnisFeldAktion: %@ verify: %d",[ErgebnisFeld stringValue],verify);
+   NSLog(@"Controller  ErgebnisFeldAktion: %@ verify: %d",[ErgebnisFeld stringValue],verify);
    
    // Timer fuer Rechnungszeit anhalten
    if ([AblaufzeitTimer isValid])
@@ -3505,12 +3536,12 @@ const short     kSerieFertig = 5003;
    }
    
    
-   [ErgebnisFeld setSelectable:NO];
-   [ErgebnisFeld setEditable:NO];
-   [ErgebnisFeld display];
+ //  [ErgebnisFeld setSelectable:NO];
+ //  [ErgebnisFeld setEditable:NO];
+  // [ErgebnisFeld display];
    if (verify)
    {
-      // ERgebnis testen und naechste Aufgabe ab
+      // Ergebnis testen und naechste Aufgabe ab
       BOOL tempOK=[self checkAufgabe];
       //		NSLog(@"ErgebnisFeldAktion nach checkAufgabe");
       verify=NO;
@@ -3547,7 +3578,7 @@ const short     kSerieFertig = 5003;
 
 {
    //- (void)controlTextDidBeginEditing:(NSNotification *)aNotification
-   NSLog(@"ErgebnisFeld: textDidChangeAktion: %@",[ErgebnisFeld stringValue]);
+   //NSLog(@"ErgebnisFeld: textDidChangeAktion: %@",[ErgebnisFeld stringValue]);
    
    [OKTaste setEnabled:YES];
    
@@ -3555,7 +3586,7 @@ const short     kSerieFertig = 5003;
 
 - (void)controlTextDidBeginEditing:(NSNotification *)aNotification
 {
-   NSLog(@"controlTextDidBeginEditing: %@",[[aNotification object]stringValue]);
+   //NSLog(@"controlTextDidBeginEditing: %@",[[aNotification object]stringValue]);
    
    
 }
@@ -3564,14 +3595,14 @@ const short     kSerieFertig = 5003;
 - (void)controlTextDidChange:(NSNotification *)aNotification
 
 {
-   NSLog(@"SndCalccontroller: controlTextDidChange: %@",[aNotification description]);
+   //NSLog(@"SndCalccontroller: controlTextDidChange: %@",[aNotification description]);
    
 }
 
 
 - (void)controlTextShouldEndEditing:(NSNotification *)aNotification
 {
-   NSLog(@"controlTextShouldEndEditing verify: %d",verify);
+   //NSLog(@"controlTextShouldEndEditing verify: %d",verify);
    
 }
 
@@ -3579,12 +3610,19 @@ const short     kSerieFertig = 5003;
 {
    //Nicht verwendet
    NSLog(@"controlTextDidEndEditing verify: %d",verify);
+   
+   
    [AblaufzeitTimer invalidate];
-   
-   
+  
+   /*
    [ErgebnisFeld setSelectable:NO];
    [ErgebnisFeld setEditable:NO];
    [ErgebnisFeld display];
+    */
+//   [ResultatFeld setSelectable:NO];
+ //  [ResultatFeld setEditable:NO];
+ //  [ResultatFeld display];
+ return;
    if (verify)
    {
       BOOL tempOK=[self checkAufgabe];
@@ -3630,7 +3668,7 @@ const short     kSerieFertig = 5003;
       {
          int soll=[sollNumber intValue];
          //			int ist=[[ErgebnisView string]intValue];
-         int ist=[ErgebnisFeld intValue];
+         int ist=[ResultatFeld intValue];
          //NSLog(@"checkAufgabe: soll: %d  ist: %d",soll,ist);
          if (soll==ist)
          {
@@ -4334,7 +4372,7 @@ const short     kSerieFertig = 5003;
 - (void)showAufgaben//:(cAufgabendaten*)  AufgabenDatenArray
 {
    [self closeSessionDrawer:NULL];
-   NSLog(@"showAufgaben: AufgabenArray: %@",[AufgabenArray description]);
+   //NSLog(@"showAufgaben: AufgabenArray: %@",[AufgabenArray description]);
    NSMutableParagraphStyle* TitelStil=[[NSMutableParagraphStyle alloc]init];
    //[TitelStil setTabStops:[NSArray array]];//default weg
    //NSTextTab* TitelTab1=[[[NSTextTab alloc]initWithType:NSLeftTabStopType location:50]autorelease];
@@ -6568,6 +6606,7 @@ const short     kSerieFertig = 5003;
 
 - (IBAction)setVolume:(id)sender
 {
+   //NSLog(@"setVolume: Volume: %f",Volume);
    /* set the movie volume to correspond to the
     current value of the slider */
    // SetMovieVolume([[movieViewObject movie] QTMovie],[setVolumeSlider floatValue]);

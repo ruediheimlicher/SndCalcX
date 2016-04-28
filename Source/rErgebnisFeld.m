@@ -64,7 +64,7 @@ anzStellen=0;
 			[nc postNotificationName:@"FalschesZeichen" object:self userInfo:NotificationDic];
 			
 		}
-		anzStellen=[partialString length];
+		anzStellen=(int)[partialString length];
 		
 	}
 	return EingabeOK;
@@ -114,7 +114,7 @@ return YES;
 {
 self=[super initWithFrame:frame];
 //NSLog(@"rErgebnisFeld initWithFrame");
-//NSLog(@"Rahmen: \nx: %d y: %d\nb: %d h: %d",frame.origin.x,frame.origin.y,frame.size.width, frame.size.height);
+NSLog(@"Rahmen: \nx: %f y: %f\nb: %f h: %f",frame.origin.x,frame.origin.y,frame.size.width, frame.size.height);
 mark=-1;
 ready =NO;
 //anzFalschesZeichen=0;
@@ -128,7 +128,7 @@ return self;
 //NSLog(@"rErgebnisFeld awakeFromNib");
 //NSLog(@"rErgebnisFeld initWithFrame");
 NSRect Rahmen=[self frame];
-//NSLog(@"Rahmen: \nx: %d y: %d\nb: %d h: %d",Rahmen.origin.x,Rahmen.origin.y,Rahmen.size.width, Rahmen.size.height);
+NSLog(@"awake Rahmen: \nx: %f y: %f\nb: %f h: %f",Rahmen.origin.x,Rahmen.origin.y,Rahmen.size.width, Rahmen.size.height);
 
 //[self setDelegate:self];
 
@@ -140,14 +140,15 @@ NSRect Rahmen=[self frame];
 NSRect Rahmen=[self bounds];
 //NSLog(@"setErgebnisFeld: Rahmen: \nx: %d y: %d\nb: %d h: %d",Rahmen.origin.x,Rahmen.origin.y,Rahmen.size.width, Rahmen.size.height);
 //[self setFieldEditor:YES];
-//[self setBackgroundColor:[NSColor greenColor]];
+[self setBackgroundColor:[NSColor yellowColor]];
 [self setTextColor:[NSColor blackColor]];
 [self setAlignment:NSCenterTextAlignment];
 //[self addToolTip:@"Ergebnis"];
 NSFont* ErgebnisFont=[NSFont fontWithName:@"Helvetica" size: 28];
-[self setEditable:NO];
+[self setEditable:YES];
+[self setDrawsBackground:YES];
 [self setSelectable:NO];
-[self setStringValue:@""];
+[self setStringValue:@"xxx"];
 [self setFont:ErgebnisFont];
 //[self setTag:1];
 //NSLog(@"setErgebnisFeld Ende");
@@ -335,7 +336,7 @@ ready=derStatus;
 	//NSLog(@"drawRect: mark:%d",mark);
 	[super drawRect:rect];
 	//return;
-	//[[NSColor whiteColor]set];
+	[[NSColor whiteColor]set];
 	NSRect RahmenRect=rect;
 	NSPoint a=RahmenRect.origin;
 	RahmenRect.origin.x+=1;
@@ -344,7 +345,8 @@ ready=derStatus;
 	RahmenRect.size.height-=2;
 	NSBezierPath* RahmenPath;
 	RahmenPath=[NSBezierPath bezierPathWithRect:RahmenRect];
-	[[NSColor grayColor]set];
+   [RahmenPath fill];
+	[[NSColor blueColor]set];
 	[RahmenPath stroke];
 	return;
 	switch (mark)
@@ -432,14 +434,14 @@ if ([[self stringValue]length])
 	[nc postNotificationName:@"oktaste" object:self userInfo:NotificationDic];
 
 //[OKTaste setEnabled:YES];
-/*
+
 const char* cString=[[self stringValue]UTF8String];
-int  l=strlen(cString);
-NSLog(@"cString: %c l: %d",cString, l);
+long  l=strlen(cString);
+NSLog(@"cString: %s l: %ld",cString, l);
 char c=cString[l-1];
 int code =(int)c;
 NSLog(@"ErgebnisFeld: textDidChange: %c zeichen: %c code: %d",[[self stringValue]characterAtIndex:[[self stringValue]length]-1],c,code);
-*/
+
 }
 }
 

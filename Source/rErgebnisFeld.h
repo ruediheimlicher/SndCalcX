@@ -14,7 +14,8 @@ NSCharacterSet *				DezimalZahlen;
 int								anzStellen;
 int								anzFalschesZeichen;
 }
-- (BOOL)isPartialStringValid:(NSString *)partialString 
+
+- (BOOL)isPartialStringValid:(NSString *)partialString
 			newEditingString:(NSString **)newString 
 			errorDescription:(NSString **)error;
 - (void)resetAnzFalschesZeichen;
@@ -22,7 +23,7 @@ int								anzFalschesZeichen;
 @end
 
 
-@interface rErgebnisFeld : NSTextField 
+@interface rErgebnisFeld : NSTextField <NSTextFieldDelegate,NSTextDelegate>
 {
 NSCharacterSet *				DezimalZahlen;
 int mark;

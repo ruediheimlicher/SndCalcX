@@ -17,6 +17,7 @@
 #import "rZeitanzeige.h"
 //#import "rErgebnisView.h"
 #import "rErgebnisFeld.h"
+#import "rResultatFeld.h"
 #import "rRahmen.h"
 #import "rDiplomFenster.h"
 #import "rNamenPanel.h"
@@ -32,7 +33,7 @@
 
 struct cSeriedaten;
 
-@interface AppDelegate : NSObject <NSApplicationDelegate,NSTableViewDelegate,NSTableViewDataSource>
+@interface AppDelegate : NSObject <NSApplicationDelegate,NSTableViewDelegate,NSTableViewDataSource,NSTextFieldDelegate>
 {
    
    rAufgabe*                  Aufgabe;
@@ -88,7 +89,9 @@ struct cSeriedaten;
    IBOutlet NSBox*				RechnungsBox;
    IBOutlet NSBox*				AufgabenBox;
    IBOutlet NSBox*				ZeitBox;
-
+ 
+ //  IBOutlet NSTextField*		resultatfeld;
+   rResultatFeld*             ResultatFeld;
    IBOutlet NSTextField*		ZeitFeld;
    IBOutlet NSTextField*		ZeitLimiteFeld;
 

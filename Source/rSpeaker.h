@@ -62,7 +62,7 @@ rStimmenPanel*			StimmenPanel;
 - (NSArray*)URLArrayvonZahl:(int)dieZahl;
 
 - (NSURL*)URLvonOperation:(int)dieOperation;
-- (NSURL*)URLvonQuittung:(int)dieQuittung;
+- (NSURL*)URLvonQuittung:(NSString*)dieQuittung;
 - (long)setZahlTrackVon:(int)dieZahl mitOffset:(long)derOffset;
 - (long)setOpTrackVon:(int)dieOperation mitOffset:(long)derOffset;
 -(QTTime)setOpQTKitTrackVon:(int)dieOperation mitOffset:(QTTime)derOffset;
