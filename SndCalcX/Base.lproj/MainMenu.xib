@@ -38,8 +38,8 @@
                 <outlet property="ZeitFeld" destination="VqP-Ix-2G9" id="d2f-En-oNM"/>
                 <outlet property="ZeitLimiteFeld" destination="APM-ZC-vLe" id="IJV-9h-AYr"/>
                 <outlet property="ZeitPpKnopf" destination="6KR-eb-dHv" id="J3P-ib-lNm"/>
+                <outlet property="localfeld" destination="sDW-Mj-s9K" id="8cT-qp-yKV"/>
                 <outlet property="neueSerieTaste" destination="EDN-OK-hL0" id="Kuj-AF-9Te"/>
-                <outlet property="resultatfeld" destination="sDW-Mj-s9K" id="vPj-su-BQg"/>
                 <outlet property="window" destination="QvC-M9-y7g" id="gIp-Ho-8D9"/>
             </connections>
         </customObject>
@@ -867,7 +867,7 @@
                                                 <menu key="menu" id="6Li-bW-fv0">
                                                     <items>
                                                         <menuItem title="6" id="pnD-f3-KOm"/>
-                                                        <menuItem title="12" state="on" id="6Hy-KK-zDs">
+                                                        <menuItem title="12" id="6Hy-KK-zDs">
                                                             <modifierMask key="keyEquivalentModifierMask" option="YES" command="YES"/>
                                                         </menuItem>
                                                         <menuItem title="24" id="OkA-d6-K8N"/>

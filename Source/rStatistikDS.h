@@ -45,7 +45,7 @@ BOOL		farbig;
 
 
 
-@interface rStatistikDS : NSObject
+@interface rStatistikDS : NSObject <NSTableViewDataSource,NSTableViewDelegate>
 {
 NSTableView*			TestTable;
 NSPopUpButton*			TestPopMenu;

@@ -16,11 +16,12 @@
 #import "rAufgabenzeiger.h"
 #import "rZeitanzeige.h"
 //#import "rErgebnisView.h"
-#import "rErgebnisFeld.h"
+//#import "rErgebnisFeld.h"
 #import "rResultatFeld.h"
 #import "rRahmen.h"
-#import "rDiplomFenster.h"
-#import "rNamenPanel.h"
+//#import "rDiplomFenster.h"
+#import "rDiplomFensterX.h"
+#import "rNamenPanelX.h"
 #import "rTestPanel.h"
 //#include <stdlib.h>
 #import "rStatistik.h"
@@ -28,7 +29,7 @@
 #import "rVolumes.h"
 #import "rPasswortRequest.h"
 #import "rPWTimeout.h"
-#import "rSessionDS.h"
+#import "rSessionDSX.h"
 #import "rEinstellungenPanel.h"
 #import "defines.h"
 
@@ -85,13 +86,13 @@ struct cSeriedaten;
    IBOutlet NSButton *			DrawerSchliessenTaste;
    //IBOutlet NSTextField *	ErgebnisFeld;
    //	IBOutlet rErgebnisView *	ErgebnisView;
-   IBOutlet rErgebnisFeld *	ErgebnisFeld;
+   //IBOutlet rErgebnisFeld *	ErgebnisFeld;
    IBOutlet rRahmen *			ErgebnisRahmenFeld;
    IBOutlet NSBox*				RechnungsBox;
    IBOutlet NSBox*				AufgabenBox;
    IBOutlet NSBox*				ZeitBox;
  
- //  IBOutlet NSTextField*		resultatfeld;
+   IBOutlet NSTextField*		localfeld;
    rResultatFeld*             ResultatFeld;
    IBOutlet NSTextField*		ZeitFeld;
    IBOutlet NSTextField*		ZeitLimiteFeld;

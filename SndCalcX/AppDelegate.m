@@ -335,8 +335,8 @@ const short     kSerieFertig = 25003;
   //    [[RechnungsBox contentView]addSubview:ErgebnisFeld];
   //    [[[self window]contentView]addSubview:RechnungsBox ];
       
-  
-      
+      localfeld.stringValue = @"Haus";
+           
 #pragma mark ResultatFeld
       NSRect f =[ErgebnisRahmenFeld frame];
       f = NSMakeRect(271.0, 40.0, 84.0, 36.0);
@@ -569,6 +569,8 @@ const short     kSerieFertig = 25003;
          //NSLog(@"NamenDicArray leer");
          [NamenPopKnopf removeAllItems];
          NSDictionary* firstItemAttr=[NSDictionary dictionaryWithObjectsAndKeys:[NSColor redColor], NSForegroundColorAttributeName,[NSFont systemFontOfSize:13], NSFontAttributeName,nil];
+         NSString* choosenamestring = NSLocalizedString(@"Choose Name",@"Namen wählen");
+         //NSAttributedString* firstItem=[[NSAttributedString alloc]initWithString:NSLocalizedString(@"Choose Name",@"Namen wählen") attributes:firstItemAttr];
          NSAttributedString* firstItem=[[NSAttributedString alloc]initWithString:NSLocalizedString(@"Choose Name",@"Namen wählen") attributes:firstItemAttr];
          [NamenPopKnopf insertItemWithTitle:@""atIndex:0];
          [[NamenPopKnopf itemAtIndex:0]setAttributedTitle:firstItem];
@@ -619,7 +621,7 @@ const short     kSerieFertig = 25003;
       [Zeitanzeige setToolTip:NSLocalizedString(@"Elapsed time.",@"Abgelaufene Zeit.")];
       [ModusOption setToolTip:NSLocalizedString(@"Chose mode.",@"Modus einstellen.")];
       //	[ErgebnisView setToolTip:NSLocalizedString(@"Input field",@"Eingabefeld")];
-      [ErgebnisFeld setToolTip:NSLocalizedString(@"Input field",@"Eingabefeld")];
+      [ResultatFeld setToolTip:NSLocalizedString(@"Input field",@"Eingabefeld")];
       [AufgabenNummerFeld setToolTip:NSLocalizedString(@"Task number",@"Aufgabennummer")];
       [SettingsPfeil setToolTip:NSLocalizedString(@"Settings are only available in Training Modus",@"Die Einstellungen sind nur im Trainigsmodus zugänglich")];
       [ToggleSessionKnopf setToolTip:NSLocalizedString(@"Userlist with marked users having done the test in the current session.",@"Liste mit markierten Usern")];
@@ -1699,8 +1701,6 @@ const short     kSerieFertig = 25003;
    [ErgebnisRahmenFeld setHidden:YES];
    //	[ErgebnisView setMark:0];
    //	[ErgebnisView setString:@""];
-   [ErgebnisFeld setMark:0];
-   [ErgebnisFeld setStringValue:@"x"];
    
    
    [ResultatFeld setMark:0];
@@ -2922,12 +2922,10 @@ const short     kSerieFertig = 25003;
    //[self setOK:NO];
    [ErgebnisRahmenFeld setHidden:YES];
    //	[ErgebnisView setMark:0];
-   [ErgebnisFeld setMark:0];
    //[StartTaste setEnabled:NO];
    BOOL AufgabeOK=YES;
    //[ErgebnisFeld setStringValue:@""];
    //	[ErgebnisView setString:@""];
-   [ErgebnisFeld setStringValue:@""];
    
    [ResultatFeld setMark:0];
    [ResultatFeld setStringValue:@""];
@@ -3232,7 +3230,6 @@ const short     kSerieFertig = 25003;
    int antwort=1;
    //[ErgebnisView setEditable:NO];
    
-   [ErgebnisFeld setEditable:NO];
    
    [ResultatFeld setEditable:NO];
    [[self window]makeFirstResponder:StartTaste];
@@ -3519,9 +3516,7 @@ const short     kSerieFertig = 25003;
    [OKTaste setEnabled:NO];
    NSLog(@"Controller OKTastenAktion");
    
-   [ErgebnisFeld setSelectable:NO];
-   [ErgebnisFeld setEditable:NO];
-
+ 
    [ResultatFeld setSelectable:NO];
    [ResultatFeld setEditable:NO];
 
@@ -3547,7 +3542,7 @@ const short     kSerieFertig = 25003;
 
 - (IBAction)ErgebnisFeldAktion:(id)sender
 {
-   NSLog(@"Controller  ErgebnisFeldAktion: %@ verify: %d",[ErgebnisFeld stringValue],verify);
+   NSLog(@"Controller  ErgebnisFeldAktion: %@ verify: %d",[ResultatFeld stringValue],verify);
    
    // Timer fuer Rechnungszeit anhalten
    if ([AblaufzeitTimer isValid])
@@ -3661,12 +3656,8 @@ const short     kSerieFertig = 25003;
    [TestTimer invalidate];
    
    [self AufgabeAb:NULL];
-   [[self window]makeFirstResponder:ErgebnisFeld];
-   [ErgebnisFeld setEditable:YES];
-   [ErgebnisFeld setSelectable:YES];
-   [ErgebnisFeld selectText:NULL];
-   [ErgebnisFeld setReady:YES];
-
+   [[self window]makeFirstResponder:ResultatFeld];
+  
    [ResultatFeld setEditable:YES];
    [ResultatFeld setSelectable:YES];
    [ResultatFeld selectText:NULL];

@@ -20,7 +20,7 @@ NSColor* Balkenfarbe;
 
 @end
 */
-@interface rStatistikTable:NSTableView 
+@interface rStatistikTable:NSTableView <NSTableViewDataSource,NSTableViewDelegate>
 {
 }
 - (void)adjustPageHeightNew:(float *)newBottom top:(float)top bottom:(float)proposedBottom limit:(float)bottomLimit;

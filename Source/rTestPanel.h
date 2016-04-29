@@ -2,7 +2,7 @@
 
 #import <Cocoa/Cocoa.h>
 #import "rTestZuNamenDS.h"
-#import "rNamenZuTestDS.h"
+#import "rNamenZuTestDSX.h"
 #import "rReihenSettings.h"
 #import "rAddSubSettings.h"
 
@@ -32,16 +32,16 @@
 	IBOutlet	id						UpDownTaste;
 	
 	IBOutlet	NSTableView*		NamenZuTestTable;
-	IBOutlet	NSPopUpButton*					TestWahlTaste;
+	IBOutlet	NSPopUpButton*		TestWahlTaste;
 	IBOutlet	id						AnzahlAufgabenFeld;
 	IBOutlet	id						ZeitFeld;
 						
-	NSMutableString*					aktuellerUser;
-	NSMutableString*					aktuellerTest;
-	NSMutableArray*						NamenDicArray;
-	rTestZuNamenDS*						TestZuNamenDS;
-	rNamenZuTestDS*						NamenZuTestDS;
-	NSMutableArray*						TestDicArray;
+	NSMutableString*				aktuellerUser;
+	NSMutableString*				aktuellerTest;
+	NSMutableArray*				NamenDicArray;
+	rTestZuNamenDS*				TestZuNamenDS;
+	rNamenZuTestDS*				NamenZuTestDS;
+	NSMutableArray*				TestDicArray;
 	NSArray*							userOKArray;
 	BOOL								dirty;
 	BOOL								busy;
@@ -49,15 +49,15 @@
 	BOOL								OK;
 
 	
-	rReihenSettings*					ReihenSettings;
-	rAddSubSettings*					AddSubSettings;
-	NSMutableDictionary*				SerieDatenDic;
+	rReihenSettings*				ReihenSettings;
+	rAddSubSettings*				AddSubSettings;
+	NSMutableDictionary*			SerieDatenDic;
 
-	NSTextView*							DrawerView;
-	IBOutlet NSDrawer *					SettingsDrawer;
-	IBOutlet NSTabView *				SettingsBox;
-	IBOutlet NSButton *					closeDrawerTaste;
-	IBOutlet NSButton *					DrawerSchliessenTaste;
+	NSTextView*						DrawerView;
+	IBOutlet NSDrawer *			SettingsDrawer;
+	IBOutlet NSTabView *			SettingsBox;
+	IBOutlet NSButton *			closeDrawerTaste;
+	IBOutlet NSButton *			DrawerSchliessenTaste;
 	IBOutlet	id						SettingsPfeil;
 }
 - (NSArray*)TestNamenArray;

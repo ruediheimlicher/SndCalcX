@@ -7,26 +7,26 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BD0416D41CD3A07800F1288A /* rDiplomFensterX.m in Sources */ = {isa = PBXBuildFile; fileRef = BD0416D31CD3A07800F1288A /* rDiplomFensterX.m */; };
+		BD0416D61CD3A1F600F1288A /* AddSubSettingsX.m in Sources */ = {isa = PBXBuildFile; fileRef = BD0416D51CD3A1F600F1288A /* AddSubSettingsX.m */; };
+		BD0416DA1CD3A2BB00F1288A /* rNamenPanelX.m in Sources */ = {isa = PBXBuildFile; fileRef = BD0416D81CD3A2BB00F1288A /* rNamenPanelX.m */; };
+		BD0416DE1CD3A47E00F1288A /* rNamenZuTestDSX.m in Sources */ = {isa = PBXBuildFile; fileRef = BD0416DD1CD3A47E00F1288A /* rNamenZuTestDSX.m */; };
+		BD0416E11CD3A82D00F1288A /* rPrintStatistikX.m in Sources */ = {isa = PBXBuildFile; fileRef = BD0416E01CD3A82D00F1288A /* rPrintStatistikX.m */; };
+		BD0416E41CD3A93700F1288A /* rSessionDSX.m in Sources */ = {isa = PBXBuildFile; fileRef = BD0416E31CD3A93700F1288A /* rSessionDSX.m */; };
+		BD0416E71CD3A9E300F1288A /* rSpeaker.m in Sources */ = {isa = PBXBuildFile; fileRef = BD0416E61CD3A9E300F1288A /* rSpeaker.m */; };
+		BD0416E91CD3AA5D00F1288A /* rStatistik.m in Sources */ = {isa = PBXBuildFile; fileRef = BD0416E81CD3AA5D00F1288A /* rStatistik.m */; };
 		BD776B2C1CD0FAC700B28FE8 /* rResultatFeld.m in Sources */ = {isa = PBXBuildFile; fileRef = BD776B2B1CD0FAC700B28FE8 /* rResultatFeld.m */; };
+		BD776B2F1CD364C700B28FE8 /* german.strings in Resources */ = {isa = PBXBuildFile; fileRef = BD776B2E1CD364C700B28FE8 /* german.strings */; };
 		BD7947141CC024F300604B3D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BD7947131CC024F300604B3D /* AppDelegate.m */; };
 		BD7947171CC024F300604B3D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = BD7947161CC024F300604B3D /* main.m */; };
 		BD7947191CC024F300604B3D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BD7947181CC024F300604B3D /* Assets.xcassets */; };
 		BD79471C1CC024F300604B3D /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = BD79471A1CC024F300604B3D /* MainMenu.xib */; };
-		BD7947561CC02D6700604B3D /* rAddSubSettings.m in Sources */ = {isa = PBXBuildFile; fileRef = BD7947251CC02D6700604B3D /* rAddSubSettings.m */; };
 		BD7947581CC02D6700604B3D /* rAufgabenzeiger.m in Sources */ = {isa = PBXBuildFile; fileRef = BD7947291CC02D6700604B3D /* rAufgabenzeiger.m */; };
 		BD7947591CC02D6700604B3D /* rAVPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = BD79472B1CC02D6700604B3D /* rAVPlayer.m */; };
-		BD79475A1CC02D6700604B3D /* rDiplomFenster.m in Sources */ = {isa = PBXBuildFile; fileRef = BD79472D1CC02D6700604B3D /* rDiplomFenster.m */; };
 		BD79475B1CC02D6700604B3D /* rEinstellungenPanel.m in Sources */ = {isa = PBXBuildFile; fileRef = BD79472F1CC02D6700604B3D /* rEinstellungenPanel.m */; };
-		BD79475C1CC02D6700604B3D /* rErgebnisFeld.m in Sources */ = {isa = PBXBuildFile; fileRef = BD7947311CC02D6700604B3D /* rErgebnisFeld.m */; };
-		BD79475E1CC02D6700604B3D /* rNamenPanel.m in Sources */ = {isa = PBXBuildFile; fileRef = BD7947351CC02D6700604B3D /* rNamenPanel.m */; };
-		BD79475F1CC02D6700604B3D /* rNamenZuTestDS.m in Sources */ = {isa = PBXBuildFile; fileRef = BD7947371CC02D6700604B3D /* rNamenZuTestDS.m */; };
-		BD7947601CC02D6700604B3D /* rPrintStatistik.m in Sources */ = {isa = PBXBuildFile; fileRef = BD7947391CC02D6700604B3D /* rPrintStatistik.m */; };
 		BD7947611CC02D6700604B3D /* rQuittungDS.m in Sources */ = {isa = PBXBuildFile; fileRef = BD79473B1CC02D6700604B3D /* rQuittungDS.m */; };
 		BD7947621CC02D6700604B3D /* rRahmen.m in Sources */ = {isa = PBXBuildFile; fileRef = BD79473D1CC02D6700604B3D /* rRahmen.m */; };
 		BD7947631CC02D6700604B3D /* rReihenSettings.m in Sources */ = {isa = PBXBuildFile; fileRef = BD79473F1CC02D6700604B3D /* rReihenSettings.m */; };
-		BD7947651CC02D6700604B3D /* rSessionDS.m in Sources */ = {isa = PBXBuildFile; fileRef = BD7947431CC02D6700604B3D /* rSessionDS.m */; };
-		BD7947661CC02D6700604B3D /* rSpeaker.m in Sources */ = {isa = PBXBuildFile; fileRef = BD7947451CC02D6700604B3D /* rSpeaker.m */; };
-		BD7947671CC02D6700604B3D /* rStatistik.m in Sources */ = {isa = PBXBuildFile; fileRef = BD7947471CC02D6700604B3D /* rStatistik.m */; };
 		BD7947681CC02D6700604B3D /* rStatistikDS.m in Sources */ = {isa = PBXBuildFile; fileRef = BD7947491CC02D6700604B3D /* rStatistikDS.m */; };
 		BD7947691CC02D6700604B3D /* rStimmenPanel.m in Sources */ = {isa = PBXBuildFile; fileRef = BD79474B1CC02D6700604B3D /* rStimmenPanel.m */; };
 		BD79476A1CC02D6700604B3D /* rTestPanel.m in Sources */ = {isa = PBXBuildFile; fileRef = BD79474D1CC02D6700604B3D /* rTestPanel.m */; };
@@ -83,9 +83,24 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		BD0416D21CD3A07800F1288A /* rDiplomFensterX.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = rDiplomFensterX.h; sourceTree = "<group>"; };
+		BD0416D31CD3A07800F1288A /* rDiplomFensterX.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = rDiplomFensterX.m; sourceTree = "<group>"; };
+		BD0416D51CD3A1F600F1288A /* AddSubSettingsX.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddSubSettingsX.m; sourceTree = "<group>"; };
+		BD0416D71CD3A2BB00F1288A /* rNamenPanelX.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = rNamenPanelX.h; sourceTree = "<group>"; };
+		BD0416D81CD3A2BB00F1288A /* rNamenPanelX.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = rNamenPanelX.m; sourceTree = "<group>"; };
+		BD0416DC1CD3A47E00F1288A /* rNamenZuTestDSX.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = rNamenZuTestDSX.h; sourceTree = "<group>"; };
+		BD0416DD1CD3A47E00F1288A /* rNamenZuTestDSX.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = rNamenZuTestDSX.m; sourceTree = "<group>"; };
+		BD0416DF1CD3A82C00F1288A /* rPrintStatistikX.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = rPrintStatistikX.h; sourceTree = "<group>"; };
+		BD0416E01CD3A82D00F1288A /* rPrintStatistikX.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = rPrintStatistikX.m; sourceTree = "<group>"; };
+		BD0416E21CD3A93700F1288A /* rSessionDSX.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = rSessionDSX.h; sourceTree = "<group>"; };
+		BD0416E31CD3A93700F1288A /* rSessionDSX.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = rSessionDSX.m; sourceTree = "<group>"; };
+		BD0416E51CD3A9E300F1288A /* rSpeaker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = rSpeaker.h; sourceTree = "<group>"; };
+		BD0416E61CD3A9E300F1288A /* rSpeaker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = rSpeaker.m; sourceTree = "<group>"; };
+		BD0416E81CD3AA5D00F1288A /* rStatistik.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = rStatistik.m; sourceTree = "<group>"; };
 		BD776B2A1CD0FAC700B28FE8 /* rResultatFeld.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = rResultatFeld.h; sourceTree = "<group>"; };
 		BD776B2B1CD0FAC700B28FE8 /* rResultatFeld.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = rResultatFeld.m; sourceTree = "<group>"; };
 		BD776B2D1CD2934900B28FE8 /* defines.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = defines.h; sourceTree = "<group>"; };
+		BD776B2E1CD364C700B28FE8 /* german.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = german.strings; sourceTree = "<group>"; };
 		BD79470F1CC024F300604B3D /* SndCalcX.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SndCalcX.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BD7947121CC024F300604B3D /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		BD7947131CC024F300604B3D /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -95,35 +110,19 @@
 		BD79471D1CC024F300604B3D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BD7947231CC0253100604B3D /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/MainMenu.strings; sourceTree = "<group>"; };
 		BD7947241CC02D6700604B3D /* rAddSubSettings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = rAddSubSettings.h; path = Source/rAddSubSettings.h; sourceTree = SOURCE_ROOT; };
-		BD7947251CC02D6700604B3D /* rAddSubSettings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = rAddSubSettings.m; path = Source/rAddSubSettings.m; sourceTree = SOURCE_ROOT; };
 		BD7947281CC02D6700604B3D /* rAufgabenzeiger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = rAufgabenzeiger.h; path = Source/rAufgabenzeiger.h; sourceTree = SOURCE_ROOT; };
 		BD7947291CC02D6700604B3D /* rAufgabenzeiger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = rAufgabenzeiger.m; path = Source/rAufgabenzeiger.m; sourceTree = SOURCE_ROOT; };
 		BD79472A1CC02D6700604B3D /* rAVPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = rAVPlayer.h; path = Source/rAVPlayer.h; sourceTree = SOURCE_ROOT; };
 		BD79472B1CC02D6700604B3D /* rAVPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = rAVPlayer.m; path = Source/rAVPlayer.m; sourceTree = SOURCE_ROOT; };
-		BD79472C1CC02D6700604B3D /* rDiplomFenster.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = rDiplomFenster.h; path = Source/rDiplomFenster.h; sourceTree = SOURCE_ROOT; };
-		BD79472D1CC02D6700604B3D /* rDiplomFenster.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = rDiplomFenster.m; path = Source/rDiplomFenster.m; sourceTree = SOURCE_ROOT; };
 		BD79472E1CC02D6700604B3D /* rEinstellungenPanel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = rEinstellungenPanel.h; path = Source/rEinstellungenPanel.h; sourceTree = SOURCE_ROOT; };
 		BD79472F1CC02D6700604B3D /* rEinstellungenPanel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = rEinstellungenPanel.m; path = Source/rEinstellungenPanel.m; sourceTree = SOURCE_ROOT; };
-		BD7947301CC02D6700604B3D /* rErgebnisFeld.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = rErgebnisFeld.h; path = Source/rErgebnisFeld.h; sourceTree = SOURCE_ROOT; };
-		BD7947311CC02D6700604B3D /* rErgebnisFeld.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = rErgebnisFeld.m; path = Source/rErgebnisFeld.m; sourceTree = SOURCE_ROOT; };
-		BD7947341CC02D6700604B3D /* rNamenPanel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = rNamenPanel.h; path = Source/rNamenPanel.h; sourceTree = SOURCE_ROOT; };
-		BD7947351CC02D6700604B3D /* rNamenPanel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = rNamenPanel.m; path = Source/rNamenPanel.m; sourceTree = SOURCE_ROOT; };
-		BD7947361CC02D6700604B3D /* rNamenZuTestDS.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = rNamenZuTestDS.h; path = Source/rNamenZuTestDS.h; sourceTree = SOURCE_ROOT; };
-		BD7947371CC02D6700604B3D /* rNamenZuTestDS.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = rNamenZuTestDS.m; path = Source/rNamenZuTestDS.m; sourceTree = SOURCE_ROOT; };
-		BD7947381CC02D6700604B3D /* rPrintStatistik.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = rPrintStatistik.h; path = Source/rPrintStatistik.h; sourceTree = SOURCE_ROOT; };
-		BD7947391CC02D6700604B3D /* rPrintStatistik.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = rPrintStatistik.m; path = Source/rPrintStatistik.m; sourceTree = SOURCE_ROOT; };
 		BD79473A1CC02D6700604B3D /* rQuittungDS.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = rQuittungDS.h; path = Source/rQuittungDS.h; sourceTree = SOURCE_ROOT; };
 		BD79473B1CC02D6700604B3D /* rQuittungDS.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = rQuittungDS.m; path = Source/rQuittungDS.m; sourceTree = SOURCE_ROOT; };
 		BD79473C1CC02D6700604B3D /* rRahmen.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = rRahmen.h; path = Source/rRahmen.h; sourceTree = SOURCE_ROOT; };
 		BD79473D1CC02D6700604B3D /* rRahmen.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = rRahmen.m; path = Source/rRahmen.m; sourceTree = SOURCE_ROOT; };
 		BD79473E1CC02D6700604B3D /* rReihenSettings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = rReihenSettings.h; path = Source/rReihenSettings.h; sourceTree = SOURCE_ROOT; };
 		BD79473F1CC02D6700604B3D /* rReihenSettings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = rReihenSettings.m; path = Source/rReihenSettings.m; sourceTree = SOURCE_ROOT; };
-		BD7947421CC02D6700604B3D /* rSessionDS.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = rSessionDS.h; path = Source/rSessionDS.h; sourceTree = SOURCE_ROOT; };
-		BD7947431CC02D6700604B3D /* rSessionDS.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = rSessionDS.m; path = Source/rSessionDS.m; sourceTree = SOURCE_ROOT; };
-		BD7947441CC02D6700604B3D /* rSpeaker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = rSpeaker.h; path = Source/rSpeaker.h; sourceTree = SOURCE_ROOT; };
-		BD7947451CC02D6700604B3D /* rSpeaker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = rSpeaker.m; path = Source/rSpeaker.m; sourceTree = SOURCE_ROOT; };
 		BD7947461CC02D6700604B3D /* rStatistik.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = rStatistik.h; path = Source/rStatistik.h; sourceTree = SOURCE_ROOT; };
-		BD7947471CC02D6700604B3D /* rStatistik.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = rStatistik.m; path = Source/rStatistik.m; sourceTree = SOURCE_ROOT; };
 		BD7947481CC02D6700604B3D /* rStatistikDS.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = rStatistikDS.h; path = Source/rStatistikDS.h; sourceTree = SOURCE_ROOT; };
 		BD7947491CC02D6700604B3D /* rStatistikDS.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = rStatistikDS.m; path = Source/rStatistikDS.m; sourceTree = SOURCE_ROOT; };
 		BD79474A1CC02D6700604B3D /* rStimmenPanel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = rStimmenPanel.h; path = Source/rStimmenPanel.h; sourceTree = SOURCE_ROOT; };
@@ -208,6 +207,7 @@
 		BD7947061CC024F300604B3D = {
 			isa = PBXGroup;
 			children = (
+				BD776B2E1CD364C700B28FE8 /* german.strings */,
 				BD776B2D1CD2934900B28FE8 /* defines.h */,
 				BD7947111CC024F300604B3D /* SndCalcX */,
 				BD7947101CC024F300604B3D /* Products */,
@@ -239,37 +239,35 @@
 				BD7947E31CC2C60D00604B3D /* rRechnungserie.h */,
 				BD7947E41CC2C60D00604B3D /* rRechnungserie.m */,
 				BD7947241CC02D6700604B3D /* rAddSubSettings.h */,
-				BD7947251CC02D6700604B3D /* rAddSubSettings.m */,
+				BD0416D51CD3A1F600F1288A /* AddSubSettingsX.m */,
 				BD7947281CC02D6700604B3D /* rAufgabenzeiger.h */,
 				BD7947291CC02D6700604B3D /* rAufgabenzeiger.m */,
 				BD79472A1CC02D6700604B3D /* rAVPlayer.h */,
 				BD79472B1CC02D6700604B3D /* rAVPlayer.m */,
-				BD79472C1CC02D6700604B3D /* rDiplomFenster.h */,
-				BD79472D1CC02D6700604B3D /* rDiplomFenster.m */,
+				BD0416D21CD3A07800F1288A /* rDiplomFensterX.h */,
+				BD0416D31CD3A07800F1288A /* rDiplomFensterX.m */,
 				BD79472E1CC02D6700604B3D /* rEinstellungenPanel.h */,
 				BD79472F1CC02D6700604B3D /* rEinstellungenPanel.m */,
-				BD7947301CC02D6700604B3D /* rErgebnisFeld.h */,
-				BD7947311CC02D6700604B3D /* rErgebnisFeld.m */,
 				BD776B2A1CD0FAC700B28FE8 /* rResultatFeld.h */,
 				BD776B2B1CD0FAC700B28FE8 /* rResultatFeld.m */,
-				BD7947341CC02D6700604B3D /* rNamenPanel.h */,
-				BD7947351CC02D6700604B3D /* rNamenPanel.m */,
-				BD7947361CC02D6700604B3D /* rNamenZuTestDS.h */,
-				BD7947371CC02D6700604B3D /* rNamenZuTestDS.m */,
-				BD7947381CC02D6700604B3D /* rPrintStatistik.h */,
-				BD7947391CC02D6700604B3D /* rPrintStatistik.m */,
+				BD0416D71CD3A2BB00F1288A /* rNamenPanelX.h */,
+				BD0416D81CD3A2BB00F1288A /* rNamenPanelX.m */,
+				BD0416DC1CD3A47E00F1288A /* rNamenZuTestDSX.h */,
+				BD0416DD1CD3A47E00F1288A /* rNamenZuTestDSX.m */,
+				BD0416DF1CD3A82C00F1288A /* rPrintStatistikX.h */,
+				BD0416E01CD3A82D00F1288A /* rPrintStatistikX.m */,
 				BD79473A1CC02D6700604B3D /* rQuittungDS.h */,
 				BD79473B1CC02D6700604B3D /* rQuittungDS.m */,
 				BD79473C1CC02D6700604B3D /* rRahmen.h */,
 				BD79473D1CC02D6700604B3D /* rRahmen.m */,
 				BD79473E1CC02D6700604B3D /* rReihenSettings.h */,
 				BD79473F1CC02D6700604B3D /* rReihenSettings.m */,
-				BD7947421CC02D6700604B3D /* rSessionDS.h */,
-				BD7947431CC02D6700604B3D /* rSessionDS.m */,
-				BD7947441CC02D6700604B3D /* rSpeaker.h */,
-				BD7947451CC02D6700604B3D /* rSpeaker.m */,
+				BD0416E21CD3A93700F1288A /* rSessionDSX.h */,
+				BD0416E31CD3A93700F1288A /* rSessionDSX.m */,
+				BD0416E51CD3A9E300F1288A /* rSpeaker.h */,
+				BD0416E61CD3A9E300F1288A /* rSpeaker.m */,
 				BD7947461CC02D6700604B3D /* rStatistik.h */,
-				BD7947471CC02D6700604B3D /* rStatistik.m */,
+				BD0416E81CD3AA5D00F1288A /* rStatistik.m */,
 				BD7947481CC02D6700604B3D /* rStatistikDS.h */,
 				BD7947491CC02D6700604B3D /* rStatistikDS.m */,
 				BD79474A1CC02D6700604B3D /* rStimmenPanel.h */,
@@ -439,6 +437,7 @@
 				BD7947B21CC13AD700604B3D /* SCStatistik.nib in Resources */,
 				BDD8A4CF1CC8CFD500349CEA /* MarkOnImg.tif in Resources */,
 				BDD8A4D31CC8CFD500349CEA /* Ziel.tif in Resources */,
+				BD776B2F1CD364C700B28FE8 /* german.strings in Resources */,
 				BDD8A4BE1CC8CFA700349CEA /* duerer.tif in Resources */,
 				BDD8A4CE1CC8CFD500349CEA /* MarkOffImgOld.tif in Resources */,
 				BDD8A4CA1CC8CFD500349CEA /* duerergrau.tif in Resources */,
@@ -475,37 +474,36 @@
 			buildActionMask = 2147483647;
 			files = (
 				BD7947581CC02D6700604B3D /* rAufgabenzeiger.m in Sources */,
-				BD79475A1CC02D6700604B3D /* rDiplomFenster.m in Sources */,
-				BD7947651CC02D6700604B3D /* rSessionDS.m in Sources */,
+				BD0416E91CD3AA5D00F1288A /* rStatistik.m in Sources */,
 				BD79476C1CC02D6700604B3D /* rUtils.m in Sources */,
 				BD79476A1CC02D6700604B3D /* rTestPanel.m in Sources */,
+				BD0416DA1CD3A2BB00F1288A /* rNamenPanelX.m in Sources */,
+				BD0416DE1CD3A47E00F1288A /* rNamenZuTestDSX.m in Sources */,
 				BD7947681CC02D6700604B3D /* rStatistikDS.m in Sources */,
 				BD7947871CC02FF700604B3D /* rPasswortListe.m in Sources */,
-				BD7947561CC02D6700604B3D /* rAddSubSettings.m in Sources */,
 				BD7947171CC024F300604B3D /* main.m in Sources */,
 				BD7947851CC02FF700604B3D /* rPasswortDialog.m in Sources */,
 				BD7947821CC02FF700604B3D /* rEingabeFeld.m in Sources */,
 				BD7947891CC02FF700604B3D /* rPWTimeout.m in Sources */,
 				BD7947881CC02FF700604B3D /* rPasswortRequest.m in Sources */,
 				BD7947861CC02FF700604B3D /* rPasswortEingabeFeld.m in Sources */,
+				BD0416D41CD3A07800F1288A /* rDiplomFensterX.m in Sources */,
 				BD7947691CC02D6700604B3D /* rStimmenPanel.m in Sources */,
 				BD776B2C1CD0FAC700B28FE8 /* rResultatFeld.m in Sources */,
+				BD0416E71CD3A9E300F1288A /* rSpeaker.m in Sources */,
 				BD79476D1CC02D6700604B3D /* rVolumes.m in Sources */,
-				BD7947601CC02D6700604B3D /* rPrintStatistik.m in Sources */,
 				BD79476B1CC02D6700604B3D /* rTestZuNamenDS.m in Sources */,
-				BD7947661CC02D6700604B3D /* rSpeaker.m in Sources */,
-				BD7947671CC02D6700604B3D /* rStatistik.m in Sources */,
-				BD79475E1CC02D6700604B3D /* rNamenPanel.m in Sources */,
 				BD7947831CC02FF700604B3D /* rNamenListe.m in Sources */,
+				BD0416E11CD3A82D00F1288A /* rPrintStatistikX.m in Sources */,
 				BD7947591CC02D6700604B3D /* rAVPlayer.m in Sources */,
 				BD7947611CC02D6700604B3D /* rQuittungDS.m in Sources */,
 				BD7947631CC02D6700604B3D /* rReihenSettings.m in Sources */,
 				BD7947621CC02D6700604B3D /* rRahmen.m in Sources */,
+				BD0416E41CD3A93700F1288A /* rSessionDSX.m in Sources */,
 				BD7947E51CC2C60D00604B3D /* rRechnungserie.m in Sources */,
+				BD0416D61CD3A1F600F1288A /* AddSubSettingsX.m in Sources */,
 				BD7947141CC024F300604B3D /* AppDelegate.m in Sources */,
 				BD79475B1CC02D6700604B3D /* rEinstellungenPanel.m in Sources */,
-				BD79475F1CC02D6700604B3D /* rNamenZuTestDS.m in Sources */,
-				BD79475C1CC02D6700604B3D /* rErgebnisFeld.m in Sources */,
 				BD79476E1CC02D6700604B3D /* rZeitanzeige.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
