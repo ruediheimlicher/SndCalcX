@@ -12,7 +12,6 @@
 - (id)init
 {
 DezimalZahlen=[NSCharacterSet decimalDigitCharacterSet];
-//[DezimalZahlen retain];
 anzStellen=0;
 anzFalschesZeichen=0;
 return [super init];

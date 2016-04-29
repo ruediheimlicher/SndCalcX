@@ -85,6 +85,7 @@
 /* Begin PBXFileReference section */
 		BD776B2A1CD0FAC700B28FE8 /* rResultatFeld.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = rResultatFeld.h; sourceTree = "<group>"; };
 		BD776B2B1CD0FAC700B28FE8 /* rResultatFeld.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = rResultatFeld.m; sourceTree = "<group>"; };
+		BD776B2D1CD2934900B28FE8 /* defines.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = defines.h; sourceTree = "<group>"; };
 		BD79470F1CC024F300604B3D /* SndCalcX.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SndCalcX.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BD7947121CC024F300604B3D /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		BD7947131CC024F300604B3D /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -207,6 +208,7 @@
 		BD7947061CC024F300604B3D = {
 			isa = PBXGroup;
 			children = (
+				BD776B2D1CD2934900B28FE8 /* defines.h */,
 				BD7947111CC024F300604B3D /* SndCalcX */,
 				BD7947101CC024F300604B3D /* Products */,
 			);

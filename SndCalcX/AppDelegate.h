@@ -30,6 +30,7 @@
 #import "rPWTimeout.h"
 #import "rSessionDS.h"
 #import "rEinstellungenPanel.h"
+#import "defines.h"
 
 struct cSeriedaten;
 

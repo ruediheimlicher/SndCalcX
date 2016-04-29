@@ -23,13 +23,14 @@
 
 
 
-@interface rResultatFeld : NSTextField <NSTextFieldDelegate>
+@interface rResultatFeld : NSTextField <NSTextFieldDelegate,NSTextDelegate>
 {
    NSCharacterSet *				DezimalZahlen;
    int mark;
-   int anzFalschesZeichen;
-   BOOL ready;
-   NSTimer* falschesZeichenTimer;
+   int                        anzFalschesZeichen;
+   int								anzStellen;
+   BOOL                       ready;
+   NSTimer*                   falschesZeichenTimer;
 
 }
 

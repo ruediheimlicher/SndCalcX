@@ -12,6 +12,7 @@
 #import <AVFoundation/AVFoundation.h>
 
 #import "rStimmenPanel.h"
+#import "defines.h"
 
 @interface rSpeaker : NSObject {
 NSDictionary*			ZahlenPlistDic;
@@ -62,7 +63,9 @@ rStimmenPanel*			StimmenPanel;
 - (NSArray*)URLArrayvonZahl:(int)dieZahl;
 
 - (NSURL*)URLvonOperation:(int)dieOperation;
-- (NSURL*)URLvonQuittung:(NSString*)dieQuittung;
+//- (NSURL*)URLvonQuittung:(NSString*)dieQuittung;
+- (NSURL*)URLvonQuittung:(int)dieQuittung;
+
 - (long)setZahlTrackVon:(int)dieZahl mitOffset:(long)derOffset;
 - (long)setOpTrackVon:(int)dieOperation mitOffset:(long)derOffset;
 -(QTTime)setOpQTKitTrackVon:(int)dieOperation mitOffset:(QTTime)derOffset;

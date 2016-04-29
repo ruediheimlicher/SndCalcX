@@ -823,9 +823,6 @@
                                                 <action selector="toggleAufgabenDrawer:" target="Voe-Tx-rLC" id="RKu-F4-wXR"/>
                                             </connections>
                                         </button>
-                                        <customView fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3TR-dk-PRw" customClass="rErgebnisFeld">
-                                            <rect key="frame" x="271" y="40" width="84" height="36"/>
-                                        </customView>
                                         <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="sDW-Mj-s9K">
                                             <rect key="frame" x="259" y="105" width="96" height="22"/>
                                             <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="le8-Df-pXb">

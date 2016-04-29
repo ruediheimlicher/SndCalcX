@@ -462,6 +462,8 @@ return tempStimmenNamenArray;
 	NSString* ResourcenPfad=[[NSBundle mainBundle]resourcePath];
 	NSArray* tempZahlenArray=[Filemanager contentsOfDirectoryAtPath:[ResourcenPfad stringByAppendingPathComponent:@"Zahlen_AIFF"] error:NULL];
 	//NSLog(@"\n         tempZahlenArray roh: \n%@",[tempZahlenArray description]);
+   
+   
 	NSMutableArray* AIFFArray=[[NSMutableArray alloc]initWithCapacity:0];	//Array mit Namen der aif-Zahlen
 
 	NSEnumerator* ZahlenEnum=[tempZahlenArray objectEnumerator];
@@ -517,6 +519,7 @@ return tempStimmenNamenArray;
 	int index=0;
 	NSEnumerator* AIFFEnum=[AIFFArray objectEnumerator];
 	id einName;
+   
 	while (einName=[AIFFEnum nextObject])
 	{
 		NSString* tempName=[einName stringByDeletingPathExtension];
@@ -535,8 +538,7 @@ return tempStimmenNamenArray;
 			NSURL *	tempZahlUrl = [NSURL fileURLWithPath:tempAIFFPfad];
 			//NSLog(@"tempName: %@  tempAIFFPfad: %@",tempName,tempAIFFPfad);
          
-         //NSMovie *tempMovie = [[NSMovie alloc] initWithURL:tempmovieUrl byReference:YES];
-			if ([Filemanager fileExistsAtPath:tempAIFFPfad])
+ 			if ([Filemanager fileExistsAtPath:tempAIFFPfad])
          {
 				NSMutableDictionary* tempMovieDic=[[NSMutableDictionary alloc]initWithCapacity:0];
             [tempMovieDic setObject:tempAIFFPfad forKey:@"zahlpfad"];
@@ -584,25 +586,39 @@ return tempStimmenNamenArray;
    
    //NSLog(@"readQuittungen Array Pfad: %@",[ResourcenPfad stringByAppendingPathComponent:@"Quittung_AIFF"]);
 
+   // vorhandene Quittungen suchen
    NSArray* tempQuittungArray=[Filemanager contentsOfDirectoryAtPath:[ResourcenPfad stringByAppendingPathComponent:@"Quittung_AIFF"] error:NULL];
 
 	NSLog(@"tempQuittungArray roh: %@\n",[tempQuittungArray description]);
-	
+	/*
+    "falsch.aif",
+    "falscheszeichen.aif",
+    "Fertig2.aiff",
+    "Quietschende Bremsen",
+    "richtig.aif",
+    "richtig2.aif",
+    "seriefertig.aif",
+    "seriefertig2.aif",
+    */
    
    
    NSString* QuittungPlistPfad=[ResourcenPfad stringByAppendingPathComponent:@"Quittung.plist"];
 	
-	//liste der notwendigen Quittungen
+	//liste der notwendigen Quittungen in der PList suchen
 	if ([Filemanager fileExistsAtPath:QuittungPlistPfad])
 	{
 		//Dic der erforderlichen Quittungen mit ID
 		QuittungPlistDic=[NSDictionary dictionaryWithContentsOfFile:QuittungPlistPfad];//Dic mit Namen und ResNummern
 	}
 	NSLog(@"readQuittungen QuittungPlistDic: %@",[QuittungPlistDic description]);
-	
+	/*
+    falsch = 25002;
+    falscheszeichen = 25005;
+    richtig = 25001;
+    seriefertig = 25003;
+    */
    
    
-   NSMutableArray* tempZahlenArray=[[NSMutableArray alloc]initWithCapacity:0];
    int index=0;
    NSMutableArray* AIFFArray=[[NSMutableArray alloc]initWithCapacity:0];	//Array mit Namen der aif-Quittungen
    
@@ -660,6 +676,12 @@ return tempStimmenNamenArray;
 		}
 	}//while
 	NSLog(@"readQuittungen:		AIFFArray: %@ \n",[AIFFArray description]);
+   /*
+    "falsch.aif",
+    "falscheszeichen.aif",
+    "richtig.aif",
+    "seriefertig.aif"
+    */
 	//NSLog(@"AIFFArray Anzahl: %d ",[AIFFArray count]);
 	//NSLog(@"");
 	//NSLog(@"readQuittungen start mit Selektion:		QuittungSelektionDic: %@ \n",[QuittungSelektionDic description]);
@@ -670,8 +692,9 @@ return tempStimmenNamenArray;
 	NSEnumerator* QuittungListeEnum=[[QuittungPlistDic allKeys] objectEnumerator];//erforderliche Klassennamen
 	
 	id eineQuittungKlasse;
-	while (eineQuittungKlasse=[QuittungListeEnum nextObject])
+//	while (eineQuittungKlasse=[QuittungListeEnum nextObject])
    {
+      /*
       NSString* tempMovieName=@"";
       //selektierter Name fuer Klasse:
       NSString* tempSelectedKlasseName=[QuittungSelektionDic objectForKey:eineQuittungKlasse];
@@ -682,8 +705,8 @@ return tempStimmenNamenArray;
       //		NSLog(@"\neineQuittungKlasse: %@   tempSelectedKlasseName: %@",eineQuittungKlasse,tempSelectedKlasseName);
       NSString* tempMoviePfad;
       NSString* IDausPlist=[QuittungPlistDic objectForKey:eineQuittungKlasse];//in PList vorhanden
-      //NSLog(@"\neineQuittungKlasse: %@   tempSelectedKlasseName: %@  IDausPlist: %@",eineQuittungKlasse,tempSelectedKlasseName,IDausPlist);
-      
+      NSLog(@"\neineQuittungKlasse: %@   tempSelectedKlasseName: %@  IDausPlist: %@",eineQuittungKlasse,tempSelectedKlasseName,IDausPlist);
+      */
 
       //AIFFArray durchsuchen
       NSEnumerator* AIFFEnum=[AIFFArray objectEnumerator];
@@ -691,75 +714,51 @@ return tempStimmenNamenArray;
       while (einName=[AIFFEnum nextObject])
       {
          NSString* tempName=[einName stringByDeletingPathExtension];
-         NSArray* tempQuittungNamenTeileArray=[tempName componentsSeparatedByString:@"_"];
-         NSString* tempQuittungKlasse=[tempQuittungNamenTeileArray lastObject];//Klasse der Quittung
-         //NSLog(@"tempName: %@  PListName: %@",tempName,PListName);
+         NSArray* tempQuittungNamenArray=[tempName componentsSeparatedByString:@"_"];
+         NSString* PListName=[tempQuittungNamenArray lastObject];//Klasse der Quittung
          
-         if ([[tempQuittungKlasse stringByDeletingPathExtension] isEqualToString:eineQuittungKlasse])//Die Klasse stimmt
+         NSLog(@"tempName: %@  PListName: %@",tempName,PListName);
+         NSString* IDausPlist=[QuittungPlistDic objectForKey:PListName];//in PList vorhanden
+
+         /*
+         //if ([[tempQuittungKlasse stringByDeletingPathExtension] isEqualToString:eineQuittungKlasse])//Die Klasse stimmt
          {
             switch ([tempQuittungNamenTeileArray count])
             {
                case 1://nur ein Teil
                {
-                  if ([tempSelectedKlasseName isEqualToString:@"home"])//home ausgewählt fuer die Quittungsklasse
-                  {
-                     //NSLog(@"home:		eineZahl: nur 1 Element Klasse: %@",tempQuittungKlasse);
-                     tempMovieName=tempName;//Name der Klasse ohne pathExtension
-                  }
                }break;
                   
                case 2://2 Teile
                {
-                  //NSLog(@"aif. eineQuittung: %@  tempQuittungNamenTeileArray: %@", eineQuittung,[tempQuittungNamenTeileArray description]);
-                  //NSLog(@"eineQuittungKlasse: %@",eineQuittungKlasse);
-                  NSString* tempQuittungName=[tempQuittungNamenTeileArray objectAtIndex:0];//Username der Klasse
-                  NSString* tempQuittungKlasse=[[tempQuittungNamenTeileArray objectAtIndex:1]stringByDeletingPathExtension];
-                  //NSString* tempKlasseName=[QuittungSelektionDic objectForKey: eineQuittungKlasse];//ausgewählter Name fuer Klasse
-                  //NSLog(@"Klasse: %@	tempKlasseName: %@	eineQuittung: %@",eineQuittungKlasse,tempKlasseName,eineQuittung);
-                  //NSLog(@"tempQuittungName: %@  tempQuittungKlasse: %@",tempQuittungName,tempQuittungKlasse);
-                  if ([tempSelectedKlasseName isEqualToString:tempQuittungName])//Username stimmt
-                  {
-                     tempMovieName=tempName;//Name der Klasse ohne pathExtension
-                  }
-               }break;
+                }break;
                   //default:
                   //tempMovieName=[eineQuittungKlasse stringByAppendingPathExtension:@"aif"];//sicher ist sicher
             }//switch
          }//Klasse stimmt
-         NSString* tempAIFFPfad=[[ResourcenPfad stringByAppendingPathComponent:@"Quittung_AIFF"] stringByAppendingPathComponent:einName];
-         
-         NSURL *	tempQuittungUrl = [NSURL fileURLWithPath:tempAIFFPfad];
-         if ([Filemanager fileExistsAtPath:tempAIFFPfad])
+         */
+         if (IDausPlist)
          {
-            NSMutableDictionary* tempMovieDic=[[NSMutableDictionary alloc]initWithCapacity:0];
-            [tempMovieDic setObject:tempAIFFPfad forKey:@"quittungpfad"];
-            [tempMovieDic setObject:tempQuittungUrl forKey:@"quittungurl"];
-            [tempMovieDic setObject:tempMovieName forKey:@"name"];
-            [tempMovieDic setObject:IDausPlist forKey:@"ID"];
-            [tempQuittungDicArray addObject:tempMovieDic];
+            NSString* tempAIFFPfad=[[ResourcenPfad stringByAppendingPathComponent:@"Quittung_AIFF"] stringByAppendingPathComponent:einName];
+            
+            NSURL *	tempQuittungUrl = [NSURL fileURLWithPath:tempAIFFPfad];
+            if ([Filemanager fileExistsAtPath:tempAIFFPfad])
+            {
+               NSMutableDictionary* tempMovieDic=[[NSMutableDictionary alloc]initWithCapacity:0];
+               [tempMovieDic setObject:tempAIFFPfad forKey:@"quittungpfad"];
+               [tempMovieDic setObject:tempQuittungUrl forKey:@"quittungurl"];
+               [tempMovieDic setObject:IDausPlist forKey:@"ID"];
+               [tempMovieDic setObject:[einName stringByDeletingPathExtension] forKey:@"name"];
+               
+               [tempQuittungDicArray addObject:tempMovieDic];
+            }
          }
-
          
          
       }//while einName
       
-      //NSLog(@"nach AIFFArray durchsuchen  tempMovieName: %@",tempMovieName);
-      if ([tempMovieName length])//es passte
-      {
-
-         NSString* tempAIFFPfad=[[ResourcenPfad stringByAppendingPathComponent:@"Quittung_AIFF"] stringByAppendingPathComponent:einName];
-
-         NSURL *	tempQuittungUrl = [NSURL fileURLWithPath:tempAIFFPfad];
-         if ([Filemanager fileExistsAtPath:tempAIFFPfad])
-         {
-            NSMutableDictionary* tempMovieDic=[[NSMutableDictionary alloc]initWithCapacity:0];
-            [tempMovieDic setObject:tempAIFFPfad forKey:@"quittungpfad"];
-            [tempMovieDic setObject:tempQuittungUrl forKey:@"quittungurl"];
-            [tempMovieDic setObject:tempMovieName forKey:@"name"];
-            [tempMovieDic setObject:IDausPlist forKey:@"ID"];
-           // [tempQuittungDicArray addObject:tempMovieDic];
-         }
-      }//if length
+      
+      
       
    }//while eineQuittungKlasse
 	
@@ -1259,29 +1258,31 @@ return tempStimmenNamenArray;
    return nil;
 }
 
-- (NSURL*)URLvonQuittung:(NSString*)dieQuittung
+//- (NSURL*)URLvonQuittung:(NSString*)dieQuittung
+- (NSURL*)URLvonQuittung:(int)dieQuittung
 {
    NSFileManager* fm = [NSFileManager defaultManager];
    NSMutableArray* fehlerarray = [[NSMutableArray alloc]initWithCapacity:0];
    NSMutableArray* tempURLArray = [[NSMutableArray alloc]initWithCapacity:0];
    //NSLog(@"URLvonQuittung: %d derOffset: %lld",dieZahl, derOffset.timeValue);
-   NSArray* IDArray=[QuittungDicArray valueForKey:@"ID"];
+   NSArray* IDArray=[QuittungDicArray valueForKey:@"ID"]; // ID der Quittungen, 25001-25005
    NSArray* NameArray=[QuittungDicArray valueForKey:@"name"];
    NSLog(@"QuittungDicArray: %@",[[QuittungDicArray objectAtIndex:0] description]);
-   //NSLog(@"IDArray: %@",[IDArray description]);
+   NSLog(@"Quittung IDArray: %@,Quittung: %d",[IDArray description], dieQuittung);
    NSLog(@"NameArray: %@",[NameArray description]);
    int GermanOffset=20000;
    int IDOffset=GermanOffset;
    int FehlendeZahl=0;
    
-   long QuittungIndex=[NameArray indexOfObject:dieQuittung];
+   //long QuittungIndex=[NameArray indexOfObject:dieQuittung];
+   long QuittungIndex=[IDArray indexOfObject:[[NSNumber numberWithInt:dieQuittung] stringValue]];
    
    
    
    if (QuittungIndex == NSNotFound)//Zahl nicht im Array
    {
-      [fehlerarray addObject:dieQuittung];
-      NSLog(@"FehlendeQuittung: %@",dieQuittung);
+      [fehlerarray addObject:[NSNumber numberWithInt:dieQuittung]];
+      NSLog(@"FehlendeQuittung: %d",dieQuittung);
       //		goto bail;
    }
    //NSLog(@"OpIndex: %ld\t%ld",OpIndex,(long)ZehnIndex);
@@ -1351,7 +1352,9 @@ return tempStimmenNamenArray;
       NSArray* var2Array = [self URLArrayvonZahl:var2];
 
       NSURL* op0URL = [self URLvonOperation:op0];
-      NSURL* richtigURL = [self URLvonQuittung:@"richtig"];
+     // NSURL* richtigURL = [self URLvonQuittung:@"richtig"];
+      NSURL* richtigURL = [self URLvonQuittung:AUFGABERICHTIG];
+
       
   //    NSLog(@"var0Array: %@",var0Array);
       [QueueArray removeAllObjects];
@@ -1368,7 +1371,7 @@ return tempStimmenNamenArray;
          [QueueArray addObject:[[AVPlayerItem alloc] initWithURL:var1Array[i]]];
          
       }
-      [QueueArray addObject:[[AVPlayerItem alloc] initWithURL:richtigURL]];
+   //   [QueueArray addObject:[[AVPlayerItem alloc] initWithURL:richtigURL]];
 
       //[QueueArray addObjectsFromArray:var0Array];
       
@@ -1466,32 +1469,22 @@ return tempStimmenNamenArray;
  }
 
 
-- (BOOL)QuittungAb:(NSDictionary*)derQuittungDic
+- (BOOL)QuittungAb:(NSDictionary*)dieQuittung
 {
+   NSLog(@"QuittungAb: quittung: %@",dieQuittung);
 	BOOL QuittungOK=YES;
-		
-	if ([derQuittungDic objectForKey:@"quittung"])
+   int tempQuittung = [[dieQuittung  objectForKey:@"quittung"]intValue];
+   NSURL* quittungURL = [self URLvonQuittung:tempQuittung];
+	if (quittungURL)
 	{
-		int quittung=0;
-		NSNumber* QuittungNumber=[derQuittungDic objectForKey:@"quittung"];
-		if (QuittungNumber)
-		{
-			quittung=[QuittungNumber intValue];
-		}
-		//NSLog(@"QuittungAb: quittung: %d",quittung);
-      
-      QTTime QuittungTime = [self setQTKitQuittungVon:quittung mitOffset:QTZeroTime];
-     // NSLog(@"QuittungAb: QuittungTime nach set: %lld",QuittungTime.timeValue);
-     [QuittungenQTKitMovie setAttribute:[NSNumber numberWithBool:YES] forKey:QTMovieEditableAttribute];
-      NSNotificationCenter *nc = [NSNotificationCenter defaultCenter];    
-      [nc addObserver:self 
-             selector:@selector(QTKitQuittungFertigAktion:) 
-                 name:QTMovieDidEndNotification 
-               object:QuittungenQTKitMovie];
-
-      [QuittungenQTKitMovie gotoBeginning];
-		[QuittungenQTKitMovie play];
-   
+      [QueueArray removeAllObjects];
+      [QueueArray addObject:[[AVPlayerItem alloc] initWithURL:quittungURL]];
+      if ([[AufgabenPlayerX items]count])
+      {
+         [AufgabenPlayerX removeAllItems];
+      }
+      AufgabenPlayerX = [AVQueuePlayer queuePlayerWithItems:QueueArray];
+      [AufgabenPlayerX play];
 	}//if tempQuittungnDic
 	
 	else

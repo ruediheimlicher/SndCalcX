@@ -43,10 +43,10 @@ enum
 };
 
 
-const short     kAufgabeFalsch = 5002;
-const short     kFalschesZeichen = 5005;
-const short     kAufgabeRichtig = 5001;
-const short     kSerieFertig = 5003;
+const short     kAufgabeFalsch = 25002;
+const short     kFalschesZeichen = 25005;
+const short     kAufgabeRichtig = 25001;
+const short     kSerieFertig = 25003;
 
 
 @implementation AppDelegate
@@ -335,18 +335,26 @@ const short     kSerieFertig = 5003;
   //    [[RechnungsBox contentView]addSubview:ErgebnisFeld];
   //    [[[self window]contentView]addSubview:RechnungsBox ];
       
-      [[RechnungsBox contentView]addSubview:ErgebnisRahmenFeld];
+  
       
+#pragma mark ResultatFeld
       NSRect f =[ErgebnisRahmenFeld frame];
-      ResultatFeld = [[rResultatFeld alloc]initWithFrame:NSInsetRect(f, 12.0, 12.0)];
+      f = NSMakeRect(271.0, 40.0, 84.0, 36.0);
+      //ResultatFeld = [[rResultatFeld alloc]initWithFrame:NSInsetRect(f, 12.0, 12.0)];
+      ResultatFeld = [[rResultatFeld alloc]initWithFrame:f];
       [ResultatFeld setAction:@selector(ErgebnisFeldAktion:)];
-      [ResultatFeld setBordered:YES];
+   //   [ResultatFeld setBordered:YES];
       
       [ResultatFeld setResultatFeld];
       
       [ResultatFeld setDelegate:self];
-      
+      rResultatEingabeCheck* ResultatEingabeTest=[[rResultatEingabeCheck alloc]init];
+
+      [ResultatFeld setFormatter:ResultatEingabeTest];
+
       [[RechnungsBox contentView]addSubview:ResultatFeld];
+      
+      [[RechnungsBox contentView]addSubview:ErgebnisRahmenFeld];
       
       NSImage* myImage = [NSImage imageNamed: @"Duerer"];
       [NSApp setApplicationIconImage: myImage];
@@ -1693,6 +1701,10 @@ const short     kSerieFertig = 5003;
    //	[ErgebnisView setString:@""];
    [ErgebnisFeld setMark:0];
    [ErgebnisFeld setStringValue:@"x"];
+   
+   
+   [ResultatFeld setMark:0];
+   [ResultatFeld setStringValue:@""];
    [self closeAufgabenDrawer:NULL];
    NSDictionary* tempStatusDic=[self StatusVonSerieDatenDic:SerieDatenDic];
    if ([TestPopKnopf numberOfItems])
@@ -2274,7 +2286,7 @@ const short     kSerieFertig = 5003;
 {
    int DatenOK=0;
    rSeriedaten* tempSerieDaten = [[rSeriedaten alloc]init];
-   NSLog(@"tempSerieDaten AnzahlAufgaben: %d",tempSerieDaten.AnzahlAufgaben);
+   //NSLog(@"tempSerieDaten AnzahlAufgaben: %d",tempSerieDaten.AnzahlAufgaben);
    NSIndexSet* BoolBereich=[NSIndexSet indexSetWithIndexesInRange:NSMakeRange(0,2)];
    
    NSIndexSet* AnzBereich=[NSIndexSet indexSetWithIndexesInRange:NSMakeRange(1,24)];
@@ -2485,10 +2497,10 @@ const short     kSerieFertig = 5003;
       tempSerieDaten.Subtraktion=0;
       
    }
-    NSLog(@"tempSerieDaten AnzahlAufgaben: %d",tempSerieDaten.AnzahlAufgaben);
-   NSLog(@"tempSerieDaten MDKleines1Mal1: %d",tempSerieDaten.MDKleines1Mal1);
+    //NSLog(@"tempSerieDaten AnzahlAufgaben: %d",tempSerieDaten.AnzahlAufgaben);
+   //NSLog(@"tempSerieDaten MDKleines1Mal1: %d",tempSerieDaten.MDKleines1Mal1);
 
-    NSLog(@"SerieDateVonDic tempSerieDaten : %@",[tempSerieDaten description]);
+    //NSLog(@"SerieDateVonDic tempSerieDaten : %@",[tempSerieDaten description]);
    return tempSerieDaten;
 }
 
@@ -2915,8 +2927,11 @@ const short     kSerieFertig = 5003;
    BOOL AufgabeOK=YES;
    //[ErgebnisFeld setStringValue:@""];
    //	[ErgebnisView setString:@""];
-   [ErgebnisFeld setStringValue:@"x"];
+   [ErgebnisFeld setStringValue:@""];
    
+   [ResultatFeld setMark:0];
+   [ResultatFeld setStringValue:@""];
+
    
    [ResultatFeld setMark:0];
    
@@ -3001,7 +3016,7 @@ const short     kSerieFertig = 5003;
 
 - (void)FalschesZeichenAktion:(NSNotification*)note
 {
-   //NSLog(@"FalschesZeichenAktion: note: %@",[[note userInfo]description]);
+   NSLog(@"FalschesZeichenAktion: note: %@",[[note userInfo]description]);
    BOOL Warnzeichen=NO;
    if ([note userInfo]&&[[note userInfo] objectForKey:@"anzfalscheszeichen"])
    {
@@ -3024,7 +3039,7 @@ const short     kSerieFertig = 5003;
             NSMutableDictionary* tempQuittungDic=[[NSMutableDictionary alloc]initWithCapacity:0];
             
             //Falsches Zeichen
-            [tempQuittungDic setObject:[NSNumber numberWithInt:kFalschesZeichen]
+            [tempQuittungDic setObject:[NSNumber numberWithInt:FALSCHESZEICHEN]
                                 forKey:@"quittung"];
             BOOL QuittungOK=[Speaker QuittungAb:tempQuittungDic];
             
@@ -3074,7 +3089,7 @@ const short     kSerieFertig = 5003;
       NSMutableDictionary* tempQuittungDic=[[NSMutableDictionary alloc]initWithCapacity:0];
       
       //Falsches Zeichen
-      [tempQuittungDic setObject:[NSNumber numberWithInt:kFalschesZeichen]
+      [tempQuittungDic setObject:[NSNumber numberWithInt:FALSCHESZEICHEN]
                           forKey:@"quittung"];
       BOOL QuittungOK=[Speaker QuittungAb:tempQuittungDic];
    }//if
@@ -3218,6 +3233,8 @@ const short     kSerieFertig = 5003;
    //[ErgebnisView setEditable:NO];
    
    [ErgebnisFeld setEditable:NO];
+   
+   [ResultatFeld setEditable:NO];
    [[self window]makeFirstResponder:StartTaste];
    [StartTaste setKeyEquivalent:@"\r"];
    
@@ -3504,7 +3521,10 @@ const short     kSerieFertig = 5003;
    
    [ErgebnisFeld setSelectable:NO];
    [ErgebnisFeld setEditable:NO];
-   
+
+   [ResultatFeld setSelectable:NO];
+   [ResultatFeld setEditable:NO];
+
    // Timer fuer Rechnungszeit anhalten
    if ([AblaufzeitTimer isValid])
    {
@@ -3646,20 +3666,25 @@ const short     kSerieFertig = 5003;
    [ErgebnisFeld setSelectable:YES];
    [ErgebnisFeld selectText:NULL];
    [ErgebnisFeld setReady:YES];
-   
+
+   [ResultatFeld setEditable:YES];
+   [ResultatFeld setSelectable:YES];
+   [ResultatFeld selectText:NULL];
+   [ResultatFeld setReady:YES];
+
    //verify=YES;
    //NSLog(@"nextAufgabeAbTimerFunktion nach nextAufgabeAb");
 }
 
 - (BOOL)checkAufgabe
 {
-   //NSLog(@"checkAufgabe Nummer: %d",aktuelleAufgabenNummer);
+   NSLog(@"checkAufgabe Nummer: %d",aktuelleAufgabenNummer);
    BOOL checkOK=NO;
    //NSLog(@"checkAufgabe  AufgabenArray: %@",[AufgabenArray description]);
    
    NSDictionary* tempAufgabenDic=[AufgabenArray objectAtIndex:aktuelleAufgabenNummer-1];
-   //NSLog(@"checkAufgabe  tempAufgabenDic: %@",[tempAufgabenDic description]);
-   if (verify&&tempAufgabenDic)
+   NSLog(@"checkAufgabe  tempAufgabenDic: %@",[tempAufgabenDic description]);
+   if (verify && tempAufgabenDic)
    {
       
       NSNumber* sollNumber=[tempAufgabenDic objectForKey:@"var2"];
@@ -3669,7 +3694,7 @@ const short     kSerieFertig = 5003;
          int soll=[sollNumber intValue];
          //			int ist=[[ErgebnisView string]intValue];
          int ist=[ResultatFeld intValue];
-         //NSLog(@"checkAufgabe: soll: %d  ist: %d",soll,ist);
+         NSLog(@"checkAufgabe: soll: %d  ist: %d",soll,ist);
          if (soll==ist)
          {
             //NSLog(@"checkAufgabe: richtig: Nummer: %d",aktuelleAufgabenNummer);
@@ -3799,32 +3824,22 @@ const short     kSerieFertig = 5003;
 
 - (void)RichtigSoundAb
 {
+   
    NSMutableDictionary* tempQuittungDic=[[NSMutableDictionary alloc]initWithCapacity:0];
    
    //Richtig
-   [tempQuittungDic setObject:[NSNumber numberWithInt:kAufgabeRichtig]
+   [tempQuittungDic setObject:[NSNumber numberWithInt:AUFGABERICHTIG]
                        forKey:@"quittung"];
    //NSLog(@"RichtigSoundAb: tempQuittungDic: %@ ",[tempQuittungDic description]);
    BOOL QuittungOK=[Speaker QuittungAb:tempQuittungDic];
    
-   //	[AufgabenQTKitPlayer setMovie:[Speaker QuittungenQTKitMovie]];
-   //	[AufgabenQTKitPlayer play:NULL];
-   
-   //NSLog(@"RichtigSoundAb: end");
-   /*
-    NSSound* RichtigSnd=[NSSound soundNamed:@"Richtig"];
-    if (RichtigSnd)
-    {
-    [RichtigSnd play];
-    }
-    */
-   QuittungOK=0
+   QuittungOK=0;
 }
 
 - (void)FalschSoundAb
 {
    NSMutableDictionary* tempQuittungDic=[[NSMutableDictionary alloc]initWithCapacity:0];
-   [tempQuittungDic setObject:[NSNumber numberWithInt:kAufgabeFalsch]
+   [tempQuittungDic setObject:[NSNumber numberWithInt:AUFGABEFALSCH]
                        forKey:@"quittung"];
    BOOL QuittungOK=[Speaker QuittungAb:tempQuittungDic];
    
@@ -3842,7 +3857,7 @@ const short     kSerieFertig = 5003;
 - (void)FertigSoundAb
 {
    NSMutableDictionary* tempQuittungDic=[[NSMutableDictionary alloc]initWithCapacity:0];
-   [tempQuittungDic setObject:[NSNumber numberWithInt:kSerieFertig]
+   [tempQuittungDic setObject:[NSNumber numberWithInt:SERIEFERTIG]
                        forKey:@"quittung"];
    BOOL QuittungOK=[Speaker QuittungAb:tempQuittungDic];
    ;
@@ -3853,7 +3868,7 @@ const short     kSerieFertig = 5003;
     [FertigSnd play];
     }
     */
-   QuittungOK=0
+   QuittungOK=0;
 }
 
 
