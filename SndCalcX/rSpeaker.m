@@ -1267,9 +1267,9 @@ const short  kMaxElemente=12;
    //NSLog(@"URLvonQuittung: %d derOffset: %lld",dieZahl, derOffset.timeValue);
    NSArray* IDArray=[QuittungDicArray valueForKey:@"ID"]; // ID der Quittungen, 25001-25005
    NSArray* NameArray=[QuittungDicArray valueForKey:@"name"];
-   NSLog(@"QuittungDicArray: %@",[[QuittungDicArray objectAtIndex:0] description]);
-   NSLog(@"Quittung IDArray: %@,Quittung: %d",[IDArray description], dieQuittung);
-   NSLog(@"NameArray: %@",[NameArray description]);
+   //NSLog(@"QuittungDicArray: %@",[[QuittungDicArray objectAtIndex:0] description]);
+   //NSLog(@"Quittung IDArray: %@,Quittung: %d",[IDArray description], dieQuittung);
+   //NSLog(@"NameArray: %@",[NameArray description]);
    int GermanOffset=20000;
    int IDOffset=GermanOffset;
    int FehlendeZahl=0;
@@ -1336,7 +1336,7 @@ const short  kMaxElemente=12;
       {
          var2=[Var2Number intValue];
       }
-      NSLog(@"AufgabeAb: Nummer: %d var0: %d var1: %d op0: %d var2: %d",Aufgabennummer,var0,var1,op0,var2);
+      //NSLog(@"AufgabeAb: Nummer: %d var0: %d var1: %d op0: %d var2: %d",Aufgabennummer,var0,var1,op0,var2);
       //NSLog(@"AufgabeAb: Nummer: var0:%d",var0);
       /* Element von ZahlenDicArry
        {
@@ -1404,7 +1404,7 @@ const short  kMaxElemente=12;
    //NSLog(@"AufgabenPlayerX actionAtItemEnd: %ld",AufgabenPlayerX.actionAtItemEnd);
    if (AufgabenPlayerX.currentItem == AufgabenPlayerX.items.lastObject)
    {
-      NSLog(@"letztes item da");
+      //NSLog(@"letztes item da");
      	//NSLog(@"Speaker QTKitAufgabeFertigAktion");
       NSNotificationCenter *nc = [NSNotificationCenter defaultCenter];
       // [nc removeObserver:self name:@"QTMovieDidEndNotification" object:nil];
@@ -1424,7 +1424,7 @@ const short  kMaxElemente=12;
 
 - (void)AufgabeFertigAktion:(NSNotification*)note
 {
-   NSLog(@"Speaker AufgabeFertigAktion");
+   //NSLog(@"Speaker AufgabeFertigAktion");
    
    //movieDidEndSelector = nil;
    //movieDidEndTargetObject = nil;

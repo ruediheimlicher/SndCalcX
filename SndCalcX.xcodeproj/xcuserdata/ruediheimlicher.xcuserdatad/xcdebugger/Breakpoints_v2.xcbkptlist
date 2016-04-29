@@ -218,11 +218,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SndCalcX/AppDelegate.m"
-            timestampString = "483632157.746467"
+            timestampString = "483646797.730982"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "4215"
-            endingLineNumber = "4215"
+            startingLineNumber = "4186"
+            endingLineNumber = "4186"
             landmarkName = "-toggleAufgabenDrawer:"
             landmarkType = "5">
          </BreakpointContent>
@@ -570,11 +570,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SndCalcX/AppDelegate.m"
-            timestampString = "483632157.746467"
+            timestampString = "483646797.730982"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "5385"
-            endingLineNumber = "5385"
+            startingLineNumber = "5356"
+            endingLineNumber = "5356"
             landmarkName = "-showNamenPanel:"
             landmarkType = "5">
          </BreakpointContent>
@@ -768,6 +768,70 @@
             startingLineNumber = "740"
             endingLineNumber = "740"
             landmarkName = "-readQuittungen"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SndCalcX/AppDelegate.m"
+            timestampString = "483648619.291196"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "7594"
+            endingLineNumber = "7594"
+            landmarkName = "-windowShouldClose:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SndCalcX/AppDelegate.m"
+            timestampString = "483648127.37804"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "1696"
+            endingLineNumber = "1696"
+            landmarkName = "-neueSerieMitSeriedaten:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SndCalcX/AppDelegate.m"
+            timestampString = "483648389.89226"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "5251"
+            endingLineNumber = "5251"
+            landmarkName = "-setName:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SndCalcX/AppDelegate.m"
+            timestampString = "483648411.605402"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "2938"
+            endingLineNumber = "2938"
+            landmarkName = "-AufgabeAb:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

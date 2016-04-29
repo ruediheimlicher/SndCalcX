@@ -897,8 +897,10 @@ short Minvon(short ersteZahl, short zweiteZahl);
       //Operation1vektor=new short[dieSeriedaten.AnzahlAufgaben];
       //Operation1vektor= malloc(sizeof(short[dieSeriedaten.AnzahlAufgaben]));
       //Operation1vektor= malloc(sizeof(short[kArraygrenze]));
+#pragma mark cSeriedaten
+      
       short Operation1vektor[kArraygrenze]={0};
-      cSeriedaten tempseriedaten = [self  Objc2CmitSeriedaten:dieSeriedaten];
+      cSeriedaten tempseriedaten = [self  Objc2CmitSeriedaten:dieSeriedaten]; // Uebergabe in C-Struct
       Operationenverteilen(Operation1vektor,tempseriedaten);
       
       for (short i=0;i<dieSeriedaten.AnzahlAufgaben;i++)
@@ -1243,12 +1245,13 @@ void 	Operationenverteilen(short *	derVektor, cSeriedaten seriedaten)
       //testvektor[n]=Operationen[tempvektor[n]-1];
       derVektor[n]=Operationen[tempvektor[n]-1];
    }
-}//derVektor enthaelt eine Liste mit verteilten Nummern der ausgew√§hlten Operationen
+}//derVektor enthaelt eine Liste mit verteilten Nummern der ausgewaehlten Operationen
 //*****************************************************************
 - (void)AddSubBereichbestimmen
 {
    printf("rSerie: SerieDaten.ASBereich: %d\n",cRechnungSeriedaten.ASBereich);
-   switch (cRechnungSeriedaten.ASBereich)
+   //switch (cRechnungSeriedaten.ASBereich)
+   switch (RechnungSeriedaten.ASBereich)
    {
       case kBisZehn:
          AdduntereGrenze=2;

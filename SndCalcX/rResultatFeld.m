@@ -38,7 +38,7 @@
             errorDescription:(NSString **)error
 {
    BOOL EingabeOK=YES;
-   NSLog(@"isPartialStringValid partialString: %@ anzStellen: %d length: %d",partialString,anzStellen,[partialString length]);
+   //NSLog(@"isPartialStringValid partialString: %@ anzStellen: %d length: %d",partialString,anzStellen,[partialString length]);
    
    if ([partialString length])//Eingabe vorhanden
    {

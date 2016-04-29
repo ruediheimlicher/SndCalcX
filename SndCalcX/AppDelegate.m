@@ -474,7 +474,7 @@ const short     kSerieFertig = 25003;
                [TestDicArray addObject:einTestDic];
             }
          }
-         else	//cSeriedaten unvollständig
+         else	//Seriedaten unvollständig
          {
             NSLog(@"Test nicht geladen %@:",[einTestDic description]);
             [einTestDic setObject:[NSNumber numberWithBool:NO]forKey:@"aktiv"];
@@ -1710,7 +1710,7 @@ const short     kSerieFertig = 25003;
    if ([TestPopKnopf numberOfItems])
    {
       BOOL SerieDatenOK=[self checkSerieDatenDic:SerieDatenDic vonTest:[TestPopKnopf titleOfSelectedItem]];
-      //NSLog(@"tempStatusDic: %@ SerieDatenOK: %d",[tempStatusDic description],SerieDatenOK);
+      NSLog(@"tempStatusDic: %@ SerieDatenOK: %d",[tempStatusDic description],SerieDatenOK);
       if(SerieDatenOK==NO)
       {
          return nil;
@@ -2154,21 +2154,8 @@ const short     kSerieFertig = 25003;
    //NSLog(@"neue Serie begin");
    //NSLog(@"neueSerie Anfang: SeriedatenDic: %@\n",[SerieDatenDic description]);
    [ErgebnisRahmenFeld setHidden:YES];
-   //	[ErgebnisView setMark:0];
-   //	[ErgebnisView setString:@""];
-  // [ErgebnisFeld setMark:0];
-  // [ErgebnisFeld setStringValue:@""];
    [self closeAufgabenDrawer:NULL];
-   /*
-    if ([SettingsDrawer state]==NSDrawerOpenState)
-    {
-    //NSLog(@"neueSerie: SettingsDrawer =NSDrawerOpenState");
-    [SerieDatenDic setObject:@"Training" forKey:@"testname"];
-    [SerieDatenDic addEntriesFromDictionary:[self SerieDatenDicAusSettings]];
-    [self closeDrawer:NULL];
-    //NSLog(@"neueSerie nach closeDrawer: SeriedatenDic: %@\n",[SerieDatenDic description]);
-    }
-    */
+   
    NSDictionary* tempStatusDic=[self StatusVonSerieDatenDic:SerieDatenDic];
    if ([TestPopKnopf numberOfItems])
    {
@@ -2202,8 +2189,9 @@ const short     kSerieFertig = 25003;
    
    //NSLog(@"neueSerie: random: %d ",random());
    RechnungSeriedaten=[self SerieDatenVonDic:SerieDatenDic];
-   NSLog(@"RechnungSeriedaten AnzahlAufgaben: %d",RechnungSeriedaten.AnzahlAufgaben);
-   NSLog(@"RechnungSeriedaten MDKleines1Mal1: %d",RechnungSeriedaten.MDKleines1Mal1);
+   NSLog(@"RechnungSeriedaten AnzahlAufgaben: %d MDKleines1Mal1: %d",RechnungSeriedaten.AnzahlAufgaben,RechnungSeriedaten.MDKleines1Mal1);
+   //NSLog(@"RechnungSeriedaten MDKleines1Mal1: %d",RechnungSeriedaten.MDKleines1Mal1);
+   NSLog(@"neueSerie: Add: %d  Sub: %d  Mult: %d",RechnungSeriedaten.Addition,RechnungSeriedaten.Subtraktion,RechnungSeriedaten.Multiplikation);
 
    
    
@@ -2255,20 +2243,9 @@ const short     kSerieFertig = 25003;
    [Aufgabenzeiger setAnzahl:0];
    [ErgebnisRahmenFeld setMark:-1];
    
-   /*
-   if (!AufgabenSerie)
-   {
-      AufgabenSerie = malloc(size(rAufgabenSerie));
-      AufgabenSerie=new rSerie(SerieDaten.AnzahlAufgaben);
-   }
-   */
-   //NSLog(@"neueSerie: %d",SerieDaten.AnzahlAufgaben);
    
    
-   rAufgabenDaten*  AufgabenDatenArray[kMaxAnzahlAufgaben];
- 
    
-   //NSLog(@"neueSerie: Add: %d  Sub: %d  Mult: %d",SerieDaten.Addition,RechnungSeriedaten.Subtraktion,SerieDaten.Multiplikation);
 //   AufgabenSerie->neueSerie(SerieDaten,AufgabenDatenArray);
    
  // Ersatz:
@@ -3144,7 +3121,7 @@ const short     kSerieFertig = 25003;
 {
    
    [ErgebnisRahmenFeld setHidden:YES];
-   NSLog(@"SndCalcController AufgabelesenFertigAktion: note: %@",[[note userInfo]description]);
+   //NSLog(@"SndCalcController AufgabelesenFertigAktion: note: %@",[[note userInfo]description]);
    NSNumber* AufgabenStatusNumber=(NSNumber*)[[note userInfo]objectForKey:@"fertig"];
    int status=(int)[AufgabenStatusNumber intValue];
    
@@ -3166,7 +3143,7 @@ const short     kSerieFertig = 25003;
                                                    selector:@selector(AblaufzeitTimerFunktion:)
                                                    userInfo:nil
                                                     repeats:YES];
-   NSLog(@"AufgabelesenFertigAktion AblaufzeitTimer gestartet");
+   //NSLog(@"AufgabelesenFertigAktion AblaufzeitTimer gestartet");
    TimerValid=YES;
    AufgabeOK=YES;
    [self setOK:YES];
@@ -3624,17 +3601,11 @@ const short     kSerieFertig = 25003;
 - (void)controlTextDidEndEditing:(NSNotification *)aNotification
 {
    //Nicht verwendet
-   NSLog(@"controlTextDidEndEditing verify: %d",verify);
-   
+   //NSLog(@"controlTextDidEndEditing verify: %d",verify);
    
    [AblaufzeitTimer invalidate];
   
-   /*
-   [ErgebnisFeld setSelectable:NO];
-   [ErgebnisFeld setEditable:NO];
-   [ErgebnisFeld display];
-    */
-//   [ResultatFeld setSelectable:NO];
+ //   [ResultatFeld setSelectable:NO];
  //  [ResultatFeld setEditable:NO];
  //  [ResultatFeld display];
  return;
@@ -3669,12 +3640,12 @@ const short     kSerieFertig = 25003;
 
 - (BOOL)checkAufgabe
 {
-   NSLog(@"checkAufgabe Nummer: %d",aktuelleAufgabenNummer);
+  // NSLog(@"checkAufgabe Nummer: %d",aktuelleAufgabenNummer);
    BOOL checkOK=NO;
    //NSLog(@"checkAufgabe  AufgabenArray: %@",[AufgabenArray description]);
    
    NSDictionary* tempAufgabenDic=[AufgabenArray objectAtIndex:aktuelleAufgabenNummer-1];
-   NSLog(@"checkAufgabe  tempAufgabenDic: %@",[tempAufgabenDic description]);
+  // NSLog(@"checkAufgabe  tempAufgabenDic: %@",[tempAufgabenDic description]);
    if (verify && tempAufgabenDic)
    {
       
@@ -3685,7 +3656,7 @@ const short     kSerieFertig = 25003;
          int soll=[sollNumber intValue];
          //			int ist=[[ErgebnisView string]intValue];
          int ist=[ResultatFeld intValue];
-         NSLog(@"checkAufgabe: soll: %d  ist: %d",soll,ist);
+       //  NSLog(@"checkAufgabe: soll: %d  ist: %d",soll,ist);
          if (soll==ist)
          {
             //NSLog(@"checkAufgabe: richtig: Nummer: %d",aktuelleAufgabenNummer);
@@ -7205,6 +7176,7 @@ objectValueForTableColumn:(NSTableColumn *)aTableColumn
    [SessionDrawerTaste setEnabled:YES];
    //NSLog(@"TimeoutTimerFunktion fire 4");
    [self neueSerie:NULL];
+    [neueSerieTaste setEnabled: YES];
    //NSLog(@"TimeoutTimerFunktion fire end");
    
 }
@@ -7617,15 +7589,9 @@ objectValueForTableColumn:(NSTableColumn *)aTableColumn
 }
 
 
-
-
-
-
-
-
 - (BOOL)windowShouldClose:(id)sender
 {
-   //NSLog(@"windowShouldClose");
+   NSLog(@"windowShouldClose");
    
    [self BeendenAktion:NULL];
    
@@ -7643,7 +7609,9 @@ objectValueForTableColumn:(NSTableColumn *)aTableColumn
 
 
 
-- (void)applicationWillTerminate:(NSNotification *)aNotification {
+- (void)applicationWillTerminate:(NSNotification *)aNotification
+{
+   NSLog(@"applicationWillTerminate");
    // Insert code here to tear down your application
 }
 

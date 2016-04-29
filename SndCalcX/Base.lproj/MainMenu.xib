@@ -38,7 +38,6 @@
                 <outlet property="ZeitFeld" destination="VqP-Ix-2G9" id="d2f-En-oNM"/>
                 <outlet property="ZeitLimiteFeld" destination="APM-ZC-vLe" id="IJV-9h-AYr"/>
                 <outlet property="ZeitPpKnopf" destination="6KR-eb-dHv" id="J3P-ib-lNm"/>
-                <outlet property="localfeld" destination="sDW-Mj-s9K" id="8cT-qp-yKV"/>
                 <outlet property="neueSerieTaste" destination="EDN-OK-hL0" id="Kuj-AF-9Te"/>
                 <outlet property="window" destination="QvC-M9-y7g" id="gIp-Ho-8D9"/>
             </connections>
@@ -823,14 +822,6 @@
                                                 <action selector="toggleAufgabenDrawer:" target="Voe-Tx-rLC" id="RKu-F4-wXR"/>
                                             </connections>
                                         </button>
-                                        <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="sDW-Mj-s9K">
-                                            <rect key="frame" x="259" y="105" width="96" height="22"/>
-                                            <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="le8-Df-pXb">
-                                                <font key="font" metaFont="system"/>
-                                                <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
-                                                <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                            </textFieldCell>
-                                        </textField>
                                     </subviews>
                                 </view>
                                 <color key="borderColor" white="0.0" alpha="0.41999999999999998" colorSpace="calibratedWhite"/>
