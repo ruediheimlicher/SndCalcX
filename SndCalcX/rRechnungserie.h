@@ -240,7 +240,9 @@ typedef struct seriedaten
 - (void)setSeriedaten:(rSeriedaten*)dieSeriedaten;
 - (NSArray*)neueRechnungserie:(rSeriedaten*)dieSeriedaten ;
 - (cSeriedaten*)getDaten;
-- (void)					AddSubBereichbestimmen;
+//- (void)					AddSubBereichbestimmen;
+- (void)AddSubBereichbestimmenMitSeriedaten:(rSeriedaten*)dieSeriedaten;
+
 - (void)AufgabeinListe:(rAufgabe *)	dieAufgabe;
 
 

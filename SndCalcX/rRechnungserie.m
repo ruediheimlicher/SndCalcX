@@ -440,7 +440,7 @@ short Minvon(short ersteZahl, short zweiteZahl);
          
          // 1. Obere und untere Grenze der Ergebnisse bestimmen
          
-         [self AddSubBereichbestimmen];
+         [self AddSubBereichbestimmenMitSeriedaten:dieSeriedaten];
          
          // 2. Resultate fuer alle Aufgaben bestimmen
      //    printf("AdduntereGrenze %d  AddobereGrenze: %d\n",AdduntereGrenze,  AddobereGrenze);
@@ -1247,11 +1247,13 @@ void 	Operationenverteilen(short *	derVektor, cSeriedaten seriedaten)
    }
 }//derVektor enthaelt eine Liste mit verteilten Nummern der ausgewaehlten Operationen
 //*****************************************************************
-- (void)AddSubBereichbestimmen
+- (void)AddSubBereichbestimmenMitSeriedaten:(rSeriedaten*)dieSeriedaten
 {
    printf("rSerie: SerieDaten.ASBereich: %d\n",cRechnungSeriedaten.ASBereich);
    //switch (cRechnungSeriedaten.ASBereich)
-   switch (RechnungSeriedaten.ASBereich)
+   //switch (RechnungSeriedaten.ASBereich)
+   switch (dieSeriedaten.ASBereich)
+
    {
       case kBisZehn:
          AdduntereGrenze=2;
