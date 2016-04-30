@@ -7,7 +7,6 @@
 //
 
 #import <Cocoa/Cocoa.h>
-//#import "rRechnung.h"
 #import "rRechnungserie.h"
 
 #import "rReihenSettings.h"
@@ -15,8 +14,7 @@
 #import "rSpeaker.h"
 #import "rAufgabenzeiger.h"
 #import "rZeitanzeige.h"
-//#import "rErgebnisView.h"
-//#import "rErgebnisFeld.h"
+
 #import "rResultatFeld.h"
 #import "rRahmen.h"
 //#import "rDiplomFenster.h"

@@ -34,7 +34,6 @@
 - (id)init;
 - (void)setStimme:(NSString*)dieStimme;
 - (NSString*)Stimme;
-- (void)setQuittungSelektionDic:(NSDictionary*)derQuittungSelektionDic;
 
 
 - (NSArray*)StimmenNamenArrayAusResources;

@@ -74,8 +74,8 @@ const short  kMaxElemente=12;
    /* setup a callback for our movie so QuickTime will call us when the
     movie finishes playing */
    //gQuittungPlayingCompleteCallBack =  NewQTCallBackUPP(&QuittungCallBackProc);
-   //gAufgabePlayingCompleteCallBack =  NewQTCallBackUPP(&AufgabenCallBackProc);
-   NSArray* qarray;
+   ////gAufgabePlayingCompleteCallBack =  NewQTCallBackUPP(&AufgabenCallBackProc);
+   //NSArray* qarray;
    
 }
 
