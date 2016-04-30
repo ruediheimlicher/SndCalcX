@@ -1695,7 +1695,7 @@ const short     kSerieFertig = 25003;
 // /*
    int multOK=[ReihenSettings checkSettings];
    int addsubOK=[AddSubSettings checkSettings];
-   NSLog(@"\neueSerieMitSeriedaten                                      multOK: %d          addsubOK: %d",multOK,addsubOK);
+   NSLog(@"\neueSerieMitSeriedaten   multOK: %d      addsubOK: %d",multOK,addsubOK);
 
    [self closeSessionDrawer:NULL];
    [ErgebnisRahmenFeld setHidden:YES];
