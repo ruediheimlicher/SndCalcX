@@ -7,8 +7,6 @@
 //
 
 #import <Cocoa/Cocoa.h>
-#import <QuickTime/QuickTime.h>
-#import <QTKit/QTKit.h>
 #import <AVFoundation/AVFoundation.h>
 
 #import "rStimmenPanel.h"
@@ -17,7 +15,6 @@
 @interface rSpeaker : NSObject {
    NSDictionary*			ZahlenPlistDic;
    NSDictionary*			QuittungPlistDic;
-   //Movie						QTMovieArray[40];
    NSArray*					ZahlenDicArray;
    NSArray*					QuittungDicArray;
    
@@ -25,16 +22,6 @@
    AVQueuePlayer*       AufgabenPlayerX;
    NSMutableArray*   QueueArray;
    
-   QTMovieView *			AufgabenPlayer;
-   QTMovie*					AufgabenQTKitMovie;
-   //Movie						AufgabenMovie;
-   QTMovie*					QuittungenQTKitMovie;
-   //Movie						QuittungenMovie;
-   //Track				AufgabenTrack;
-   
-   //QTCallBackUPP			gQuittungPlayingCompleteCallBack;
-   //QTCallBackUPP			gAufgabePlayingCompleteCallBack;
-   //QTCallBack				gQtCallBack;
    BOOL						gIsMoviePlaying;
    float						PlayerVolume;
    
@@ -50,7 +37,6 @@
 - (void)setQuittungSelektionDic:(NSDictionary*)derQuittungSelektionDic;
 
 
-- (QTMovieView*)AufgabenPlayer;
 - (NSArray*)StimmenNamenArrayAusResources;
 - (NSDictionary*)QuittungNamenArrayDicAusResources;
 - (BOOL)readZahlen;
@@ -68,10 +54,8 @@
 
 - (long)setZahlTrackVon:(int)dieZahl mitOffset:(long)derOffset;
 - (long)setOpTrackVon:(int)dieOperation mitOffset:(long)derOffset;
--(QTTime)setOpQTKitTrackVon:(int)dieOperation mitOffset:(QTTime)derOffset;
 
 - (long)setQuittungTrackVon:(int)dieQuittung mitOffset:(long)derOffset;
-- (QTTime)setQTKitQuittungVon:(int)dieQuittung mitOffset:(QTTime)derOffset;
 
 - (BOOL)AufgabeAb:(NSDictionary*)derAufgabenDic;
 - (BOOL)QuittungAb:(NSDictionary*)derQuittungDic;
@@ -80,7 +64,5 @@
 - (void)setVolume:(float)dasVolume;
 - (int)deleteMovieFiles;
 //- (void)setupMoviePlayingCompleteCallback:(Movie)theMovie callbackUPP:(QTCallBackUPP) callbackUPP;
-- (QTMovie*)AufgabenQTKitMovie;
-- (QTMovie*)QuittungenQTKitMovie;
 
 @end

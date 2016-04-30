@@ -35,7 +35,7 @@
 
 struct cSeriedaten;
 
-@interface AppDelegate : NSObject <NSApplicationDelegate,NSTableViewDelegate,NSTableViewDataSource,NSTextFieldDelegate>
+@interface AppDelegate : NSObject <NSApplicationDelegate,NSTableViewDelegate,NSTableViewDataSource,NSTextFieldDelegate,NSWindowDelegate>
 {
    
    rAufgabe*                  Aufgabe;
@@ -70,6 +70,7 @@ struct cSeriedaten;
    
    
    IBOutlet NSTextField*		AnzahlFeld;
+   IBOutlet NSTextField*		DatumFeld;
    
    IBOutlet NSButton *			OKTaste;
    IBOutlet NSButton *			ErgebnisseTaste;
@@ -122,7 +123,6 @@ struct cSeriedaten;
    NSString*				SndCalcPfad;
    IBOutlet NSButton *		goToBeginningButton;
    IBOutlet NSButton *		goToEndButton;
-   IBOutlet QTMovieView *	movieViewObject;
    IBOutlet NSMenuItem *	moviePropertiesMenuItem;
    IBOutlet NSWindow *		moviePropertiesWindow;
    IBOutlet NSWindow *		movieWindow;

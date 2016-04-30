@@ -216,7 +216,7 @@ const short     kSerieFertig = 25003;
    
    QuittungDic=[[NSMutableDictionary alloc]initWithCapacity:0];
    
-   Volume=80;
+   Volume=0.60;
    UserTimeout=20;
    AdminTimeout=60;
    
@@ -236,7 +236,7 @@ const short     kSerieFertig = 25003;
       [[AblaufMenu itemWithTag:10001] setTarget:self];//
       
       NSString* HomeDatenPfad=[Utils HomeSndCalcDatenPfad];
-      NSLog(@"HomeDatenPfad; %@",HomeDatenPfad);
+     // NSLog(@"HomeDatenPfad: %@",HomeDatenPfad);
       //NSArray*  NetzwerkVolumesArray = [Utils NetzwerkVolumesArray];
       //NSLog(@"NetzwerkVolumesArray: %@",[NetzwerkVolumesArray description]);
       NSArray* NetworkDatenArray=[Utils UsersMitSndCalcDatenArray];
@@ -305,7 +305,7 @@ const short     kSerieFertig = 25003;
       
        //[self DebugStep:@"nach readPListAnPfad"];
       
-      NSLog(@"SndCalcPfad: %@\nPListDic: %@",SndCalcPfad,[PListDic description]);
+      //NSLog(@"SndCalcPfad: %@\nPListDic: %@",SndCalcPfad,[PListDic description]);
       
       //	NSLog(@"SndCalcPfad: %@\nPListDic: %@",SndCalcPfad,[PListDic description]);
       
@@ -467,7 +467,7 @@ const short     kSerieFertig = 25003;
             //NSLog(@"Test  geladen: %@",[einTestDic description]);
             
             BOOL statusOK=[[[self StatusVonSerieDatenDic:[einTestDic objectForKey:@"seriedatendic"]]objectForKey:@"complete"]boolValue];
-            NSLog(@"Test  geladen: statusOK: %d\n%@",statusOK,[einTestDic description]);
+           // NSLog(@"Test  geladen: statusOK: %d\n%@",statusOK,[einTestDic description]);
             //NSLog(@"Test  geladen: statusOK: %d",statusOK);
             if (statusOK)
             {
@@ -686,9 +686,11 @@ const short     kSerieFertig = 25003;
    NSInteger HeuteMonat=[Heute monthOfYear];
    NSInteger HeuteJahr=[Heute yearOfCommonEra];
    //NSLog(@"Heute: %d %d %d",HeuteTag,HeuteMonat,HeuteJahr);
+   //NSString* Heutestring = [NSString stringWithFormat:@"%ld.%ld.%ld",(long)HeuteTag,(long)HeuteMonat,(long)HeuteJahr];
    [Heute setCalendarFormat:@"%d.%m.%Y"];
    NSLog(@"Heute: %@",[Heute description]);
-   NSString* SCVersionString=[NSString stringWithFormat:@"%d.%d",HeuteJahr%2000,HeuteMonat];
+   DatumFeld.stringValue = Heute;
+   NSString* SCVersionString=[NSString stringWithFormat:@"%ld.%d",HeuteJahr%2000,HeuteMonat];
    //NSLog(@"SCVersionString: %@",SCVersionString);
    //	NSString* ResourcenPfad=[[[NSBundle mainBundle]bundlePath]stringByAppendingPathComponent:@"Contents/Resources"];
    NSString* ResourcenPfad=[[[NSBundle mainBundle]bundlePath]stringByAppendingPathComponent:@"Contents"];
@@ -703,10 +705,10 @@ const short     kSerieFertig = 25003;
       NSMutableDictionary* InfoDic=[NSMutableDictionary dictionaryWithContentsOfFile:InfoPlistPfad];
       //NSLog(@"InfoDic: %@",[InfoDic description]);
       
-      NSString* SCDictionaryVersionString=[NSString stringWithFormat:@"%d.%d",HeuteJahr%2000,HeuteMonat];
+      NSString* SCDictionaryVersionString=[NSString stringWithFormat:@"%ld.%ld",HeuteJahr%2000,(long)HeuteMonat];
       [InfoDic setObject:SCDictionaryVersionString forKey:@"CFBundleInfoDictionaryVersion"];
       
-      NSString* SCShortVersionString=[NSString stringWithFormat:@"%d.%d",HeuteMonat,HeuteTag];
+      NSString* SCShortVersionString=[NSString stringWithFormat:@"%ld.%ld",(long)HeuteMonat,(long)HeuteTag];
       [InfoDic setObject:SCShortVersionString forKey:@"CFBundleVersion"];
       [InfoDic writeToFile:InfoPlistPfad atomically:YES];
       
@@ -716,13 +718,13 @@ const short     kSerieFertig = 25003;
    NSString* InfoPlistStringPfad=[ResourcenPfad stringByAppendingPathComponent:@"Resources/German.lproj/InfoPlist.strings"];
    if ([Filemanager fileExistsAtPath:InfoPlistStringPfad])
    {
-      NSString* InfString=[NSString stringWithContentsOfFile:InfoPlistStringPfad encoding: NSMacOSRomanStringEncoding error:NULL];
+      //NSString* InfString=[NSString stringWithContentsOfFile:InfoPlistStringPfad encoding: NSMacOSRomanStringEncoding error:NULL];
       //NSLog(@"InfString: %@",InfString);
       NSMutableDictionary* InfoStringDic=[NSMutableDictionary dictionaryWithContentsOfFile:InfoPlistStringPfad];
       //NSLog(@"InfoStringDic: %@",[InfoStringDic description]);
       [InfoStringDic setObject:SCVersionString forKey:@"CFBundleShortVersionString"];
       
-      NSString* SCCopyrightString=[NSString stringWithFormat:@"SndCalc Version %@, Copyright %d Ruedi Heimlicher.",SCVersionString,HeuteJahr];
+      NSString* SCCopyrightString=[NSString stringWithFormat:@"SndCalc Version %@, Copyright %ld Ruedi Heimlicher.",SCVersionString,(long)HeuteJahr];
       [InfoStringDic setObject:SCCopyrightString forKey:@"CFBundleGetInfoString"];
       
       [InfoStringDic writeToFile:InfoPlistStringPfad atomically:YES];
@@ -863,7 +865,7 @@ const short     kSerieFertig = 25003;
       if ([PListDic objectForKey:@"seriedatendic"])
       {
          [SerieDatenDic addEntriesFromDictionary:[PListDic objectForKey:@"seriedatendic"]];
-         NSLog(@"SerieDatenDic Aus PList: %@",[SerieDatenDic description]);
+         //NSLog(@"SerieDatenDic Aus PList: %@",[SerieDatenDic description]);
          
       }
       else
@@ -879,12 +881,12 @@ const short     kSerieFertig = 25003;
       if ([PListDic objectForKey:@"volume"])
       {
          Volume=[[PListDic objectForKey:@"volume"]floatValue];
-         //				NSLog(@"Volume Aus PList: %f",Volume);
+         			//NSLog(@"Volume Aus PList: %f",Volume);
          
       }
       else
       {
-         Volume=80.0;
+         Volume=0.6;
          [PListDic setObject:[NSNumber numberWithFloat:Volume]forKey:@"volume"];
       }
       
@@ -944,7 +946,7 @@ const short     kSerieFertig = 25003;
       if ([PListDic objectForKey:@"sessiondatum"])
       {
          SessionDatum=[PListDic objectForKey:@"sessiondatum"];
-         NSLog(@"SessionDatum: %@",[SessionDatum description]);
+         //NSLog(@"SessionDatum: %@",[SessionDatum description]);
          NSCalendarDate* heute=[NSCalendarDate date];
          NSCalendarDate* lastSession=[[NSCalendarDate alloc]initWithString:[SessionDatum description]];
          NSInteger lastSessionTag=[lastSession dayOfYear];
@@ -960,13 +962,13 @@ const short     kSerieFertig = 25003;
          {
             lastSessionTag=1;
          }
-         NSLog(@"lastSessionTag: %d		heute: %d",lastSessionTag,heuteTag);
+         //NSLog(@"lastSessionTag: %d		heute: %d",lastSessionTag,heuteTag);
          BOOL SessionBehalten=[Utils SessionBehaltenAnPfad:SndCalcPfad];
          int SessionBehaltenTag=[Utils SessionBehaltenTagAnPfad:SndCalcPfad];
          
          if ((heuteTag>lastSessionTag)&&(SessionBehaltenTag<heuteTag))	//letzteSession ist mindestens von gestern
          {																//SessionBehaltenTag ist von gestern
-            [Utils saveSessionBehaltenTag:heuteTag anPfad:SndCalcPfad];//SessionBehaltenTag ist heute, nicht mehr nach Session fragen
+            [Utils saveSessionBehaltenTag:(int)heuteTag anPfad:SndCalcPfad];//SessionBehaltenTag ist heute, nicht mehr nach Session fragen
             NSAlert *Warnung = [[NSAlert alloc] init];
             [Warnung addButtonWithTitle:@"Neue Session"];
             [Warnung addButtonWithTitle:@"Session weiterführen"];
@@ -1468,7 +1470,7 @@ const short     kSerieFertig = 25003;
       [Warnung setAlertStyle:NSWarningAlertStyle];
       
       //[Warnung setIcon:RPImage];
-      int antwort=[Warnung runModal];
+      long antwort=[Warnung runModal];
       checkOK=NO;
    }
    else
@@ -1493,7 +1495,7 @@ const short     kSerieFertig = 25003;
          NSString* InformationString=NSLocalizedString(@"Addition and/or subtraction must be choosed.",@"Addition und/oder Subtraktion muss ausgewählt sein.");
          [Warnung setInformativeText:InformationString];
          [Warnung setAlertStyle:NSWarningAlertStyle];
-         int antwort=[Warnung runModal];
+         long antwort=[Warnung runModal];
          [self selectSettingsTab:1];
          checkOK=NO;
       }
@@ -1548,7 +1550,7 @@ const short     kSerieFertig = 25003;
          
          if ([derSerieDatenDic objectForKey:@"reihenarray"])
          {
-            [returnStatusDic setObject:[NSNumber numberWithInt:[[derSerieDatenDic objectForKey:@"reihenarray"]count]]forKey:@"anzreihen"];
+            [returnStatusDic setObject:[NSNumber numberWithLong:[[derSerieDatenDic objectForKey:@"reihenarray"]count]]forKey:@"anzreihen"];
             if ([[derSerieDatenDic objectForKey:@"reihenarray"]count])
             {
                [returnStatusDic setObject:[NSNumber numberWithBool:YES]forKey:@"reihenok"];
@@ -1597,7 +1599,7 @@ const short     kSerieFertig = 25003;
       [Warnung setInformativeText:InformationString];
       [Warnung setAlertStyle:NSWarningAlertStyle];
       
-      int antwort=[Warnung runModal];
+      long antwort=[Warnung runModal];
       
       return NO;
       
@@ -1630,7 +1632,7 @@ const short     kSerieFertig = 25003;
             [Warnung setAlertStyle:NSWarningAlertStyle];
             
             //[Warnung setIcon:RPImage];
-            int antwort=[Warnung runModal];
+            long antwort=[Warnung runModal];
             return NO;
             
          }
@@ -1656,7 +1658,7 @@ const short     kSerieFertig = 25003;
             [Warnung setInformativeText:InformationString];
             [Warnung setAlertStyle:NSWarningAlertStyle];
             
-            int antwort=[Warnung runModal];
+            int antwort=(int)[Warnung runModal];
             return NO;
             
             
@@ -1680,7 +1682,7 @@ const short     kSerieFertig = 25003;
       [Warnung setAlertStyle:NSWarningAlertStyle];
       
       //[Warnung setIcon:RPImage];
-      int antwort=[Warnung runModal];
+      long antwort=[Warnung runModal];
       return NO;
       
       
@@ -1691,11 +1693,11 @@ const short     kSerieFertig = 25003;
 
 - (rRechnungserie*)neueSerieMitSeriedaten:(rSeriedaten*) seriedaten
 {
-   NSLog(@"\neueSerieMitSeriedaten: %d",seriedaten.AnzahlAufgaben);
+//   NSLog(@"\nneueSerieMitSeriedaten: %d",seriedaten.AnzahlAufgaben);
 // /*
    int multOK=[ReihenSettings checkSettings];
    int addsubOK=[AddSubSettings checkSettings];
-   NSLog(@"\neueSerieMitSeriedaten   multOK: %d      addsubOK: %d",multOK,addsubOK);
+   //NSLog(@"\nneueSerieMitSeriedaten   multOK: %d      addsubOK: %d",multOK,addsubOK);
 
    [self closeSessionDrawer:NULL];
    [ErgebnisRahmenFeld setHidden:YES];
@@ -1710,7 +1712,7 @@ const short     kSerieFertig = 25003;
    if ([TestPopKnopf numberOfItems])
    {
       BOOL SerieDatenOK=[self checkSerieDatenDic:SerieDatenDic vonTest:[TestPopKnopf titleOfSelectedItem]];
-      NSLog(@"tempStatusDic: %@ SerieDatenOK: %d",[tempStatusDic description],SerieDatenOK);
+ //     NSLog(@"tempStatusDic: %@ SerieDatenOK: %d",[tempStatusDic description],SerieDatenOK);
       if(SerieDatenOK==NO)
       {
          return nil;
@@ -1740,7 +1742,7 @@ const short     kSerieFertig = 25003;
    //NSLog(@"neueSerie: random: %d ",random());
  
  // */
-   NSLog(@"neueSerieMitSeriedaten: SerieDatenDic: %@ ",SerieDatenDic);
+ //  NSLog(@"neueSerieMitSeriedaten: SerieDatenDic: %@ ",SerieDatenDic);
   
    
    // RechnungSeriedaten=[self SerieDatenVonDic:SerieDatenDic];
@@ -2189,15 +2191,15 @@ const short     kSerieFertig = 25003;
    
    //NSLog(@"neueSerie: random: %d ",random());
    RechnungSeriedaten=[self SerieDatenVonDic:SerieDatenDic];
-   NSLog(@"RechnungSeriedaten AnzahlAufgaben: %d MDKleines1Mal1: %d",RechnungSeriedaten.AnzahlAufgaben,RechnungSeriedaten.MDKleines1Mal1);
+   //NSLog(@"RechnungSeriedaten AnzahlAufgaben: %d MDKleines1Mal1: %d",RechnungSeriedaten.AnzahlAufgaben,RechnungSeriedaten.MDKleines1Mal1);
    //NSLog(@"RechnungSeriedaten MDKleines1Mal1: %d",RechnungSeriedaten.MDKleines1Mal1);
-   NSLog(@"neueSerie: Add: %d  Sub: %d  Mult: %d",RechnungSeriedaten.Addition,RechnungSeriedaten.Subtraktion,RechnungSeriedaten.Multiplikation);
+   //NSLog(@"neueSerie: Add: %d  Sub: %d  Mult: %d",RechnungSeriedaten.Addition,RechnungSeriedaten.Subtraktion,RechnungSeriedaten.Multiplikation);
 
    
    
    if (Modus==kTrainingModus)
    {
-      RechnungSeriedaten.AnzahlAufgaben=[[AnzahlPopKnopf selectedItem]tag];
+      RechnungSeriedaten.AnzahlAufgaben=(int)[[AnzahlPopKnopf selectedItem]tag];
       RechnungSeriedaten.Zeit=[[ZeitPpKnopf selectedItem]tag];
       [ZeitPpKnopf setHidden:NO];
       [AnzahlPopKnopf setHidden:NO];
@@ -3296,7 +3298,7 @@ const short     kSerieFertig = 25003;
    //	NSLog(@"Status: %d index: %d TastenStatus: %d",Status, [TestPopKnopf indexOfSelectedItem],TastenStatus);
    [DiplomFenster setTastenStatus:TastenStatus];
    //Tasten zum Sichern der Ergebnisse nur im Testmodus und Benutzerstatus zeigen
-   int modalAntwort = [NSApp runModalForWindow:[DiplomFenster window]];
+   long modalAntwort = [NSApp runModalForWindow:[DiplomFenster window]];
    //[DiplomFenster setDiplomMit:derErgebnisDic];
    [NSApp endModalSession:PasswortSession];
    
@@ -4319,11 +4321,11 @@ const short     kSerieFertig = 25003;
       //NSLog(@"setupSessionDrawer 4");
       NSCalendarDate* tempDate=[[NSCalendarDate alloc]initWithString:[SessionDatum description]];
       
-      int tag=[tempDate dayOfMonth];
-      int monat=[tempDate monthOfYear];
-      int jahr=[tempDate yearOfCommonEra];
-      int stunde=[tempDate hourOfDay];
-      int minute=[tempDate minuteOfHour];
+      int tag=(int)[tempDate dayOfMonth];
+      int monat=(int)[tempDate monthOfYear];
+      int jahr=(int)[tempDate yearOfCommonEra];
+      int stunde=(int)[tempDate hourOfDay];
+      int minute=(int)[tempDate minuteOfHour];
       
       NSString* JahrString=[[NSNumber numberWithInt:jahr]stringValue];
       JahrString=[JahrString substringFromIndex:2];
@@ -4937,7 +4939,7 @@ const short     kSerieFertig = 25003;
    [Speaker setVolume:derWert];
    Volume=derWert;
    
-   // NSLog(@"setVolume: Volume: %f",Volume);
+   NSLog(@"setVolume: Volume: %f",Volume);
 }
 
 - (IBAction)showAdminStatistik:(id)sender
@@ -5180,6 +5182,11 @@ const short     kSerieFertig = 25003;
             if ([[tempNamenDic objectForKey:@"userplist"] objectForKey:@"lastvolume"])
             {
                Volume=[[[tempNamenDic objectForKey:@"userplist"] objectForKey:@"lastvolume"]floatValue];
+               if (Volume > 1)
+               {
+                  Volume = 0.5;
+               }
+               
                [VolumeSchieber setFloatValue:Volume];
                
                [self setVolumeAufWert:Volume];
@@ -5507,7 +5514,7 @@ const short     kSerieFertig = 25003;
    if (modusNumber)
    {
       int modus=[modusNumber intValue];
-      if ([[note userInfo] objectForKey:@"diplomdic"]);
+      if ([[note userInfo] objectForKey:@"diplomdic"])
       {
          switch (modus)
          {
@@ -5921,7 +5928,7 @@ const short     kSerieFertig = 25003;
          //			NSLog(@"showTestPanel	PListDic objectForKey: testarray : %@",[[PListDic objectForKey:@"testarray"] description]);
          TestDicArray=[[PListDic objectForKey:@"testarray"]mutableCopy];
          //NSLog(@"TestDicArray retainCount: %d",[TestDicArray retainCount]);
-         //NSLog(@"showTestPanel	TestDicArray : %@",[TestDicArray description]);
+         NSLog(@"showTestPanel	TestDicArray : %@",[TestDicArray description]);
          [TestPanel setTestDicArray:TestDicArray];
          
          if (Modus==kTrainingModus)
@@ -6025,8 +6032,8 @@ const short     kSerieFertig = 25003;
    NSArray* tempNamenDicArray=[Utils NamenDicArrayAnPfad:SndCalcPfad];
    [TestPanel setNamenDicArray:tempNamenDicArray];
    NSArray* tempTestDicArray=[Utils TestArrayAusPListAnPfad:SndCalcPfad];
-   //NSLog(@"showTestPanel \n\n\n********************************");
-   //NSLog(@"showTestPanel	tempTestDicArray : %@",[tempTestDicArray description]);
+   NSLog(@"updateTestPanel \n\n\n********************************");
+   NSLog(@"updateTestPanel	tempTestDicArray orig : %@",[tempTestDicArray description]);
    
    [TestPanel setTestDicArray:tempTestDicArray];
    //NSLog(@"updateTestPanel nach setTestDicArray");
@@ -6519,15 +6526,7 @@ const short     kSerieFertig = 25003;
 
 - (IBAction)goToBeginning:(id)sender
 {
-   /* save current movie state */
-   [self saveCurrentMoviePlayingState];
-   
-   /* go to the beginning of the movie */
-   [movieViewObject gotoBeginning:sender];
-   
-   /* restore movie state */
-   [self restoreMoviePlayingState:sender];
-}
+ }
 
 //////////
 //
@@ -6542,7 +6541,6 @@ const short     kSerieFertig = 25003;
 - (IBAction)goToEnd:(id)sender
 {
    /* go to the end of the movie */
-   [movieViewObject gotoEnd:sender];
 }
 
 
@@ -6569,10 +6567,6 @@ const short     kSerieFertig = 25003;
 
 - (IBAction)stop:(id)sender
 {
-   // stop the movie */
-   //    [movieViewObject stop:sender];
-   // adjust the play button state */
-   [self resetPlayButtonForMovieStopState:sender];
 }
 
 //////////
@@ -6594,7 +6588,7 @@ const short     kSerieFertig = 25003;
    [Speaker setVolume:[sender floatValue]];
    Volume=[sender floatValue];
    [self SerieDatenSichernVon:[NamenPopKnopf titleOfSelectedItem]];
-   // NSLog(@"setVolume: Volume: %f",Volume);
+   NSLog(@"setVolume: Volume: %f",Volume);
 }
 
 //////////
@@ -6609,14 +6603,6 @@ const short     kSerieFertig = 25003;
 
 - (IBAction)stepBack:(id)sender
 {
-   /* save the current movie play state */
-   [self saveCurrentMoviePlayingState];
-   
-   /* step the movie back */
-   [movieViewObject stepBackward:sender];
-   
-   /* restore the movie play state */
-   [self restoreMoviePlayingState:sender];
 }
 
 //////////
@@ -6631,21 +6617,6 @@ const short     kSerieFertig = 25003;
 
 - (IBAction)stepForward:(id)sender
 {
-   /* has the movie just finished playing? */
-   //  if (IsMovieDone(gMovie))
-   {
-      /* yes, so go to beginning */
-      // GoToBeginningOfMovie(gMovie);
-   }
-   
-   /* save the current play state */
-   [self saveCurrentMoviePlayingState];
-   
-   /* step the movie forward */
-   [movieViewObject stepForward:sender];
-   
-   /* restore the movie play state */
-   [self restoreMoviePlayingState:sender];
 }
 
 //////////
@@ -6660,14 +6631,7 @@ const short     kSerieFertig = 25003;
 
 - (IBAction)resetPlayButtonForMovieStopState:(id)sender
 {
-   /* reset button text to "play" text */
-   [playButton setTitle:@">"];
-   /* reset button action method to our "play" method
-    so the next time the button is pressed this
-    method will instead be invoked */
-   [playButton setAction:@selector(play:)];
-   
-}
+ }
 
 //////////
 //
@@ -6998,7 +6962,7 @@ objectValueForTableColumn:(NSTableColumn *)aTableColumn
 - (IBAction)BeendenAktion:(id)sender
 {
    [self savePListAktion:nil];
-   [Speaker deleteMovieFiles];
+   //[Speaker deleteMovieFiles];
    [NSApp terminate:self];
 }
 
@@ -7291,7 +7255,7 @@ objectValueForTableColumn:(NSTableColumn *)aTableColumn
    {
       [AdminTimeoutTimer invalidate];
    }
-   NSLog(@"startAdminTimeout AdminTimeoutTimer Zeit: %d",AdminTimeout);
+   //NSLog(@"startAdminTimeout AdminTimeoutTimer Zeit: %d",AdminTimeout);
    AdminTimeoutTimer=[NSTimer scheduledTimerWithTimeInterval:AdminTimeout 
                                                        target:self 
                                                      selector:@selector(AdminTimeoutTimerFunktion:) 
@@ -7488,7 +7452,8 @@ objectValueForTableColumn:(NSTableColumn *)aTableColumn
          //[tempPListDic setObject:[NSNumber numberWithInt:MaximalZeit] forKey:@"zeit"];
          [tempPListDic setObject:[NSNumber numberWithInt:AdminTimeout] forKey:@"admintimeout"];
          [tempPListDic setObject:[NSNumber numberWithInt:UserTimeout] forKey:@"usertimeout"];
-         
+         [tempPListDic setObject:[NSNumber numberWithFloat:[VolumeSchieber floatValue]] forKey:@"volume"];
+
          
          BOOL PListOK=[tempPListDic writeToFile:PListPfad atomically:YES];
          //NSLog(@"PListOK: %d",PListOK);
@@ -7591,7 +7556,7 @@ objectValueForTableColumn:(NSTableColumn *)aTableColumn
 
 - (BOOL)windowShouldClose:(id)sender
 {
-   NSLog(@"windowShouldClose");
+  // NSLog(@"windowShouldClose");
    
    [self BeendenAktion:NULL];
    
@@ -7611,7 +7576,7 @@ objectValueForTableColumn:(NSTableColumn *)aTableColumn
 
 - (void)applicationWillTerminate:(NSNotification *)aNotification
 {
-   NSLog(@"applicationWillTerminate");
+   //NSLog(@"applicationWillTerminate");
    // Insert code here to tear down your application
 }
 

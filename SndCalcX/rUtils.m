@@ -1303,7 +1303,7 @@
    int lastSessionTag=[heute dayOfYear];
    int heuteTag=[heute dayOfYear];
    int heuteMonat=[heute monthOfYear];
-   NSLog(@"SessionDatumAnPfad: heute: %@",[heute description]);
+   //NSLog(@"SessionDatumAnPfad: heute: %@",[heute description]);
    NSString* PListName=NSLocalizedString(@"SndCalc.plist",@"SndCalc.plist");
    NSFileManager *Filemanager=[NSFileManager defaultManager];
    BOOL istOrdner=NO;

@@ -160,7 +160,7 @@
    
    //Liste der Tests aus der PList
    //NSLog(@"setTestDicArray	derTestDicArray :anz: %d",[derTestDicArray count]);
-   //	NSLog(@"setTestDicArray	derTestDicArray start: %@",[derTestDicArray description]);
+   NSLog(@"setTestDicArray	derTestDicArray start: %@",[derTestDicArray description]);
    //	if ([TestDicArray count])
    {
       //		NSArray* TestNamenArray=[TestDicArray valueForKey:@"testname"];

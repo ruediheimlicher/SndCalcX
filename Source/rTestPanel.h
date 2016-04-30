@@ -16,7 +16,7 @@
 	IBOutlet	id						EinsetzenTaste;
 	IBOutlet	id						BearbeitenTaste;
 	IBOutlet	id						IconFeld;
-	IBOutlet	id						AnzahlPopTaste;
+	IBOutlet	NSPopUpButton*		AnzahlPopTaste;
 	IBOutlet	id						ZeitPopTaste;
 	IBOutlet	id						TestForAllTaste;
 	IBOutlet	id						TestForNoneTaste;

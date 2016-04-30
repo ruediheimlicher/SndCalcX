@@ -2,7 +2,7 @@
 "After login, the user must be choosen in the LEFTMOST COLUMN." = "Nach dem Login muss der Benutzer in der KOLONNE GANZ LINKS ausgewählt werden.";
 
 /* Anmerkung:\nDeaktivieren verbirgt lediglich den Test und die Ergebnisse. */
-"Note: Deactivating only hides the test and the results." = "Anmerkung:\\nDeaktivieren verbirgt lediglich den Test und die Ergebnisse.";
+"\nNote:\nDeactivating only hides the test and the results." = "Anmerkung: \nDeaktivieren verbirgt lediglich den Test und die Ergebnisse.";
 
 /* File als AIFF */
 "The file must be in AIFF format," = "Das File muss im AIFF-Format vorliegen.";
@@ -362,7 +362,7 @@
 "The data folder cannot be opened." = "Der Datenordner kann nicht geöffnet werden";
 
 /* Auf dem Computer kein Archiv eingerichtet */
-"The folder 'Archive' cannot be created on the choosen computer" = "Auf dem Computer kein Archiv eingerichtet";
+"The folder 'Archive' cannot be created on the choosen computer" = "Auf dem Computer ist kein Archiv eingerichtet";
 
 /* SndCalcDaten kann anlegt werden */
 "The folder 'Lecturebox' can be created on the choosen computer" = "SndCalcDaten kann auf dem ausgewählten Computer anlegt werden";

@@ -119,7 +119,7 @@
    anzStellen=0;
    anzFalschesZeichen=0;
 
-   NSLog(@"rRahmen initWithFrame");
+  // NSLog(@"rRahmen initWithFrame");
    //NSLog(@"rRahmen: \nx: %d y: %d\nb: %d h: %d",frame.origin.x,frame.origin.y,frame.size.width, frame.size.height);
    
    return self;

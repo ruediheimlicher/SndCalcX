@@ -281,85 +281,96 @@ short Minvon(short ersteZahl, short zweiteZahl);
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+- (void)AddSubBereichbestimmenMitSeriedaten:(rSeriedaten*)dieSeriedaten
+{
+  // printf("rSerie: SerieDaten.ASBereich: %d\n",cRechnungSeriedaten.ASBereich);
+   //switch (cRechnungSeriedaten.ASBereich)
+   //switch (RechnungSeriedaten.ASBereich)
+   switch (dieSeriedaten.ASBereich)
+   
+   {
+      case kBisZehn:
+         AdduntereGrenze=2;
+         AddobereGrenze=9;
+         SubuntereGrenze=1;
+         SubobereGrenze=9;
+         break;
+      case kBisZwanzig:
+         AdduntereGrenze=2;
+         AddobereGrenze=19;
+         SubuntereGrenze=1;
+         SubobereGrenze=19;
+         
+         break;
+      case kZehnbisZwanzig:
+         AdduntereGrenze=11;
+         AddobereGrenze=19;
+         SubuntereGrenze=11;
+         SubobereGrenze=19;
+         
+         break;
+      case kZweistellig:
+         AdduntereGrenze=21;
+         AddobereGrenze=99;
+         
+         SubuntereGrenze=11;
+         SubobereGrenze=19;
+         break;
+      case kDreistellig:
+         AdduntereGrenze=121;
+         AddobereGrenze=999;
+         
+         SubuntereGrenze=11;
+         SubobereGrenze=19;
+         break;
+         
+   }//switch ASErgebnis
+   //printf("AdduntereGrenze: %d AddobereGrenze: %d SubuntereGrenze: %d SubobereGrenze: %d\n",AdduntereGrenze,AddobereGrenze,SubuntereGrenze,SubobereGrenze);
+   
+   return;
+}// AddSubBereichbestimmen
+
+//*****************************************************************
+
+
+
+//*****************************************************************
+- (void)AufgabeinListe:(rAufgabe *)	dieAufgabe
+{
+   rAufgabe	*vorherigeAufgabe,*	dieseAufgabe;
+   short		dieseNummer,neueNummer,tempanzahl=0;
+   short 	count=0;
+   short		erste=TRUE;
+   
+   if (ersteAufgabe==0)
+      
+   {
+      ersteAufgabe=dieAufgabe;
+      aktuelleAufgabe=dieAufgabe;
+      Listennummer=1;
+      dieAufgabe.aktuelleAufgabennummer=1;
+      return;
+   }
+   dieseAufgabe=ersteAufgabe;
+   while ((dieseAufgabe.nextAufgabe))
+   {
+      erste=FALSE;//nicht erstesObjekt in der Liste
+      vorherigeAufgabe=dieseAufgabe;//Lage in der Liste sichern
+      dieseAufgabe=dieseAufgabe.nextAufgabe;
+   }//while
+   //if (!erstes)
+   //dieseAufgabe->nextObjekt=dieAufgabe;
+   dieseAufgabe.nextAufgabe=dieAufgabe;
+   Listennummer++;
+   dieAufgabe.aktuelleAufgabennummer=Listennummer;
+   
+}
+//*****************************************************************
 
 - (NSMutableArray*)neueRechnungserie:(rSeriedaten*)dieSeriedaten ;
 {
    NSMutableArray* returnAufgabenArray = [[NSMutableArray alloc]initWithCapacity:0];
-   printf("neueRechnungserie Start anz: %d\n",dieSeriedaten.AnzahlAufgaben);
+//   printf("neueRechnungserie Start anz: %d\n",dieSeriedaten.AnzahlAufgaben);
 //   cRechnungSeriedaten = [self Objc2CmitSeriedaten:dieSeriedaten];
    //cRechnungSeriedaten.AnzahlAufgaben=dieSeriedaten.AnzahlAufgaben;
    //srand([[NSDate date] timeIntervalSince1970]);
@@ -434,7 +445,7 @@ short Minvon(short ersteZahl, short zweiteZahl);
       
       if ((dieSeriedaten.Addition==1) ||(dieSeriedaten.Subtraktion==1))
       {
-         printf("Addition oder Subtraktion\n");
+         //printf("Addition oder Subtraktion\n");
          //AddSubResultatvektor=new short[kArraygrenze];
          //AddSubVar1vektor=malloc(sizeof(short[kArraygrenze]));
          
@@ -1247,88 +1258,8 @@ void 	Operationenverteilen(short *	derVektor, cSeriedaten seriedaten)
    }
 }//derVektor enthaelt eine Liste mit verteilten Nummern der ausgewaehlten Operationen
 //*****************************************************************
-- (void)AddSubBereichbestimmenMitSeriedaten:(rSeriedaten*)dieSeriedaten
-{
-   printf("rSerie: SerieDaten.ASBereich: %d\n",cRechnungSeriedaten.ASBereich);
-   //switch (cRechnungSeriedaten.ASBereich)
-   //switch (RechnungSeriedaten.ASBereich)
-   switch (dieSeriedaten.ASBereich)
 
-   {
-      case kBisZehn:
-         AdduntereGrenze=2;
-         AddobereGrenze=9;
-         SubuntereGrenze=1;
-         SubobereGrenze=9;
-         break;
-      case kBisZwanzig:
-         AdduntereGrenze=2;
-         AddobereGrenze=19;
-         SubuntereGrenze=1;
-         SubobereGrenze=19;
-         
-         break;
-      case kZehnbisZwanzig:
-         AdduntereGrenze=11;
-         AddobereGrenze=19;
-         SubuntereGrenze=11;
-         SubobereGrenze=19;
-         
-         break;
-      case kZweistellig:
-         AdduntereGrenze=21;
-         AddobereGrenze=99;
-         
-         SubuntereGrenze=11;
-         SubobereGrenze=19;
-         break;
-      case kDreistellig:
-         AdduntereGrenze=121;
-         AddobereGrenze=999;
-         
-         SubuntereGrenze=11;
-         SubobereGrenze=19;
-         break;
-         
-   }//switch ASErgebnis
-   //printf("AdduntereGrenze: %d AddobereGrenze: %d SubuntereGrenze: %d SubobereGrenze: %d\n",AdduntereGrenze,AddobereGrenze,SubuntereGrenze,SubobereGrenze);
-   
-   return;
-}// AddSubBereichbestimmen
 
-//*****************************************************************
-//*****************************************************************
-- (void)AufgabeinListe:(rAufgabe *)	dieAufgabe
-{
-   rAufgabe	*vorherigeAufgabe,*	dieseAufgabe;
-   short		dieseNummer,neueNummer,tempanzahl=0;
-   short 	count=0;
-   short		erste=TRUE;
-   
-   if (ersteAufgabe==0)
-      
-   {
-      ersteAufgabe=dieAufgabe;
-      aktuelleAufgabe=dieAufgabe;
-      Listennummer=1;
-      dieAufgabe.aktuelleAufgabennummer=1;
-      return;
-   }
-   dieseAufgabe=ersteAufgabe;
-   while ((dieseAufgabe.nextAufgabe))
-   {
-      erste=FALSE;//nicht erstesObjekt in der Liste
-      vorherigeAufgabe=dieseAufgabe;//Lage in der Liste sichern
-      dieseAufgabe=dieseAufgabe.nextAufgabe;
-   }//while
-   //if (!erstes)
-   //dieseAufgabe->nextObjekt=dieAufgabe;
-   dieseAufgabe.nextAufgabe=dieAufgabe;
-   Listennummer++;
-   dieAufgabe.aktuelleAufgabennummer=Listennummer;
-   
-}
-//*****************************************************************
 //*****************************************************************
 
 //*****************************************************************

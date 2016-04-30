@@ -111,6 +111,7 @@ BOOL		farbig;
 	IBOutlet NSTableView *            TestTable;
 	IBOutlet id					AnzahlZeigenPopKnopf;
 	IBOutlet NSButton *			mitNoteCheck;
+  IBOutlet NSButton *		 DeleteNoteKnopf;
 	NSPopUpButton*				AdminTestNamenPopKnopf;
 	NSArray*					AdminStatistikDicArray;
 	NSMutableArray*				ErgebnisDicArray;

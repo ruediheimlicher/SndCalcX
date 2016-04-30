@@ -25,7 +25,7 @@ kHunderterReihenTaste};
 
 - (id)initWithFrame:(NSRect)frame
 {
-NSLog(@"rReihenSettings initWithFrame");
+//NSLog(@"rReihenSettings initWithFrame");
 self=[super initWithFrame:frame];
 //[self DebugStep:@"initReihenSettings nach super"];
 NSNotificationCenter * nc;

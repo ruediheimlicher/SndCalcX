@@ -312,7 +312,7 @@
 {
    
    farbig=farbigDrucken;
-   NSLog(@"StatistikDS setFarbig: %d",farbig);
+   //NSLog(@"StatistikDS setFarbig: %d",farbig);
 }
 
 - (void)markNoteChanged:(NSString*)dieNote forRow:(int)dieZeile

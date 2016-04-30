@@ -7,7 +7,6 @@
 //
 
 #import "rSpeaker.h"
-//#import <QTKit/QTKit.h>
 #define kSoundMediaTimeScale =44100
 
 const short  kPlus=2001;
@@ -79,42 +78,6 @@ const short  kMaxElemente=12;
    NSArray* qarray;
    
 }
-
-/*
- - (void)setupMoviePlayingCompleteCallback:(Movie)theMovie callbackUPP:(QTCallBackUPP) callbackUPP
- {
- fprintf(stderr, "setupMoviePlayingCompleteCallback\n");
- TimeBase tb = GetMovieTimeBase (theMovie);
- OSErr err = noErr;
- 
- gQtCallBack = NewCallBack (tb, callBackAtExtremes);
- if (gQtCallBack != NULL)
- {
- err = CallMeWhen (gQtCallBack,
- callbackUPP,
- NULL,
- triggerAtStop,
- NULL,
- NULL);
- }
- }
- 
- - (QTMovie*)AufgabenQTKitMovie
- {
- return AufgabenQTKitMovie;
- }
- 
- - (QTMovie*)QuittungenQTKitMovie
- {
- return QuittungenQTKitMovie;
- }
- */
-/*
- - (NSMovieView*)AufgabenPlayer
- {
- return AufgabenPlayer;
- }
- */
 
 
 - (void)NeueStimmeAktion:(NSNotification*)note
@@ -446,7 +409,7 @@ const short  kMaxElemente=12;
             }//if aif
          }//while QuittungenNamenEnum
 			
-			NSLog(@"QuittungNamenArrayAusResources	QuittungNamenArrayDic: %@",[QuittungNamenArrayDic description]);
+			//NSLog(@"QuittungNamenArrayAusResources	QuittungNamenArrayDic: %@",[QuittungNamenArrayDic description]);
 			
 			return QuittungNamenArrayDic;
 }
@@ -589,7 +552,7 @@ const short  kMaxElemente=12;
    // vorhandene Quittungen suchen
    NSArray* tempQuittungArray=[Filemanager contentsOfDirectoryAtPath:[ResourcenPfad stringByAppendingPathComponent:@"Quittung_AIFF"] error:NULL];
    
-   NSLog(@"tempQuittungArray roh: %@\n",[tempQuittungArray description]);
+   //NSLog(@"tempQuittungArray roh: %@\n",[tempQuittungArray description]);
    /*
     "falsch.aif",
     "falscheszeichen.aif",
@@ -610,7 +573,7 @@ const short  kMaxElemente=12;
       //Dic der erforderlichen Quittungen mit ID
       QuittungPlistDic=[NSDictionary dictionaryWithContentsOfFile:QuittungPlistPfad];//Dic mit Namen und ResNummern
    }
-   NSLog(@"readQuittungen QuittungPlistDic: %@",[QuittungPlistDic description]);
+  // NSLog(@"readQuittungen QuittungPlistDic: %@",[QuittungPlistDic description]);
    /*
     falsch = 25002;
     falscheszeichen = 25005;
@@ -675,7 +638,7 @@ const short  kMaxElemente=12;
          }//while
       }
    }//while
-   NSLog(@"readQuittungen:		AIFFArray: %@ \n",[AIFFArray description]);
+   //NSLog(@"readQuittungen:		AIFFArray: %@ \n",[AIFFArray description]);
    /*
     "falsch.aif",
     "falscheszeichen.aif",
@@ -717,7 +680,7 @@ const short  kMaxElemente=12;
          NSArray* tempQuittungNamenArray=[tempName componentsSeparatedByString:@"_"];
          NSString* PListName=[tempQuittungNamenArray lastObject];//Klasse der Quittung
          
-         NSLog(@"tempName: %@  PListName: %@",tempName,PListName);
+         //NSLog(@"tempName: %@  PListName: %@",tempName,PListName);
          NSString* IDausPlist=[QuittungPlistDic objectForKey:PListName];//in PList vorhanden
          
          /*
@@ -763,7 +726,7 @@ const short  kMaxElemente=12;
    }//while eineQuittungKlasse
    
    
-   NSLog(@"readQuittungen tempQuittungDicArray: %@",[tempQuittungDicArray description]);
+   //NSLog(@"readQuittungen tempQuittungDicArray: %@",[tempQuittungDicArray description]);
    
    NSSortDescriptor* desc=[[NSSortDescriptor alloc] initWithKey:@"ID" ascending: YES];
    //NSArray* sortArray=[tempZahlenArray sortedArrayUsingDescriptors:[NSArray arrayWithObjects:desc,nil]];
@@ -776,89 +739,9 @@ const short  kMaxElemente=12;
    
 }
 
--(QTTime)setQTKitQuittungVon:(int)dieQuittung mitOffset:(QTTime)derOffset
-{
-   //NSLog(@"	setQTKitQuittungVon %d",dieQuittung);
-   
-   NSArray* IDArray=[QuittungDicArray valueForKey:@"ID"];
-   //NSLog(@"IDArray: %@",[IDArray description]);
-   int GermanOffset=20000;
-   int IDOffset=GermanOffset;
-   
-   
-   QTTime Start = derOffset;
-   int QuittungID=IDOffset+(dieQuittung);
-   
-   
-   //NSLog(@"Beginn Quittung: %d QuittungID: %d",dieQuittung,QuittungID);
-   long QuittungIndex=[IDArray indexOfObject:[[NSNumber numberWithInt:QuittungID] stringValue]];
-   //NSLog(@"QuittungIndex: %d",QuittungIndex);
-   if (QuittungIndex<0)
-   {
-      return QTZeroTime;
-   }
-   
-   QuittungenQTKitMovie= [[QuittungDicArray objectAtIndex:QuittungIndex]objectForKey:@"movie"];
-   if (QuittungenQTKitMovie)
-   {
-      //NSLog(@"setQTKitQuittungVon QuittungenQTKitMovie OK");
-      [AufgabenPlayer setMovie:QuittungenQTKitMovie];
-      
-      QTTime QTKitTrackDauer = [QuittungenQTKitMovie duration];
-      
-      Start.timeValue+=QTKitTrackDauer.timeValue;
-      return Start;
-   }
-   return Start;
-}
 
 
 
-
-
--(QTTime)setOpQTKitTrackVon:(int)dieOperation mitOffset:(QTTime)derOffset
-{
-   //NSLog(@"setQTKitOpTrackVon: TrackVon: %d",dieOperation);
-   NSArray* IDArray=[ZahlenDicArray valueForKey:@"ID"];
-   //NSLog(@"IDArray: %@",[IDArray description]);
-   int GermanOffset=20000;
-   int IDOffset=GermanOffset;
-   
-   QTTime Start = derOffset;
-   
-   QTMovie* OperationMovie;
-   
-   //Movie OperationQTMovie=nil;
-   
-   int OperationID=IDOffset+(dieOperation);
-   
-   
-   //NSLog(@"Beginn Operation: %d OperationID: %d",dieOperation,OperationID);
-   long OperationIndex=[IDArray indexOfObject:[[NSNumber numberWithInt:OperationID] stringValue]];
-   
-   //NSLog(@"OperationIndex: %d",OperationIndex);
-   if (OperationIndex<0)
-   {
-      return QTZeroTime;
-   }
-   //OperationMovie=[[ZahlenArray objectAtIndex:OperationIndex]objectForKey:@"movie"];
-   //OperationQTMovie=(Movie)[OperationMovie quickTimeMovie]; //Movie fuer QT
-   //NSLog(@"Start: %lld",Start.timeValue);
-   QTMovie* OperationQTKitMovie=[[ZahlenDicArray objectAtIndex:OperationIndex]objectForKey:@"movie"];
-   QTTime QTKitOperationTrackDauer = [OperationQTKitMovie duration];
-   //NSLog(@"QTKitOperationTrackDauer: %lld",QTKitOperationTrackDauer.timeValue);
-   //  [AufgabenQTKitMovie setAttribute:[NSNumber numberWithBool:YES] forKey:QTMovieEditableAttribute];
-   
-   [AufgabenQTKitMovie insertSegmentOfMovie:OperationQTKitMovie timeRange:QTMakeTimeRange(QTZeroTime,QTKitOperationTrackDauer) atTime:[AufgabenQTKitMovie duration]];
-   
-   //Track fuer Operation
-   
-   // Trackdauer addieren
-   Start.timeValue+=QTKitOperationTrackDauer.timeValue;
-   
-   //NSLog(@"setOpTrackVon Ende");
-   return Start;
-}//setOpTrackVon
 
 - (NSArray*)URLArrayvonZahl:(int)dieZahl
 {
@@ -1387,6 +1270,8 @@ const short  kMaxElemente=12;
        AufgabenPlayerX = [[AVQueuePlayer alloc]initWithItems:QueueArray];
        }
        */
+      AufgabenPlayerX.volume = PlayerVolume;
+      NSLog(@"volume vor play: %2.2f",AufgabenPlayerX.volume   );
       [AufgabenPlayerX play];
       
       
@@ -1405,13 +1290,11 @@ const short  kMaxElemente=12;
    if (AufgabenPlayerX.currentItem == AufgabenPlayerX.items.lastObject)
    {
       //NSLog(@"letztes item da");
-     	//NSLog(@"Speaker QTKitAufgabeFertigAktion");
       NSNotificationCenter *nc = [NSNotificationCenter defaultCenter];
       // [nc removeObserver:self name:@"QTMovieDidEndNotification" object:nil];
       
       NSMutableDictionary* NotificationDic=[[NSMutableDictionary alloc]initWithCapacity:0];
       [NotificationDic setObject:[NSNumber numberWithInt:1] forKey:@"fertig"];
-      [NotificationDic setObject:@"QTKit" forKey:@"quelle"];
       [nc postNotificationName:@"AufgabelesenFertig" object:nil userInfo:NotificationDic];
       
    }
@@ -1424,37 +1307,17 @@ const short  kMaxElemente=12;
 
 - (void)AufgabeFertigAktion:(NSNotification*)note
 {
-   //NSLog(@"Speaker AufgabeFertigAktion");
-   
-   //movieDidEndSelector = nil;
-   //movieDidEndTargetObject = nil;
-   
-   {
-      
-   }
+   NSLog(@"Speaker AufgabeFertigAktion");
 }
 
 - (void)QTKitAufgabeFertigAktion:(NSNotification*)note
 {
-   //NSLog(@"Speaker QTKitAufgabeFertigAktion");
-   NSNotificationCenter *nc = [NSNotificationCenter defaultCenter];
-   [nc removeObserver:self name:@"QTMovieDidEndNotification" object:nil];
-   
-   NSMutableDictionary* NotificationDic=[[NSMutableDictionary alloc]initWithCapacity:0];
-   [NotificationDic setObject:[NSNumber numberWithInt:1] forKey:@"fertig"];
-   [NotificationDic setObject:@"QTKit" forKey:@"quelle"];
-   [nc postNotificationName:@"AufgabelesenFertig" object:nil userInfo:NotificationDic];
-   
+   NSLog(@"Speaker QTKitAufgabeFertigAktion");
 }
 
 - (void)QTKitQuittungFertig
 {
-   NSMutableDictionary* NotificationDic=[[NSMutableDictionary alloc]initWithCapacity:0];
-   [NotificationDic setObject:[NSNumber numberWithInt:1] forKey:@"fertig"];
-   [NotificationDic setObject:@"QTKit" forKey:@"quelle"];
-   NSNotificationCenter* nc=[NSNotificationCenter defaultCenter];
-   //[nc postNotificationName:@"QTKitQuittungFertig" object:nil userInfo:NotificationDic];
-   NSLog(@"Speaker QTKitQuittungFertig nc ab");
+   NSLog(@"Speaker QTKitQuittungFertig");
    
    
 }
@@ -1462,9 +1325,7 @@ const short  kMaxElemente=12;
 
 - (void)QTKitQuittungFertigAktion:(NSNotification*)note
 {
-   //NSLog(@"Speaker QTKitQuittungFertigAktion");
-   NSNotificationCenter *nc = [NSNotificationCenter defaultCenter];
-   [nc removeObserver:self name:@"QTMovieDidEndNotification" object:nil];
+   NSLog(@"Speaker QTKitQuittungFertigAktion");
    
 }
 
@@ -1484,6 +1345,7 @@ const short  kMaxElemente=12;
          [AufgabenPlayerX removeAllItems];
       }
       AufgabenPlayerX = [AVQueuePlayer queuePlayerWithItems:QueueArray];
+      AufgabenPlayerX.volume = PlayerVolume;
       [AufgabenPlayerX play];
    }//if tempQuittungnDic
    
@@ -1497,23 +1359,14 @@ const short  kMaxElemente=12;
 - (IBAction)play
 {
    NSLog(@"Speaker play");
-   if ([[AufgabenPlayer movie] rate])
-   {
-      /* yes, so stop it */
-      [AufgabenPlayer pause:NULL];
-   }
-   
-   [AufgabenPlayer gotoBeginning:NULL];
-   [AufgabenPlayer play:NULL];
-   
-   
 }
 
 - (void)setVolume:(float)dasVolume
 {
    
-   //NSLog(@"setVolume: Volume: %f",dasVolume);
+  //NSLog(@"Player setVolume: Volume: %f",dasVolume);
    PlayerVolume=dasVolume;
+   AufgabenPlayerX.volume = dasVolume;
    
 }
 
