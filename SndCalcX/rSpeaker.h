@@ -38,6 +38,8 @@
 
 - (NSArray*)StimmenNamenArrayAusResources;
 - (NSDictionary*)QuittungNamenArrayDicAusResources;
+- (void)setQuittungSelektionDic:(NSDictionary*)derQuittungSelektionDic;
+
 - (BOOL)readZahlen;
 
 - (BOOL)readQuittungen;
