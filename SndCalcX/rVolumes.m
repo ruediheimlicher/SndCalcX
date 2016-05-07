@@ -73,7 +73,7 @@
    
 }
 
-- (int) anzVolumes
+- (long) anzVolumes
 {
    return [UserArray count];
 }
@@ -746,7 +746,7 @@
 #pragma mark -
 #pragma mark UserTable Data Source:
 
-- (int)numberOfRowsInTableView:(NSTableView *)aTableView
+- (long)numberOfRowsInTableView:(NSTableView *)aTableView
 {
    switch ([aTableView tag])
    {
@@ -766,7 +766,7 @@
 
 - (id)tableView:(NSTableView *)aTableView
 objectValueForTableColumn:(NSTableColumn *)aTableColumn
-            row:(int)rowIndex
+            row:(long)rowIndex
 {
    id einObjekt;
    //NSLog(@"tableView tag: %d",[aTableView tag]);
@@ -821,7 +821,7 @@ objectValueForTableColumn:(NSTableColumn *)aTableColumn
 - (void)tableView:(NSTableView *)aTableView 
    setObjectValue:(id)anObject 
    forTableColumn:(NSTableColumn *)aTableColumn 
-              row:(int)rowIndex
+              row:(long)rowIndex
 {
    switch ([aTableView tag])
    {
@@ -848,7 +848,7 @@ objectValueForTableColumn:(NSTableColumn *)aTableColumn
     */
 }
 
-- (BOOL)tableView:(NSTableView *)tableView shouldSelectRow:(int)row
+- (BOOL)tableView:(NSTableView *)tableView shouldSelectRow:(long)row
 {
    BOOL selectOK=YES;
    switch ([tableView tag])
@@ -881,7 +881,7 @@ objectValueForTableColumn:(NSTableColumn *)aTableColumn
    return YES;
 }
 
-- (void)tableView:(NSTableView *)tableView willDisplayCell:(id)cell forTableColumn:(NSTableColumn *)tableColumn row:(int)row
+- (void)tableView:(NSTableView *)tableView willDisplayCell:(id)cell forTableColumn:(NSTableColumn *)tableColumn row:(long)row
 {
    switch ([tableView tag])
    {

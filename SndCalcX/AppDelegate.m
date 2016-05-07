@@ -52,6 +52,8 @@ const short     kSerieFertig = 25003;
 @implementation AppDelegate
 
 
+
+
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
    
@@ -671,7 +673,26 @@ const short     kSerieFertig = 25003;
    }
 
 
-}
+   
+   NSString * pattern = @"(\\d{3})-(\\d{2})-(\\d{4})";
+   NSString* nameregex = @"^[a-zA-ZäöüÄÖÜ]+$";
+   NSString *emailPattern = @"[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,4}";
+
+   NSString * testString = @"123-45-6789";
+   testString = @"Hans muster";
+ //  testString = @"r.heimlicher@bluewin.ch";
+   
+   if ([testString doesMatchRegStringExp:nameregex])
+   {
+  //    NSLog(@"%@ :It's a match!",testString);
+      
+   }
+   else
+   {
+  //    NSLog(@"%@ :It's not a match!",testString);
+   }
+
+ }
 
 
 - (BOOL)readPListAnPfad:(NSString*)derSndCalcPfad

@@ -6,7 +6,7 @@
 {
    self=[super init];
    NamenZuTestDicArray=[[NSMutableArray alloc]initWithCapacity:0];
-   aktuellerTest=[[NSString alloc]initWithString:@""];
+   aktuellerTest=@"";
    return self;
 }
 

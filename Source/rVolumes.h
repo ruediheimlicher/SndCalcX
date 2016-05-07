@@ -2,7 +2,7 @@
 
 #import <Cocoa/Cocoa.h>
 //#import "rNetzwerkDrawer.h"
-@interface rVolumes : NSWindowController
+@interface rVolumes : NSWindowController <NSTableViewDelegate , NSTableViewDataSource>
 {
 	IBOutlet id window;
     IBOutlet id AbbrechenKnopf;
@@ -44,10 +44,10 @@
 - (IBAction)checkUser:(id)sender;
 - (BOOL)checkUserAnPfad:(NSString*)derUserPfad;
 
-- (int) anzVolumes;
+- (long) anzVolumes;
 - (void) setHomeStatus:(BOOL) derStatus;
 - (void) setUserArray:(NSArray*) dieUser;
-- (void)setNetworkArray:(NSArray*) derNetworkArray;
+//- (void)setNetworkArray:(NSArray*) derNetworkArray;
 
 - (NSString*)SndCalcDatenPfad;
 - (BOOL)istSystemVolume;

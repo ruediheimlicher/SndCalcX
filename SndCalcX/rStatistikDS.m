@@ -255,7 +255,7 @@
          [tempDic setObject:MittelString forKey:@"mittel"];
       }
       //[tempDic setObject:[einDic objectForKey:@"datum"] forKey:@"datum"];
-      if ([einDic objectForKey:@"datum"]==@"Datum")
+      if ([[einDic objectForKey:@"datum"] isEqual:@"Datum"])
       {
          [tempDic setObject:@"Datum" forKey:@"datum"];
       }
@@ -403,7 +403,7 @@
 }
 
 
-- (int)numberOfRowsInTableView:(NSTableView *)aTableView
+- (long)numberOfRowsInTableView:(NSTableView *)aTableView
 {
    return [ErgebnisDicArray count];
 }
@@ -411,7 +411,7 @@
 
 - (id)tableView:(NSTableView *)aTableView
 objectValueForTableColumn:(NSTableColumn *)aTableColumn
-            row:(int)rowIndex
+            row:(long)rowIndex
 {
    //NSLog(@"objectValueForTableColumn");
    NSDictionary *einTestDic;
@@ -429,7 +429,7 @@ objectValueForTableColumn:(NSTableColumn *)aTableColumn
 - (void)tableView:(NSTableView *)aTableView
    setObjectValue:(id)anObject
    forTableColumn:(NSTableColumn *)aTableColumn
-              row:(int)rowIndex
+              row:(long)rowIndex
 {
    NSLog(@"setObjectValueForTableColumn");
    
@@ -441,7 +441,7 @@ objectValueForTableColumn:(NSTableColumn *)aTableColumn
    }
 }
 
-- (BOOL)tableView:(NSTableView *)tableView shouldSelectRow:(int)row
+- (BOOL)tableView:(NSTableView *)tableView shouldSelectRow:(long)row
 {
    //NSLog(@"shouldSelectRow");
    
@@ -466,7 +466,7 @@ objectValueForTableColumn:(NSTableColumn *)aTableColumn
    return YES;
 }
 
-- (void)tableView:(NSTableView *)tableView willDisplayCell:(id)cell forTableColumn:(NSTableColumn *)tableColumn row:(int)row
+- (void)tableView:(NSTableView *)tableView willDisplayCell:(id)cell forTableColumn:(NSTableColumn *)tableColumn row:(long)row
 {
    NSMutableDictionary* tempZeilenDic=(NSMutableDictionary*)[ErgebnisDicArray objectAtIndex:row];
    //	[tempZeilenDic setObject:[NSNumber numberWithBool:farbig]forKey:@"farbig"];

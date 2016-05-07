@@ -2,6 +2,7 @@
 
 #import <Cocoa/Cocoa.h>
 
+
 @interface rNamenPanel : NSWindowController <NSTableViewDelegate,NSTableViewDataSource>
 {
    IBOutlet NSTextField* NamenFeld;
@@ -19,6 +20,7 @@
    NSString* neuerName;
    IBOutlet id		IconFeld;
 }
+- (BOOL)doesMatchRegStringExp:(NSString *)string;
 - (IBAction)reportCancel:(id)sender;
 - (IBAction)reportEntfernen:(id)sender;
 - (IBAction)reportClose:(id)sender;

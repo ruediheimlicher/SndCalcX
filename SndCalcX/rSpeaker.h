@@ -44,19 +44,14 @@
 
 - (BOOL)readQuittungen;
 - (IBAction)showStimmenPanel:(id)sender;
-- (NSDictionary*)chooseStimme;
+//- (NSDictionary*)chooseStimme;
 
 - (NSURL*)URLvonZahl:(int)dieZahl;
 - (NSArray*)URLArrayvonZahl:(int)dieZahl;
 
 - (NSURL*)URLvonOperation:(int)dieOperation;
-//- (NSURL*)URLvonQuittung:(NSString*)dieQuittung;
 - (NSURL*)URLvonQuittung:(int)dieQuittung;
 
-- (long)setZahlTrackVon:(int)dieZahl mitOffset:(long)derOffset;
-- (long)setOpTrackVon:(int)dieOperation mitOffset:(long)derOffset;
-
-- (long)setQuittungTrackVon:(int)dieQuittung mitOffset:(long)derOffset;
 
 - (BOOL)AufgabeAb:(NSDictionary*)derAufgabenDic;
 - (BOOL)QuittungAb:(NSDictionary*)derQuittungDic;

@@ -96,7 +96,7 @@
 #pragma mark -
 #pragma mark SessionTable Data Source:
 
-- (int)numberOfRowsInTableView:(NSTableView *)aTableView
+- (long)numberOfRowsInTableView:(NSTableView *)aTableView
 {
     return [QuittungDicArray count];
 }
@@ -104,7 +104,7 @@
 
 - (id)tableView:(NSTableView *)aTableView
     objectValueForTableColumn:(NSTableColumn *)aTableColumn 
-			row:(int)rowIndex
+			row:(long)rowIndex
 {
 	//NSLog(@"objectValueForTableColumn");
     NSDictionary *einQuittungDic;
@@ -120,7 +120,7 @@
 - (void)tableView:(NSTableView *)aTableView 
    setObjectValue:(id)anObject 
    forTableColumn:(NSTableColumn *)aTableColumn 
-			  row:(int)rowIndex
+			  row:(long)rowIndex
 {
 	//NSLog(@"QuittungDS setObjectValueForTableColumn: %@",[aTableColumn identifier]);
 	
@@ -130,7 +130,7 @@
 		
 }
 
-- (BOOL)tableView:(NSTableView *)tableView shouldSelectRow:(int)row
+- (BOOL)tableView:(NSTableView *)tableView shouldSelectRow:(long)row
 {
 	//NSLog(@"shouldSelectRow: bisherige selectedRow: %d	neue row: %d",[tableView selectedRow],row );  
 	NSString* QuittungName=[[QuittungDicArray objectAtIndex:row] objectForKey:@"quittungname"];
@@ -148,7 +148,7 @@
 	return YES;
 }
 
-- (void)tableView:(NSTableView *)tableView willDisplayCell:(id)cell forTableColumn:(NSTableColumn *)tableColumn row:(int)row
+- (void)tableView:(NSTableView *)tableView willDisplayCell:(id)cell forTableColumn:(NSTableColumn *)tableColumn row:(long)row
 {
 	NSDictionary* einDic=[QuittungDicArray objectAtIndex:row];
 		

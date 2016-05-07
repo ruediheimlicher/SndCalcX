@@ -148,7 +148,7 @@ int Tastenmass;
 			{
 				KnopfFrame.size.width+=4*(KnopfmassH+AbstandH);
 				ClearTaste=[[NSButton alloc]initWithFrame:KnopfFrame];
-				[ClearTaste setButtonType:NSMomentaryPushButton];
+				[ClearTaste setButtonType:NSMomentaryLightButton];
 				[ClearTaste setState:0];
 				[ClearTaste setAlignment:NSCenterTextAlignment];
 				[[ClearTaste cell]setBezelStyle:NSShadowlessSquareBezelStyle];
@@ -354,7 +354,7 @@ while (einKnopf=[E nextObject])
 
 - (IBAction)Grosses1Mal1Aktion:(id)sender
 {
-	NSLog(@"Grosses1Mal1Aktion: state: %d",[sender state]);
+	NSLog(@"Grosses1Mal1Aktion: state: %ld",(long)[sender state]);
 	NSEnumerator* E=[ReihenKnopfArray objectEnumerator];
 	id einKnopf;
 	while (einKnopf=[E nextObject])

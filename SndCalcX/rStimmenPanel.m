@@ -386,7 +386,7 @@
       
       //Quittung zu Resourcen hinzufügen
       NSDictionary* copyFehlerDic=[self copyQuittungToResources];
-      NSLog(@"reportQuittungOK: copyFehlerDic: ",[copyFehlerDic description]);
+      NSLog(@"reportQuittungOK: copyFehlerDic: %@",[copyFehlerDic description]);
       
       /*
        //Neue Quittung zu PList hinzufügen
@@ -931,7 +931,7 @@
       
       //Stimme zu Resourcen hinzufügen
       NSDictionary* copyFehlerDic=[self copyZiffernToResources];
-      NSLog(@"reportStimmeOK: copyFehlerDic: ",[copyFehlerDic description]);
+      NSLog(@"reportStimmeOK: copyFehlerDic: %@",[copyFehlerDic description]);
       
       /*
        //Neue Stimme zu PList hinzufügen
@@ -972,7 +972,7 @@
 #pragma mark -
 #pragma mark SessionTable Data Source:
 
-- (int)numberOfRowsInTableView:(NSTableView *)aTableView
+- (long)numberOfRowsInTableView:(NSTableView *)aTableView
 {
    return [StimmenTableArray count];
 }
@@ -980,7 +980,7 @@
 
 - (id)tableView:(NSTableView *)aTableView
 objectValueForTableColumn:(NSTableColumn *)aTableColumn 
-            row:(int)rowIndex
+            row:(long)rowIndex
 {
    //NSLog(@"objectValueForTableColumn");
    NSDictionary *einStimmenDic;
@@ -998,7 +998,7 @@ objectValueForTableColumn:(NSTableColumn *)aTableColumn
 - (void)tableView:(NSTableView *)aTableView 
    setObjectValue:(id)anObject 
    forTableColumn:(NSTableColumn *)aTableColumn 
-              row:(int)rowIndex
+              row:(long)rowIndex
 {
    //NSLog(@"StimmenTable setObjectValueForTableColumn: %@",[aTableColumn identifier]);
    
@@ -1007,14 +1007,14 @@ objectValueForTableColumn:(NSTableColumn *)aTableColumn
    [einStimmenDic setObject:anObject forKey:[aTableColumn identifier]];
 }
 
-- (BOOL)tableView:(NSTableView *)tableView shouldSelectRow:(int)row
+- (BOOL)tableView:(NSTableView *)tableView shouldSelectRow:(long)row
 {
    //NSLog(@"shouldSelectRow: %d",row);  
    
    return YES;
 }
 
-- (void)tableView:(NSTableView *)tableView willDisplayCell:(id)cell forTableColumn:(NSTableColumn *)tableColumn row:(int)row
+- (void)tableView:(NSTableView *)tableView willDisplayCell:(id)cell forTableColumn:(NSTableColumn *)tableColumn row:(long)row
 {
    NSDictionary* einDic=[StimmenTableArray objectAtIndex:row];
    

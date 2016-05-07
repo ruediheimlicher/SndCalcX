@@ -31,6 +31,8 @@
 #import "rEinstellungenPanel.h"
 #import "defines.h"
 
+#import "NSString+regex.h"
+
 struct cSeriedaten;
 
 @interface AppDelegate : NSObject <NSApplicationDelegate,NSTableViewDelegate,NSTableViewDataSource,NSTextFieldDelegate,NSWindowDelegate>

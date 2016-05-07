@@ -739,7 +739,10 @@ const short  kMaxElemente=12;
    
 }
 
-
+- (NSURL*)URLvonZahl:(int)zahl
+{
+   return nil;
+}
 
 
 

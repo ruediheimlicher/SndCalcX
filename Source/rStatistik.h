@@ -155,17 +155,17 @@ BOOL		farbig;
 - (void)updateAdminStatistikDicArrayMitNoteChangedArray:(NSArray*)derNoteArray;
 - (void)updateAdminStatistikDicArrayMitNoteChangedDic:(NSDictionary*)derNoteChangedDic;
 
-- (int)numberOfRowsInTableView:(NSTableView *)aTableView;
+- (long)numberOfRowsInTableView:(NSTableView *)aTableView;
 - (id)tableView:(NSTableView *)aTableView
     objectValueForTableColumn:(NSTableColumn *)aTableColumn 
-			row:(int)rowIndex;
+			row:(long)rowIndex;
 			
 - (NSArray*)ErgebnisDicArrayForAllTestsForUser: (NSString*)derUser;
 			
 - (void)setAdminStatistikDicArray:(NSArray*)derAdminStatistikDicArray mitSessionDatum:(NSDate*)dasDatum;
 
 - (void)printDicArray:(NSArray*)derDicArray;
-- (void)printDicArray:(NSArray*)derDicArray forTest:(NSString*)derTest;
+//- (void)printDicArray:(NSArray*)derDicArray forTest:(NSString*)derTest;
 - (void)printDicArrayForAllTests:(NSArray*)derDicArray;
 - (void)printDicArray:(NSArray*)derDicArray forTest:(NSString*)derTest forUser:(NSString*)derUser;
 

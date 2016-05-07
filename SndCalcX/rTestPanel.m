@@ -381,7 +381,7 @@
          //			NSLog(@"setNamenWahlTaste: tempUserTestDic: %@",[tempUserTestDic description]);
          if ([[einNamenDic objectForKey:@"name"]isEqualToString:derName])//aktueller Name
          {
-            aktuellerUser=derName;
+            aktuellerUser=(NSMutableString*)derName;
             //	[TestZuNamenDS setTestliste:[tempUserTestDic objectForKey:@"usertestarray"] zuNamen:derName];
          }
          [TestZuNamenTable reloadData];
@@ -404,7 +404,7 @@
       [NamenWahlTaste addItemsWithTitles:tempNamenArray];
       if ([derName length]&&[tempNamenArray containsObject:derName])
       {
-         aktuellerUser=derName;
+         aktuellerUser=(NSMutableString*)derName;
          
       }
       
@@ -440,7 +440,7 @@
          //			NSLog(@"setTestWahlTaste: tempTestDic: %@",[tempTestDic description]);
          if ([[einTestDic objectForKey:@"testname"]isEqualToString:derTest])//aktueller Name
          {
-            aktuellerTest=derTest;
+            aktuellerTest=(NSMutableString*)derTest;
             
          }
          
@@ -469,7 +469,7 @@
       
       if ([derTest length]&&[tempTestArray containsObject:derTest])
       {
-         aktuellerTest=derTest;
+         aktuellerTest=(NSMutableString*)derTest;
          
       }
       
@@ -3039,7 +3039,7 @@
 #pragma mark -
 #pragma mark TestTable Data Source:
 
-- (int)numberOfRowsInTableView:(NSTableView *)aTableView
+- (long)numberOfRowsInTableView:(NSTableView *)aTableView
 {
    return [TestDicArray count];
    
@@ -3048,7 +3048,7 @@
 
 - (id)tableView:(NSTableView *)aTableView
 objectValueForTableColumn:(NSTableColumn *)aTableColumn 
-            row:(int)rowIndex
+            row:(long)rowIndex
 {
    
    //NSLog(@"objectValueForTableColumn: %@ row: %d",[aTableColumn identifier],rowIndex);
@@ -3074,7 +3074,7 @@ objectValueForTableColumn:(NSTableColumn *)aTableColumn
 - (void)tableView:(NSTableView *)aTableView 
    setObjectValue:(id)anObject 
    forTableColumn:(NSTableColumn *)aTableColumn 
-              row:(int)rowIndex
+              row:(long)rowIndex
 {
    //NSLog(@"setObjectValueForTableColumn rowIndex: %d	[TestDicArray count]: %d",rowIndex,[TestDicArray count]);
    
@@ -3135,7 +3135,7 @@ objectValueForTableColumn:(NSTableColumn *)aTableColumn
    }
 }
 
-- (BOOL)tableView:(NSTableView *)tableView shouldSelectRow:(int)row
+- (BOOL)tableView:(NSTableView *)tableView shouldSelectRow:(long)row
 {
    //NSLog(@"shouldSelectRow");
    
@@ -3163,7 +3163,7 @@ objectValueForTableColumn:(NSTableColumn *)aTableColumn
 }
 
 
-- (void)tableView:(NSTableView *)tableView willDisplayCell:(id)cell forTableColumn:(NSTableColumn *)tableColumn row:(int)row
+- (void)tableView:(NSTableView *)tableView willDisplayCell:(id)cell forTableColumn:(NSTableColumn *)tableColumn row:(long)row
 {
    
    //NSLog(@"ProjektListe willDisplayCell Zeile: %d, numberOfSelectedRows:%d", row ,[tableView numberOfSelectedRows]);

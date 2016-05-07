@@ -224,7 +224,7 @@ short Minvon(short ersteZahl, short zweiteZahl);
 
 
 
-- (void)setSeriedaten:(cSeriedaten) dieSeriedaten
+- (void)setSeriedaten:(rSeriedaten*) dieSeriedaten
 {
    printf("rSerie::setSeriedaten \n");
    printf("dieSeriedaten:Addition:%d\n",dieSeriedaten.Addition);
@@ -232,7 +232,7 @@ short Minvon(short ersteZahl, short zweiteZahl);
    printf("dieSeriedaten:Addition:%d\n",dieSeriedaten.Multiplikation);
    printf("dieSeriedaten:Addition:%d\n",dieSeriedaten.Division);
    
-   cRechnungSeriedaten = dieSeriedaten;
+//   cRechnungSeriedaten = dieSeriedaten;
    printf("dieSeriedaten:Addition:%d\n",dieSeriedaten.Subtraktion);
    printf("dieSeriedaten:Addition:%d\n",dieSeriedaten.Multiplikation);
    printf("dieSeriedaten:Addition:%d\n",dieSeriedaten.Division);

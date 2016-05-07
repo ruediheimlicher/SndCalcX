@@ -2933,7 +2933,7 @@ float Notebreite=28.0;
    
    int Schriftgroesse=8;
    int Zeilenhoehe=13;
-   NSTextFieldCell* DatumKopfZelle=[[NSTableHeaderCell alloc]init];
+   NSTableHeaderCell* DatumKopfZelle=[[NSTableHeaderCell alloc]init];
    [DatumKopfZelle  setFont:[NSFont fontWithName:@"Helvetica" size:Schriftgroesse]];
    
    NSTableColumn* DatumKolonne=[[NSTableColumn alloc]initWithIdentifier:@"datumtext"];
@@ -2947,7 +2947,7 @@ float Notebreite=28.0;
    [[DatumKolonne headerCell]setStringValue:@"Datum"];
    NSTableColumn* NameKolonne=[[NSTableColumn alloc]initWithIdentifier:@"nametext"];
    
-   NSTextFieldCell* NameKopfZelle=[[NSTableHeaderCell alloc]init];
+   NSTableHeaderCell* NameKopfZelle=[[NSTableHeaderCell alloc]init];
    [NameKopfZelle  setFont:[NSFont fontWithName:@"Helvetica" size:Schriftgroesse]];
    [NameKolonne setHeaderCell:NameKopfZelle];
    [[NameKolonne headerCell]setStringValue:@"Name"];
@@ -2957,7 +2957,7 @@ float Notebreite=28.0;
    [returnErgebnisTable addTableColumn:NameKolonne];
    
    NSTableColumn* ZeitKolonne=[[NSTableColumn alloc]initWithIdentifier:@"zeit"];
-   NSTextFieldCell* ZeitKopfZelle=[[NSTableHeaderCell alloc]init];
+   NSTableHeaderCell* ZeitKopfZelle=[[NSTableHeaderCell alloc]init];
    [ZeitKopfZelle  setFont:[NSFont fontWithName:@"Helvetica" size:Schriftgroesse]];
    [ZeitKopfZelle setStringValue:@"Zeit"];
    [ZeitKopfZelle setAlignment:NSRightTextAlignment];
@@ -3041,7 +3041,7 @@ float Notebreite=28.0;
    int TabSchriftgroesse=Schriftgroesse;
    int Zeilenhoehe=11;
    int Reihenhoehe=Zeilenhoehe+2;
-   int AnzDruckzeilen=[derDicArray count];
+   long AnzDruckzeilen=[derDicArray count];
    int AnzZeilen1=(DruckRect.size.height-TabellenOffset1)/Reihenhoehe;
    int AnzZeilen2=(DruckRect.size.height-TabellenOffset2)/Reihenhoehe;
    int Seiten=1;
@@ -4727,7 +4727,7 @@ float Notebreite=28.0;
 #pragma mark -
 #pragma mark StatistikTable Data Source:
 
-- (int)numberOfRowsInTableView:(NSTableView *)aTableView
+- (long)numberOfRowsInTableView:(NSTableView *)aTableView
 {
    return [TestDicArray count];
 }
@@ -4735,7 +4735,7 @@ float Notebreite=28.0;
 
 - (id)tableView:(NSTableView *)aTableView
 objectValueForTableColumn:(NSTableColumn *)aTableColumn 
-            row:(int)rowIndex
+            row:(long)rowIndex
 {
    //NSLog(@"objectValueForTableColumn");
    NSDictionary *einStatistikDic;
@@ -4753,7 +4753,7 @@ objectValueForTableColumn:(NSTableColumn *)aTableColumn
 - (void)tableView:(NSTableView *)aTableView 
    setObjectValue:(id)anObject 
    forTableColumn:(NSTableColumn *)aTableColumn 
-              row:(int)rowIndex
+              row:(long)rowIndex
 {
    NSLog(@"setObjectValueForTableColumn");
    
@@ -4765,13 +4765,13 @@ objectValueForTableColumn:(NSTableColumn *)aTableColumn
    }
 }
 
-- (BOOL)tableView:(NSTableView *)tableView shouldSelectRow:(int)row
+- (BOOL)tableView:(NSTableView *)tableView shouldSelectRow:(long)row
 {
    //  NSLog(@"shouldSelectRow");  
    return YES;
 }
 
-- (void)tableView:(NSTableView *)tableView willDisplayCell:(id)cell forTableColumn:(NSTableColumn *)tableColumn row:(int)row
+- (void)tableView:(NSTableView *)tableView willDisplayCell:(id)cell forTableColumn:(NSTableColumn *)tableColumn row:(long)row
 {
    //Ergebnisse nach Namen
    NSMutableDictionary* tempZeilenDic=(NSMutableDictionary*)[TestDicArray objectAtIndex:row];

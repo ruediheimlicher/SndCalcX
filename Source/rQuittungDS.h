@@ -1,7 +1,7 @@
 #import <Cocoa/Cocoa.h>
 
 
-@interface rQuittungDS : NSObject 
+@interface rQuittungDS : NSObject <NSTableViewDataSource,NSTableViewDelegate>
 {
 NSMutableArray*				QuittungDicArray;
 NSMutableDictionary*		QuittungSelektionDic;

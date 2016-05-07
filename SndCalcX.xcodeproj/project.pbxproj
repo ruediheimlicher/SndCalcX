@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		BD0416D41CD3A07800F1288A /* rDiplomFensterX.m in Sources */ = {isa = PBXBuildFile; fileRef = BD0416D31CD3A07800F1288A /* rDiplomFensterX.m */; };
 		BD0416D61CD3A1F600F1288A /* AddSubSettingsX.m in Sources */ = {isa = PBXBuildFile; fileRef = BD0416D51CD3A1F600F1288A /* AddSubSettingsX.m */; };
-		BD0416DA1CD3A2BB00F1288A /* rNamenPanelX.m in Sources */ = {isa = PBXBuildFile; fileRef = BD0416D81CD3A2BB00F1288A /* rNamenPanelX.m */; };
+		BD0416DA1CD3A2BB00F1288A /* rNamenPanel.m in Sources */ = {isa = PBXBuildFile; fileRef = BD0416D81CD3A2BB00F1288A /* rNamenPanel.m */; };
 		BD0416DE1CD3A47E00F1288A /* rNamenZuTestDSX.m in Sources */ = {isa = PBXBuildFile; fileRef = BD0416DD1CD3A47E00F1288A /* rNamenZuTestDSX.m */; };
 		BD0416E11CD3A82D00F1288A /* rPrintStatistikX.m in Sources */ = {isa = PBXBuildFile; fileRef = BD0416E01CD3A82D00F1288A /* rPrintStatistikX.m */; };
 		BD0416E41CD3A93700F1288A /* rSessionDSX.m in Sources */ = {isa = PBXBuildFile; fileRef = BD0416E31CD3A93700F1288A /* rSessionDSX.m */; };
@@ -49,7 +49,6 @@
 		BD7947A41CC13AD700604B3D /* SCEinstellungenPanel.nib in Resources */ = {isa = PBXBuildFile; fileRef = BD79478D1CC13AD700604B3D /* SCEinstellungenPanel.nib */; };
 		BD7947A51CC13AD700604B3D /* SCEinstellungenPanel~.nib in Resources */ = {isa = PBXBuildFile; fileRef = BD79478E1CC13AD700604B3D /* SCEinstellungenPanel~.nib */; };
 		BD7947A61CC13AD700604B3D /* SCNamenPanel.nib in Resources */ = {isa = PBXBuildFile; fileRef = BD79478F1CC13AD700604B3D /* SCNamenPanel.nib */; };
-		BD7947A71CC13AD700604B3D /* SCNamenPanel~.nib in Resources */ = {isa = PBXBuildFile; fileRef = BD7947901CC13AD700604B3D /* SCNamenPanel~.nib */; };
 		BD7947A81CC13AD700604B3D /* SCPasswortDialog.nib in Resources */ = {isa = PBXBuildFile; fileRef = BD7947911CC13AD700604B3D /* SCPasswortDialog.nib */; };
 		BD7947A91CC13AD700604B3D /* SCPasswortDialog~.nib in Resources */ = {isa = PBXBuildFile; fileRef = BD7947921CC13AD700604B3D /* SCPasswortDialog~.nib */; };
 		BD7947AA1CC13AD700604B3D /* SCPasswortListe.nib in Resources */ = {isa = PBXBuildFile; fileRef = BD7947931CC13AD700604B3D /* SCPasswortListe.nib */; };
@@ -69,6 +68,7 @@
 		BD7948331CC56A5000604B3D /* Zahlen_AIFF in Resources */ = {isa = PBXBuildFile; fileRef = BD7948321CC56A5000604B3D /* Zahlen_AIFF */; };
 		BD7948381CC56C1B00604B3D /* Quittung.plist in Resources */ = {isa = PBXBuildFile; fileRef = BD7948361CC56C1B00604B3D /* Quittung.plist */; };
 		BD7948391CC56C1B00604B3D /* Zahlen.plist in Resources */ = {isa = PBXBuildFile; fileRef = BD7948371CC56C1B00604B3D /* Zahlen.plist */; };
+		BDD5EA991CDE1AD3001DB2F4 /* NSString+regex.m in Sources */ = {isa = PBXBuildFile; fileRef = BDD5EA981CDE1AD3001DB2F4 /* NSString+regex.m */; };
 		BDD8A4B81CC69B5200349CEA /* Quittung_AIFF in Resources */ = {isa = PBXBuildFile; fileRef = BDD8A4B71CC69B5200349CEA /* Quittung_AIFF */; };
 		BDD8A4BC1CC8C33400349CEA /* Bilder in Resources */ = {isa = PBXBuildFile; fileRef = BDD8A4BB1CC8C33400349CEA /* Bilder */; };
 		BDD8A4BE1CC8CFA700349CEA /* duerer.tif in Resources */ = {isa = PBXBuildFile; fileRef = BDD8A4BD1CC8CFA700349CEA /* duerer.tif */; };
@@ -89,8 +89,8 @@
 		BD0416D21CD3A07800F1288A /* rDiplomFensterX.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = rDiplomFensterX.h; sourceTree = "<group>"; };
 		BD0416D31CD3A07800F1288A /* rDiplomFensterX.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = rDiplomFensterX.m; sourceTree = "<group>"; };
 		BD0416D51CD3A1F600F1288A /* AddSubSettingsX.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddSubSettingsX.m; sourceTree = "<group>"; };
-		BD0416D71CD3A2BB00F1288A /* rNamenPanelX.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = rNamenPanelX.h; sourceTree = "<group>"; };
-		BD0416D81CD3A2BB00F1288A /* rNamenPanelX.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = rNamenPanelX.m; sourceTree = "<group>"; };
+		BD0416D71CD3A2BB00F1288A /* rNamenPanel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = rNamenPanel.h; sourceTree = "<group>"; };
+		BD0416D81CD3A2BB00F1288A /* rNamenPanel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = rNamenPanel.m; sourceTree = "<group>"; };
 		BD0416DC1CD3A47E00F1288A /* rNamenZuTestDSX.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = rNamenZuTestDSX.h; sourceTree = "<group>"; };
 		BD0416DD1CD3A47E00F1288A /* rNamenZuTestDSX.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = rNamenZuTestDSX.m; sourceTree = "<group>"; };
 		BD0416DF1CD3A82C00F1288A /* rPrintStatistikX.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = rPrintStatistikX.h; sourceTree = "<group>"; };
@@ -162,7 +162,6 @@
 		BD79478D1CC13AD700604B3D /* SCEinstellungenPanel.nib */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; path = SCEinstellungenPanel.nib; sourceTree = "<group>"; };
 		BD79478E1CC13AD700604B3D /* SCEinstellungenPanel~.nib */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; path = "SCEinstellungenPanel~.nib"; sourceTree = "<group>"; };
 		BD79478F1CC13AD700604B3D /* SCNamenPanel.nib */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; path = SCNamenPanel.nib; sourceTree = "<group>"; };
-		BD7947901CC13AD700604B3D /* SCNamenPanel~.nib */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; path = "SCNamenPanel~.nib"; sourceTree = "<group>"; };
 		BD7947911CC13AD700604B3D /* SCPasswortDialog.nib */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; path = SCPasswortDialog.nib; sourceTree = "<group>"; };
 		BD7947921CC13AD700604B3D /* SCPasswortDialog~.nib */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; path = "SCPasswortDialog~.nib"; sourceTree = "<group>"; };
 		BD7947931CC13AD700604B3D /* SCPasswortListe.nib */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; path = SCPasswortListe.nib; sourceTree = "<group>"; };
@@ -183,6 +182,8 @@
 		BD7948321CC56A5000604B3D /* Zahlen_AIFF */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Zahlen_AIFF; sourceTree = "<group>"; };
 		BD7948361CC56C1B00604B3D /* Quittung.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Quittung.plist; sourceTree = "<group>"; };
 		BD7948371CC56C1B00604B3D /* Zahlen.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Zahlen.plist; sourceTree = "<group>"; };
+		BDD5EA971CDE1AD3001DB2F4 /* NSString+regex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSString+regex.h"; path = "SndCalcX/NSString+regex.h"; sourceTree = "<group>"; };
+		BDD5EA981CDE1AD3001DB2F4 /* NSString+regex.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSString+regex.m"; path = "SndCalcX/NSString+regex.m"; sourceTree = "<group>"; };
 		BDD8A4B71CC69B5200349CEA /* Quittung_AIFF */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Quittung_AIFF; sourceTree = "<group>"; };
 		BDD8A4BB1CC8C33400349CEA /* Bilder */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Bilder; sourceTree = "<group>"; };
 		BDD8A4BD1CC8CFA700349CEA /* duerer.tif */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; name = duerer.tif; path = Bilder/duerer.tif; sourceTree = "<group>"; };
@@ -213,6 +214,8 @@
 		BD7947061CC024F300604B3D = {
 			isa = PBXGroup;
 			children = (
+				BDD5EA971CDE1AD3001DB2F4 /* NSString+regex.h */,
+				BDD5EA981CDE1AD3001DB2F4 /* NSString+regex.m */,
 				BD776B2E1CD364C700B28FE8 /* german.strings */,
 				BD776B2D1CD2934900B28FE8 /* defines.h */,
 				BD7947111CC024F300604B3D /* SndCalcX */,
@@ -259,8 +262,8 @@
 				BD79472F1CC02D6700604B3D /* rEinstellungenPanel.m */,
 				BD776B2A1CD0FAC700B28FE8 /* rResultatFeld.h */,
 				BD776B2B1CD0FAC700B28FE8 /* rResultatFeld.m */,
-				BD0416D71CD3A2BB00F1288A /* rNamenPanelX.h */,
-				BD0416D81CD3A2BB00F1288A /* rNamenPanelX.m */,
+				BD0416D71CD3A2BB00F1288A /* rNamenPanel.h */,
+				BD0416D81CD3A2BB00F1288A /* rNamenPanel.m */,
 				BD0416DC1CD3A47E00F1288A /* rNamenZuTestDSX.h */,
 				BD0416DD1CD3A47E00F1288A /* rNamenZuTestDSX.m */,
 				BD0416DF1CD3A82C00F1288A /* rPrintStatistikX.h */,
@@ -336,7 +339,6 @@
 				BD79478D1CC13AD700604B3D /* SCEinstellungenPanel.nib */,
 				BD79478E1CC13AD700604B3D /* SCEinstellungenPanel~.nib */,
 				BD79478F1CC13AD700604B3D /* SCNamenPanel.nib */,
-				BD7947901CC13AD700604B3D /* SCNamenPanel~.nib */,
 				BD7947911CC13AD700604B3D /* SCPasswortDialog.nib */,
 				BD7947921CC13AD700604B3D /* SCPasswortDialog~.nib */,
 				BD7947931CC13AD700604B3D /* SCPasswortListe.nib */,
@@ -442,7 +444,6 @@
 				BD79471C1CC024F300604B3D /* MainMenu.xib in Resources */,
 				BD7947CF1CC1444E00604B3D /* Icons in Resources */,
 				BDD8A4D01CC8CFD500349CEA /* SessionNOImg.tif in Resources */,
-				BD7947A71CC13AD700604B3D /* SCNamenPanel~.nib in Resources */,
 				BD7947B21CC13AD700604B3D /* SCStatistik.nib in Resources */,
 				BDD8A4CF1CC8CFD500349CEA /* MarkOnImg.tif in Resources */,
 				BDD8A4D31CC8CFD500349CEA /* Ziel.tif in Resources */,
@@ -489,7 +490,8 @@
 				BD0416ED1CD3AAF100F1288A /* rStimmenPanel.m in Sources */,
 				BD0416E91CD3AA5D00F1288A /* rStatistik.m in Sources */,
 				BD0416FB1CD3ADF900F1288A /* rPasswortRequest.m in Sources */,
-				BD0416DA1CD3A2BB00F1288A /* rNamenPanelX.m in Sources */,
+				BDD5EA991CDE1AD3001DB2F4 /* NSString+regex.m in Sources */,
+				BD0416DA1CD3A2BB00F1288A /* rNamenPanel.m in Sources */,
 				BD0416EB1CD3AAC000F1288A /* rStatistikDS.m in Sources */,
 				BD0416F31CD3AB7900F1288A /* rUtils.m in Sources */,
 				BD0416EF1CD3AB1D00F1288A /* rTestPanel.m in Sources */,

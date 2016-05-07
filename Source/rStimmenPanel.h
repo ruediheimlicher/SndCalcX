@@ -2,7 +2,7 @@
 
 #import <Cocoa/Cocoa.h>
 #import "rQuittungDS.h"
-@interface rStimmenPanel : NSWindowController
+@interface rStimmenPanel : NSWindowController <NSTableViewDataSource,NSTableViewDelegate,NSCollectionViewDataSource,NSCollectionViewDelegate>
 {
     IBOutlet id QuittungEntfernenTaste;
     IBOutlet id QuittungImportierenTaste;
@@ -41,8 +41,8 @@
 - (IBAction)reportStimmePlusMinus:(id)sender;
 - (IBAction)reportQuittungPlusMinus:(id)sender;
 - (NSString*) StimmenName;
-- (NSArray*)StimmenNamenArrayAusResources;
-- (NSArray*)QuittungNamenArrayAusResourcesZuKlasse:(NSString*)dieKlasse;
+//- (NSArray*)StimmenNamenArrayAusResources;
+//- (NSArray*)QuittungNamenArrayAusResourcesZuKlasse:(NSString*)dieKlasse;
 //- (void)setStimmenPanelMitStimme:(NSString*)dieStimme;
 - (void)setStimmenTableArrayMitStimmenNamenArray:(NSArray*)derDicArray mitStimme:(NSString*)dieStimme;
 - (BOOL)checkStimmenArray:(NSArray*)derStimmenArray mitStimmenName:(NSString*)derStimmenName;

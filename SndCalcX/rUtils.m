@@ -644,7 +644,7 @@
       BOOL OK = [Filemanager createDirectoryAtPath:derPfad withIntermediateDirectories:NO attributes:NULL error:NULL];
       
       
-      NSLog(@"SndCalcDaten einrichten OK: %@",OK);
+      NSLog(@"SndCalcDaten einrichten OK: %hhd",OK);
       if (OK==NO)
       {
          return OK;

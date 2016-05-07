@@ -14,7 +14,7 @@
 int mark;
 }
 - (id)initWithFrame:(NSRect)frame;
-- (void)setRahmen;
+//- (void)setRahmen;
 - (void)setMark:(int)dieMarke;
 
 @end

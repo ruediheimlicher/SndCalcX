@@ -13,7 +13,6 @@
 		
 		int Breite=BalkenRect.size.width;
 		Feldbreite=Breite/AnzFelder;
-		int Hoehe=BalkenRect.size.height;
 		
 		max=0;
 		Abstand=3;

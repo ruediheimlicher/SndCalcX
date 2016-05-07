@@ -106,7 +106,7 @@
    
    
    
-   DruckView=TestTable;//[self setDruckViewMitFeld:DruckFeld mitKommentarDicArray:derProjektDicArray];
+ //  DruckView=TestTable;//[self setDruckViewMitFeld:DruckFeld mitKommentarDicArray:derProjektDicArray];
    
    
    
@@ -180,7 +180,7 @@
    
    NSEnumerator* TabEnum=[derDicArray objectEnumerator];
    id einTabDic;
-   NSLog(@"setDruckKommentarMit Komm.DicArray: vor while   Anz. Dics: %d",[derDicArray count]);
+   //NSLog(@"setDruckKommentarMit Komm.DicArray: vor while   Anz. Dics: %ld",(long)[derDicArray count]);
    
    
    
@@ -244,7 +244,7 @@
       }
       
       
-      int pos=[TextString length]-1;
+      long pos=[TextString length]-1;
       BOOL letzteZeileWeg=NO;
       if ([TextString characterAtIndex:pos]=='\r')
       {
