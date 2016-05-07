@@ -689,8 +689,8 @@ const short     kSerieFertig = 25003;
    //NSString* Heutestring = [NSString stringWithFormat:@"%ld.%ld.%ld",(long)HeuteTag,(long)HeuteMonat,(long)HeuteJahr];
    [Heute setCalendarFormat:@"%d.%m.%Y"];
    NSLog(@"Heute: %@",[Heute description]);
-   DatumFeld.stringValue = Heute;
-   NSString* SCVersionString=[NSString stringWithFormat:@"%ld.%d",HeuteJahr%2000,HeuteMonat];
+   DatumFeld.stringValue = (NSString*)Heute;
+   NSString* SCVersionString=[NSString stringWithFormat:@"%ld.%ld",(long)HeuteJahr%2000,(long)HeuteMonat];
    //NSLog(@"SCVersionString: %@",SCVersionString);
    //	NSString* ResourcenPfad=[[[NSBundle mainBundle]bundlePath]stringByAppendingPathComponent:@"Contents/Resources"];
    NSString* ResourcenPfad=[[[NSBundle mainBundle]bundlePath]stringByAppendingPathComponent:@"Contents"];
@@ -1519,7 +1519,7 @@ const short     kSerieFertig = 25003;
    int addsubOK=[AddSubSettings checkSettings];
    [returnStatusDic setObject:[NSNumber numberWithInt:addsubOK] forKey:@"addsubok"];
    
-   NSLog(@"SerieDatenStatus    returnStatusDic: %@",[returnStatusDic description]);
+   NSLog(@"SettingStatus    returnStatusDic: %@",[returnStatusDic description]);
    return returnStatusDic;
 }
 

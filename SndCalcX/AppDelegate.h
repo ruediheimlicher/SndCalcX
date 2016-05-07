@@ -19,7 +19,7 @@
 #import "rRahmen.h"
 //#import "rDiplomFenster.h"
 #import "rDiplomFensterX.h"
-#import "rNamenPanelX.h"
+#import "rNamenPanel.h"
 #import "rTestPanel.h"
 //#include <stdlib.h>
 #import "rStatistik.h"
@@ -201,7 +201,7 @@ struct cSeriedaten;
 - (void)initReihenSettings;
 - (BOOL)checkSettings;
 - (void)ClearSettings;
-- (NSDictionary*)SerieDatenStatus;
+//- (NSDictionary*)SerieDatenStatus;
 - (NSDictionary*)SettingStatus;
 - (NSDictionary*)StatusVonSerieDatenDic:(NSDictionary*)derSerieDatenDic;
 - (BOOL)checkSerieDatenDic:(NSDictionary*)derSerieDatenDic vonTest:(NSString*)derTestName;
@@ -222,7 +222,7 @@ struct cSeriedaten;
 - (IBAction)AufgabeAb:(id)sender;
 - (void)FalschesZeichenFunktion:(NSTimer*)derTimer;
 - (void)nextAufgabeAbTimerFunktion:(NSTimer*)TestTimer;
-- (void)AufgabeFertigAktion:(NSNotification*)note;
+//- (void)AufgabeFertigAktion:(NSNotification*)note;
 - (void)AufgabeBereitAktion:(NSNotification*)note;
 - (void)setTestVonTestname:(NSString*)derTest;
 - (BOOL)checkAufgabe;

@@ -439,6 +439,11 @@ enum
    
 }
 
+- (void)AddSubSettingsAktion:(id)sender
+{
+   
+}
+
 
 - (void)mitAdditionAktion:(id)sender
 {
@@ -454,7 +459,8 @@ enum
       {
          
       }break;
-         
+      default:
+         break;
    }//switch
    
    

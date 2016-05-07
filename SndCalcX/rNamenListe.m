@@ -198,8 +198,8 @@ extern NSString* OK;
    tempString=[derString mutableCopy];
    BOOL LeerschlagAmAnfang=YES;
    BOOL LeerschlagAmEnde=YES;
-   int index=[tempString length];
-   while (LeerschlagAmAnfang || LeerschlagAmEnde &&[tempString length]&&index)
+   long index=[tempString length];
+   while (LeerschlagAmAnfang || (LeerschlagAmEnde &&[tempString length]&&index))
    {
       if ([tempString characterAtIndex:0]==' ')
       {
@@ -420,7 +420,7 @@ extern NSString* OK;
 
 - (IBAction)reportEinsetzenVariante:(id)sender
 {
-   NSLog(@"reportEinsetzenVariante: tag:%d",[[sender selectedCell]tag]);
+  // NSLog(@"reportEinsetzenVariante: tag:%d",[[sender selectedCell]tag]);
    switch ([[sender selectedCell]tag])
    {
       case 0://nur dieses Projekt
