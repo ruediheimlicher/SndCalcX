@@ -201,6 +201,12 @@ const short     kSerieFertig = 25003;
               name:@"Weiterfahren"
             object:nil];
    
+   
+   [nc addObserver:self
+          selector:@selector(SettingAlsTestSichernAktion:)
+              name:@"settingalstestsichern"
+            object:nil];
+
    /*
     [nc addObserver:self
     selector:@selector(QTKitQuittungFertigAktion:)
@@ -258,13 +264,13 @@ const short     kSerieFertig = 25003;
          {
             case NSAlertFirstButtonReturn:
             {
-               NSLog(@"terminate");
+               //NSLog(@"terminate");
                [NSApp terminate:self];
             }
                
             case NSAlertSecondButtonReturn:
             {
-               NSLog(@"lokal");
+               //NSLog(@"lokal");
                
             }
                
@@ -599,6 +605,7 @@ const short     kSerieFertig = 25003;
       
       [[AblaufMenu itemWithTag:kNeuerNameTag] setTarget:self];//
       [[AblaufMenu itemWithTag:kTestListeTag] setTarget:self];//
+      [[AblaufMenu itemWithTag:kTestListeTag] setKeyEquivalent:@"T"];
       [[AblaufMenu itemWithTag:kChangePasswortTag] setTarget:self];//
       [[AblaufMenu itemWithTag:kNeueSessionTag] setTarget:self];//
       [[AblaufMenu itemWithTag:kNeueSessionTag] setToolTip:NSLocalizedString(@"Begin a new session of tests for all members of the list.",@"Neue Session")];
@@ -709,7 +716,7 @@ const short     kSerieFertig = 25003;
    //NSLog(@"Heute: %d %d %d",HeuteTag,HeuteMonat,HeuteJahr);
    //NSString* Heutestring = [NSString stringWithFormat:@"%ld.%ld.%ld",(long)HeuteTag,(long)HeuteMonat,(long)HeuteJahr];
    [Heute setCalendarFormat:@"%d.%m.%Y"];
-   NSLog(@"Heute: %@",[Heute description]);
+   //NSLog(@"Heute: %@",[Heute description]);
    DatumFeld.stringValue = (NSString*)Heute;
    NSString* SCVersionString=[NSString stringWithFormat:@"%ld.%ld",(long)HeuteJahr%2000,(long)HeuteMonat];
    //NSLog(@"SCVersionString: %@",SCVersionString);
@@ -789,14 +796,14 @@ const short     kSerieFertig = 25003;
                {
                   case NSAlertFirstButtonReturn://	1000
                   {
-                     NSLog(@"NSAlertFirstButtonReturn: Nochmals versuchen");
+                     //NSLog(@"NSAlertFirstButtonReturn: Nochmals versuchen");
                      return NO;
                      
                   }break;
                      
                   case NSAlertSecondButtonReturn://1001
                   {
-                     NSLog(@"NSAlertSecondButtonReturn: Beenden");
+                     //NSLog(@"NSAlertSecondButtonReturn: Beenden");
                      //User fragen, ob busy zurückgesetzt werden soll. Notmassnahme
                      NSAlert *BusyWarnung = [[NSAlert alloc] init];
                      [BusyWarnung addButtonWithTitle:NSLocalizedString(@"Reset Data Folder",@"Datenordner zurücksetzen")];
@@ -819,7 +826,7 @@ const short     kSerieFertig = 25003;
                      {
                         case NSAlertFirstButtonReturn://	1000
                         {
-                           NSLog(@"NSAlertFirstButtonReturn: Reset");
+                           //NSLog(@"NSAlertFirstButtonReturn: Reset");
                            if (AdminPWOK || [self checkAdminZugang])//PW schon angegeben innerhalb Timeout
                            {
                               [Utils setPListBusy:NO anPfad:SndCalcPfad];
@@ -830,7 +837,7 @@ const short     kSerieFertig = 25003;
                            
                         case NSAlertSecondButtonReturn://1001
                         {
-                           NSLog(@"NSAlertSecondButtonReturn: Beenden");
+                          // NSLog(@"NSAlertSecondButtonReturn: Beenden");
                            
                            
                         }break;
@@ -841,12 +848,12 @@ const short     kSerieFertig = 25003;
                   }break;
                   case NSAlertThirdButtonReturn://
                   {
-                     NSLog(@"NSAlertThirdButtonReturn");
+                     //NSLog(@"NSAlertThirdButtonReturn");
                      
                   }break;
                   case NSAlertThirdButtonReturn+1://
                   {
-                     NSLog(@"NSAlertThirdButtonReturn+1");
+                    // NSLog(@"NSAlertThirdButtonReturn+1");
                      
                   }break;
                      
@@ -948,7 +955,7 @@ const short     kSerieFertig = 25003;
       }
       else
       {
-         NSLog(@"TestArray nicht da");
+         //NSLog(@"TestArray nicht da");
          NSMutableArray* tempTestArray=[[NSMutableArray alloc]initWithCapacity:0];
          NSMutableDictionary* tempTestDic=[[NSMutableDictionary alloc]initWithCapacity:0];
          [tempTestDic setObject:[self SerieDatenDicVonScratch] forKey:@"seriedatendic"];
@@ -1007,14 +1014,14 @@ const short     kSerieFertig = 25003;
             {
                case NSAlertFirstButtonReturn://neue Session starten
                {
-                  NSLog(@"neue Session");
+                  //NSLog(@"neue Session");
                   [self neueSession:NULL];
                   BOOL SessionbehaltenOK=[Utils saveSessionBehalten:NO anPfad:SndCalcPfad];
                }break;
                   
                case NSAlertSecondButtonReturn://alte Session weiterführen
                {
-                  NSLog(@"Session behalten");
+                  //NSLog(@"Session behalten");
                   //24.3.				heuteTag=lastSessionTag;
                   //				SessionDatum=[NSDate date];
                   //				BOOL SessionOK=[Utils saveSessionDatum:[NSDate date] anPfad:SndCalcPfad];
@@ -1052,7 +1059,7 @@ const short     kSerieFertig = 25003;
       }
       else
       {
-         NSLog(@"kein farbig");
+         //NSLog(@"kein farbig");
          farbig=YES;
          [PListDic setObject:[NSNumber numberWithBool:farbig] forKey:@"farbig"];
       }
@@ -1196,18 +1203,18 @@ const short     kSerieFertig = 25003;
       {
          case NSAlertFirstButtonReturn://	1000
          {
-            NSLog(@"NSAlertFirstButtonReturn");
+            //NSLog(@"NSAlertFirstButtonReturn");
             [NSApp terminate:self];
          }break;
             
          case NSAlertSecondButtonReturn://1001
          {
-            NSLog(@"NSAlertSecondButtonReturn");
+            //NSLog(@"NSAlertSecondButtonReturn");
             
          }break;
          case NSAlertThirdButtonReturn://
          {
-            NSLog(@"NSAlertThirdButtonReturn");
+            //NSLog(@"NSAlertThirdButtonReturn");
             
          }break;
          case NSAlertThirdButtonReturn+1://
@@ -1323,7 +1330,7 @@ const short     kSerieFertig = 25003;
       }
       if ([TestPopKnopf numberOfItems]==0)//Keine Tests für denUser vorhanden
       {
-         NSLog(@"Fuer %@ sind keine passenden Tests vorhanden",derUser);
+         //NSLog(@"Fuer %@ sind keine passenden Tests vorhanden",derUser);
          [TestPopKnopf addItemsWithTitles:[TestDicArray valueForKey:@"testname"]];
       }
    }
@@ -1413,21 +1420,21 @@ const short     kSerieFertig = 25003;
    //NSLog(@"\n\nreadZahlen start");
    NSString* ZahlenPfad=[SndCalcPfad stringByAppendingPathComponent:@"Zahlen_2/Finish.aiff"];
    NSArray* tempHanniZahlenArray=[Filemanager contentsOfDirectoryAtPath:ZahlenPfad error:NULL];
-   NSLog(@"tempHanniZahlenArray: %@",[tempHanniZahlenArray description]);
+  // NSLog(@"tempHanniZahlenArray: %@",[tempHanniZahlenArray description]);
    NSString* ResourcenPfad=[[[NSBundle mainBundle]bundlePath]stringByAppendingPathComponent:@"Contents/Resources"];
    NSString* APfad=[[[NSBundle mainBundle]bundlePath]stringByAppendingPathComponent:@"Contents/Resources/A"];
    NSString* FinishPfad=[[[NSBundle mainBundle]bundlePath]stringByAppendingPathComponent:@"Contents/Resources/Finish.aiff"];
    //	BOOL copyOK=[Filemanager removeFileAtPath:APfad handler:NULL];
    //	NSLog(@"copyOK: %d",copyOK);
    NSArray* BundleArray=[Filemanager contentsOfDirectoryAtPath:ResourcenPfad error:NULL];
-   NSLog(@"BundleArray path: %@	Array: %@",[[NSBundle mainBundle]bundlePath],[BundleArray description]);
+  // NSLog(@"BundleArray path: %@	Array: %@",[[NSBundle mainBundle]bundlePath],[BundleArray description]);
    
    NSArray* tempZahlenArray=[Filemanager contentsOfDirectoryAtPath:ResourcenPfad error:NULL];
    
    NSString* BundlePfad=[[NSBundle mainBundle]bundlePath];
    
-   NSLog(@"BundlePfad: %@",BundlePfad);
-   NSLog(@"readZahlen end\n");
+  // NSLog(@"BundlePfad: %@",BundlePfad);
+   //NSLog(@"readZahlen end\n");
    return YES;
 }
 
@@ -1474,12 +1481,27 @@ const short     kSerieFertig = 25003;
    return  tempPListDic;
 }
 
+
+- (void)SettingAlsTestSichernAktion:(NSNotification*)note
+{
+   NSLog(@"SettingAlsTestSichernAktion: note: %@",[[note userInfo]description]);
+   if ([[note userInfo]objectForKey:@"sichtbar"] && [[[note userInfo]objectForKey:@"sichtbar"]intValue])
+   {
+      [SettingAlsTestSichernTaste setHidden:NO];
+   }
+   else
+   {
+      [SettingAlsTestSichernTaste setHidden:YES];
+   }
+   
+}
+
 - (BOOL)checkSettings
 {
    BOOL checkOK=YES;
    int multOK=[ReihenSettings checkSettings];
    int addsubOK=[AddSubSettings checkSettings];
-   NSLog(@"\ncheckSettings                                      multOK: %d          addsubOK: %d",multOK,addsubOK);
+   //NSLog(@"\ncheckSettings                                      multOK: %d          addsubOK: %d",multOK,addsubOK);
    
    if (multOK+addsubOK==0)
    {
@@ -1540,7 +1562,7 @@ const short     kSerieFertig = 25003;
    int addsubOK=[AddSubSettings checkSettings];
    [returnStatusDic setObject:[NSNumber numberWithInt:addsubOK] forKey:@"addsubok"];
    
-   NSLog(@"SettingStatus    returnStatusDic: %@",[returnStatusDic description]);
+   //NSLog(@"SettingStatus    returnStatusDic: %@",[returnStatusDic description]);
    return returnStatusDic;
 }
 
@@ -1610,8 +1632,10 @@ const short     kSerieFertig = 25003;
    {
       NSAlert *Warnung = [[NSAlert alloc] init];
       [Warnung addButtonWithTitle:@"OK"];
-      NSString* t0=NSLocalizedString(@"Settings for test: %@ incorrect",@"Einstellungen für Test: '%@' sind nicht korrekt");
-      NSString* t1=[NSString stringWithFormat:t0,derTestName];
+      NSString* t0a=NSLocalizedString(@"Settings for test: '",@"Einstellungen für Test: '");
+     NSString* t0b=NSLocalizedString(@"' incorrect",@"' sind nicht korrekt");
+      NSString* t1=[NSString stringWithFormat:@"%@ %@ %@",t0a,derTestName,t0b];
+      //NSLog(@"keine Reihe t1: %@",t1);
       [Warnung setMessageText:t1];
       NSString* s2=NSLocalizedString(@"No Name for Test.",@"Der Test hat keinen Namen.");
       NSString* s3=NSLocalizedString(@"The settings are deleted.",@"Die Einstellungen werden gelöscht.");
@@ -1642,8 +1666,11 @@ const short     kSerieFertig = 25003;
          {
             NSAlert *Warnung = [[NSAlert alloc] init];
             [Warnung addButtonWithTitle:@"OK"];
-            NSString* t0=NSLocalizedString(@"Settings for test: %@ incorrect",@"Einstellungen für Test: '%@' sind nicht korrekt");
-            NSString* t1=[NSString stringWithFormat:t0,derTestName];
+            
+            NSString* t0a=NSLocalizedString(@"Settings for test: '",@"Einstellungen für Test: '");
+            NSString* t0b=NSLocalizedString(@"' incorrect",@"' sind nicht korrekt");
+            NSString* t1=[NSString stringWithFormat:@"%@ %@ %@",t0a,derTestName,t0b];
+            //NSLog(@"t1: %@",t1);
             [Warnung setMessageText:t1];
             NSString* s2=NSLocalizedString(@"No Operation Choosed.",@"Keine Operation ausgewählt.");
             NSString* s3=NSLocalizedString(@"Addition and/or subtraction must be choosed.",@"Addition und/oder Subtraktion muss ausgewählt sein.");
@@ -1669,8 +1696,12 @@ const short     kSerieFertig = 25003;
          {
             NSAlert *Warnung = [[NSAlert alloc] init];
             [Warnung addButtonWithTitle:@"OK"];
-            NSString* t0=NSLocalizedString(@"Settings for test: %@ incorrect",@"Einstellungen für Test: '%@' sind nicht korrekt");
-            NSString* t1=[NSString stringWithFormat:t0,derTestName];
+           
+            NSString* t0a=NSLocalizedString(@"Settings for test: '",@"Einstellungen für Test: '");
+            NSString* t0b=NSLocalizedString(@"' incorrect",@"' sind nicht korrekt");
+            NSString* t1=[NSString stringWithFormat:@"%@ %@ %@",t0a,derTestName,t0b];
+            //NSLog(@"t1: %@",t1);
+           
             [Warnung setMessageText:t1];
             NSString* s2=NSLocalizedString(@"No Row Choosed.",@"Keine Reihe ausgewählt.");
             NSString* s3=NSLocalizedString(@"At least one row must be choosed.",@"Mindestens eine Reihe muss ausgewählt sein.");
@@ -1692,8 +1723,10 @@ const short     kSerieFertig = 25003;
    {
       NSAlert *Warnung = [[NSAlert alloc] init];
       [Warnung addButtonWithTitle:@"OK"];
-      NSString* t0=NSLocalizedString(@"Settings for test: %@ incorrect",@"Einstellungen für Test: '%@' sind nicht korrekt");
-      NSString* t1=[NSString stringWithFormat:t0,derTestName];
+      NSString* t0a=NSLocalizedString(@"Settings for test: '",@"Einstellungen für Test: '");
+      NSString* t0b=NSLocalizedString(@"' incorrect",@"' sind nicht korrekt");
+      NSString* t1=[NSString stringWithFormat:@"%@ %@ %@",t0a,derTestName,t0b];
+      //NSLog(@"t1: %@",t1);
       [Warnung setMessageText:t1];
       NSString* s2=NSLocalizedString(@"No Operation Choosed.",@"Keine Operation ausgewählt");
       NSString* s3=NSLocalizedString(@"At least one operation must be choosed.",@"Mindestens eine Operation muss ausgewähltsein.");
@@ -1743,7 +1776,7 @@ const short     kSerieFertig = 25003;
       {
          case 0://keine Operation aktiviert
          {
-            NSLog(@"neueSerie: ex");
+            //NSLog(@"neueSerie: ex");
          }break;
             
             
@@ -1777,7 +1810,7 @@ const short     kSerieFertig = 25003;
    
    if (Modus==kTrainingModus)
    {
-      RechnungSeriedaten.AnzahlAufgaben=[[AnzahlPopKnopf selectedItem]tag];
+      RechnungSeriedaten.AnzahlAufgaben=(int)[[AnzahlPopKnopf selectedItem]tag];
       RechnungSeriedaten.Zeit=[[ZeitPpKnopf selectedItem]tag];
       [ZeitPpKnopf setHidden:NO];
       [AnzahlPopKnopf setHidden:NO];
@@ -1839,7 +1872,7 @@ const short     kSerieFertig = 25003;
    
    if (AufgabenDicArray)
    {
-      NSLog(@"AufgabenDicArray schon da: RechnungSeriedaten: %@",RechnungSeriedaten);
+      //NSLog(@"AufgabenDicArray schon da: RechnungSeriedaten: %@",RechnungSeriedaten);
        AufgabenDicArray = [AufgabenSerie neueRechnungserie:RechnungSeriedaten];
    }
    else
@@ -2193,7 +2226,7 @@ const short     kSerieFertig = 25003;
       {
          case 0://keine Operation aktiviert
          {
-            NSLog(@"neueSerie: ex");
+            //NSLog(@"neueSerie: ex");
          }break;
             
             
@@ -2226,7 +2259,7 @@ const short     kSerieFertig = 25003;
       [AnzahlPopKnopf setHidden:NO];
       [ZeitLimiteFeld setHidden:YES];
       [AnzahlFeld setHidden:YES];
-      
+      //[NamenPopKnopf setEnabled:YES];
    }
    else
    {
@@ -2952,6 +2985,7 @@ const short     kSerieFertig = 25003;
    {
       //[sender setTitle:NSLocalizedString(@"End",@"Fertig")];
       //NSLog(@"AufgabeAb: aktuelleAufgabenNummer==AnzahlAufgaben");
+      
    }
    
    else
@@ -2962,6 +2996,8 @@ const short     kSerieFertig = 25003;
       [ModusOption setEnabled: (Modus==kTrainingModus)];
       [ErgebnisseTaste setEnabled: NO];
       [ToggleSessionKnopf setEnabled: NO];
+      [StartTaste setTitle:NSLocalizedString(@"Repeat",@"Wiederholen")];
+
       //		NSLog(@"AufgabeAb: AufgabenArray count: %d nummer: %d",[AufgabenArray count],aktuelleAufgabenNummer);
       //NSLog(@"AufgabeAb: AufgabenArray : %@ ",[AufgabenArray description]);
       
@@ -3009,12 +3045,12 @@ const short     kSerieFertig = 25003;
 - (void)keyDown:(NSEvent *)theEvent
 {
    NSString* c=[theEvent characters];
-   NSLog(@"Controller keyDown: c: %@  code: %d ",c,[theEvent keyCode]);
+   //NSLog(@"Controller keyDown: c: %@  code: %d ",c,[theEvent keyCode]);
 }
 
 - (void)FalschesZeichenAktion:(NSNotification*)note
 {
-   NSLog(@"FalschesZeichenAktion: note: %@",[[note userInfo]description]);
+   //NSLog(@"FalschesZeichenAktion: note: %@",[[note userInfo]description]);
    BOOL Warnzeichen=NO;
    if ([note userInfo]&&[[note userInfo] objectForKey:@"anzfalscheszeichen"])
    {
@@ -3105,7 +3141,7 @@ const short     kSerieFertig = 25003;
 
 - (void)WeiterfahrenAktion:(NSNotification*)note
 {
-   NSLog(@"WeiterfahrenAktion");
+   //NSLog(@"WeiterfahrenAktion");
    [TestPopKnopf setEnabled:YES];
    
 }
@@ -3128,14 +3164,6 @@ const short     kSerieFertig = 25003;
    
    {
       [Zeitanzeige setZehntelZeit:abgelaufeneZeit];
-   }
-}
-
-- (void)QTKitQuittungFertigAktion:(NSNotification*)note
-{
-   NSLog(@"SndCalcController QTKitQuittungFertigAktion note: %@",[[note userInfo]description]);
-   {
-      
    }
 }
 
@@ -3170,8 +3198,9 @@ const short     kSerieFertig = 25003;
    TimerValid=YES;
    AufgabeOK=YES;
    [self setOK:YES];
-   
-   [StartTaste setTitle:NSLocalizedString(@"Repeat",@"Wiederholen")];
+  // NSLog(@"AufgabelesenFertigAktion: Titel: %@ ",NSLocalizedString(@"Repeat",@"Wiederholen"));
+
+ //  [StartTaste setTitle:NSLocalizedString(@"Repeat",@"Wiederholen")];
    
 }
 
@@ -3270,13 +3299,13 @@ const short     kSerieFertig = 25003;
          //NSLog(@"saveErgebnisVon: tempErgebnisDicArray: %@",[tempErgebnisDicArray description]);
          if (tempErgebnisDicArray&&[tempErgebnisDicArray count]) //tempErgebnisDicArray schon vorhanden
          {
-            NSLog(@"tempErgebnisDicArray schon vorhanden");
+            //NSLog(@"tempErgebnisDicArray schon vorhanden");
             [tempErgebnisDicArray addObject:[derErgebnisDic copy]];
-            NSLog(@"nach tempErgebnisDicArray addObject");
+           // NSLog(@"nach tempErgebnisDicArray addObject");
          }
          else //tempErgebnisDicArray anlegen
          {
-            NSLog(@"saveErgebnis: tempErgebnisDicArray anlegen");
+            //NSLog(@"saveErgebnis: tempErgebnisDicArray anlegen");
             
             NSMutableArray*tempneuerErgebnisDicArray=[NSMutableArray arrayWithObject:[derErgebnisDic copy]];
             [[tempNamenDicArray objectAtIndex:namenIndex]setObject:tempneuerErgebnisDicArray forKey:@"ergebnisdicarray"];
@@ -3286,12 +3315,12 @@ const short     kSerieFertig = 25003;
       }
       else //Namendic anlegen
       {
-         NSLog(@"Namendic anlegen");
+        // NSLog(@"Namendic anlegen");
          NSMutableArray*tempneuerErgebnisDicArray=[NSMutableArray arrayWithObject:[derErgebnisDic copy]];
          NSMutableDictionary* tempNamenDic=[NSMutableDictionary dictionaryWithObject:tempneuerErgebnisDicArray forKey:@"ergebnisdicarray"];
          [tempNamenDic setObject:[NamenPopKnopf titleOfSelectedItem] forKey:@"name"];
          [tempNamenDicArray addObject:[tempNamenDic copy]];
-         NSLog(@"tempNamenDic: %@",[tempNamenDic description]);
+         //NSLog(@"tempNamenDic: %@",[tempNamenDic description]);
       }
       //NSLog(@"tempNamenDicArray: %@",[tempNamenDicArray description]);
    }
@@ -3412,7 +3441,7 @@ const short     kSerieFertig = 25003;
          }
          else //Namendic anlegen
          {
-            NSLog(@"Namendic anlegen");
+           // NSLog(@"Namendic anlegen");
             NSMutableArray*tempneuerErgebnisDicArray=[NSMutableArray arrayWithObject:tempErgebnisDic];
             NSMutableDictionary* tempNamenDic=[NSMutableDictionary dictionaryWithObject:tempneuerErgebnisDicArray forKey:@"ergebnisdicarray"];
             [tempNamenDic setObject:[NamenPopKnopf titleOfSelectedItem] forKey:@"name"];
@@ -3514,7 +3543,7 @@ const short     kSerieFertig = 25003;
 {
    
    [OKTaste setEnabled:NO];
-   NSLog(@"Controller OKTastenAktion");
+   //NSLog(@"Controller OKTastenAktion");
    
  
    [ResultatFeld setSelectable:NO];
@@ -3528,7 +3557,7 @@ const short     kSerieFertig = 25003;
    
    
    //[ErgebnisFeld display];
-   NSLog(@"OKTastenAktion: verify: %d",verify);
+   //NSLog(@"OKTastenAktion: verify: %d",verify);
    if (verify)
    {
       BOOL tempOK=[self checkAufgabe];
@@ -3542,7 +3571,7 @@ const short     kSerieFertig = 25003;
 
 - (IBAction)ErgebnisFeldAktion:(id)sender
 {
-   NSLog(@"Controller  ErgebnisFeldAktion: %@ verify: %d",[ResultatFeld stringValue],verify);
+   //NSLog(@"Controller  ErgebnisFeldAktion: %@ verify: %d",[ResultatFeld stringValue],verify);
    
    // Timer fuer Rechnungszeit anhalten
    if ([AblaufzeitTimer isValid])
@@ -3570,7 +3599,7 @@ const short     kSerieFertig = 25003;
 
 - (void)ErgebnisFertigAktion:(NSNotification*)note
 {
-   NSLog(@"Controller ErgebnisFertigAktion: note: %@ verify: %d: ",[[note userInfo]description],verify);
+   //NSLog(@"Controller ErgebnisFertigAktion: note: %@ verify: %d: ",[[note userInfo]description],verify);
    NSNumber* KeyCodeNumber=[[note userInfo]objectForKey:@"key"];
    int TastenCode=(int)[KeyCodeNumber intValue];
    //NSLog(@"ErgebnisFertigAktion: note: %@ verify: %d: TastenCode: %d",[[note userInfo]description],verify,TastenCode);
@@ -3585,7 +3614,7 @@ const short     kSerieFertig = 25003;
       TimerValid=NO;
       BOOL tempOK=[self checkAufgabe];
       //verify=NO;
-      NSLog(@"ErgebnisFertigAktion:nach self checkAufgabe");
+      //NSLog(@"ErgebnisFertigAktion:nach self checkAufgabe");
    }
 }
 
@@ -3687,7 +3716,7 @@ const short     kSerieFertig = 25003;
             [Aufgabenzeiger setAnzahl:aktuelleAufgabenNummer];
             anzRichtig++;
             
-            //[StartTaste setTitle:NSLocalizedString(@"Next",@"Weiter")];
+            [StartTaste setTitle:NSLocalizedString(@"Next",@"Weiter")];
             
             if (aktuelleAufgabenNummer==AnzahlAufgaben)//Serie ist fertig
             {
@@ -3721,6 +3750,13 @@ const short     kSerieFertig = 25003;
                      [StartTaste setKeyEquivalent:@"\r"];
                      [[self window]makeFirstResponder:StartTaste];
                      verify=NO;
+                     
+                     NSTimer* DelayTimer=[NSTimer scheduledTimerWithTimeInterval:1.0
+                                                                          target:self
+                                                                        selector:@selector(nextAufgabeAbTimerFunktion:)
+                                                                        userInfo:nil
+                                                                         repeats:NO];
+
                   }break;
                      
                   case kTestModus:
@@ -3757,7 +3793,7 @@ const short     kSerieFertig = 25003;
             [ErgebnisRahmenFeld setHidden:NO];
             [TestPopKnopf setEnabled:YES];
             //
-            [StartTaste setTitle:NSLocalizedString(@"Again",@"Nochmals")];
+            [StartTaste setTitle:NSLocalizedString(@"Repeat",@"Nochmals")];
             anzFehler++;
             switch (Modus)
             {
@@ -3767,6 +3803,7 @@ const short     kSerieFertig = 25003;
                   [StartTaste setKeyEquivalent:@"\r"];
                   [[self window]makeFirstResponder:StartTaste];
                   verify=NO;
+
                }break;
                case kTestModus:
                {
@@ -3817,6 +3854,8 @@ const short     kSerieFertig = 25003;
                        forKey:@"quittung"];
    //NSLog(@"RichtigSoundAb: tempQuittungDic: %@ ",[tempQuittungDic description]);
    BOOL QuittungOK=[Speaker QuittungAb:tempQuittungDic];
+   //NSLog(@"RichtigSoundAb: Titel: %@ ",NSLocalizedString(@"Next",@"weiter"));
+   [StartTaste setTitle:NSLocalizedString(@"Next",@"weiter")];
    
    QuittungOK=0;
 }
@@ -3827,14 +3866,7 @@ const short     kSerieFertig = 25003;
    [tempQuittungDic setObject:[NSNumber numberWithInt:AUFGABEFALSCH]
                        forKey:@"quittung"];
    BOOL QuittungOK=[Speaker QuittungAb:tempQuittungDic];
-   
-   /*
-    NSSound* FalschSnd=[NSSound soundNamed:@"Falsch"];
-    if (FalschSnd)
-    {
-    [FalschSnd play];
-    }
-    */
+   [StartTaste setTitle:NSLocalizedString(@"Repeat",@"wiederholen")];
    QuittungOK=0;
 }
 
@@ -3845,15 +3877,8 @@ const short     kSerieFertig = 25003;
    [tempQuittungDic setObject:[NSNumber numberWithInt:SERIEFERTIG]
                        forKey:@"quittung"];
    BOOL QuittungOK=[Speaker QuittungAb:tempQuittungDic];
-   ;
-   /*
-    NSSound* FertigSnd=[NSSound soundNamed:@"Fertig"];
-    if (FertigSnd)
-    {
-    [FertigSnd play];
-    }
-    */
-   QuittungOK=0;
+   
+    QuittungOK=0;
 }
 
 
@@ -3861,7 +3886,7 @@ const short     kSerieFertig = 25003;
 - (void)markRichtig
 {
    //[ErgebnisRahmenFeld setHidden:NO];
-   NSLog(@"markRichtig");
+   //NSLog(@"markRichtig");
    [ErgebnisRahmenFeld lockFocus];
    [[NSColor greenColor]set];
    NSRect r=[ErgebnisRahmenFeld bounds];
@@ -3879,7 +3904,7 @@ const short     kSerieFertig = 25003;
 
 - (void)markFalsch
 {
-   NSLog(@"markFalsch");
+  // NSLog(@"markFalsch");
    [[RechnungsBox contentView]lockFocus];
    //[ErgebnisView lockFocus];
    [[NSColor redColor]set];
@@ -3936,7 +3961,7 @@ const short     kSerieFertig = 25003;
 
 - (void)markReset
 {
-   NSLog(@"markReset");
+   //NSLog(@"markReset");
    [ErgebnisRahmenFeld lockFocus];
    [[NSColor lightGrayColor]set];
    NSRect r=[ErgebnisRahmenFeld bounds];
@@ -4119,6 +4144,7 @@ const short     kSerieFertig = 25003;
 
 -(IBAction)closeDrawer:(id)sender
 {
+   //NSLog(@"AppDelegate closeDrawer");
    [SettingsDrawer close:NULL];
    [SettingsPfeil setState:NO];
    
@@ -4155,7 +4181,7 @@ const short     kSerieFertig = 25003;
 
 - (IBAction)reportSettingAlsTestSichern:(id)sender
 {
-   //NSLog(@"reportSettingAlsTestSichern");
+   NSLog(@"reportSettingAlsTestSichern");
    SerieDatenDic=(NSMutableDictionary*)[self SerieDatenDicAusSettings];
    //NSLog(@"reportSettingAlsTestSichern: SerieDatenDic: %@",[SerieDatenDic description]);
    
@@ -4166,6 +4192,14 @@ const short     kSerieFertig = 25003;
    [TestPanel setAnzahl:(int)[AnzahlPopKnopf indexOfSelectedItem]];
    [TestPanel setZeit:(int)[ZeitPpKnopf indexOfSelectedItem]];
    
+}
+- (IBAction)reportSettingsAnwenden:(id)sender
+{
+  // NSLog(@"reportSettingsAnwenden");
+   SerieDatenDic=(NSMutableDictionary*)[self SerieDatenDicAusSettings];
+   //NSLog(@"reportSettingsAnwenden: SerieDatenDic: %@",[SerieDatenDic description]);
+   [self neueSerie:nil];
+ 
 }
 
 - (void)setupAufgabenDrawer
@@ -4206,7 +4240,7 @@ const short     kSerieFertig = 25003;
 
 - (IBAction)toggleAufgabenDrawer:(id)sender
 {
-   NSLog(@"toggleAufgabenDrawer");
+   //NSLog(@"toggleAufgabenDrawer");
    [self closeSessionDrawer:NULL];
    NSRect r=[[[self window]contentView]frame];
    NSPoint p=[[[self window]contentView]frame].origin;
@@ -4481,7 +4515,7 @@ const short     kSerieFertig = 25003;
 {
    [self closeSessionDrawer:NULL];
    int maxZeit=[[sender titleOfSelectedItem]intValue];
-   NSLog(@"setMaxZeit: maxZeit: %d",maxZeit);
+   //NSLog(@"setMaxZeit: maxZeit: %d",maxZeit);
    
    [Zeitanzeige setMax:maxZeit];
    [ZeitFeld setIntValue:maxZeit];
@@ -4705,7 +4739,7 @@ const short     kSerieFertig = 25003;
                {
                   SerieDatenDic=[[[TestDicArray objectAtIndex:Testindex]objectForKey:@"seriedatendic"]mutableCopy];
                   //SerieDatenDic im TestDatenDic
-                  NSLog(@"resetTest\n							SerieDatenDic: %@",[SerieDatenDic description]);
+                  //NSLog(@"resetTest\n							SerieDatenDic: %@",[SerieDatenDic description]);
                   [self neueSerie:NULL];
                }
             }
@@ -4784,15 +4818,21 @@ const short     kSerieFertig = 25003;
                      NSString* tempTestName=[[TestDicArray objectAtIndex:Testindex]objectForKey:@"testname"];
                      NSAlert *Warnung = [[NSAlert alloc] init];
                      [Warnung addButtonWithTitle:@"OK"];
-                     NSString* t0=NSLocalizedString(@"Settings for test: %@ incorrect",@"Einstellungen für Test: '%@' sind nicht korrekt");
+                     NSString* t0a=NSLocalizedString(@"Settings for test: '",@"Einstellungen für Test: '");
+                     NSString* t0b=NSLocalizedString(@"' incorrect",@"' sind nicht korrekt");
+                     NSString* t0=[NSString stringWithFormat:@"%@ %@ %@",t0a,tempTestName,t0b];
+                     //NSLog(@"t0: %@",t0);
                      NSString* t1=@"";
                      
                      if (tempTestName)
                      {
                         t1=tempTestName;
                      }
-                     NSString* MessageString=[NSString stringWithFormat:@"%@",t0,t1];
-                     [Warnung setMessageText:[NSString stringWithFormat:NSLocalizedString(@"Settings for test: %@ incorrect",@"Einstellungen für Test: '%@' sind nicht korrekt"),t1]];
+                     NSString* MessageString=[NSString stringWithFormat:@"%@ %@",t0,t1];
+                     
+                     [Warnung setMessageText:t0];
+                     
+                     
                      NSString* s2=NSLocalizedString(@"No data for serie.",@"Keine cSeriedaten vorhanden.");
                      NSString* s1=NSLocalizedString(@"Error:",@"Fehler:");
                      NSString* InformationString=[NSString stringWithFormat:@"%@\n%@",s1,s2];
@@ -4823,7 +4863,7 @@ const short     kSerieFertig = 25003;
 
 - (IBAction)saveTest:(id)sender
 {
-   NSLog(@"saveTest");
+   //NSLog(@"saveTest");
 }
 
 - (IBAction)setModus:(id)sender
@@ -4960,7 +5000,7 @@ const short     kSerieFertig = 25003;
    [Speaker setVolume:derWert];
    Volume=derWert;
    
-   NSLog(@"setVolume: Volume: %f",Volume);
+   //NSLog(@"setVolume: Volume: %f",Volume);
 }
 
 - (IBAction)showAdminStatistik:(id)sender
@@ -5285,7 +5325,7 @@ const short     kSerieFertig = 25003;
       else if ([sender numberOfItems]==1)
       {
          //NSLog(@"setName: kein Name");
-         NSLog(@"setName: Kein NamenDicArray");
+         //NSLog(@"setName: Kein NamenDicArray");
          NSAlert *Warnung = [[NSAlert alloc] init];
          
          [Warnung addButtonWithTitle:NSLocalizedString(@"Open NameList",@"Namenliste öffnen")];
@@ -5308,13 +5348,13 @@ const short     kSerieFertig = 25003;
          {
             case NSAlertFirstButtonReturn://	1000
             {
-               NSLog(@"NSAlertFirstButtonReturn");
+               //NSLog(@"NSAlertFirstButtonReturn");
                [self showNamenPanel:NULL];
             }break;
                
             case NSAlertSecondButtonReturn://1001
             {
-               NSLog(@"NSAlertSecondButtonReturn");
+               //NSLog(@"NSAlertSecondButtonReturn");
                
             }break;
          }//switch antwort
@@ -5344,7 +5384,7 @@ const short     kSerieFertig = 25003;
 
 - (IBAction)showNamenPanel:(id)sender
 {
-   NSLog(@"showNamenPanel:		start");
+   //NSLog(@"showNamenPanel:		start");
    if (AdminPWOK || [self checkAdminZugang])//PW schon angegeben innerhalb Timeout
    {
       [self stopTimeout];
@@ -5357,7 +5397,7 @@ const short     kSerieFertig = 25003;
       
       if (!NamenPanel)
       {
-         NSLog(@"init NamenPanel");
+        // NSLog(@"init NamenPanel");
          NamenPanel=[[rNamenPanel alloc]init];
       }
       
@@ -5373,7 +5413,7 @@ const short     kSerieFertig = 25003;
       
       int modalAntwort = [NSApp runModalForWindow:[NamenPanel window]];
       [NSApp endModalSession:NamenSession];
-      NSLog(@"showNamenPanel: Antwort: %d",modalAntwort);
+      //NSLog(@"showNamenPanel: Antwort: %d",modalAntwort);
       //	[self startTimeout];
       switch (modalAntwort)
       {
@@ -5429,7 +5469,7 @@ const short     kSerieFertig = 25003;
                      }
                      else
                      {
-                        NSLog(@"Noch kein Testarray");
+                        //NSLog(@"Noch kein Testarray");
                      }
                      NSMutableArray* tempTestArray=[[NSMutableArray alloc]initWithCapacity:0];
                      if ([TestDicArray count])
@@ -5520,7 +5560,7 @@ const short     kSerieFertig = 25003;
 
 - (void)DeleteNamenAktion:(NSNotification*)note
 {
-   NSLog(@"DeleteNamenAktion: %@",[[note userInfo]description]);
+   //NSLog(@"DeleteNamenAktion: %@",[[note userInfo]description]);
    NSString* deleteName=[[note userInfo]objectForKey:@"deletename"];
    if (deleteName)
    {
@@ -5714,7 +5754,7 @@ const short     kSerieFertig = 25003;
                }
                else
                {
-                  NSLog(@"Noch keine Ergebnisse fuer: %@",[NamenPopKnopf titleOfSelectedItem]);
+                  //NSLog(@"Noch keine Ergebnisse fuer: %@",[NamenPopKnopf titleOfSelectedItem]);
                   NSAlert* OrdnerWarnung=[[NSAlert alloc]init];
                   NSString* t=NSLocalizedString(@"No Results",@"Keine Ergebnisse");
                   NSString* i1=NSLocalizedString(@"You have not yet passed a test.",@"Du hast noch keinen Test bestanden.");
@@ -5739,7 +5779,7 @@ const short     kSerieFertig = 25003;
 
 - (void)showStatistikFor:(NSString*)derName mitDic:(NSDictionary*)derErgebnisDic
 {
-   NSLog(@"**\n");
+  // NSLog(@"**\n");
    [self closeSessionDrawer:NULL];
    if (derErgebnisDic)
    {
@@ -5788,7 +5828,7 @@ const short     kSerieFertig = 25003;
          }
          else
          {
-            NSLog(@"Test nicht da: Name: %@",[TestPopKnopf titleOfSelectedItem]);
+           // NSLog(@"Test nicht da: Name: %@",[TestPopKnopf titleOfSelectedItem]);
          }
          
          if ([derErgebnisDic objectForKey:@"timeout"])
@@ -5835,7 +5875,7 @@ const short     kSerieFertig = 25003;
 
 - (IBAction)updateUserdaten:(id)sender
 {
-   NSLog(@"updateUserdaten");
+  // NSLog(@"updateUserdaten");
    NSMutableArray* tempOldNamenDicArray=(NSMutableArray*)[PListDic objectForKey:@"namendicarray"];
    //NSLog(@"showAdminStatistik	tempOldNamenDicArray: %@",[tempOldNamenDicArray description]);
    NSMutableArray* tempNamenDicArray=(NSMutableArray*)[Utils NamenDicArrayAnPfad:SndCalcPfad];
@@ -5843,13 +5883,13 @@ const short     kSerieFertig = 25003;
    if (tempNamenDicArray && tempOldNamenDicArray )
    {
       NSArray* NamenArray=[tempNamenDicArray valueForKey:@"name"];
-      NSLog(@"NamenArray: %@",[NamenArray description]);//Neue Namen
+      //NSLog(@"NamenArray: %@",[NamenArray description]);//Neue Namen
       
       NSEnumerator* OldEnum=[tempOldNamenDicArray objectEnumerator];
       id einObjekt;
       while (einObjekt=[OldEnum nextObject])
       {
-         NSLog(@"Name: %@",[einObjekt objectForKey:@"name"]);
+        // NSLog(@"Name: %@",[einObjekt objectForKey:@"name"]);
          NSMutableDictionary* tempDictionary=[[NSMutableDictionary alloc]initWithCapacity:0];
          [tempDictionary setObject:[einObjekt objectForKey:@"name"] forKey:@"name"];
          if ([einObjekt objectForKey:@"ergebnisdicarray"])
@@ -5932,9 +5972,10 @@ const short     kSerieFertig = 25003;
       {
          //NSLog(@"init TestPanel");
          TestPanel=[[rTestPanel alloc]init];
-         
+         //NSLog(@"init TestPanel TestChanged: %d",[TestPanel TestChanged]);
       }
-      //NSLog(@"TestPanel window: %d",[[TestPanel window] description]);
+      
+      //NSLog(@"TestPanel window: %@",[[TestPanel window] description]);
       [self stopAdminTimeout];
       
       //NSLog(@"TestPanel retainCount: %d",[TestPanel retainCount]);
@@ -5949,12 +5990,12 @@ const short     kSerieFertig = 25003;
          //			NSLog(@"showTestPanel	PListDic objectForKey: testarray : %@",[[PListDic objectForKey:@"testarray"] description]);
          TestDicArray=[[PListDic objectForKey:@"testarray"]mutableCopy];
          //NSLog(@"TestDicArray retainCount: %d",[TestDicArray retainCount]);
-         NSLog(@"showTestPanel	TestDicArray : %@",[TestDicArray description]);
+         //NSLog(@"showTestPanel	TestDicArray : %@",[TestDicArray description]);
          [TestPanel setTestDicArray:TestDicArray];
          
          if (Modus==kTrainingModus)
          {
-            [TestPanel setAnzahlItems:[AnzahlPopKnopf itemTitles] mitItem:[AnzahlPopKnopf indexOfSelectedItem]];
+            [TestPanel setAnzahlItems:[AnzahlPopKnopf itemTitles] mitItem:(int)[AnzahlPopKnopf indexOfSelectedItem]];
          }
          else
          {
@@ -5976,7 +6017,7 @@ const short     kSerieFertig = 25003;
       
       else
       {
-         NSLog(@"showTestPanel	kein testarray");
+         //NSLog(@"showTestPanel	kein testarray");
          TestDicArray=[[NSMutableArray alloc]initWithCapacity:0];
          [PListDic setObject:TestDicArray forKey:@"testarray"];
       }
@@ -6000,7 +6041,7 @@ const short     kSerieFertig = 25003;
          
          int modalAntwort=0;
          //		modalAntwort=[NSApp runModalForWindow:[TestPanel window]];
-         [TestPanel showWindow:NULL];
+     //    [TestPanel showWindow:NULL];
          [TestPanel setAnzahlItems:[AnzahlPopKnopf itemTitles] mitItem:[AnzahlPopKnopf indexOfSelectedItem]];
          [TestPanel setZeitItems:[ZeitPpKnopf itemTitles] mitItem:[ZeitPpKnopf indexOfSelectedItem]];
          [[TestPanel window] makeKeyAndOrderFront:NULL];
@@ -6011,7 +6052,7 @@ const short     kSerieFertig = 25003;
       }//Kein NamenDicArray
       else
       {
-         NSLog(@"showTestPanel: Kein NamenDicArray");
+        // NSLog(@"showTestPanel: Kein NamenDicArray");
          NSAlert *Warnung = [[NSAlert alloc] init];
          
          [Warnung addButtonWithTitle:NSLocalizedString(@"Open NameList",@"Namenliste öffnen")];
@@ -6034,17 +6075,22 @@ const short     kSerieFertig = 25003;
          {
             case NSAlertFirstButtonReturn://	1000
             {
-               NSLog(@"NSAlertFirstButtonReturn");
+               //NSLog(@"NSAlertFirstButtonReturn");
                [self showNamenPanel:NULL];
             }break;
                
             case NSAlertSecondButtonReturn://1001
             {
-               NSLog(@"NSAlertSecondButtonReturn");
+               //NSLog(@"NSAlertSecondButtonReturn");
                [self startAdminTimeout];
             }break;
          }//switch antwort
       }
+     //NSLog(@" windowNibName: %@",[TestPanel windowNibName]);
+    //  [TestPanel showWindow:nil];
+     // NSLog(@"TestPanel window: %@",[TestPanel window]);
+
+      [TestPanel.window makeKeyAndOrderFront:nil];
    }//passwort
 }
 
@@ -6053,8 +6099,8 @@ const short     kSerieFertig = 25003;
    NSArray* tempNamenDicArray=[Utils NamenDicArrayAnPfad:SndCalcPfad];
    [TestPanel setNamenDicArray:tempNamenDicArray];
    NSArray* tempTestDicArray=[Utils TestArrayAusPListAnPfad:SndCalcPfad];
-   NSLog(@"updateTestPanel \n\n\n********************************");
-   NSLog(@"updateTestPanel	tempTestDicArray orig : %@",[tempTestDicArray description]);
+   //NSLog(@"updateTestPanel \n\n\n********************************");
+   //NSLog(@"updateTestPanel	tempTestDicArray orig : %@",[tempTestDicArray description]);
    
    [TestPanel setTestDicArray:tempTestDicArray];
    //NSLog(@"updateTestPanel nach setTestDicArray");
@@ -6075,12 +6121,12 @@ const short     kSerieFertig = 25003;
       {
          case 0://cancel
          {
-            NSLog(@"TestnameAktion Cancel");
+           // NSLog(@"TestnameAktion Cancel");
          }break;
          case 1://Neuer Testname
          {
             NSArray* TestDicArray=[NSArray arrayWithArray:[TestPanel TestDicArray]];
-            NSLog(@"\n NeuerTestnameAktion	aus TestPanel	TestDicArray: %@",[TestDicArray description]);
+            //NSLog(@"\n NeuerTestnameAktion	aus TestPanel	TestDicArray: %@",[TestDicArray description]);
             Modus=kTestModus;
             [ModusOption selectCellAtRow:0 column:0];
             [AnzahlPopKnopf setEnabled:NO];
@@ -6186,7 +6232,7 @@ const short     kSerieFertig = 25003;
 - (void)TestBearbeitenAktion:(NSNotification*)note
 {
    
-   NSLog(@"TestBearbeitenAktion: note: %@",[[note userInfo]description]);
+  // NSLog(@"TestBearbeitenAktion: note: %@",[[note userInfo]description]);
    
    
    NSDictionary* tempSeriedatenDic;
@@ -6244,7 +6290,7 @@ const short     kSerieFertig = 25003;
 {
    
    //Nicht verwendet
-   NSLog(@"TestResetAktion");
+  // NSLog(@"TestResetAktion");
    [NamenPopKnopf selectItemAtIndex:0];
    [ErgebnisseTaste setEnabled:NO];
    [self neueSerie:NULL];
@@ -6319,14 +6365,14 @@ const short     kSerieFertig = 25003;
 - (void)setTestForAllAktion:(NSNotification*)note
 {
    //Setzen eines Tests in UserData > usertestarray für alle User
-   NSLog(@"setTestForAllAktion: note: %@",[[note userInfo]description]);
+   //NSLog(@"setTestForAllAktion: note: %@",[[note userInfo]description]);
    NSString* tempTestName=[[note userInfo]objectForKey:@"testforall"];
    if (tempTestName)
    {
-      NSLog(@"setTestForAllAktion: tempTestName: %@",tempTestName);
+      //NSLog(@"setTestForAllAktion: tempTestName: %@",tempTestName);
       [Utils setTestForAll:tempTestName nurAktiveUser:YES anPfad:SndCalcPfad];
       [Utils setAlle:YES forTest:tempTestName anPfad:SndCalcPfad];
-      NSLog(@"vor updateTestPanel");
+      //NSLog(@"vor updateTestPanel");
       //
       
       NSArray* tempTestDicArray=[Utils TestArrayAusPListAnPfad:SndCalcPfad];
@@ -6348,11 +6394,11 @@ const short     kSerieFertig = 25003;
 - (void)ClearTestForAllAktion:(NSNotification*)note
 {
    //Entfernen eines Tests in UserData > usertestarray für alle User
-   NSLog(@"ClearTestForAllAktion: note: %@",[[note userInfo]description]);
+   //NSLog(@"ClearTestForAllAktion: note: %@",[[note userInfo]description]);
    NSString* tempTestName=[[note userInfo]objectForKey:@"testforall"];
    if (tempTestName)
    {
-      NSLog(@"clearTestForAllAktion: tempTestName: %@",tempTestName);
+      //NSLog(@"clearTestForAllAktion: tempTestName: %@",tempTestName);
       [Utils clearTestForAll:tempTestName nurAktiveUser:YES anPfad:SndCalcPfad];
       [Utils setAlle:NO forTest:tempTestName anPfad:SndCalcPfad];
       //		[self updateTestPanel];
@@ -6370,7 +6416,7 @@ const short     kSerieFertig = 25003;
       [TestPanel updateTestDicArrayMitArray:tempTestDicArray];
       
       
-      NSLog(@"													clearTestForAllAktion  nach setTestDicArray");
+      //NSLog(@"													clearTestForAllAktion  nach setTestDicArray");
       
       
       NSMutableArray* tempNamenDicArray=(NSMutableArray*)[Utils NamenDicArrayAnPfad:SndCalcPfad];
@@ -6465,7 +6511,7 @@ const short     kSerieFertig = 25003;
 
 - (void)EinstellungenAktion:(NSNotification*)note
 {
-   NSLog(@"EinstellungenAktion: note: %@",[[note userInfo]description]);
+   //NSLog(@"EinstellungenAktion: note: %@",[[note userInfo]description]);
    if ([[note userInfo]objectForKey:@"admintimeout"])
    {
       [PListDic setObject:[[note userInfo]objectForKey:@"admintimeout"]forKey:@"admintimeout"];
@@ -6486,7 +6532,7 @@ const short     kSerieFertig = 25003;
 
 - (IBAction)showEinstellungen:(id)sender
 {
-   NSLog(@"showEinstellungenPanel");
+   //NSLog(@"showEinstellungenPanel");
    
    [self closeSessionDrawer:NULL];
    
@@ -6496,7 +6542,7 @@ const short     kSerieFertig = 25003;
       [self stopTimeout];
       if (!EinstellungenPanel)
       {
-         NSLog(@"init EinstellungenPanel");
+         //NSLog(@"init EinstellungenPanel");
          EinstellungenPanel=[[rEinstellungenPanel alloc]init];
          
       }
@@ -6517,7 +6563,7 @@ const short     kSerieFertig = 25003;
       
       int modalAntwort = [NSApp runModalForWindow:[EinstellungenPanel window]];
       [NSApp endModalSession:EinstellungenSession];
-      NSLog(@"showEinstellungenPanel: Antwort: %d",modalAntwort);
+      //NSLog(@"showEinstellungenPanel: Antwort: %d",modalAntwort);
       //	[self startTimeout];
       switch (modalAntwort)
       {
@@ -6609,7 +6655,7 @@ const short     kSerieFertig = 25003;
    [Speaker setVolume:[sender floatValue]];
    Volume=[sender floatValue];
    [self SerieDatenSichernVon:[NamenPopKnopf titleOfSelectedItem]];
-   NSLog(@"setVolume: Volume: %f",Volume);
+  // NSLog(@"setVolume: Volume: %f",Volume);
 }
 
 //////////
@@ -6742,7 +6788,7 @@ const short     kSerieFertig = 25003;
 
 - (void)windowDidLoad
 {
-   NSLog(@"windowDidLoad");
+   //NSLog(@"windowDidLoad");
    [ErgebnisRahmenFeld  lockFocus];
    [[NSColor grayColor]set];
    NSRect r=[ErgebnisRahmenFeld bounds];
@@ -6922,61 +6968,12 @@ objectValueForTableColumn:(NSTableColumn *)aTableColumn
 
 - (BOOL)GetZahlTrack
 {
-   OSErr err=0;
-   NSLog(@"GetZahlTrack start");
-   /*
-    long anzTracks=GetMovieTrackCount(gMovie);
-    NSLog(@"anzTracks: %d",anzTracks);
-    Track gTrack=GetMovieIndTrack(gMovie,1);
-    err =GetMoviesError();
-    NSLog(@"GetZahlTrack: err nach  GetMovieIndTrack: %d",err);
-    
-    //SetTrackOffset(gTrack,4800);
-    TimeValue Trackdauer=GetTrackDuration(gTrack);
-    NSLog(@"Trackdauer: %d",Trackdauer);
-    TimeScale TimeSkala=GetMovieTimeScale(gMovie);
-    NSLog(@"TimeSkala: %d",TimeSkala);//600
-    TimeScale MediaSkala=GetMediaTimeScale(GetTrackMedia(gTrack));//22050
-    NSLog(@"MediaSkala: %d",MediaSkala);
-    
-    float Dauer=Trackdauer/(float)TimeSkala;
-    NSLog(@"Dauer: %f",Dauer);
-    
-    long anzhTracks=GetMovieTrackCount(hMovie);
-    NSLog(@"anzhTracks: %d",anzhTracks);
-    Track hTrack=GetMovieIndTrack(hMovie,1);
-    err =GetMoviesError();
-    NSLog(@"GetZahlTrack: err nach  GetMovieIndTrack: %d",err);
-    TimeValue Track2dauer=GetTrackDuration(hTrack);
-    NSLog(@"Track2dauer: %d",Track2dauer);
-    
-    //SetTrackOffset(hTrack,2400);
-    
-    BeginMediaEdits(GetTrackMedia(gTrack));
-    err=InsertTrackSegment(hTrack,gTrack,0,GetTrackDuration(hTrack),1200);
-    EndMediaEdits(GetTrackMedia(gTrack));
-    
-    
-    Movie TestMovie=NewMovie(newMovieActive);
-    SetMovieGWorld(TestMovie,NULL,NULL);
-    Track NeuerTrack=GetMovieIndTrack(TestMovie,1);
-    
-    
-    Track track =NewMovieTrack(gMovie,0,0,kFullVolume);
-    
-    err =GetMoviesError();
-    //NSLog(@"GetZahlTrack: err nach  NewMovieTrack: %d",err);
-    
-    Media media=NewTrackMedia(track, SoundMediaType,600,NULL,NULL);
-    err =GetMoviesError();
-    //NSLog(@"GetZahlTrack: err nach  NewTrackMedia: %d",err);
-    */
-   return err;
+    return NO;
 }
 
 - (IBAction)terminate:(id)sender
 {
-   NSLog(@"terminate");
+   //NSLog(@"terminate");
    [self BeendenAktion:NULL];
 }
 
@@ -7008,7 +7005,7 @@ objectValueForTableColumn:(NSTableColumn *)aTableColumn
    {
       if (EinstellungenPanel)
       {
-         NSLog(@"AnzahlBehalten: %d",[EinstellungenPanel AnzahlBehalten]);
+        // NSLog(@"AnzahlBehalten: %d",[EinstellungenPanel AnzahlBehalten]);
          int anz=[EinstellungenPanel AnzahlBehalten];
          if (anz&&anz<99)
          {
@@ -7016,7 +7013,7 @@ objectValueForTableColumn:(NSTableColumn *)aTableColumn
             [Utils ErgebnisseBehaltenBisAnzahl:anz anPfad:SndCalcPfad];
          }
          
-         NSLog(@"Clean: %d",[EinstellungenPanel cleanOK]);
+         //NSLog(@"Clean: %d",[EinstellungenPanel cleanOK]);
          if ([EinstellungenPanel cleanOK])
          {
             
@@ -7060,7 +7057,7 @@ objectValueForTableColumn:(NSTableColumn *)aTableColumn
    }
    else
    {
-      NSLog(@"SessionAktualisieren Name nicht da");
+     // NSLog(@"SessionAktualisieren Name nicht da");
       [NamenPopKnopf selectItemAtIndex:0];
       [self neueSerie:NULL];
    }
@@ -7192,7 +7189,7 @@ objectValueForTableColumn:(NSTableColumn *)aTableColumn
 
 - (void)TerminateTimeoutFunktion:(NSTimer*)derTimer
 {
-   NSLog(@"TerminateTimeoutFunktion");
+  // NSLog(@"TerminateTimeoutFunktion");
    [[NSApp modalWindow]orderOut:NULL];
    [NSApp abortModal];
    AdminPWOK=NO;
@@ -7246,7 +7243,7 @@ objectValueForTableColumn:(NSTableColumn *)aTableColumn
       {
          case 0://Beenden
          { 
-            NSLog(@"Beenden");
+            //NSLog(@"Beenden");
             if ([TeminateAdminPWTimer isValid])
             {
                [TeminateAdminPWTimer invalidate];
@@ -7257,7 +7254,7 @@ objectValueForTableColumn:(NSTableColumn *)aTableColumn
             
          case 1://Fortsetzen
          {
-            NSLog(@"Fortsetzen");
+           // NSLog(@"Fortsetzen");
             if ([TeminateAdminPWTimer isValid])
             {
                [TeminateAdminPWTimer invalidate];
@@ -7297,14 +7294,14 @@ objectValueForTableColumn:(NSTableColumn *)aTableColumn
 
 - (void)DeleteTestAktion:(NSNotification*)note
 {
-   NSLog(@"DeleteTestAktion: userInfo: %@",[[note userInfo]description]);
+   //NSLog(@"DeleteTestAktion: userInfo: %@",[[note userInfo]description]);
    NSString* tempName=[[note userInfo] objectForKey:@"testname"];
    NSString* tempDatum=[[note userInfo] objectForKey:@"datum"];
-   NSLog(@"DeleteTestAktion: tempName: %@	tempDatum: %@",tempName,tempDatum);
+   //NSLog(@"DeleteTestAktion: tempName: %@	tempDatum: %@",tempName,tempDatum);
    
    if (tempName&&tempDatum)
    {
-      NSLog(@"deleteTest");
+     // NSLog(@"deleteTest");
       [Utils deleteTestMitDatum:tempDatum forUser:tempName anPfad:SndCalcPfad];
       [self updatePList];
    }
@@ -7313,7 +7310,7 @@ objectValueForTableColumn:(NSTableColumn *)aTableColumn
 
 - (void)DeleteTestNameAktion:(NSNotification*)note
 {
-   NSLog(@"DeleteTestNameAktion: userInfo: %@",[[note userInfo]description]);
+   //NSLog(@"DeleteTestNameAktion: userInfo: %@",[[note userInfo]description]);
    NSString* tempTestName=[[note userInfo] objectForKey:@"deletetestname"];
    
    if (tempTestName)
@@ -7326,14 +7323,14 @@ objectValueForTableColumn:(NSTableColumn *)aTableColumn
       
       if (tempTestDicArray &&[tempTestDicArray count])
       {
-         NSArray* tempTestNamenArray=[tempTestDicArray valueForKey:@"testname"];
+         NSMutableArray* tempTestNamenArray=(NSMutableArray*)[tempTestDicArray valueForKey:@"testname"];
          //			NSLog(@"tempTestNamenArray: %@",[tempTestNamenArray description]);
          long index=[tempTestNamenArray indexOfObject:tempTestName];
          if (!(index==NSNotFound))
          {
-            NSLog(@"deleteTest: %@",tempTestName);
+            //NSLog(@"deleteTest: %@",tempTestName);
             [tempTestDicArray removeObjectAtIndex:index];
-            NSLog(@"deleteTest nach remove");
+            //NSLog(@"deleteTest nach remove");
             [Utils deleteTestName:tempTestName  anPfad:SndCalcPfad];
          }
          NSMutableArray* tempAktivTestArray=[[NSMutableArray alloc]initWithCapacity:0];
@@ -7346,7 +7343,7 @@ objectValueForTableColumn:(NSTableColumn *)aTableColumn
                [tempAktivTestArray addObject:[einDic objectForKey:@"testname"]];
             }
          }
-         NSLog(@"DeleteTestNameAktion tempAktivTestArray: %@",[tempAktivTestArray description]);
+         //NSLog(@"DeleteTestNameAktion tempAktivTestArray: %@",[tempAktivTestArray description]);
          [self setTestPopKnopfMitArray:tempTestDicArray];
          [TestPanel setTestDicArray:tempTestDicArray];
          //			NSLog(@"deleteTestNameAktion nach setTestDicArray");

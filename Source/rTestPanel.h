@@ -58,8 +58,11 @@
 	IBOutlet NSTabView *			SettingsBox;
 	IBOutlet NSButton *			closeDrawerTaste;
 	IBOutlet NSButton *			DrawerSchliessenTaste;
+   IBOutlet	id						SaveSettingsAsTestTaste;
 	IBOutlet	id						SettingsPfeil;
+   IBOutlet	id						window;
 }
+- (BOOL)TestChanged;
 - (NSArray*)TestNamenArray;
 - (NSArray*)TestDicArray;
 - (void)resetTestTabFeld;
@@ -100,6 +103,7 @@
 
 -(IBAction)closeDrawer:(id)sender;
 -(IBAction)openDrawer:(id)sender;
+- (IBAction)reportSaveSettingsAsTest:(id)sender;
 
 - (void)reportSaveTestTaste:(id)sender;
 - (void)initAddSubSettings;

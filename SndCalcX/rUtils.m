@@ -1743,6 +1743,7 @@
    
    int modalAntwort = [NSApp runModalForWindow:[PasswortRequestPanel window]];
    //NSLog(@"Utils confirmPasswort: modalAntwort: %d",modalAntwort);
+   
    [NSApp endModalSession:PasswortSession];
    confirmOK=(modalAntwort==1);
    return confirmOK;

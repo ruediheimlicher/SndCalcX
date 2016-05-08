@@ -12,6 +12,7 @@
    IBOutlet NSTextField*      ConfirmFeld;
    IBOutlet NSTextView*        NamenView;
    IBOutlet NSTableView*      NamenTable;
+    IBOutlet NSTableView*     SaveSettingAsTestTaste;
    NSMutableArray*				NamenArray;
    NSMutableArray*				NamenDicArray;
    
@@ -24,6 +25,7 @@
 - (IBAction)reportCancel:(id)sender;
 - (IBAction)reportEntfernen:(id)sender;
 - (IBAction)reportClose:(id)sender;
+- (IBAction)reportSaveSettingAsTest:(id)sender;
 - (NSString*)neuerName;
 - (NSArray*)getNamenArray;
 - (NSArray*)NamenArray;

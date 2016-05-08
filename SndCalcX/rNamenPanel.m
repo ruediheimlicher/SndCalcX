@@ -59,7 +59,7 @@
       [Warnung addButtonWithTitle:NSLocalizedString(@"Delete",@"Löschen")];
       [Warnung addButtonWithTitle:NSLocalizedString(@"Cancel",@"Abbrechen")];
       [Warnung setMessageText:NSLocalizedString(@"Are You Shure?",@"Namen wirklich entfernen?")];
-      NSString* I1=NSLocalizedString(@"Do you really want do delete the name %@?",@"Namen %@wiklich entfernen?");
+      NSString* I1=NSLocalizedString(@"Do you really want do delete the name %@?",@"Namen %@wirklich entfernen?");
       [Warnung setInformativeText:[NSString stringWithFormat:I1,deleteName]];
       [Warnung setAlertStyle:NSWarningAlertStyle];
       
@@ -253,10 +253,14 @@
                   [EingabeWarnung setMessageText:@"Falsche Eingabe." ];
                   [EingabeWarnung addButtonWithTitle:@"OK"];
                   //[EingabeWarnung addButtonWithTitle:@"Hier arbeiten"];
-                  NSString* i1=[NSString stringWithFormat:NSLocalizedString(@"wrong input in String %@",@"Der Name %@ enthält falsche Zeichen"),VornameNamenString];
+                  NSString* teil1 = NSLocalizedString(@"wrong input",@"teil 1");
+                  NSString* teil2  = NSLocalizedString(@"in string",@"teil 2");
+                  
+                  NSString* i1=[NSString stringWithFormat:@"%@ %@ %@",teil1,VornameNamenString,teil2];
+                  
                   [EingabeWarnung setInformativeText:i1];
                   //[LoginWarnung setInformativeText:@"Du musst dich einloggen, bevor du anfangen kannst."];
-                  int modalAntwort=[EingabeWarnung runModal];
+                  long modalAntwort=[EingabeWarnung runModal];
                   switch (modalAntwort)
                   {
                      case NSAlertFirstButtonReturn:
@@ -308,6 +312,11 @@
    [[self window] orderOut:NULL];
    
    
+}
+
+- (IBAction)reportSaveSettingAsTest:(id)sender;
+{
+   NSLog(@"reportSaveSettingAsTest");
 }
 
 - (NSString*)stringSauberVon:(NSString*)derString

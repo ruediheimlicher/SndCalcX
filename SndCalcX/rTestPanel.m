@@ -8,7 +8,7 @@
    TestDicArray=[[NSMutableArray alloc] initWithCapacity:0];
    NamenDicArray=[[NSMutableArray alloc] initWithCapacity:0];
    aktuellerUser=[[NSMutableString alloc]initWithCapacity:0];
-   TestChanged=0;
+   TestChanged=13;
    //OK=0;
    SerieDatenDic=[[NSMutableDictionary alloc]initWithCapacity:0];
    NSNotificationCenter * nc;
@@ -22,9 +22,26 @@
    return self;
 }
 
+- (BOOL)TestChanged
+{
+   return TestChanged;
+}
+
+- (void)windowDidLoad
+{
+  // NSLog(@"Testpanel windowDidLoad");
+
+}
+
+- (void)windowWillLoad
+{
+  // NSLog(@"Testpanel windowWillLoad");
+   
+}
+
 - (void)awakeFromNib
 {
-   
+  // NSLog(@"Testpanel awake begin");
    [EingabeFeld setDelegate:self];
    //	[[EingabeFeld cell]setSendsActionOnEndEditing:NO];
    [IconFeld setImage:[NSImage imageNamed:@"duerergrau"]];
@@ -75,7 +92,7 @@
    [self initReihenSettings];
    //[self DebugStep:@"nach initReihenSettings"];
    [self initAddSubSettings];
-   
+   //NSLog(@"Testpanel awake end");
    
 }
 
@@ -160,7 +177,7 @@
    
    //Liste der Tests aus der PList
    //NSLog(@"setTestDicArray	derTestDicArray :anz: %d",[derTestDicArray count]);
-   NSLog(@"setTestDicArray	derTestDicArray start: %@",[derTestDicArray description]);
+   //NSLog(@"setTestDicArray	derTestDicArray start: %@",[derTestDicArray description]);
    //	if ([TestDicArray count])
    {
       //		NSArray* TestNamenArray=[TestDicArray valueForKey:@"testname"];
@@ -632,7 +649,7 @@
 
 - (IBAction)reportDelete:(id)sender
 {
-   int index=[TestTable selectedRow];
+   long index=[TestTable selectedRow];
    NSString* deleteTestName=[[TestDicArray objectAtIndex:index]valueForKey:@"testname"];
    NSLog(@"deleteTestName: %@	index: %d",deleteTestName,index);
    
@@ -1072,6 +1089,12 @@
       [[self window]makeFirstResponder: EingabeFeld];
       [self openDrawer:NULL];
       [EingabeFeld setEnabled:YES];
+      NSMutableDictionary* TestsichernDicDic=[[NSMutableDictionary alloc]initWithCapacity:0];
+      [TestsichernDicDic setObject:[NSNumber numberWithInt:1] forKey:@"sichtbar"];
+      NSNotificationCenter* beendennc=[NSNotificationCenter defaultCenter];
+      [beendennc postNotificationName:@"settingalstestsichern" object:self userInfo:TestsichernDicDic];
+
+      
       [SchliessenTaste setEnabled:NO];
    }
    else
@@ -2012,7 +2035,7 @@
    id einTestDic;
    while (einTestDic=[TestEnum nextObject])
    {
-      NSLog(@"einTestDic: %@",[einTestDic description]);
+     // NSLog(@"einTestDic: %@",[einTestDic description]);
       if ([einTestDic objectForKey:@"testname"])
       {
          //Test aufnehmen sofern aktiviert
@@ -2152,14 +2175,14 @@
          [Warnung addButtonWithTitle:@"OK"];
          NSString* MessageString=@"Nur noch ein Test";
          [Warnung setMessageText:[NSString stringWithFormat:@"%@",MessageString]];
-         NSString* s0=NSLocalizedString(@"%@ is the only test activatet for user %@.",@"%@ ist der einzige Test für %@.");
-         NSString* s1=[NSString stringWithFormat:s0,tempTestName,tempUserName];
+         NSString* s0=NSLocalizedString(@"% is the only test activatet for user ",@" ist der einzige Test für .");
+         NSString* s1=[NSString stringWithFormat:@"%@ %@ %@",tempTestName,s0,tempUserName];
          NSLog(@"s1: %@",s1);
          NSString* s2=@"";//NSLocalizedString(@"The Test is not deleted.",@"Der Test wird nicht gelöscht");
          NSString* InformationString=[NSString stringWithFormat:@"%@\n%@",s1,s2];
          [Warnung setInformativeText:InformationString];
          [Warnung setAlertStyle:NSWarningAlertStyle];
-         int antwort=[Warnung runModal];
+         long antwort=[Warnung runModal];
          //	NSMutableDictionary* tempNewNamenDic=(NSMutableDictionary*)[[[TestZuNamenTable dataSource]TestZuNamenDicArray] objectAtIndex:[sender selectedRow]];
          //	NSLog(@"TestZuNamenCheckboxAktion	neuer tempNamenDic: %@",[tempNewNamenDic description]);
          
@@ -2413,6 +2436,13 @@
 - (IBAction)reportSettingAlsTestSichern:(id)sender
 {
    NSLog(@"TestPanel reportSettingAlsTestSichern");
+   if ([[EingabeFeld stringValue]length]==0)
+   {
+      NSLog(@"TestPanel reportSettingAlsTestSichern Kein Testname");
+      return;
+   }
+   
+   
    [self closeDrawer:NULL];
    [EingabeFeld setEnabled:YES];
    [[self window]makeFirstResponder:EingabeFeld];
@@ -2711,6 +2741,12 @@
    //	NSLog(@"openDrawer  end");
 }
 
+- (IBAction)reportSaveSettingsAsTest:(id)sender
+{
+   NSLog(@"reportSaveSettingsAsTest");
+   
+   
+}
 - (void)selectSettingsTab:(int)derTab
 {
    [SettingsBox selectTabViewItemAtIndex:derTab];
@@ -2895,8 +2931,9 @@
          {
             NSAlert *Warnung = [[NSAlert alloc] init];
             [Warnung addButtonWithTitle:@"OK"];
-            NSString* t0=NSLocalizedString(@"Settings for test: %@ incorrect",@"Einstellungen für Test: '%@' sind nicht korrekt");
-            NSString* t1=[NSString stringWithFormat:t0,derTestName];
+            NSString* t0a=NSLocalizedString(@"Settings for test: '",@"Einstellungen für Test: '");
+            NSString* t0b=NSLocalizedString(@"' incorrect",@"' sind nicht korrekt");
+            NSString* t1=[NSString stringWithFormat:@"%@ %@ %@",t0a,derTestName,t0b];
             [Warnung setMessageText:t1];
             NSString* s2=NSLocalizedString(@"No Operation Choosed.",@"Keine Operation ausgewählt.");
             NSString* s3=NSLocalizedString(@"Addition and/or subtraction must be choosed.",@"Addition und/oder Subtraktion muss ausgewählt sein.");
@@ -2922,8 +2959,9 @@
          {
             NSAlert *Warnung = [[NSAlert alloc] init];
             [Warnung addButtonWithTitle:@"OK"];
-            NSString* t0=NSLocalizedString(@"Settings for test: %@ incorrect",@"Einstellungen für Test: '%@' sind nicht korrekt");
-            NSString* t1=[NSString stringWithFormat:t0,derTestName];
+            NSString* t0a=NSLocalizedString(@"Settings for test: '",@"Einstellungen für Test: '");
+            NSString* t0b=NSLocalizedString(@"' incorrect",@"' sind nicht korrekt");
+            NSString* t1=[NSString stringWithFormat:@"%@ %@ %@",t0a,derTestName,t0b];
             [Warnung setMessageText:t1];
             NSString* s2=NSLocalizedString(@"No Row Choosed.",@"Keine Reihe ausgewählt.");
             NSString* s3=NSLocalizedString(@"At least one row must be choosed.",@"Mindestens eine Reihe muss ausgewählt sein.");
@@ -2945,8 +2983,9 @@
    {
       NSAlert *Warnung = [[NSAlert alloc] init];
       [Warnung addButtonWithTitle:@"OK"];
-      NSString* t0=NSLocalizedString(@"Settings for test: %@ incorrect",@"Einstellungen für Test: '%@' sind nicht korrekt");
-      NSString* t1=[NSString stringWithFormat:t0,derTestName];
+      NSString* t0a=NSLocalizedString(@"Settings for test: '",@"Einstellungen für Test: '");
+      NSString* t0b=NSLocalizedString(@"' incorrect",@"' sind nicht korrekt");
+      NSString* t1=[NSString stringWithFormat:@"%@ %@ %@",t0a,derTestName,t0b];
       [Warnung setMessageText:t1];
       NSString* s2=NSLocalizedString(@"No Operation Choosed.",@"Keine Operation ausgewählt");
       NSString* s3=NSLocalizedString(@"At least one operation must be choosed.",@"Mindestens eine Operation muss ausgewähltsein.");

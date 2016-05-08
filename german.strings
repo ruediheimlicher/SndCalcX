@@ -8,3 +8,9 @@
 
 "Choose Name" = "Namen wählen";
 "Haus" = "Falken";
+
+// NamenPanel
+"Are You Shure?" = "Namen wirklich entfernen?";
+"Delete" = "Löschen";
+"wrong input" = "Der Name ";
+"in string" = " enthält falsche Zeichen";

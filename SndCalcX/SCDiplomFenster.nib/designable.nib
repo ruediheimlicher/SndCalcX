@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="9532" systemVersion="15D21" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none">
+    <dependencies>
+        <deployment version="101000" identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="9532"/>
+        <capability name="box content view" minToolsVersion="7.0"/>
+    </dependencies>
+    <objects>
+        <customObject id="-2" userLabel="File's Owner" customClass="rDiplomFenster">
+            <connections>
+                <outlet property="AnschauenTaste" destination="38" id="40"/>
+                <outlet property="AnzahlString" destination="56" id="59"/>
+                <outlet property="FehlerString" destination="58" id="61"/>
+                <outlet property="FinishTaste" destination="36" id="39"/>
+                <outlet property="SichernCheckbox" destination="51" id="52"/>
+                <outlet property="TitelString" destination="55" id="63"/>
+                <outlet property="WeiterTaste" destination="37" id="41"/>
+                <outlet property="WeiterfahrenString" destination="49" id="50"/>
+                <outlet property="ZeitString" destination="57" id="60"/>
+                <outlet property="ZielImage" destination="48" id="62"/>
+                <outlet property="window" destination="5" id="21"/>
+            </connections>
+        </customObject>
+        <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
+        <customObject id="-3" userLabel="Application"/>
+        <window allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" hidesOnDeactivate="YES" releasedWhenClosed="NO" visibleAtLaunch="NO" animationBehavior="default" id="5" userLabel="Window">
+            <windowStyleMask key="styleMask" titled="YES" miniaturizable="YES"/>
+            <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
+            <rect key="contentRect" x="14" y="238" width="694" height="360"/>
+            <rect key="screenRect" x="0.0" y="0.0" width="1024" height="746"/>
+            <view key="contentView" id="6">
+                <rect key="frame" x="0.0" y="0.0" width="694" height="360"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <box titlePosition="noTitle" id="34">
+                        <rect key="frame" x="17" y="31" width="660" height="89"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <view key="contentView" id="a6S-9f-VP0">
+                            <rect key="frame" x="2" y="2" width="656" height="85"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            <subviews>
+                                <button id="37">
+                                    <rect key="frame" x="404" y="7" width="238" height="42"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <buttonCell key="cell" type="bevel" title="Eine neue Serie anfangen" bezelStyle="regularSquare" alignment="center" borderStyle="border" inset="2" id="66">
+                                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                        <font key="font" metaFont="system" size="18"/>
+                                        <string key="keyEquivalent" base64-UTF8="YES">
+DQ
+</string>
+                                    </buttonCell>
+                                    <connections>
+                                        <action selector="reportWeiterfahren:" target="-2" id="42"/>
+                                    </connections>
+                                </button>
+                                <button id="38">
+                                    <rect key="frame" x="10" y="7" width="275" height="42"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <buttonCell key="cell" type="bevel" title="Meine Ergebnisse anschauen" bezelStyle="regularSquare" alignment="center" borderStyle="border" inset="2" id="67">
+                                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                        <font key="font" metaFont="system" size="18"/>
+                                    </buttonCell>
+                                    <connections>
+                                        <action selector="reportErgebnisseAnschauen:" target="-2" id="43"/>
+                                    </connections>
+                                </button>
+                                <button id="51">
+                                    <rect key="frame" x="507" y="57" width="135" height="18"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <buttonCell key="cell" type="check" title="Ergebnis sichern" bezelStyle="regularSquare" imagePosition="right" alignment="right" state="on" inset="2" id="68">
+                                        <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                        <font key="font" metaFont="system" size="14"/>
+                                    </buttonCell>
+                                </button>
+                                <button id="36">
+                                    <rect key="frame" x="289" y="7" width="111" height="42"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <buttonCell key="cell" type="bevel" title="Aufhören" bezelStyle="regularSquare" alignment="center" borderStyle="border" inset="2" id="69">
+                                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                        <font key="font" metaFont="system" size="18"/>
+                                    </buttonCell>
+                                    <connections>
+                                        <action selector="reportFinish:" target="-2" id="44"/>
+                                    </connections>
+                                </button>
+                                <textField verticalHuggingPriority="750" id="49">
+                                    <rect key="frame" x="12" y="55" width="308" height="22"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <textFieldCell key="cell" sendsActionOnEndEditing="YES" title="Weiter" id="70">
+                                        <font key="font" metaFont="system" size="16"/>
+                                        <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                    </textFieldCell>
+                                </textField>
+                            </subviews>
+                        </view>
+                        <color key="borderColor" white="0.0" alpha="0.41999999999999998" colorSpace="calibratedWhite"/>
+                        <color key="fillColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </box>
+                    <box title="Box" titlePosition="noTitle" id="45">
+                        <rect key="frame" x="21" y="133" width="227" height="217"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <view key="contentView" id="sum-ja-Fzb">
+                            <rect key="frame" x="2" y="2" width="223" height="213"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            <subviews>
+                                <imageView id="47">
+                                    <rect key="frame" x="-72" y="118" width="236" height="197"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" id="71"/>
+                                </imageView>
+                            </subviews>
+                        </view>
+                        <color key="borderColor" white="0.0" alpha="0.41999999999999998" colorSpace="calibratedWhite"/>
+                        <color key="fillColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </box>
+                    <imageView id="48">
+                        <rect key="frame" x="24" y="145" width="221" height="189"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" id="65"/>
+                    </imageView>
+                    <box title="Box" titlePosition="noTitle" id="53">
+                        <rect key="frame" x="250" y="133" width="427" height="217"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <view key="contentView" id="kcW-jI-Tsn">
+                            <rect key="frame" x="2" y="2" width="423" height="213"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            <subviews>
+                                <textField verticalHuggingPriority="750" id="55">
+                                    <rect key="frame" x="16" y="149" width="387" height="44"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <textFieldCell key="cell" sendsActionOnEndEditing="YES" title="Titel" drawsBackground="YES" id="72">
+                                        <font key="font" metaFont="system" size="36"/>
+                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="backgroundColor" red="0.11764706" green="0.74509804999999996" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                    </textFieldCell>
+                                </textField>
+                                <textField verticalHuggingPriority="750" id="56">
+                                    <rect key="frame" x="16" y="90" width="387" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <textFieldCell key="cell" sendsActionOnEndEditing="YES" title="Anzahl" id="73">
+                                        <font key="font" metaFont="system" size="16"/>
+                                        <color key="textColor" red="0.11764706" green="0.74509804999999996" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                    </textFieldCell>
+                                </textField>
+                                <textField verticalHuggingPriority="750" id="57">
+                                    <rect key="frame" x="16" y="41" width="387" height="41"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <textFieldCell key="cell" sendsActionOnEndEditing="YES" title="Zeit" id="74">
+                                        <font key="font" metaFont="system" size="16"/>
+                                        <color key="textColor" red="0.11764706" green="0.74509804999999996" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                    </textFieldCell>
+                                </textField>
+                                <textField verticalHuggingPriority="750" id="58">
+                                    <rect key="frame" x="16" y="11" width="387" height="22"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <textFieldCell key="cell" sendsActionOnEndEditing="YES" title="Fehler" id="75">
+                                        <font key="font" metaFont="system" size="16"/>
+                                        <color key="textColor" red="0.94525546000000005" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                    </textFieldCell>
+                                </textField>
+                            </subviews>
+                        </view>
+                        <color key="borderColor" white="0.0" alpha="0.41999999999999998" colorSpace="calibratedWhite"/>
+                        <color key="fillColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </box>
+                </subviews>
+            </view>
+        </window>
+    </objects>
+</document>

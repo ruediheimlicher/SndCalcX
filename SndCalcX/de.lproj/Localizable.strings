@@ -1,26 +1,34 @@
-/* Ausw√§hlen in Kol- ganz links */
-"After login, the user must be choosen in the LEFTMOST COLUMN." = "Nach dem Login muss der Benutzer in der KOLONNE GANZ LINKS ausgewählt werden.";
 
-/* Anmerkung:\nDeaktivieren verbirgt lediglich den Test und die Ergebnisse. */
-"\nNote:\nDeactivating only hides the test and the results." = "Anmerkung: \nDeaktivieren verbirgt lediglich den Test und die Ergebnisse.";
+"Of the given " = "Von den gegebenen";
+"Samples you have " = " Aufgaben hast du ";
+"solved. " = " gelöst.";
+
+"This took " = "Dafür hast du";
+" secconds" =  "Sekunden gebraucht.";
+
+"Doing this, you made " = "Dabei hast du ";
+" errors" = " Fehler gemacht.";
+
+/* Ausw√§hlen in Kol- ganz links */
+"After login, the user must be choosen in the LEFTMOST COLUMN." = "Nach dem Login muss der Benutzer in der Kolonne ganz links ausgewählt werden.";
+
+/* Anmerkung:Deaktivieren verbirgt lediglich den Test und die Ergebnisse. */
+"Note: Deactivating only hides the test and the results." = "Anmerkung:\\nDeaktivieren verbirgt lediglich den Test und die Ergebnisse.";
+
+/* LB auf welchem Comp? */
+"On which Machine IN THE 2nd. COLUMN should be the lecturebox?" = "Auf welchem Computer befinden sich die Schülerdaten";
 
 /* File als AIFF */
-"The file must be in AIFF format," = "Das File muss im AIFF-Format vorliegen.";
-
-/* Files als AIFF */
-"The files must be in AIFF format," = "Das File muss im AIFF-Format vorliegen.";
+"The file must be in AIFF format," = "File muss als AIFF vorliegen.";
 
 /* Ergebnisse werden endgültig gelöscht. */
 " Results will be definetly deleted." = "Ergebnisse werden endgültig gelöscht.";
 
 /* Suffix .aif */
-" and it must have the suffix .aif." = "und es muss das Suffix .aif haben";
+" and it must have the suffix .aif." = "und es muss das Suffix .aif aufweisen.";
 
 /* Suffix .aif */
-" and they must have the suffix .aif." = "und sie müssen das Suffix .aif haben";
-
-/* %@ ist der einzige Test für %@. */
-"%@ is the only test activatet for user %@." = "%@ ist der einzige Test für %@.";
+" and they must have the suffix .aif." = "und es muss das Suffix .aif aufweisen.";
 
 /* Aktive Tests sind für den Benutzer sichtbar. */
 "Active tests are shown to the user." = "Aktive Tests sind für den Benutzer sichtbar.";
@@ -59,7 +67,7 @@
 "Beenden" = "Beenden";
 
 /* Neue Session */
-"Begin a new session of tests for all members of the list." = "Neue Session";
+"Begin a new session of tests for all members of the list." = "Eine neue Session für alle Miglieder der Liste beginnen.";
 
 /* Abbrechen */
 "Cancel" = "Abbrechen";
@@ -68,10 +76,10 @@
 "Change Password" = "Passwort bearbeiten";
 
 /* Ergebnis testen. */
-"Check the result." = "Ergebnis testen";
+"Check the result." = "Ergebnis testen.";
 
 /* Einen Namen wählen */
-"Choose A Name" = "Nahmen wählen";
+"Choose A Name" = "Einen Namen wählen";
 
 /* Namen wählen */
 "Choose Name" = "Namen wählen";
@@ -80,10 +88,10 @@
 "Choose Test" = "Test wählen";
 
 /* Einen Namen auswählen. */
-"Choose a name." = "Nahmen wählen";
+"Choose a name." = "Einen Namen auswählen.";
 
 /* Einen Test auswählen. */
-"Choose a test." = "Test wählen";
+"Choose a test." = "Einen Test auswählen.";
 
 /* Test wählen, für den die Einstellungen der Benutzer angezeigt werden sollen.\nDie Einstellungen können angepasst werden. */
 "Choose test whoose user settings shall be shown. The settings can be edited." = "Test wählen, für den die Einstellungen der Benutzer angezeigt werden sollen.\\nDie Einstellungen können angepasst werden.";
@@ -95,10 +103,10 @@
 "Choose the volume of the speaker." = "Die Lautstärke einstellen.";
 
 /* Benutzer wählen, für den die aktiven Tests angezeigt werden sollen.\nDie Einstellungen können angepasst werden. */
-"Choose user whoose settings shall be shown. The settings can be edited." = "Benutzer wählen, für den die aktiven Tests angezeigt werden sollen.\nDie Einstellungen können angepasst werden.";
+"Choose user whoose settings shall be shown. The settings can be edited." = "Benutzer wählen, für den die aktiven Tests angezeigt werden sollen.\\nDie Einstellungen können angepasst werden.";
 
 /* Modus einstellen. */
-"Chose mode." = "Modus einstellen";
+"Chose mode." = "Modus einstellen.";
 
 /* Schliessen */
 "Close" = "Schliessen";
@@ -110,7 +118,7 @@
 "Create" = "Anlegen";
 
 /* SndCalcDaten einrichten: */
-"Create Lecturebox:" = "Ordner SndCalcDaten einrichten:";
+"Create Lecturebox:" = "SndCalcDaten einrichten:";
 
 /* Neue SndCalcDaten einrichten: */
 "Create New Lecturebox:" = "Neue SndCalcDaten einrichten:";
@@ -131,7 +139,7 @@
 "Delete All Grades" = "Alle Noten löschen";
 
 /* Test löschen */
-"Delete Test" = "Test löschen";
+"Delete Test" = "Test löschen?";
 
 /* Test löschen? */
 "Delete Test?" = "Test löschen?";
@@ -145,17 +153,11 @@
 /* Noten wirklich löschen? */
 "Do you really want do delete all quotes?" = "Noten wirklich löschen?";
 
-/* Namen %@wiklich entfernen? */
-"Do you really want do delete the name %@?" = "Namen %@wiklich entfernen?";
-
 /* Diesen Text wirklisch löschen? */
 "Do you really want to delete this test?" = "Diesen Text wirklisch löschen?";
 
 /* Soll sein Status vor dem Beenden zurückgesetzt werden? */
 "Do you want to reset its state before terminating?" = "Soll sein Status vor dem Beenden zurückgesetzt werden?";
-
-/* Dabei hast du %d Fehler gemacht. */
-"Doing this, you made %d errors" = "Dabei hast du %d Fehler gemacht.";
 
 /* Angeklickten Test bearbeiten. */
 "Edit the clicked test." = "Angeklickten Test bearbeiten.";
@@ -172,6 +174,9 @@
 /* Fehler: */
 "Error:" = "Fehler:";
 
+/* Lesebox im Netz suchen */
+"Find the Lecturebox in the network" = "Datenorder im Netz suchen";
+
 /* Zurück */
 "Go Back" = "Zurück";
 
@@ -186,7 +191,7 @@
 "HunderterU" = "Hunderterübergang:";
 
 /* Eingabefehler */
-"Input Error" = "Eingabefehler";
+"Input Error" = "Eingabefehler:";
 
 /* Eingabefehler: */
 "Input Error:" = "Eingabefehler:";
@@ -201,38 +206,37 @@
 "Just terminate" = "Sofort beenden";
 
 /* Testliste. */
-"List of avalilable tests. Only activated tests are shown to the user." = "Liste der vorhandenen Tests. Dem Benutzer werden nur aktive Tests gezeigt.";
+"List of avalilable tests. Only activated tests are shown to the user." = "Liste der vorhandenen Tests. Dem Benutzer werden nur die für ihn aktivierten Tests gezeigt.";
 
 /* Liste der angemeldeten Benutzer. */
 "List of logged in users." = "Liste der angemeldeten Benutzer.";
 
 /* Leonardo */
-"Magic from the painting 'Melencholia I' of Leonardo" = "Magisches Quadrat vom Bild 'Melencholia I' von Leonardo";
+"Magic from the painting 'Melencholia I' of Leonardo" = "Magisches Quadrat aus der Zeichnung 'Melencholia I' von Leonardo.";
 
 /* Name schon vorhanden */
 "Name Already Exists" = "Der Name ist schon vorhanden";
 
 /* Name: */
-"Name: " = "Name:";
+"Name: " = "Weiter";
 
 /* Weiter */
 "Next" = "Weiter";
 
 /* Der Test hat keinen Namen. */
-"No Name for Test." = "Der Test hat keinen Namen";
+"No Name for Test." = "Der Test hat keinen Namen.";
 
-/* Keine Operation ausgewählt
-   Keine Operation ausgewählt. */
-"No Operation Choosed." = "Keine Operation ausgewählt";
+/* Keine Operation ausgewählt */
+"No Operation Choosed." = "Keine Operation ausgewählt.";
 
 /* Keine Ergebnisse */
 "No Results" = "Keine Ergebnisse";
 
 /* Keine Reihe ausgewählt */
-"No Row Choosed" = "Keine Reihe ausgewählt";
+"No Row Choosed" = "Keine Reihe ausgewählt.";
 
 /* Keine Reihe ausgewählt. */
-"No Row Choosed." = "Keine Reihe ausgewählt";
+"No Row Choosed." = "Keine Reihe ausgewählt.";
 
 /* Kein Test */
 "No Test" = "Kein Test";
@@ -249,14 +253,11 @@
 /* Anzahl Aufgaben der gewählten Serie. */
 "Number of tasks in the choosen serie." = "Anzahl Aufgaben der gewählten Serie.";
 
-/* von den gegebenen %d Aufgaben hast du %d gelöst */
-"Of the given %d Samples you have solved %d. " = "Von den gegebenen %d Aufgaben hast du %d gelöst";
-
 /* Zeit wählen. */
-"Only in training mode: Maximal amount of time for a serie." = "Nur im Trainingsmodus: Maximale Zeit wählen.";
+"Only in training mode: Maximal amount of time for a serie." = "Zeit wählen.";
 
 /* Anzahl wählen. */
-"Only in training mode: Numer of tasks in a serie." = "Nur im Trainingsmodus: Maximale Anzahl wählen.";
+"Only in training mode: Numer of tasks in a serie." = "Anzahl wählen.";
 
 /* Namenliste öffnen */
 "Open NameList" = "Namenliste öffnen";
@@ -268,7 +269,7 @@
 "Open settingwindow for tasks." = "Einstellungsfenster für die Aufgaben öffnen.";
 
 /* Benutzungsrechte fraglich */
-"Perhaps the user permissions do not allow this" = "Eventuell lassen dies die Benutzerrechte nicht zu.";
+"Perhaps the user permissions do not allow this" = "Benutzungsrechte sind eventuell fraglich";
 
 /* Projekt: */
 "Project: " = "Projekt:";
@@ -277,10 +278,10 @@
 "Quit" = "Beenden";
 
 /* Programm beenden */
-"Quit Applikation" = "Programm beenden";
+"Quit Applikation" = "Programm beenden.";
 
 /* Programm beenden. */
-"Quit application." = "Programm beenden";
+"Quit application." = "Programm beenden.";
 
 /* Angeklickten Test bei allen Benutzern entfernen. */
 "Remove the clicked Test for all users." = "Angeklickten Test bei allen Benutzern entfernen.";
@@ -310,13 +311,15 @@
 "Set or remove the choosen test for all users." = "Den ausgewählten Test für alle Benutzer setzen oder entfernen.";
 
 /* Die Einstellungen sind nur im Trainigsmodus zugänglich */
-"Settings are only available in Training Modus" = "Die Einstellungen sind nur im Trainigsmodus zugänglich.";
-
-/* Einstellungen für Test: '%@' sind nicht korrekt */
-"Settings for test: %@ incorrect" = "Einstellungen für Test: '%@' sind nicht korrekt.";
+"Settings are only available in Training Modus" = "Die Einstellungen sind nur im Trainigsmodus zugänglich";
 
 /* Einstellungen für diesen Test sind nicht korrekt */
-"Settings for this test are incorrect" = "Einstellungen für diesen Test sind nicht korrekt.";
+"Settings for this test are incorrect" = "Einstellungen für diesen Test sind nicht korrekt";
+
+"Settings for test: '" = "Einstellungen für Test: '";
+
+"' incorrect" = "' sind nicht korrekt";
+
 
 /* Verschieben eines angeklickten Tests nach oben oder unten */
 "Shift clicked test up and down." = "Verschieben eines angeklickten Tests nach oben oder unten";
@@ -327,15 +330,9 @@
 /* Einzelne Ergebnisse können im Statistikfenster entfernt werden. */
 "Single results can be removed in the statistics window." = "Einzelne Ergebnisse können im Statistikfenster entfernt werden.";
 
-/* SndCalc.plist */
-"SndCalc.plist" = "SndCalc.plist";
-
-/* SndCalcDaten */
-"SndCalcDaten" = "SndCalcDaten";
-
 /* LOS
    Start */
-"Start" = "Los";
+"Start" = "LOS";
 
 /* Die Aufgabenserie starten. */
 "Start the serie of tasks." = "Die Aufgabenserie starten.";
@@ -344,7 +341,7 @@
 "Synchronize session list with other computers logged in" = "Sessionsliste mit andern eingeloggten Computern synchronisieren";
 
 /* Liste der aktiven Tests für den ausgewählten Benutzer.\nActive Tests sind für den Benutzer wählbar. */
-"Table of aktive tests with settings for the choosen user./nActive tests are shown to the user." = "Liste der aktiven Tests für den ausgewählten Benutzer.\\nAktive Tests sind für den Benutzer wählbar.";
+"Table of aktive tests with settings for the choosen user./nActive tests are shown to the user." = "Liste der aktiven Tests für den ausgewählten Benutzer.\\nActive Tests sind für den Benutzer wählbar.";
 
 /* Liste der Benutzer und der Einstellung für den gewählten Test.\nAktive Tests sind für den Benutzer wählbar */
 "Table of registered users and settings for the choosen test./nActive tests are shown to the choosen User." = "Liste der Benutzer und der Einstellung für den gewählten Test.\\nAktive Tests sind für den Benutzer wählbar";
@@ -362,13 +359,16 @@
 "The data folder cannot be opened." = "Der Datenordner kann nicht geöffnet werden";
 
 /* Auf dem Computer kein Archiv eingerichtet */
-"The folder 'Archive' cannot be created on the choosen computer" = "Auf dem Computer ist kein Archiv eingerichtet";
+"The folder 'Archive' cannot be created on the choosen computer" = "Der Ordner 'Archiv' kann auf dem ausgewählten Computer nicht eingerichtet werden.";
 
 /* SndCalcDaten kann anlegt werden */
-"The folder 'Lecturebox' can be created on the choosen computer" = "SndCalcDaten kann auf dem ausgewählten Computer anlegt werden";
+"The folder 'Lecturebox' can be created on the choosen computer" = "Der Ordner 'SndCalcDaten' kann auf dem ausgewählten Computer eingerichtet werden.";
 
 /* Keine SndCalcDaten auf Computer */
-"The folder 'Lecturebox' cannot be created on the choosen computer" = "Keine SndCalcDaten auf Computer";
+"The folder 'Lecturebox' cannot be created on the choosen computer" = "Der Ordner 'SndCalcDaten' kann auf dem ausgewählten Computer nicht eingerichtet werden.";
+
+/* LB manuelleinrichten */
+"The lecturebox must be created manually on the choosen computer" = "Der Datenordner muss auf dem ausgewählten Computer manuell eingerichtet werden.";
 
 /* Das alte Passwort ist falsch. */
 "The old password is wrong" = "Das alte Passwort ist falsch.";
@@ -404,10 +404,7 @@
 "This is a Test" = "Das ist ein Test";
 
 /* Kein g√ºltiger Pfad */
-"This is not a valable path for the application" = "Kein gültiger Pfad";
-
-/* Dafür hast du %d Sekunden gebraucht. */
-"This took %d secconds" = "Dafür hast du %d Sekunden gebraucht.";
+"This is not a valable path for the application" = "Das ist kein gültiger Pfad";
 
 /* Das war Versuch */
 "This was trial " = "Das war Versuch";
@@ -419,13 +416,13 @@
 "Timeout For Admin" = "Timeout für Admin";
 
 /* Liste mit markierten Usern */
-"Userlist with marked users having done the test in the current session." = "Liste mit markierten Usern, die den Test in der aktuellen Session bearbeitet haben.";
+"Userlist with marked users having done the test in the current session." = "Liste mit markierten Usern";
 
 /* Sndfiles fuer Ziffern */
-"Where is the folder with the sound files of the digits?" = "Sndfiles fuer Ziffern";
+"Where is the folder with the sound files of the digits?" = "Wo sind die Files für die Ziffern?";
 
 /* Sndfile fuer Quittung */
-"Where is the sound file of the tone?" = "Sndfile fuer Quittung";
+"Where is the sound file of the tone?" = "Wo ist das Soundfile für die Quittung";
 
 /* Wer bist du? */
 "Who are You?" = "Wer bist du?";
@@ -452,5 +449,11 @@
 "You have to choose a name to continue" = "Du musst einen Namen wählen, um weiterzufahren";
 
 /* Zehnerübergang: */
-"ZehnerU" = "Zehnerübergang:";
+"ZehnerU" = "Zehnerübergang";
+
+/* teil 2 */
+"in string" = "Der Name";
+
+/* teil 1 */
+"wrong input" = "enthält falsche Zeichen.";
 

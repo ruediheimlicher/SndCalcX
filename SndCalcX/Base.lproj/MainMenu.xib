@@ -22,16 +22,21 @@
                 <outlet property="AufgabenNummerFeld" destination="ZVw-yW-5fZ" id="vVx-bw-9XG"/>
                 <outlet property="Bild" destination="Ame-SR-3fT" id="PNC-ws-RNz"/>
                 <outlet property="DatumFeld" destination="9Yy-OA-lOA" id="bKB-L9-uGO"/>
+                <outlet property="DrawerSchliessenTaste" destination="Q7h-CK-zFA" id="C93-jv-9fD"/>
                 <outlet property="ErgebnisRahmenFeld" destination="o8i-8h-chC" id="ZWs-M6-2PW"/>
                 <outlet property="ErgebnisseTaste" destination="Qgh-jV-RFy" id="GaW-Uk-WRC"/>
                 <outlet property="IconView" destination="oIt-28-1ib" id="hls-Q1-XdY"/>
                 <outlet property="LogoutKnopf" destination="Lj7-2I-PNa" id="DiR-pe-RTz"/>
+                <outlet property="ModusOption" destination="Gav-pf-JMT" id="Y1J-GA-P7x"/>
                 <outlet property="NamenPopKnopf" destination="D6p-9a-Ttt" id="JeT-Sj-xSw"/>
                 <outlet property="OKTaste" destination="W8D-fz-pMa" id="RJD-VZ-hZY"/>
                 <outlet property="RechnungsBox" destination="523-1u-pna" id="z8f-hC-czd"/>
                 <outlet property="SessionDatumFeld" destination="fa6-52-HLq" id="8ls-fC-uZq"/>
-                <outlet property="SessionDrawer" destination="c7i-9t-a0e" id="jJq-sj-2yO"/>
+                <outlet property="SessionDrawer" destination="ykh-gL-Fka" id="zaP-Ib-ssS"/>
                 <outlet property="SessionTable" destination="wLu-oD-aPw" id="zy0-7K-rMC"/>
+                <outlet property="SettingAlsTestSichernTaste" destination="LbE-8H-Zgc" id="N1K-WR-Tj7"/>
+                <outlet property="SettingsBox" destination="64W-zZ-r89" id="AaK-aK-JOK"/>
+                <outlet property="SettingsDrawer" destination="ykh-gL-Fka" id="q5m-SV-ukk"/>
                 <outlet property="SettingsPfeil" destination="O7j-3f-4nk" id="8YY-Bf-9nW"/>
                 <outlet property="StartTaste" destination="Ekv-i0-nnw" id="I7U-1h-QfK"/>
                 <outlet property="TestPopKnopf" destination="eIH-ID-Kel" id="oF4-cc-5z1"/>
@@ -100,48 +105,29 @@
                                     <action selector="newDocument:" target="-1" id="4Si-XN-c54"/>
                                 </connections>
                             </menuItem>
-                            <menuItem title="Open…" keyEquivalent="o" id="IAo-SY-fd9">
+                            <menuItem title="Open…" enabled="NO" keyEquivalent="o" id="IAo-SY-fd9">
                                 <connections>
                                     <action selector="openDocument:" target="-1" id="bVn-NM-KNZ"/>
                                 </connections>
                             </menuItem>
-                            <menuItem title="Open Recent" id="tXI-mr-wws">
-                                <modifierMask key="keyEquivalentModifierMask"/>
-                                <menu key="submenu" title="Open Recent" systemMenu="recentDocuments" id="oas-Oc-fiZ">
-                                    <items>
-                                        <menuItem title="Clear Menu" id="vNY-rz-j42">
-                                            <modifierMask key="keyEquivalentModifierMask"/>
-                                            <connections>
-                                                <action selector="clearRecentDocuments:" target="-1" id="Daa-9d-B3U"/>
-                                            </connections>
-                                        </menuItem>
-                                    </items>
-                                </menu>
-                            </menuItem>
                             <menuItem isSeparatorItem="YES" id="m54-Is-iLE"/>
-                            <menuItem title="Close" keyEquivalent="w" id="DVo-aG-piG">
+                            <menuItem title="Close" enabled="NO" keyEquivalent="w" id="DVo-aG-piG">
                                 <connections>
                                     <action selector="performClose:" target="-1" id="HmO-Ls-i7Q"/>
                                 </connections>
                             </menuItem>
-                            <menuItem title="Save…" keyEquivalent="s" id="pxx-59-PXV">
+                            <menuItem title="Save…" enabled="NO" keyEquivalent="s" id="pxx-59-PXV">
                                 <connections>
                                     <action selector="saveDocument:" target="-1" id="teZ-XB-qJY"/>
                                 </connections>
                             </menuItem>
-                            <menuItem title="Save As…" keyEquivalent="S" id="Bw7-FT-i3A">
+                            <menuItem title="Save As…" enabled="NO" keyEquivalent="S" id="Bw7-FT-i3A">
                                 <connections>
                                     <action selector="saveDocumentAs:" target="-1" id="mDf-zr-I0C"/>
                                 </connections>
                             </menuItem>
-                            <menuItem title="Revert to Saved" id="KaW-ft-85H">
-                                <modifierMask key="keyEquivalentModifierMask"/>
-                                <connections>
-                                    <action selector="revertDocumentToSaved:" target="-1" id="iJ3-Pv-kwq"/>
-                                </connections>
-                            </menuItem>
                             <menuItem isSeparatorItem="YES" id="aJh-i4-bef"/>
-                            <menuItem title="Page Setup…" keyEquivalent="P" id="qIS-W8-SiK">
+                            <menuItem title="Page Setup…" enabled="NO" keyEquivalent="P" id="qIS-W8-SiK">
                                 <modifierMask key="keyEquivalentModifierMask" shift="YES" command="YES"/>
                                 <connections>
                                     <action selector="runPageLayout:" target="-1" id="Din-rz-gC5"/>
@@ -636,25 +622,6 @@
                         </items>
                     </menu>
                 </menuItem>
-                <menuItem title="View" id="H8h-7b-M4v">
-                    <modifierMask key="keyEquivalentModifierMask"/>
-                    <menu key="submenu" title="View" id="HyV-fh-RgO">
-                        <items>
-                            <menuItem title="Show Toolbar" keyEquivalent="t" id="snW-S8-Cw5">
-                                <modifierMask key="keyEquivalentModifierMask" option="YES" command="YES"/>
-                                <connections>
-                                    <action selector="toggleToolbarShown:" target="-1" id="BXY-wc-z0C"/>
-                                </connections>
-                            </menuItem>
-                            <menuItem title="Customize Toolbar…" id="1UK-8n-QPP">
-                                <modifierMask key="keyEquivalentModifierMask"/>
-                                <connections>
-                                    <action selector="runToolbarCustomizationPalette:" target="-1" id="pQI-g3-MTW"/>
-                                </connections>
-                            </menuItem>
-                        </items>
-                    </menu>
-                </menuItem>
                 <menuItem title="Ablauf" id="bnI-2h-L9h">
                     <modifierMask key="keyEquivalentModifierMask"/>
                     <menu key="submenu" title="Ablauf" id="sv4-eE-GqV">
@@ -665,8 +632,7 @@
                                     <action selector="showNamenPanel:" target="Voe-Tx-rLC" id="fIg-LT-x5V"/>
                                 </connections>
                             </menuItem>
-                            <menuItem title="Testliste" tag="20002" id="0eJ-X3-koZ">
-                                <modifierMask key="keyEquivalentModifierMask"/>
+                            <menuItem title="Testliste" tag="20002" alternate="YES" keyEquivalent="T" id="0eJ-X3-koZ">
                                 <connections>
                                     <action selector="showTestPanel:" target="Voe-Tx-rLC" id="GE8-IP-Mdp"/>
                                 </connections>
@@ -735,11 +701,11 @@
                 </menuItem>
             </items>
         </menu>
-        <window title="SndCalcX" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" animationBehavior="default" id="QvC-M9-y7g">
+        <window title="SndCalc" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" animationBehavior="default" id="QvC-M9-y7g">
             <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
             <rect key="contentRect" x="335" y="390" width="672" height="391"/>
-            <rect key="screenRect" x="0.0" y="0.0" width="1280" height="777"/>
+            <rect key="screenRect" x="0.0" y="0.0" width="1680" height="1027"/>
             <view key="contentView" id="EiT-Mj-1SZ">
                 <rect key="frame" x="0.0" y="0.0" width="672" height="391"/>
                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -748,7 +714,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="815" height="391"/>
                         <subviews>
                             <box fixedFrame="YES" title="Box" titlePosition="noTitle" translatesAutoresizingMaskIntoConstraints="NO" id="523-1u-pna">
-                                <rect key="frame" x="10" y="235" width="467" height="151"/>
+                                <rect key="frame" x="10" y="227" width="467" height="151"/>
                                 <view key="contentView" ambiguous="YES" id="JHS-i2-v6r">
                                     <rect key="frame" x="2" y="2" width="463" height="147"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -839,7 +805,7 @@
                                 <font key="titleFont" size="18" name="Helvetica"/>
                             </box>
                             <textField verticalHuggingPriority="750" fixedFrame="YES" preferredMaxLayoutWidth="149" translatesAutoresizingMaskIntoConstraints="NO" id="mSA-gi-KAg">
-                                <rect key="frame" x="27" y="332" width="153" height="44"/>
+                                <rect key="frame" x="27" y="324" width="153" height="44"/>
                                 <textFieldCell key="cell" sendsActionOnEndEditing="YES" title="Rechnen" id="Zeg-4j-L6I">
                                     <font key="font" metaFont="system" size="36"/>
                                     <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
@@ -847,7 +813,7 @@
                                 </textFieldCell>
                             </textField>
                             <box fixedFrame="YES" title="Box" titlePosition="noTitle" translatesAutoresizingMaskIntoConstraints="NO" id="VFA-cH-HVj">
-                                <rect key="frame" x="10" y="21" width="467" height="78"/>
+                                <rect key="frame" x="10" y="13" width="467" height="78"/>
                                 <view key="contentView" ambiguous="YES" id="PWV-9B-eme">
                                     <rect key="frame" x="2" y="2" width="463" height="74"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -881,6 +847,9 @@
                                                     </buttonCell>
                                                 </column>
                                             </cells>
+                                            <connections>
+                                                <action selector="setModus:" target="Voe-Tx-rLC" id="Kvr-eS-vEi"/>
+                                            </connections>
                                         </matrix>
                                         <popUpButton verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="eIH-ID-Kel">
                                             <rect key="frame" x="153" y="38" width="297" height="26"/>
@@ -914,7 +883,7 @@
                                 <color key="fillColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </box>
                             <box fixedFrame="YES" title="Box" titlePosition="noTitle" translatesAutoresizingMaskIntoConstraints="NO" id="ojF-1c-lbO">
-                                <rect key="frame" x="479" y="21" width="170" height="365"/>
+                                <rect key="frame" x="479" y="13" width="170" height="365"/>
                                 <view key="contentView" ambiguous="YES" id="GTH-YN-KjO">
                                     <rect key="frame" x="2" y="2" width="166" height="361"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -929,10 +898,8 @@
                                         </textField>
                                         <textField verticalHuggingPriority="750" fixedFrame="YES" preferredMaxLayoutWidth="103" translatesAutoresizingMaskIntoConstraints="NO" id="nbe-Aw-dM1">
                                             <rect key="frame" x="8" y="61" width="107" height="17"/>
-                                            <textFieldCell key="cell" sendsActionOnEndEditing="YES" alignment="left" id="4hP-6c-3fA">
+                                            <textFieldCell key="cell" sendsActionOnEndEditing="YES" alignment="left" title="Lautstärke:" id="4hP-6c-3fA">
                                                 <font key="font" metaFont="system"/>
-                                                <string key="title">Lautstärke:
-</string>
                                                 <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                 <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                             </textFieldCell>
@@ -1006,7 +973,7 @@
                                 <color key="fillColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </box>
                             <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="r9Q-xu-Fb8">
-                                <rect key="frame" x="1" y="164" width="12" height="15"/>
+                                <rect key="frame" x="1" y="156" width="12" height="15"/>
                                 <buttonCell key="cell" type="squareTextured" bezelStyle="texturedSquare" alignment="center" inset="2" id="QVx-FN-hRM">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
@@ -1016,7 +983,7 @@
                                 </connections>
                             </button>
                             <box fixedFrame="YES" title="Box" titlePosition="noTitle" translatesAutoresizingMaskIntoConstraints="NO" id="QYv-ru-evk">
-                                <rect key="frame" x="10" y="171" width="467" height="62"/>
+                                <rect key="frame" x="10" y="163" width="467" height="62"/>
                                 <view key="contentView" ambiguous="YES" id="hJR-8G-zXR">
                                     <rect key="frame" x="2" y="2" width="463" height="58"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1078,7 +1045,7 @@
                                 <color key="fillColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </box>
                             <box fixedFrame="YES" title="Box" titlePosition="noTitle" translatesAutoresizingMaskIntoConstraints="NO" id="5LQ-NU-ssQ">
-                                <rect key="frame" x="10" y="101" width="467" height="68"/>
+                                <rect key="frame" x="10" y="93" width="467" height="68"/>
                                 <view key="contentView" ambiguous="YES" id="IyE-UY-xxb">
                                     <rect key="frame" x="2" y="2" width="463" height="64"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1141,28 +1108,11 @@
             <point key="canvasLocation" x="341" y="226.5"/>
         </window>
         <customView id="wpH-xU-io3" userLabel="View">
-            <rect key="frame" x="0.0" y="0.0" width="635" height="162"/>
+            <rect key="frame" x="0.0" y="0.0" width="635" height="217"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
             <subviews>
-                <button hidden="YES" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Q7h-CK-zFA">
-                    <rect key="frame" x="492" y="10" width="133" height="23"/>
-                    <buttonCell key="cell" type="squareTextured" title="Schliessen" bezelStyle="texturedSquare" alignment="center" borderStyle="border" inset="2" id="nB8-4m-7ns">
-                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                        <font key="font" metaFont="system"/>
-                    </buttonCell>
-                    <connections>
-                        <action selector="closeDrawer:" target="Voe-Tx-rLC" id="Tyb-Mv-2cl"/>
-                    </connections>
-                </button>
-                <button hidden="YES" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="LbE-8H-Zgc">
-                    <rect key="frame" x="492" y="44" width="133" height="23"/>
-                    <buttonCell key="cell" type="squareTextured" title="Als Test sichern" bezelStyle="texturedSquare" alignment="center" borderStyle="border" inset="2" id="yqZ-VN-JDg">
-                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                        <font key="font" metaFont="system"/>
-                    </buttonCell>
-                </button>
                 <tabView fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="64W-zZ-r89">
-                    <rect key="frame" x="5" y="1" width="486" height="160"/>
+                    <rect key="frame" x="5" y="14" width="486" height="160"/>
                     <font key="font" metaFont="system"/>
                     <tabViewItems>
                         <tabViewItem label="Reihen" identifier="1" id="EmU-5n-Dtn">
@@ -1179,8 +1129,38 @@
                         </tabViewItem>
                     </tabViewItems>
                 </tabView>
+                <button verticalHuggingPriority="750" fixedFrame="YES" tag="-1" translatesAutoresizingMaskIntoConstraints="NO" id="jzT-y9-cDw">
+                    <rect key="frame" x="492" y="130" width="133" height="25"/>
+                    <buttonCell key="cell" type="squareTextured" title="Verwenden" bezelStyle="texturedSquare" alignment="center" borderStyle="border" inset="2" id="iYn-7G-HK2">
+                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                        <font key="font" metaFont="system"/>
+                        <connections>
+                            <action selector="reportSettingsAnwenden:" target="Voe-Tx-rLC" id="dZn-09-WtL"/>
+                        </connections>
+                    </buttonCell>
+                </button>
+                <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Q7h-CK-zFA">
+                    <rect key="frame" x="492" y="22" width="133" height="23"/>
+                    <buttonCell key="cell" type="squareTextured" title="Schliessen" bezelStyle="texturedSquare" alignment="center" borderStyle="border" inset="2" id="nB8-4m-7ns">
+                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                        <font key="font" metaFont="system"/>
+                    </buttonCell>
+                    <connections>
+                        <action selector="closeDrawer:" target="Voe-Tx-rLC" id="Tyb-Mv-2cl"/>
+                    </connections>
+                </button>
+                <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="LbE-8H-Zgc">
+                    <rect key="frame" x="492" y="50" width="133" height="40"/>
+                    <buttonCell key="cell" type="squareTextured" title="Als Test sichern" bezelStyle="texturedSquare" alignment="center" borderStyle="border" inset="2" id="yqZ-VN-JDg">
+                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                        <font key="font" metaFont="system" size="16"/>
+                    </buttonCell>
+                    <connections>
+                        <action selector="reportSettingAlsTestSichern:" target="Voe-Tx-rLC" id="mFO-XQ-KQe"/>
+                    </connections>
+                </button>
             </subviews>
-            <point key="canvasLocation" x="405.5" y="729"/>
+            <point key="canvasLocation" x="405.5" y="830.5"/>
         </customView>
         <drawer trailingOffset="15" id="mBB-9v-0fR">
             <size key="contentSize" width="200" height="200"/>
@@ -1287,6 +1267,26 @@
         <menuItem title="Training" state="on" id="hUY-hi-HlR"/>
         <menuItem title="Training" state="on" id="HKp-hS-5FX"/>
         <menuItem title="Training" state="on" id="2Ci-E0-0qg"/>
+        <drawer preferredEdge="minY" trailingOffset="15" id="ykh-gL-Fka">
+            <size key="contentSize" width="200" height="200"/>
+            <size key="minContentSize" width="50" height="50"/>
+            <size key="maxContentSize" width="600" height="400"/>
+            <connections>
+                <outlet property="contentView" destination="wpH-xU-io3" id="cGO-fT-X8i"/>
+                <outlet property="delegate" destination="Voe-Tx-rLC" id="gup-TW-1FU"/>
+                <outlet property="parentWindow" destination="QvC-M9-y7g" id="zjm-Vr-Eap"/>
+            </connections>
+        </drawer>
+        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="BCI-Nj-8bT">
+            <rect key="frame" x="0.0" y="0.0" width="37" height="17"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+            <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Label" id="RWh-wl-Bbb">
+                <font key="font" metaFont="system"/>
+                <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+            </textFieldCell>
+            <point key="canvasLocation" x="203.5" y="562.5"/>
+        </textField>
     </objects>
     <resources>
         <image name="duerergrau" width="267" height="271"/>

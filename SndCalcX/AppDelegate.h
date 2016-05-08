@@ -209,6 +209,7 @@ struct cSeriedaten;
 - (BOOL)checkSerieDatenDic:(NSDictionary*)derSerieDatenDic vonTest:(NSString*)derTestName;
 - (IBAction)toggleDrawer:(id)sender;
 - (IBAction)closeDrawer:(id)sender;
+- (IBAction)reportSettingsAnwenden:(id)sender;
 - (IBAction)reportSettingAlsTestSichern:(id)sender;
 - (void)setSettingsMitDic:(NSDictionary*)derSettingDic;
 - (void)selectSettingsTab:(int)derTab;

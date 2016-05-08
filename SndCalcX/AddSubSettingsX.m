@@ -447,7 +447,7 @@ enum
 
 - (void)mitAdditionAktion:(id)sender
 {
-   NSLog(@"mitAdditionAktion");
+   //NSLog(@"mitAdditionAktion");
    switch ([sender state])
    {
       case 0:
@@ -470,13 +470,13 @@ enum
 
 - (void)mitSubtraktionAktion:(id)sender
 {
-   NSLog(@"mitSubtraktionAktion");
+   //NSLog(@"mitSubtraktionAktion");
    
 }
 
 - (void)EinschaltAktion:(id)sender
 {
-   NSLog(@"AS EinschaltAktion");
+   //NSLog(@"AS EinschaltAktion");
    //[EinschaltTaste setBordered:[sender state]];
    
 }

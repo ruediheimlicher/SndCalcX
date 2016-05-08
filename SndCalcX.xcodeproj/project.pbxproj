@@ -26,7 +26,6 @@
 		BD0416FB1CD3ADF900F1288A /* rPasswortRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = BD0416FA1CD3ADF900F1288A /* rPasswortRequest.m */; };
 		BD0416FE1CD3B06A00F1288A /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = BD0417001CD3B06A00F1288A /* Localizable.strings */; };
 		BD0417031CD3B06A00F1288A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = BD0417051CD3B06A00F1288A /* InfoPlist.strings */; };
-		BD0417071CD491B700F1288A /* Icons in Resources */ = {isa = PBXBuildFile; fileRef = BD0417061CD491B700F1288A /* Icons */; };
 		BD776B2C1CD0FAC700B28FE8 /* rResultatFeld.m in Sources */ = {isa = PBXBuildFile; fileRef = BD776B2B1CD0FAC700B28FE8 /* rResultatFeld.m */; };
 		BD776B2F1CD364C700B28FE8 /* german.strings in Resources */ = {isa = PBXBuildFile; fileRef = BD776B2E1CD364C700B28FE8 /* german.strings */; };
 		BD7947141CC024F300604B3D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BD7947131CC024F300604B3D /* AppDelegate.m */; };
@@ -45,20 +44,13 @@
 		BD7947871CC02FF700604B3D /* rPasswortListe.m in Sources */ = {isa = PBXBuildFile; fileRef = BD79477D1CC02FF700604B3D /* rPasswortListe.m */; };
 		BD7947891CC02FF700604B3D /* rPWTimeout.m in Sources */ = {isa = PBXBuildFile; fileRef = BD7947811CC02FF700604B3D /* rPWTimeout.m */; };
 		BD7947A21CC13AD700604B3D /* SCDiplomFenster.nib in Resources */ = {isa = PBXBuildFile; fileRef = BD79478B1CC13AD700604B3D /* SCDiplomFenster.nib */; };
-		BD7947A31CC13AD700604B3D /* SCDiplomFenster~.nib in Resources */ = {isa = PBXBuildFile; fileRef = BD79478C1CC13AD700604B3D /* SCDiplomFenster~.nib */; };
 		BD7947A41CC13AD700604B3D /* SCEinstellungenPanel.nib in Resources */ = {isa = PBXBuildFile; fileRef = BD79478D1CC13AD700604B3D /* SCEinstellungenPanel.nib */; };
-		BD7947A51CC13AD700604B3D /* SCEinstellungenPanel~.nib in Resources */ = {isa = PBXBuildFile; fileRef = BD79478E1CC13AD700604B3D /* SCEinstellungenPanel~.nib */; };
 		BD7947A61CC13AD700604B3D /* SCNamenPanel.nib in Resources */ = {isa = PBXBuildFile; fileRef = BD79478F1CC13AD700604B3D /* SCNamenPanel.nib */; };
 		BD7947A81CC13AD700604B3D /* SCPasswortDialog.nib in Resources */ = {isa = PBXBuildFile; fileRef = BD7947911CC13AD700604B3D /* SCPasswortDialog.nib */; };
-		BD7947A91CC13AD700604B3D /* SCPasswortDialog~.nib in Resources */ = {isa = PBXBuildFile; fileRef = BD7947921CC13AD700604B3D /* SCPasswortDialog~.nib */; };
 		BD7947AA1CC13AD700604B3D /* SCPasswortListe.nib in Resources */ = {isa = PBXBuildFile; fileRef = BD7947931CC13AD700604B3D /* SCPasswortListe.nib */; };
 		BD7947AB1CC13AD700604B3D /* SCPasswortRequest.nib in Resources */ = {isa = PBXBuildFile; fileRef = BD7947941CC13AD700604B3D /* SCPasswortRequest.nib */; };
-		BD7947AC1CC13AD700604B3D /* SCPasswortRequest~.nib in Resources */ = {isa = PBXBuildFile; fileRef = BD7947951CC13AD700604B3D /* SCPasswortRequest~.nib */; };
-		BD7947AD1CC13AD700604B3D /* SCPasswortTimeoutPanel~.nib in Resources */ = {isa = PBXBuildFile; fileRef = BD7947961CC13AD700604B3D /* SCPasswortTimeoutPanel~.nib */; };
 		BD7947AE1CC13AD700604B3D /* SCPrintStatistik.nib in Resources */ = {isa = PBXBuildFile; fileRef = BD7947971CC13AD700604B3D /* SCPrintStatistik.nib */; };
-		BD7947AF1CC13AD700604B3D /* SCPrintStatistik~.nib in Resources */ = {isa = PBXBuildFile; fileRef = BD7947981CC13AD700604B3D /* SCPrintStatistik~.nib */; };
 		BD7947B01CC13AD700604B3D /* SCPWTimeoutPanel.nib in Resources */ = {isa = PBXBuildFile; fileRef = BD7947991CC13AD700604B3D /* SCPWTimeoutPanel.nib */; };
-		BD7947B11CC13AD700604B3D /* SCPWTimeoutPanel~.nib in Resources */ = {isa = PBXBuildFile; fileRef = BD79479A1CC13AD700604B3D /* SCPWTimeoutPanel~.nib */; };
 		BD7947B21CC13AD700604B3D /* SCStatistik.nib in Resources */ = {isa = PBXBuildFile; fileRef = BD79479B1CC13AD700604B3D /* SCStatistik.nib */; };
 		BD7947B31CC13AD700604B3D /* SCStimmenPanel.nib in Resources */ = {isa = PBXBuildFile; fileRef = BD79479C1CC13AD700604B3D /* SCStimmenPanel.nib */; };
 		BD7947B51CC13AD700604B3D /* SCTestPanel.nib in Resources */ = {isa = PBXBuildFile; fileRef = BD79479E1CC13AD700604B3D /* SCTestPanel.nib */; };
@@ -68,6 +60,7 @@
 		BD7948331CC56A5000604B3D /* Zahlen_AIFF in Resources */ = {isa = PBXBuildFile; fileRef = BD7948321CC56A5000604B3D /* Zahlen_AIFF */; };
 		BD7948381CC56C1B00604B3D /* Quittung.plist in Resources */ = {isa = PBXBuildFile; fileRef = BD7948361CC56C1B00604B3D /* Quittung.plist */; };
 		BD7948391CC56C1B00604B3D /* Zahlen.plist in Resources */ = {isa = PBXBuildFile; fileRef = BD7948371CC56C1B00604B3D /* Zahlen.plist */; };
+		BDBCFE721CDF3F8700F942D6 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = BD79471D1CC024F300604B3D /* Info.plist */; };
 		BDD5EA991CDE1AD3001DB2F4 /* NSString+regex.m in Sources */ = {isa = PBXBuildFile; fileRef = BDD5EA981CDE1AD3001DB2F4 /* NSString+regex.m */; };
 		BDD8A4B81CC69B5200349CEA /* Quittung_AIFF in Resources */ = {isa = PBXBuildFile; fileRef = BDD8A4B71CC69B5200349CEA /* Quittung_AIFF */; };
 		BDD8A4BC1CC8C33400349CEA /* Bilder in Resources */ = {isa = PBXBuildFile; fileRef = BDD8A4BB1CC8C33400349CEA /* Bilder */; };
@@ -116,13 +109,13 @@
 		BD776B2B1CD0FAC700B28FE8 /* rResultatFeld.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = rResultatFeld.m; sourceTree = "<group>"; };
 		BD776B2D1CD2934900B28FE8 /* defines.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = defines.h; sourceTree = "<group>"; };
 		BD776B2E1CD364C700B28FE8 /* german.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = german.strings; sourceTree = "<group>"; };
-		BD79470F1CC024F300604B3D /* SndCalcX.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SndCalcX.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		BD79470F1CC024F300604B3D /* SndCalc.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SndCalc.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BD7947121CC024F300604B3D /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		BD7947131CC024F300604B3D /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		BD7947161CC024F300604B3D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		BD7947181CC024F300604B3D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BD79471B1CC024F300604B3D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
-		BD79471D1CC024F300604B3D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BD79471D1CC024F300604B3D /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BD7947231CC0253100604B3D /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/MainMenu.strings; sourceTree = "<group>"; };
 		BD7947241CC02D6700604B3D /* rAddSubSettings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = rAddSubSettings.h; path = Source/rAddSubSettings.h; sourceTree = SOURCE_ROOT; };
 		BD7947281CC02D6700604B3D /* rAufgabenzeiger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = rAufgabenzeiger.h; path = Source/rAufgabenzeiger.h; sourceTree = SOURCE_ROOT; };
@@ -158,20 +151,13 @@
 		BD7947801CC02FF700604B3D /* rPWTimeout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = rPWTimeout.h; sourceTree = "<group>"; };
 		BD7947811CC02FF700604B3D /* rPWTimeout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = rPWTimeout.m; sourceTree = "<group>"; };
 		BD79478B1CC13AD700604B3D /* SCDiplomFenster.nib */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; path = SCDiplomFenster.nib; sourceTree = "<group>"; };
-		BD79478C1CC13AD700604B3D /* SCDiplomFenster~.nib */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; path = "SCDiplomFenster~.nib"; sourceTree = "<group>"; };
 		BD79478D1CC13AD700604B3D /* SCEinstellungenPanel.nib */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; path = SCEinstellungenPanel.nib; sourceTree = "<group>"; };
-		BD79478E1CC13AD700604B3D /* SCEinstellungenPanel~.nib */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; path = "SCEinstellungenPanel~.nib"; sourceTree = "<group>"; };
 		BD79478F1CC13AD700604B3D /* SCNamenPanel.nib */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; path = SCNamenPanel.nib; sourceTree = "<group>"; };
 		BD7947911CC13AD700604B3D /* SCPasswortDialog.nib */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; path = SCPasswortDialog.nib; sourceTree = "<group>"; };
-		BD7947921CC13AD700604B3D /* SCPasswortDialog~.nib */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; path = "SCPasswortDialog~.nib"; sourceTree = "<group>"; };
 		BD7947931CC13AD700604B3D /* SCPasswortListe.nib */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; path = SCPasswortListe.nib; sourceTree = "<group>"; };
 		BD7947941CC13AD700604B3D /* SCPasswortRequest.nib */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; path = SCPasswortRequest.nib; sourceTree = "<group>"; };
-		BD7947951CC13AD700604B3D /* SCPasswortRequest~.nib */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; path = "SCPasswortRequest~.nib"; sourceTree = "<group>"; };
-		BD7947961CC13AD700604B3D /* SCPasswortTimeoutPanel~.nib */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; path = "SCPasswortTimeoutPanel~.nib"; sourceTree = "<group>"; };
 		BD7947971CC13AD700604B3D /* SCPrintStatistik.nib */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; path = SCPrintStatistik.nib; sourceTree = "<group>"; };
-		BD7947981CC13AD700604B3D /* SCPrintStatistik~.nib */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; path = "SCPrintStatistik~.nib"; sourceTree = "<group>"; };
 		BD7947991CC13AD700604B3D /* SCPWTimeoutPanel.nib */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; path = SCPWTimeoutPanel.nib; sourceTree = "<group>"; };
-		BD79479A1CC13AD700604B3D /* SCPWTimeoutPanel~.nib */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; path = "SCPWTimeoutPanel~.nib"; sourceTree = "<group>"; };
 		BD79479B1CC13AD700604B3D /* SCStatistik.nib */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; path = SCStatistik.nib; sourceTree = "<group>"; };
 		BD79479C1CC13AD700604B3D /* SCStimmenPanel.nib */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; path = SCStimmenPanel.nib; sourceTree = "<group>"; };
 		BD79479E1CC13AD700604B3D /* SCTestPanel.nib */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; path = SCTestPanel.nib; sourceTree = "<group>"; };
@@ -226,7 +212,7 @@
 		BD7947101CC024F300604B3D /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				BD79470F1CC024F300604B3D /* SndCalcX.app */,
+				BD79470F1CC024F300604B3D /* SndCalc.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -335,20 +321,13 @@
 			isa = PBXGroup;
 			children = (
 				BD79478B1CC13AD700604B3D /* SCDiplomFenster.nib */,
-				BD79478C1CC13AD700604B3D /* SCDiplomFenster~.nib */,
 				BD79478D1CC13AD700604B3D /* SCEinstellungenPanel.nib */,
-				BD79478E1CC13AD700604B3D /* SCEinstellungenPanel~.nib */,
 				BD79478F1CC13AD700604B3D /* SCNamenPanel.nib */,
 				BD7947911CC13AD700604B3D /* SCPasswortDialog.nib */,
-				BD7947921CC13AD700604B3D /* SCPasswortDialog~.nib */,
 				BD7947931CC13AD700604B3D /* SCPasswortListe.nib */,
 				BD7947941CC13AD700604B3D /* SCPasswortRequest.nib */,
-				BD7947951CC13AD700604B3D /* SCPasswortRequest~.nib */,
-				BD7947961CC13AD700604B3D /* SCPasswortTimeoutPanel~.nib */,
 				BD7947971CC13AD700604B3D /* SCPrintStatistik.nib */,
-				BD7947981CC13AD700604B3D /* SCPrintStatistik~.nib */,
 				BD7947991CC13AD700604B3D /* SCPWTimeoutPanel.nib */,
-				BD79479A1CC13AD700604B3D /* SCPWTimeoutPanel~.nib */,
 				BD79479B1CC13AD700604B3D /* SCStatistik.nib */,
 				BD79479C1CC13AD700604B3D /* SCStimmenPanel.nib */,
 				BD79479E1CC13AD700604B3D /* SCTestPanel.nib */,
@@ -379,9 +358,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		BD79470E1CC024F300604B3D /* SndCalcX */ = {
+		BD79470E1CC024F300604B3D /* SndCalc */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = BD7947201CC024F300604B3D /* Build configuration list for PBXNativeTarget "SndCalcX" */;
+			buildConfigurationList = BD7947201CC024F300604B3D /* Build configuration list for PBXNativeTarget "SndCalc" */;
 			buildPhases = (
 				BD79470B1CC024F300604B3D /* Sources */,
 				BD79470C1CC024F300604B3D /* Frameworks */,
@@ -391,9 +370,9 @@
 			);
 			dependencies = (
 			);
-			name = SndCalcX;
+			name = SndCalc;
 			productName = SndCalcX;
-			productReference = BD79470F1CC024F300604B3D /* SndCalcX.app */;
+			productReference = BD79470F1CC024F300604B3D /* SndCalc.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -417,13 +396,14 @@
 			knownRegions = (
 				en,
 				Base,
+				de,
 			);
 			mainGroup = BD7947061CC024F300604B3D;
 			productRefGroup = BD7947101CC024F300604B3D /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				BD79470E1CC024F300604B3D /* SndCalcX */,
+				BD79470E1CC024F300604B3D /* SndCalc */,
 			);
 		};
 /* End PBXProject section */
@@ -440,7 +420,6 @@
 				BDD8A4D41CC8CFD500349CEA /* Zielfahne.tif in Resources */,
 				BD7947A21CC13AD700604B3D /* SCDiplomFenster.nib in Resources */,
 				BD7947191CC024F300604B3D /* Assets.xcassets in Resources */,
-				BD7947A91CC13AD700604B3D /* SCPasswortDialog~.nib in Resources */,
 				BD79471C1CC024F300604B3D /* MainMenu.xib in Resources */,
 				BD7947CF1CC1444E00604B3D /* Icons in Resources */,
 				BDD8A4D01CC8CFD500349CEA /* SessionNOImg.tif in Resources */,
@@ -452,30 +431,24 @@
 				BDD8A4CE1CC8CFD500349CEA /* MarkOffImgOld.tif in Resources */,
 				BDD8A4CA1CC8CFD500349CEA /* duerergrau.tif in Resources */,
 				BDD8A4BC1CC8C33400349CEA /* Bilder in Resources */,
-				BD7947B11CC13AD700604B3D /* SCPWTimeoutPanel~.nib in Resources */,
 				BD7948331CC56A5000604B3D /* Zahlen_AIFF in Resources */,
 				BDD8A4CD1CC8CFD500349CEA /* MarkOffImg.tif in Resources */,
+				BDBCFE721CDF3F8700F942D6 /* Info.plist in Resources */,
 				BD7947AB1CC13AD700604B3D /* SCPasswortRequest.nib in Resources */,
 				BD0417031CD3B06A00F1288A /* InfoPlist.strings in Resources */,
-				BD7947A51CC13AD700604B3D /* SCEinstellungenPanel~.nib in Resources */,
 				BD7947A61CC13AD700604B3D /* SCNamenPanel.nib in Resources */,
 				BD7947A41CC13AD700604B3D /* SCEinstellungenPanel.nib in Resources */,
 				BD7947B71CC13AD700604B3D /* SCVolumes.nib in Resources */,
 				BDD8A4B81CC69B5200349CEA /* Quittung_AIFF in Resources */,
 				BD7947B31CC13AD700604B3D /* SCStimmenPanel.nib in Resources */,
-				BD7947AD1CC13AD700604B3D /* SCPasswortTimeoutPanel~.nib in Resources */,
 				BD0416FE1CD3B06A00F1288A /* Localizable.strings in Resources */,
-				BD0417071CD491B700F1288A /* Icons in Resources */,
 				BD7947AE1CC13AD700604B3D /* SCPrintStatistik.nib in Resources */,
 				BD7947B51CC13AD700604B3D /* SCTestPanel.nib in Resources */,
 				BDD8A4CB1CC8CFD500349CEA /* FehlerImg.tif in Resources */,
 				BD7948381CC56C1B00604B3D /* Quittung.plist in Resources */,
 				BD7947AA1CC13AD700604B3D /* SCPasswortListe.nib in Resources */,
-				BD7947AF1CC13AD700604B3D /* SCPrintStatistik~.nib in Resources */,
-				BD7947AC1CC13AD700604B3D /* SCPasswortRequest~.nib in Resources */,
 				BD7947B01CC13AD700604B3D /* SCPWTimeoutPanel.nib in Resources */,
 				BD7948391CC56C1B00604B3D /* Zahlen.plist in Resources */,
-				BD7947A31CC13AD700604B3D /* SCDiplomFenster~.nib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -668,7 +641,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		BD7947201CC024F300604B3D /* Build configuration list for PBXNativeTarget "SndCalcX" */ = {
+		BD7947201CC024F300604B3D /* Build configuration list for PBXNativeTarget "SndCalc" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				BD7947211CC024F300604B3D /* Debug */,

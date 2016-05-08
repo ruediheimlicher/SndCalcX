@@ -365,7 +365,7 @@
 {
    [NSApp stopModalWithCode:1];
    //int HomeStatus=[HomeKnopf state];
-   NSString* NetzwerkString=@"Lesebox im Netz suchen";
+   NSString* NetzwerkString=@"Datenordner im Netz suchen";
    //NSLog(@"OKSheet:  stopModalWithCode HomeStatus: %d", HomeStatus);
    NSString* lb=NSLocalizedString(@"Lecturebox",@"Lesebox");
    //if ([HomeKnopf state])

@@ -6,7 +6,7 @@
         <capability name="box content view" minToolsVersion="7.0"/>
     </dependencies>
     <objects>
-        <customObject id="-2" userLabel="File's Owner" customClass="SCTestPanel">
+        <customObject id="-2" userLabel="File's Owner" customClass="rTestPanel">
             <connections>
                 <outlet property="AnzahlAufgabenFeld" destination="185" id="188"/>
                 <outlet property="AnzahlPopTaste" destination="107" id="114"/>
@@ -16,6 +16,7 @@
                 <outlet property="IconFeld" destination="43" id="45"/>
                 <outlet property="NamenWahlTaste" destination="125" id="131"/>
                 <outlet property="NamenZuTestTable" destination="165" id="176"/>
+                <outlet property="SaveSettingsAsTestTaste" destination="heE-Zj-gmt" id="rQs-A6-mAa"/>
                 <outlet property="SaveTestTaste" destination="152" id="153"/>
                 <outlet property="SchliessenTaste" destination="8" id="13"/>
                 <outlet property="SetTestForAllTaste" destination="197" id="213"/>
@@ -34,7 +35,7 @@
                 <outlet property="aktivCheckbox" destination="94" id="113"/>
                 <outlet property="closeDrawerTaste" destination="225" id="238"/>
                 <outlet property="forAllCheckbox" destination="146" id="148"/>
-                <outlet property="window" destination="5" id="7"/>
+                <outlet property="window" destination="5" id="ruq-Bs-AHk"/>
             </connections>
         </customObject>
         <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
@@ -42,30 +43,16 @@
         <window title="Test" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" animationBehavior="default" id="5" userLabel="Window">
             <windowStyleMask key="styleMask" titled="YES" miniaturizable="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" bottomStrut="YES"/>
-            <rect key="contentRect" x="46" y="305" width="614" height="425"/>
+            <rect key="contentRect" x="46" y="305" width="639" height="436"/>
             <rect key="screenRect" x="0.0" y="0.0" width="1680" height="1028"/>
             <value key="minSize" type="size" width="614" height="425"/>
             <value key="maxSize" type="size" width="615" height="426"/>
             <view key="contentView" id="6">
-                <rect key="frame" x="0.0" y="0.0" width="614" height="425"/>
+                <rect key="frame" x="0.0" y="0.0" width="639" height="436"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <button verticalHuggingPriority="750" id="8">
-                        <rect key="frame" x="449" y="12" width="133" height="32"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                        <buttonCell key="cell" type="push" title="Schliessen" bezelStyle="rounded" alignment="center" borderStyle="border" inset="2" id="271">
-                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                            <font key="font" metaFont="system"/>
-                            <string key="keyEquivalent" base64-UTF8="YES">
-DQ
-</string>
-                        </buttonCell>
-                        <connections>
-                            <action selector="reportClose:" target="-2" id="14"/>
-                        </connections>
-                    </button>
                     <button verticalHuggingPriority="750" id="9">
-                        <rect key="frame" x="326" y="12" width="123" height="32"/>
+                        <rect key="frame" x="309" y="13" width="123" height="32"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <buttonCell key="cell" type="push" title="Abbrechen" bezelStyle="rounded" alignment="center" borderStyle="border" inset="2" id="272">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
@@ -76,7 +63,7 @@ DQ
                         </connections>
                     </button>
                     <box title="Box" titlePosition="noTitle" id="39">
-                        <rect key="frame" x="17" y="308" width="580" height="98"/>
+                        <rect key="frame" x="25" y="319" width="580" height="98"/>
                         <autoresizingMask key="autoresizingMask" flexibleMinY="YES"/>
                         <view key="contentView" id="Etk-MD-SEH">
                             <rect key="frame" x="2" y="2" width="576" height="94"/>
@@ -102,7 +89,7 @@ DQ
                         <color key="fillColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </box>
                     <tabView id="69">
-                        <rect key="frame" x="13" y="40" width="588" height="270"/>
+                        <rect key="frame" x="21" y="51" width="588" height="270"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <font key="font" metaFont="system"/>
                         <tabViewItems>
@@ -112,10 +99,10 @@ DQ
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <box title="Test:" id="190">
-                                            <rect key="frame" x="8" y="7" width="545" height="71"/>
+                                            <rect key="frame" x="8" y="7" width="553" height="71"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <view key="contentView" id="fsO-N6-Iz0">
-                                                <rect key="frame" x="2" y="2" width="541" height="51"/>
+                                                <rect key="frame" x="2" y="2" width="549" height="51"/>
                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                 <subviews>
                                                     <popUpButton verticalHuggingPriority="750" id="107">
@@ -143,14 +130,14 @@ DQ
                                             <font key="titleFont" metaFont="system"/>
                                         </box>
                                         <scrollView autohidesScrollers="YES" horizontalLineScroll="18" horizontalPageScroll="10" verticalLineScroll="18" verticalPageScroll="10" hasHorizontalScroller="NO" usesPredominantAxisScrolling="NO" id="81">
-                                            <rect key="frame" x="11" y="90" width="326" height="124"/>
+                                            <rect key="frame" x="11" y="82" width="326" height="132"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <clipView key="contentView" id="SVz-qG-c9p">
-                                                <rect key="frame" x="1" y="23" width="324" height="100"/>
+                                                <rect key="frame" x="1" y="0.0" width="324" height="131"/>
                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                 <subviews>
                                                     <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="none" alternatingRowBackgroundColors="YES" columnReordering="NO" columnResizing="NO" multipleSelection="NO" autosaveColumns="NO" rowHeight="16" headerView="323" id="82">
-                                                        <rect key="frame" x="0.0" y="0.0" width="415" height="18"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="415" height="108"/>
                                                         <autoresizingMask key="autoresizingMask"/>
                                                         <size key="intercellSpacing" width="3" height="2"/>
                                                         <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -249,7 +236,7 @@ DQ
                                             </connections>
                                         </button>
                                         <button verticalHuggingPriority="750" id="91">
-                                            <rect key="frame" x="401" y="169" width="163" height="32"/>
+                                            <rect key="frame" x="401" y="186" width="163" height="32"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <buttonCell key="cell" type="push" title="Test bearbeiten" bezelStyle="rounded" alignment="center" enabled="NO" borderStyle="border" inset="2" id="278">
                                                 <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
@@ -334,7 +321,7 @@ DQ
                                             </connections>
                                         </button>
                                         <button verticalHuggingPriority="750" id="152">
-                                            <rect key="frame" x="426" y="9" width="117" height="32"/>
+                                            <rect key="frame" x="423" y="9" width="134" height="32"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <buttonCell key="cell" type="push" title="Neuer Test" bezelStyle="rounded" alignment="center" borderStyle="border" inset="2" id="287">
                                                 <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
@@ -363,7 +350,7 @@ DQ
                                             </textFieldCell>
                                         </textField>
                                         <button verticalHuggingPriority="750" id="192">
-                                            <rect key="frame" x="401" y="134" width="163" height="32"/>
+                                            <rect key="frame" x="401" y="153" width="163" height="32"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <buttonCell key="cell" type="push" title="Für alle einsetzen" bezelStyle="rounded" alignment="center" enabled="NO" borderStyle="border" inset="2" id="290">
                                                 <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
@@ -371,17 +358,6 @@ DQ
                                             </buttonCell>
                                             <connections>
                                                 <action selector="reportForAll:" target="-2" id="193"/>
-                                            </connections>
-                                        </button>
-                                        <button verticalHuggingPriority="750" id="201">
-                                            <rect key="frame" x="401" y="111" width="163" height="32"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <buttonCell key="cell" type="push" title="Aus allen entfernen" bezelStyle="rounded" alignment="center" enabled="NO" borderStyle="border" inset="2" id="291">
-                                                <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                                <font key="font" metaFont="system"/>
-                                            </buttonCell>
-                                            <connections>
-                                                <action selector="reportForNone:" target="-2" id="205"/>
                                             </connections>
                                         </button>
                                         <stepper horizontalHuggingPriority="750" verticalHuggingPriority="750" id="207">
@@ -392,6 +368,17 @@ DQ
                                                 <action selector="reportUpDown:" target="-2" id="209"/>
                                             </connections>
                                         </stepper>
+                                        <button verticalHuggingPriority="750" id="201">
+                                            <rect key="frame" x="401" y="115" width="163" height="32"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <buttonCell key="cell" type="push" title="Aus allen entfernen" bezelStyle="rounded" alignment="center" enabled="NO" borderStyle="border" inset="2" id="291">
+                                                <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                                <font key="font" metaFont="system"/>
+                                            </buttonCell>
+                                            <connections>
+                                                <action selector="reportForNone:" target="-2" id="205"/>
+                                            </connections>
+                                        </button>
                                     </subviews>
                                 </view>
                             </tabViewItem>
@@ -671,8 +658,26 @@ DQ
                             </tabViewItem>
                         </tabViewItems>
                     </tabView>
+                    <button verticalHuggingPriority="750" id="8">
+                        <rect key="frame" x="450" y="13" width="158" height="32"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <buttonCell key="cell" type="push" title="Schliessen" bezelStyle="rounded" alignment="center" borderStyle="border" inset="2" id="271">
+                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                            <font key="font" metaFont="system"/>
+                            <string key="keyEquivalent" base64-UTF8="YES">
+DQ
+</string>
+                        </buttonCell>
+                        <connections>
+                            <action selector="reportClose:" target="-2" id="14"/>
+                        </connections>
+                    </button>
                 </subviews>
             </view>
+            <connections>
+                <outlet property="delegate" destination="-2" id="MLJ-HI-dHu"/>
+            </connections>
+            <point key="canvasLocation" x="316.5" y="349"/>
         </window>
         <drawer preferredEdge="minY" trailingOffset="15" id="214">
             <size key="contentSize" width="200" height="200"/>
@@ -680,25 +685,14 @@ DQ
             <size key="maxContentSize" width="600" height="400"/>
             <connections>
                 <outlet property="contentView" destination="218" id="226"/>
-                <outlet property="delegate" destination="-2" id="215"/>
-                <outlet property="parentWindow" destination="5" id="216"/>
+                <outlet property="delegate" destination="-2" id="XmC-G8-lzR"/>
+                <outlet property="parentWindow" destination="5" id="6qK-xj-uSS"/>
             </connections>
         </drawer>
         <customView id="218" userLabel="View">
-            <rect key="frame" x="0.0" y="0.0" width="609" height="162"/>
+            <rect key="frame" x="0.0" y="0.0" width="653" height="162"/>
             <autoresizingMask key="autoresizingMask"/>
             <subviews>
-                <button verticalHuggingPriority="750" id="225">
-                    <rect key="frame" x="494" y="6" width="93" height="32"/>
-                    <autoresizingMask key="autoresizingMask"/>
-                    <buttonCell key="cell" type="push" title="Schliessen" bezelStyle="rounded" alignment="center" borderStyle="border" inset="2" id="302">
-                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                        <font key="font" metaFont="system"/>
-                    </buttonCell>
-                    <connections>
-                        <action selector="closeDrawer:" target="-2" id="234"/>
-                    </connections>
-                </button>
                 <tabView id="219">
                     <rect key="frame" x="13" y="4" width="486" height="160"/>
                     <autoresizingMask key="autoresizingMask"/>
@@ -707,7 +701,7 @@ DQ
                         <tabViewItem label="Reihen" identifier="1" id="222">
                             <view key="view" id="223">
                                 <rect key="frame" x="10" y="33" width="466" height="114"/>
-                                <autoresizingMask key="autoresizingMask"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             </view>
                         </tabViewItem>
                         <tabViewItem label="Addition/Subtraktion" identifier="2" id="220">
@@ -718,7 +712,30 @@ DQ
                         </tabViewItem>
                     </tabViewItems>
                 </tabView>
+                <button verticalHuggingPriority="750" id="heE-Zj-gmt">
+                    <rect key="frame" x="500" y="79" width="105" height="23"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <buttonCell key="cell" type="squareTextured" title="Als Test sichern" bezelStyle="texturedSquare" alignment="center" borderStyle="border" inset="2" id="1dm-QD-XbW">
+                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                        <font key="font" metaFont="system"/>
+                    </buttonCell>
+                    <connections>
+                        <action selector="reportSettingAlsTestSichern:" target="-2" id="kVR-lI-jqn"/>
+                    </connections>
+                </button>
+                <button verticalHuggingPriority="750" id="225">
+                    <rect key="frame" x="494" y="13" width="117" height="32"/>
+                    <autoresizingMask key="autoresizingMask"/>
+                    <buttonCell key="cell" type="push" title="Schliessen" bezelStyle="rounded" alignment="center" borderStyle="border" inset="2" id="302">
+                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                        <font key="font" metaFont="system"/>
+                    </buttonCell>
+                    <connections>
+                        <action selector="closeDrawer:" target="-2" id="234"/>
+                    </connections>
+                </button>
             </subviews>
+            <point key="canvasLocation" x="276.5" y="667"/>
         </customView>
     </objects>
 </document>

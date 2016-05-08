@@ -15,8 +15,8 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "BD79470E1CC024F300604B3D"
-               BuildableName = "SndCalcX.app"
-               BlueprintName = "SndCalcX"
+               BuildableName = "SndCalc.app"
+               BlueprintName = "SndCalc"
                ReferencedContainer = "container:SndCalcX.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -33,8 +33,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "BD79470E1CC024F300604B3D"
-            BuildableName = "SndCalcX.app"
-            BlueprintName = "SndCalcX"
+            BuildableName = "SndCalc.app"
+            BlueprintName = "SndCalc"
             ReferencedContainer = "container:SndCalcX.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -56,8 +56,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "BD79470E1CC024F300604B3D"
-            BuildableName = "SndCalcX.app"
-            BlueprintName = "SndCalcX"
+            BuildableName = "SndCalc.app"
+            BlueprintName = "SndCalc"
             ReferencedContainer = "container:SndCalcX.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
@@ -75,8 +75,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "BD79470E1CC024F300604B3D"
-            BuildableName = "SndCalcX.app"
-            BlueprintName = "SndCalcX"
+            BuildableName = "SndCalc.app"
+            BlueprintName = "SndCalc"
             ReferencedContainer = "container:SndCalcX.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
