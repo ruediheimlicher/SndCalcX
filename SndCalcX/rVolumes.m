@@ -1,4 +1,5 @@
 #import "rVolumes.h"
+#import "defines.h"
 
 @implementation rVolumes
 - (id) init
@@ -261,7 +262,7 @@
 
 - (IBAction)Abbrechen:(id)sender
 {
-   NSLog(@"Abbrechen: stopModalWithCode 0");
+   DLog(@"Abbrechen: stopModalWithCode 0");
    NSNumber* n=[NSNumber numberWithBool:NO];
    NSMutableDictionary* LeseboxDic=[NSMutableDictionary dictionaryWithObject:n forKey:@"SndCalcDatenDa"];
    NSNotificationCenter* nc=[NSNotificationCenter defaultCenter];

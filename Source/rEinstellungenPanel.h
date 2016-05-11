@@ -12,6 +12,8 @@
     IBOutlet id FarbigTaste;
     IBOutlet id ErgebnisseBehaltenTaste;
     IBOutlet id CleanTaste;
+   IBOutlet NSTextView* AnzahlFeld;
+   IBOutlet NSTextView*  ZeitFeld;
 }
 - (void) setUserTimeout:(int)dieZeit;
 - (void) setAdminTimeout:(int)dieZeit;
@@ -20,6 +22,8 @@
 - (IBAction)reportClose:(id)sender;
 - (IBAction)reportUserTimout:(id)sender;
 - (void) setFarbig:(BOOL)farbigDrucken;
+- (void)setzeAnzahlFeld:(NSArray*)anzArray;
+- (void)setzeZeitFeld:(NSArray*)anzArray;
 - (int)cleanOK;
 - (int)AnzahlBehalten;
 

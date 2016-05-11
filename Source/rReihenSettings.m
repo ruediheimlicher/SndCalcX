@@ -61,10 +61,12 @@ int AbstandVonOben=115;
 int anzZeilen=3;
 int anzKolonnen=10;
 int KnopfmassH=26;
-int KnopfmassV=22;
+int KnopfmassV=26;
 
 int AbstandH=2;
-int AbstandV=2;
+int AbstandV=1;
+NSInteger Knopfstil = NSTexturedSquareBezelStyle;
+   NSInteger Schattenstil =NSChangeGrayCellMask;
 
 NSPoint EinschaltTastenEcke=SettingsRect.origin;
 EinschaltTastenEcke.y+=2*(KnopfmassV+AbstandV)+AbstandV;
@@ -78,16 +80,17 @@ EinschaltTaste=[[NSButton alloc]initWithFrame:EinschaltTastenRect];
 //[self DebugStep:@"initReihenSettings nach init Einschalt"];
 //[EinschaltTaste setButtonType:NSPushOnPushOffButton];
 [EinschaltTaste setButtonType:NSSwitchButton];
-[[EinschaltTaste cell]setBezelStyle:NSShadowlessSquareBezelStyle];
+[[EinschaltTaste cell]setBezelStyle:Knopfstil];
 [EinschaltTaste setBordered:YES];
 [[EinschaltTaste cell]setTitle:@"Reihen einschalten"];
-[[EinschaltTaste cell]setShowsStateBy:NSChangeGrayCellMask|NSContentsCellMask];
+[[EinschaltTaste cell]setShowsStateBy:Schattenstil];
 [EinschaltTaste setState:0];
 [EinschaltTaste setAlignment:NSCenterTextAlignment];
 [EinschaltTaste setAlternateTitle:@"Aufgaben mit Reihen"];
 [EinschaltTaste setTarget:self];
-[EinschaltTaste setAction:@selector(EinschaltAktion:)]; 
-
+[EinschaltTaste setAction:@selector(EinschaltAktion:)];
+[EinschaltTaste setImagePosition:0];
+//EinschaltTaste.layer.backgroundColor = [NSColor blueColor].CGColor;
 //[self DebugStep:@"initReihenSettings nach Einschalt setAction"];
 
 ReihenKnopfArray=[[NSMutableArray alloc]initWithCapacity:0];
@@ -129,7 +132,7 @@ int Tastenmass;
 
 				[tempKnopf setState:0];
 				[[tempKnopf cell] setShowsStateBy:NSChangeGrayCell|NSPushInCellMask];
-				[[tempKnopf cell]setBezelStyle:NSShadowlessSquareBezelStyle];
+				[[tempKnopf cell]setBezelStyle:Knopfstil];
 				[tempKnopf setAlignment:NSCenterTextAlignment];
 //				[[tempKnopf cell]setBackgroundColor:[NSColor lightGrayColor]];
 				//[[tempKnopf cell]setBezelStyle:NSRegularSquareBezelStyle];
@@ -151,7 +154,7 @@ int Tastenmass;
 				[ClearTaste setButtonType:NSMomentaryLightButton];
 				[ClearTaste setState:0];
 				[ClearTaste setAlignment:NSCenterTextAlignment];
-				[[ClearTaste cell]setBezelStyle:NSShadowlessSquareBezelStyle];
+				[[ClearTaste cell]setBezelStyle:Knopfstil];
 
 //				[[ClearTaste cell]setBackgroundColor:[NSColor grayColor]];
 				[ClearTaste setTitle:@"Alle ausschalten"];
@@ -199,7 +202,7 @@ int Tastenmass;
 				[tempTaste setState:0];
 				[tempTaste setAlignment:NSCenterTextAlignment];
 				//				[[tempTaste cell]setBackgroundColor:[NSColor lightGrayColor]];
-				[[tempTaste cell]setBezelStyle:NSShadowlessSquareBezelStyle];
+				[[tempTaste cell]setBezelStyle:Knopfstil];
 				//				[[tempTaste cell]showsStateBy] != NSNoCellMask;
 				switch (z)
 				{
@@ -241,7 +244,7 @@ int Tastenmass;
 			//	[self DebugStep:@"k=17"];
 				[tempTaste setAlignment:NSCenterTextAlignment];
 			//	[self DebugStep:@"k=18"];
-				[[tempTaste cell]setBezelStyle:NSShadowlessSquareBezelStyle];
+				[[tempTaste cell]setBezelStyle:Knopfstil];
 	//			[self DebugStep:@"k=19"];
 	//			[[tempTaste cell]setBackgroundColor:[NSColor grayColor]];
 	//			[self DebugStep:@"vor switch z"];

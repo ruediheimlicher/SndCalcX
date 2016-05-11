@@ -42,10 +42,10 @@ enum
    int anzZeilen=3;
    int anzKolonnen=10;
    int KnopfmassH=26;
-   int KnopfmassV=22;
+   int KnopfmassV=26;
    int AbstandH=2;
-   int AbstandV=2;
-   
+   int AbstandV=1;
+   NSInteger Knopfstil = NSTexturedSquareBezelStyle;
    NSPoint EinschaltTastenEcke=SettingsRect.origin;
    EinschaltTastenEcke.y+=2*(KnopfmassV+AbstandV)+AbstandV;
    //EinschaltTastenEcke.x+=AbstandH;
@@ -54,26 +54,22 @@ enum
    EinschaltTastenRect.size.height=KnopfmassV;
    EinschaltTastenRect.size.width=anzKolonnen*(KnopfmassH+AbstandH)-AbstandH;
    EinschaltTaste=[[NSButton alloc]initWithFrame:EinschaltTastenRect];
-   [EinschaltTaste setButtonType:NSSwitchButton];
-   [[EinschaltTaste cell]setTitle:@"Addition und Subtraktion einschalten"];
-   [EinschaltTaste setButtonType:NSSwitchButton];
-   [[EinschaltTaste cell]setBezelStyle:NSShadowlessSquareBezelStyle];
    
-   [EinschaltTaste setBordered:YES];
-   [[EinschaltTaste cell]setTitle:@"Reihen einschalten"];
-   [[EinschaltTaste cell]setShowsStateBy:NSChangeGrayCellMask|NSContentsCellMask];
    
    [EinschaltTaste setButtonType:NSSwitchButton];
-   [[EinschaltTaste cell]setBezelStyle:NSShadowlessSquareBezelStyle];
+   [[EinschaltTaste cell]setBezelStyle:Knopfstil];
    [EinschaltTaste setBordered:YES];
    [[EinschaltTaste cell]setTitle:@"Addition/Subtraktion einschalten"];
-   [[EinschaltTaste cell]setShowsStateBy:NSChangeGrayCellMask|NSContentsCellMask];
+   [[EinschaltTaste cell]setShowsStateBy:NSChangeGrayCellMask];
+ //  [[EinschaltTaste cell]setShowsStateBy:NSContentsCellMask];
+ //  [[EinschaltTaste cell]setShowsStateBy:NSChangeGrayCellMask|NSContentsCellMask];
+
    [EinschaltTaste setState:0];
    [EinschaltTaste setAlignment:NSCenterTextAlignment];
    [EinschaltTaste setAlternateTitle:@"Aufgaben mit Addition/Subtraktion"];
    [EinschaltTaste setTarget:self];
    [EinschaltTaste setAction:@selector(EinschaltAktion:)];
-   
+   [EinschaltTaste setImagePosition:0];
    
    NSFont* TastenFont=[NSFont fontWithName:@"Helvetica" size: 12];
    
@@ -137,7 +133,7 @@ enum
                      [tempTaste setButtonType:NSPushOnPushOffButton];
                      [tempTaste setState:0];
                      [tempTaste setAlignment:NSCenterTextAlignment];
-                     [[tempTaste cell]setBezelStyle:NSShadowlessSquareBezelStyle];
+                     [[tempTaste cell]setBezelStyle:Knopfstil];
                      
                      //				[[tempTaste cell]setBackgroundColor:[NSColor lightGrayColor]];
                      [tempTaste setTitle:@"mit Addition"];
@@ -194,7 +190,7 @@ enum
                      FeldFrame.origin.x=EinschaltTastenRect.origin.x+EinschaltTastenRect.size.width-Tastenmass;
                      NSButton* tempTaste=[[NSButton alloc]initWithFrame:FeldFrame];
                      [tempTaste setButtonType:NSPushOnPushOffButton];
-                     [[tempTaste cell]setBezelStyle:NSShadowlessSquareBezelStyle];
+                     [[tempTaste cell]setBezelStyle:Knopfstil];
                      
                      [tempTaste setState:0];
                      [tempTaste setAlignment:NSCenterTextAlignment];
@@ -452,7 +448,7 @@ enum
    {
       case 0:
       {
-         [EinschaltTaste setState:1];
+         //[EinschaltTaste setState:1];
       }break;
          
       case 1:

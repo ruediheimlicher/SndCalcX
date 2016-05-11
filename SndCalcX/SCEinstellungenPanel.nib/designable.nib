@@ -5,9 +5,10 @@
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="9532"/>
     </dependencies>
     <objects>
-        <customObject id="-2" userLabel="File's Owner" customClass="rEinstellungen">
+        <customObject id="-2" userLabel="File's Owner" customClass="rEinstellungenPanel">
             <connections>
                 <outlet property="AdminTimeoutTaste" destination="168" id="177"/>
+                <outlet property="AnzahlFeld" destination="rYQ-LX-rom" id="Ek4-vm-Y6r"/>
                 <outlet property="CancelTaste" destination="15" id="178"/>
                 <outlet property="CleanTaste" destination="194" id="206"/>
                 <outlet property="ErgebnisseBehaltenTaste" destination="198" id="210"/>
@@ -15,22 +16,23 @@
                 <outlet property="RecPlayIcon" destination="8" id="181"/>
                 <outlet property="SchliessenTaste" destination="14" id="179"/>
                 <outlet property="UserTimeoutTaste" destination="155" id="176"/>
+                <outlet property="ZeitFeld" destination="0oS-Hi-UWS" id="moi-1G-yqv"/>
                 <outlet property="window" destination="5" id="35"/>
             </connections>
         </customObject>
         <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
-        <customObject id="-3" userLabel="Application"/>
+        <customObject id="-3" userLabel="Application" customClass="NSObject"/>
         <window title="Passwort" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" animationBehavior="default" id="5" userLabel="Window" customClass="NSPanel">
             <windowStyleMask key="styleMask" titled="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
-            <rect key="contentRect" x="162" y="200" width="427" height="544"/>
+            <rect key="contentRect" x="162" y="200" width="496" height="512"/>
             <rect key="screenRect" x="0.0" y="0.0" width="1280" height="778"/>
             <view key="contentView" id="6">
-                <rect key="frame" x="0.0" y="0.0" width="427" height="544"/>
+                <rect key="frame" x="0.0" y="0.0" width="496" height="512"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <textField verticalHuggingPriority="750" id="7">
-                        <rect key="frame" x="102" y="473" width="240" height="51"/>
+                        <rect key="frame" x="102" y="441" width="240" height="51"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <textFieldCell key="cell" alignment="left" title="Einstellungen" id="212">
                             <font key="font" metaFont="systemBold" size="24"/>
@@ -39,26 +41,12 @@
                         </textFieldCell>
                     </textField>
                     <imageView id="8">
-                        <rect key="frame" x="20" y="460" width="64" height="64"/>
+                        <rect key="frame" x="20" y="428" width="64" height="64"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="axesIndependently" image="duerer" id="213"/>
                     </imageView>
-                    <button verticalHuggingPriority="750" id="14">
-                        <rect key="frame" x="276" y="12" width="120" height="32"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxY="YES"/>
-                        <buttonCell key="cell" type="push" title="Schliessen" bezelStyle="rounded" alignment="center" borderStyle="border" inset="2" id="214">
-                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                            <font key="font" metaFont="system"/>
-                            <string key="keyEquivalent" base64-UTF8="YES">
-DQ
-</string>
-                        </buttonCell>
-                        <connections>
-                            <action selector="reportClose:" target="-2" id="185"/>
-                        </connections>
-                    </button>
                     <button verticalHuggingPriority="750" id="15">
-                        <rect key="frame" x="148" y="12" width="128" height="32"/>
+                        <rect key="frame" x="218" y="20" width="128" height="32"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxY="YES"/>
                         <buttonCell key="cell" type="push" title="Abbrechen" bezelStyle="rounded" alignment="center" borderStyle="border" inset="2" id="215">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
@@ -69,11 +57,11 @@ DQ
                         </connections>
                     </button>
                     <popUpButton verticalHuggingPriority="750" id="155">
-                        <rect key="frame" x="190" y="410" width="77" height="26"/>
+                        <rect key="frame" x="163" y="379" width="60" height="26"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <popUpButtonCell key="cell" type="push" title="20" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" tag="20" inset="2" arrowPosition="arrowAtCenter" preferredEdge="maxY" selectedItem="186" id="216">
                             <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
-                            <font key="font" metaFont="system"/>
+                            <font key="font" metaFont="menu"/>
                             <menu key="menu" title="OtherViews" id="156">
                                 <items>
                                     <menuItem title="10" tag="10" id="158"/>
@@ -89,7 +77,7 @@ DQ
                         </connections>
                     </popUpButton>
                     <textField verticalHuggingPriority="750" id="165">
-                        <rect key="frame" x="29" y="416" width="141" height="17"/>
+                        <rect key="frame" x="18" y="384" width="141" height="17"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <textFieldCell key="cell" sendsActionOnEndEditing="YES" title="Timeout für Benutzer" id="217">
                             <font key="font" metaFont="system"/>
@@ -98,7 +86,7 @@ DQ
                         </textFieldCell>
                     </textField>
                     <textField verticalHuggingPriority="750" id="166">
-                        <rect key="frame" x="29" y="325" width="132" height="17"/>
+                        <rect key="frame" x="21" y="262" width="132" height="17"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <textFieldCell key="cell" sendsActionOnEndEditing="YES" title="Timeout für Admin" id="218">
                             <font key="font" metaFont="system"/>
@@ -107,11 +95,11 @@ DQ
                         </textFieldCell>
                     </textField>
                     <popUpButton verticalHuggingPriority="750" id="168">
-                        <rect key="frame" x="190" y="319" width="77" height="26"/>
+                        <rect key="frame" x="166" y="257" width="60" height="26"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <popUpButtonCell key="cell" type="push" title="60" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" tag="60" inset="2" arrowPosition="arrowAtCenter" preferredEdge="maxY" selectedItem="173" id="219">
                             <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
-                            <font key="font" metaFont="system"/>
+                            <font key="font" metaFont="menu"/>
                             <menu key="menu" title="OtherViews" id="169">
                                 <items>
                                     <menuItem title="30" tag="30" id="171"/>
@@ -126,7 +114,7 @@ DQ
                         </connections>
                     </popUpButton>
                     <textField verticalHuggingPriority="750" id="174">
-                        <rect key="frame" x="269" y="416" width="20" height="17"/>
+                        <rect key="frame" x="229" y="384" width="20" height="17"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <textFieldCell key="cell" sendsActionOnEndEditing="YES" title="s" id="220">
                             <font key="font" metaFont="system"/>
@@ -135,7 +123,7 @@ DQ
                         </textFieldCell>
                     </textField>
                     <textField verticalHuggingPriority="750" id="175">
-                        <rect key="frame" x="269" y="325" width="20" height="17"/>
+                        <rect key="frame" x="229" y="262" width="20" height="17"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <textFieldCell key="cell" sendsActionOnEndEditing="YES" title="s" id="221">
                             <font key="font" metaFont="system"/>
@@ -144,7 +132,7 @@ DQ
                         </textFieldCell>
                     </textField>
                     <textField verticalHuggingPriority="750" id="187">
-                        <rect key="frame" x="44" y="351" width="346" height="55"/>
+                        <rect key="frame" x="44" y="297" width="211" height="77"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <textFieldCell key="cell" sendsActionOnEndEditing="YES" id="222">
                             <font key="font" metaFont="label"/>
@@ -155,7 +143,7 @@ Die Ergebnisse werden gesichert und der Benutzer wird abgemeldet </string>
                         </textFieldCell>
                     </textField>
                     <textField verticalHuggingPriority="750" id="188">
-                        <rect key="frame" x="44" y="240" width="346" height="75"/>
+                        <rect key="frame" x="44" y="173" width="211" height="80"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <textFieldCell key="cell" sendsActionOnEndEditing="YES" id="223">
                             <font key="font" metaFont="label"/>
@@ -166,7 +154,7 @@ Beim nächsten Aufruf einer Adminfunktion muss das Passwort erneut eingegeben we
                         </textFieldCell>
                     </textField>
                     <button id="190">
-                        <rect key="frame" x="225" y="58" width="24" height="18"/>
+                        <rect key="frame" x="397" y="203" width="24" height="18"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <buttonCell key="cell" type="check" bezelStyle="regularSquare" imagePosition="right" alignment="left" state="on" inset="2" id="224">
                             <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
@@ -174,7 +162,7 @@ Beim nächsten Aufruf einer Adminfunktion muss das Passwort erneut eingegeben we
                         </buttonCell>
                     </button>
                     <textField verticalHuggingPriority="750" id="191">
-                        <rect key="frame" x="29" y="80" width="132" height="17"/>
+                        <rect key="frame" x="281" y="205" width="112" height="17"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <textFieldCell key="cell" sendsActionOnEndEditing="YES" title="Farbig drucken:" id="225">
                             <font key="font" metaFont="system"/>
@@ -183,7 +171,7 @@ Beim nächsten Aufruf einer Adminfunktion muss das Passwort erneut eingegeben we
                         </textFieldCell>
                     </textField>
                     <textField verticalHuggingPriority="750" id="193">
-                        <rect key="frame" x="41" y="61" width="181" height="11"/>
+                        <rect key="frame" x="306" y="181" width="167" height="11"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <textFieldCell key="cell" sendsActionOnEndEditing="YES" title="Die Statistik wird farbig gedruckt." id="226">
                             <font key="font" metaFont="miniSystem"/>
@@ -192,7 +180,7 @@ Beim nächsten Aufruf einer Adminfunktion muss das Passwort erneut eingegeben we
                         </textFieldCell>
                     </textField>
                     <button id="194">
-                        <rect key="frame" x="225" y="143" width="24" height="18"/>
+                        <rect key="frame" x="397" y="289" width="24" height="18"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <buttonCell key="cell" type="check" bezelStyle="regularSquare" imagePosition="right" alignment="right" inset="2" id="227">
                             <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
@@ -200,16 +188,16 @@ Beim nächsten Aufruf einer Adminfunktion muss das Passwort erneut eingegeben we
                         </buttonCell>
                     </button>
                     <textField verticalHuggingPriority="750" id="195">
-                        <rect key="frame" x="29" y="144" width="132" height="17"/>
+                        <rect key="frame" x="281" y="288" width="90" height="17"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <textFieldCell key="cell" sendsActionOnEndEditing="YES" title="Aufräumen" id="228">
+                        <textFieldCell key="cell" sendsActionOnEndEditing="YES" title="Aufräumen:" id="228">
                             <font key="font" metaFont="system"/>
                             <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
                     </textField>
                     <textField verticalHuggingPriority="750" id="196">
-                        <rect key="frame" x="41" y="113" width="352" height="24"/>
+                        <rect key="frame" x="306" y="234" width="167" height="45"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <textFieldCell key="cell" sendsActionOnEndEditing="YES" title="Beim Beginn einer neuen Session werden alle Ergebnisse gelöscht, die zu nicht mehr vorhandenen Tests gehören." id="229">
                             <font key="font" metaFont="miniSystem"/>
@@ -217,21 +205,12 @@ Beim nächsten Aufruf einer Adminfunktion muss das Passwort erneut eingegeben we
                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
                     </textField>
-                    <textField verticalHuggingPriority="750" id="197">
-                        <rect key="frame" x="29" y="212" width="162" height="17"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                        <textFieldCell key="cell" sendsActionOnEndEditing="YES" title="Ergebnisliste reduzieren: :" id="230">
-                            <font key="font" metaFont="system"/>
-                            <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
-                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                        </textFieldCell>
-                    </textField>
                     <popUpButton verticalHuggingPriority="750" id="198">
-                        <rect key="frame" x="190" y="206" width="77" height="26"/>
+                        <rect key="frame" x="416" y="377" width="58" height="26"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <popUpButtonCell key="cell" type="push" title="alle" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" tag="99" inset="2" arrowPosition="arrowAtCenter" preferredEdge="maxY" selectedItem="208" id="231">
                             <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
-                            <font key="font" metaFont="system"/>
+                            <font key="font" metaFont="menu"/>
                             <menu key="menu" title="OtherViews" id="199">
                                 <items>
                                     <menuItem title="5" tag="5" id="201"/>
@@ -244,16 +223,74 @@ Beim nächsten Aufruf einer Adminfunktion muss das Passwort erneut eingegeben we
                         </popUpButtonCell>
                     </popUpButton>
                     <textField verticalHuggingPriority="750" id="204">
-                        <rect key="frame" x="269" y="212" width="131" height="17"/>
+                        <rect key="frame" x="281" y="382" width="131" height="17"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <textFieldCell key="cell" sendsActionOnEndEditing="YES" title="Ergebnisse behalten" id="232">
+                        <textFieldCell key="cell" sendsActionOnEndEditing="YES" title="Ergebnisse behalten:" id="232">
                             <font key="font" metaFont="system"/>
                             <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
                     </textField>
+                    <scrollView horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" usesPredominantAxisScrolling="NO" id="LcF-z5-gTr">
+                        <rect key="frame" x="165" y="83" width="58" height="60"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <clipView key="contentView" id="R92-eF-L9O">
+                            <rect key="frame" x="1" y="1" width="41" height="58"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            <subviews>
+                                <textView importsGraphics="NO" findStyle="panel" continuousSpellChecking="YES" allowsUndo="YES" usesRuler="YES" usesFontPanel="YES" verticallyResizable="YES" allowsNonContiguousLayout="YES" quoteSubstitution="YES" dashSubstitution="YES" smartInsertDelete="YES" id="rYQ-LX-rom">
+                                    <rect key="frame" x="0.0" y="0.0" width="41" height="58"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <size key="minSize" width="41" height="58"/>
+                                    <size key="maxSize" width="463" height="10000000"/>
+                                    <color key="insertionPointColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                    <size key="minSize" width="41" height="58"/>
+                                    <size key="maxSize" width="463" height="10000000"/>
+                                </textView>
+                            </subviews>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        </clipView>
+                        <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" doubleValue="1" horizontal="YES" id="njh-Az-pqy">
+                            <rect key="frame" x="-100" y="-100" width="87" height="18"/>
+                            <autoresizingMask key="autoresizingMask"/>
+                        </scroller>
+                        <scroller key="verticalScroller" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="ndb-3D-3Nz">
+                            <rect key="frame" x="42" y="1" width="15" height="58"/>
+                            <autoresizingMask key="autoresizingMask"/>
+                        </scroller>
+                    </scrollView>
+                    <scrollView horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" usesPredominantAxisScrolling="NO" id="tcj-3a-mCk">
+                        <rect key="frame" x="412" y="83" width="59" height="60"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <clipView key="contentView" id="ONF-H6-iZM">
+                            <rect key="frame" x="1" y="1" width="42" height="58"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            <subviews>
+                                <textView importsGraphics="NO" findStyle="panel" continuousSpellChecking="YES" allowsUndo="YES" usesRuler="YES" usesFontPanel="YES" verticallyResizable="YES" allowsNonContiguousLayout="YES" quoteSubstitution="YES" dashSubstitution="YES" smartInsertDelete="YES" id="0oS-Hi-UWS">
+                                    <rect key="frame" x="0.0" y="0.0" width="42" height="58"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <size key="minSize" width="42" height="58"/>
+                                    <size key="maxSize" width="463" height="10000000"/>
+                                    <color key="insertionPointColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                    <size key="minSize" width="42" height="58"/>
+                                    <size key="maxSize" width="463" height="10000000"/>
+                                </textView>
+                            </subviews>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        </clipView>
+                        <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" doubleValue="1" horizontal="YES" id="lRe-yh-9Vx">
+                            <rect key="frame" x="-100" y="-100" width="87" height="18"/>
+                            <autoresizingMask key="autoresizingMask"/>
+                        </scroller>
+                        <scroller key="verticalScroller" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="kxU-HQ-nNU">
+                            <rect key="frame" x="43" y="1" width="15" height="58"/>
+                            <autoresizingMask key="autoresizingMask"/>
+                        </scroller>
+                    </scrollView>
                     <textField verticalHuggingPriority="750" id="205">
-                        <rect key="frame" x="41" y="175" width="352" height="29"/>
+                        <rect key="frame" x="306" y="329" width="167" height="43"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <textFieldCell key="cell" sendsActionOnEndEditing="YES" title="Beim Beginn der nächsten neuen Session werden die überzähligen Ergebnisse gelöscht." id="233">
                             <font key="font" metaFont="miniSystem"/>
@@ -261,11 +298,44 @@ Beim nächsten Aufruf einer Adminfunktion muss das Passwort erneut eingegeben we
                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
                     </textField>
+                    <textField verticalHuggingPriority="750" id="4dl-LS-Ke6">
+                        <rect key="frame" x="281" y="98" width="114" height="45"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <textFieldCell key="cell" sendsActionOnEndEditing="YES" title="Auswahl für Zeiten der Tests" id="1Nx-aY-R2r">
+                            <font key="font" metaFont="system"/>
+                            <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                    </textField>
+                    <textField verticalHuggingPriority="750" id="WpO-lT-PEb">
+                        <rect key="frame" x="18" y="98" width="135" height="45"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <textFieldCell key="cell" sendsActionOnEndEditing="YES" title="Auswahl für Anzahl Aufgaben der Tests" id="z5F-eZ-SVp">
+                            <font key="font" metaFont="system"/>
+                            <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                    </textField>
+                    <button verticalHuggingPriority="750" id="14">
+                        <rect key="frame" x="346" y="20" width="120" height="32"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxY="YES"/>
+                        <buttonCell key="cell" type="push" title="Schliessen" bezelStyle="rounded" alignment="center" borderStyle="border" inset="2" id="214">
+                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                            <font key="font" metaFont="system"/>
+                            <string key="keyEquivalent" base64-UTF8="YES">
+DQ
+</string>
+                        </buttonCell>
+                        <connections>
+                            <action selector="reportClose:" target="-2" id="185"/>
+                        </connections>
+                    </button>
                 </subviews>
             </view>
             <connections>
                 <outlet property="initialFirstResponder" destination="14" id="55"/>
             </connections>
+            <point key="canvasLocation" x="289" y="186"/>
         </window>
     </objects>
     <resources>

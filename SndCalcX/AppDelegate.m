@@ -244,7 +244,7 @@ const short     kSerieFertig = 25003;
       [[AblaufMenu itemWithTag:10001] setTarget:self];//
       
       NSString* HomeDatenPfad=[Utils HomeSndCalcDatenPfad];
-     // NSLog(@"HomeDatenPfad: %@",HomeDatenPfad);
+     DLog(@"HomeDatenPfad: %@ Debug: %d",HomeDatenPfad,DEBUG);
       //NSArray*  NetzwerkVolumesArray = [Utils NetzwerkVolumesArray];
       //NSLog(@"NetzwerkVolumesArray: %@",[NetzwerkVolumesArray description]);
       NSArray* NetworkDatenArray=[Utils UsersMitSndCalcDatenArray];
@@ -493,28 +493,45 @@ const short     kSerieFertig = 25003;
       
       //NSMutableArray* TestDicArray=(NSMutableArray*)
       
-      //NSLog(@"ZeitArray aus Pop: %@",[[ZeitPpKnopf itemArray] description]);
+      //NSLog(@"ZeitArray aus Pop: %@",[[ZeitPopKnopf itemArray] description]);
       NSArray* ZeitArray=[NSArray arrayWithObjects:@"120 s",@"90 s",@"60 s",@"30 s",@"10 s",nil];
       //NSLog(@"ZeitArray: %@",[ZeitArray description]);
+      /*
+      [ZeitPopKnopf removeAllItems];
       
-      [ZeitPpKnopf removeAllItems];
-      [ZeitPpKnopf addItemsWithTitles:ZeitArray];
-      //	[self DebugStep:@"nach ZeitPpKnopf"];
-      NSEnumerator* ItemEnum=[[ZeitPpKnopf itemArray] objectEnumerator];
+      if ([PListDic objectForKey:@"zeitarray"] && [[PListDic objectForKey:@"zeitarray"]count])
+      {
+         [ZeitPopKnopf addItemsWithTitles:[PListDic objectForKey:@"zeitarray"]];
+      }
+      else
+      {
+         [ZeitPopKnopf addItemsWithTitles:ZeitArray];
+      
+      }
+     
+      [self setZeitPop];
+      //	[self DebugStep:@"nach ZeitPopKnopf"];
+      NSEnumerator* ItemEnum=[[ZeitPopKnopf itemArray] objectEnumerator];
       id einItem;
       while (einItem=[ItemEnum nextObject])
       {
          int tempTag=[[einItem title]intValue];
          [einItem setTag:[[einItem title]intValue]];
-         //NSLog(@"Titel: %@ tag neu: %d",[einItem title],[einItem tag]);
+         NSLog(@"Titel: %@ tag neu: %ld",[einItem title],[einItem tag]);
       }//while
-      
-      NSArray* AnzahlArray=[NSArray arrayWithObjects:@"24",@"16",@"12",@"6",@"2",nil];
-      //NSLog(@"AnzahlArray: %@",[AnzahlArray description]);
-      
-      [AnzahlPopKnopf removeAllItems];
-      [AnzahlPopKnopf addItemsWithTitles:AnzahlArray];
-      
+       */
+      [self setZeitPop];
+      [self setAnzahlPop];
+      /*
+       [AnzahlPopKnopf removeAllItems];
+      if ([PListDic objectForKey:@"anzahlarray"] && [[PListDic objectForKey:@"anzahlarray"]count])
+      {
+         [AnzahlPopKnopf addItemsWithTitles:[PListDic objectForKey:@"anzahlarray"]];
+      }
+      else
+      {
+         [AnzahlPopKnopf addItemsWithTitles:[NSArray arrayWithObjects:@"24",@"16",@"12",@"6",@"2",nil]];
+      }
       NSEnumerator* AnzItemEnum=[[AnzahlPopKnopf itemArray] objectEnumerator];
       id einAnzItem;
       while (einAnzItem=[AnzItemEnum nextObject])
@@ -526,9 +543,9 @@ const short     kSerieFertig = 25003;
       
       
       
-      //NSLog(@"ZeitArray aus Pop nach load: %@",[[ZeitPpKnopf itemArray] description]);
-      [ZeitPpKnopf selectItemAtIndex:0];
-      
+      //NSLog(@"ZeitArray aus Pop nach load: %@",[[ZeitPopKnopf itemArray] description]);
+      [ZeitPopKnopf selectItemAtIndex:0];
+      */
       if (TestDicArray &&[TestDicArray count])
       {
          int i;
@@ -556,7 +573,7 @@ const short     kSerieFertig = 25003;
       {
          [TestPopKnopf setEnabled: NO];
          [ModusOption selectCellAtRow:1 column:0];
-         [ZeitPpKnopf setEnabled:YES];
+         [ZeitPopKnopf setEnabled:YES];
          [AnzahlPopKnopf setEnabled:YES];
          
          
@@ -616,7 +633,7 @@ const short     kSerieFertig = 25003;
       [[AblaufMenu itemWithTag:kStimmeTag] setAction:@selector(showStimmenPanel:)];
       
       [NamenPopKnopf setToolTip:NSLocalizedString(@"Choose a name.",@"Einen Namen auswählen.")];
-      [ZeitPpKnopf setToolTip:NSLocalizedString(@"Only in training mode:\n Maximal amount of time for a serie.",@"Zeit wählen.")];
+      [ZeitPopKnopf setToolTip:NSLocalizedString(@"Only in training mode:\n Maximal amount of time for a serie.",@"Zeit wählen.")];
       [AnzahlPopKnopf setToolTip:NSLocalizedString(@"Only in training mode:\n Numer of tasks in a serie.",@"Anzahl wählen.")];
       [OKTaste setToolTip:NSLocalizedString(@"Check the result.",@"Ergebnis testen.")];
       [StartTaste setToolTip:NSLocalizedString(@"Start the serie of tasks.",@"Die Aufgabenserie starten.")];
@@ -1219,7 +1236,7 @@ const short     kSerieFertig = 25003;
          }break;
          case NSAlertThirdButtonReturn+1://
          {
-            NSLog(@"NSAlertThirdButtonReturn+1");
+            //NSLog(@"NSAlertThirdButtonReturn+1");
             
          }break;
             
@@ -1278,6 +1295,55 @@ const short     kSerieFertig = 25003;
    //NSLog(@"VolumesAktion: number %d   ",[n intValue]);
    
 }
+
+- (void)setZeitPop
+{
+   [ZeitPopKnopf removeAllItems];
+   
+   if ([PListDic objectForKey:@"zeitarray"] && [[PListDic objectForKey:@"zeitarray"]count])
+   {
+      [ZeitPopKnopf addItemsWithTitles:[PListDic objectForKey:@"zeitarray"]];
+   }
+   else
+   {
+      [ZeitPopKnopf addItemsWithTitles:[NSArray arrayWithObjects:@"120 s",@" 90 s",@" 60 s",@" 30 s",@" 10 s",nil]];
+      
+   }
+   NSEnumerator* ItemEnum=[[ZeitPopKnopf itemArray] objectEnumerator];
+   id einItem;
+   while (einItem=[ItemEnum nextObject])
+   {
+      //int tempTag=[[einItem title]intValue];
+      [einItem setTag:[[einItem title]intValue]];
+      //NSLog(@"Titel: %@ tag neu: %ld",[einItem title],[einItem tag]);
+   }//while
+
+
+}
+- (void)setAnzahlPop
+{
+   [AnzahlPopKnopf removeAllItems];
+   
+   if ([PListDic objectForKey:@"anzahlarray"] && [[PListDic objectForKey:@"anzahlarray"]count])
+   {
+      [AnzahlPopKnopf addItemsWithTitles:[PListDic objectForKey:@"anzahlarray"]];
+   }
+   else
+   {
+      [AnzahlPopKnopf addItemsWithTitles:[NSArray arrayWithObjects:@"120 s",@" 90 s",@" 60 s",@" 30 s",@" 10 s",nil]];
+      
+   }
+   NSEnumerator* AnzItemEnum=[[AnzahlPopKnopf itemArray] objectEnumerator];
+   id einAnzItem;
+   while (einAnzItem=[AnzItemEnum nextObject])
+   {
+      int tempTag=[[einAnzItem title]intValue];
+      [einAnzItem setTag:[[einAnzItem title]intValue]];
+      //NSLog(@"Titel: %@ tag neu: %d",[einAnzItem title],[einAnzItem tag]);
+   }//while
+   
+}
+
 
 - (void)setTestPop
 {
@@ -1477,14 +1543,14 @@ const short     kSerieFertig = 25003;
    [tempPListDic addEntriesFromDictionary:AddSubSettingsDic];
    //NSLog(@"tempPListDic mit Add: %@",[tempPListDic description]);
    [tempPListDic setObject:[NSNumber numberWithInt:[[AnzahlPopKnopf titleOfSelectedItem]intValue]] forKey:@"anzahlaufgaben"];
-   [tempPListDic setObject:[NSNumber numberWithInt:[[ZeitPpKnopf titleOfSelectedItem]intValue]] forKey:@"zeit"];
+   [tempPListDic setObject:[NSNumber numberWithInt:[[ZeitPopKnopf titleOfSelectedItem]intValue]] forKey:@"zeit"];
    return  tempPListDic;
 }
 
 
 - (void)SettingAlsTestSichernAktion:(NSNotification*)note
 {
-   NSLog(@"SettingAlsTestSichernAktion: note: %@",[[note userInfo]description]);
+   //NSLog(@"SettingAlsTestSichernAktion: note: %@",[[note userInfo]description]);
    if ([[note userInfo]objectForKey:@"sichtbar"] && [[[note userInfo]objectForKey:@"sichtbar"]intValue])
    {
       [SettingAlsTestSichernTaste setHidden:NO];
@@ -1739,7 +1805,6 @@ const short     kSerieFertig = 25003;
       long antwort=[Warnung runModal];
       return NO;
       
-      
    }
    
    return SeriedatenOK;
@@ -1811,8 +1876,8 @@ const short     kSerieFertig = 25003;
    if (Modus==kTrainingModus)
    {
       RechnungSeriedaten.AnzahlAufgaben=(int)[[AnzahlPopKnopf selectedItem]tag];
-      RechnungSeriedaten.Zeit=[[ZeitPpKnopf selectedItem]tag];
-      [ZeitPpKnopf setHidden:NO];
+      RechnungSeriedaten.Zeit=[[ZeitPopKnopf selectedItem]tag];
+      [ZeitPopKnopf setHidden:NO];
       [AnzahlPopKnopf setHidden:NO];
       [ZeitLimiteFeld setHidden:YES];
       [AnzahlFeld setHidden:YES];
@@ -1820,13 +1885,13 @@ const short     kSerieFertig = 25003;
    }
    else
    {
-      [ZeitPpKnopf setHidden:YES];
+      [ZeitPopKnopf setHidden:YES];
       [AnzahlPopKnopf setHidden:YES];
       [ZeitLimiteFeld setHidden:NO];
       [AnzahlFeld setHidden:NO];
 
       /*
-      [ZeitPpKnopf setHidden:YES];
+      [ZeitPopKnopf setHidden:YES];
       [AnzahlPopKnopf setHidden:YES];
       [ZeitLimiteFeld setHidden:NO];
       [AnzahlFeld setHidden:NO];
@@ -1842,10 +1907,10 @@ const short     kSerieFertig = 25003;
    AnzahlAufgaben=RechnungSeriedaten.AnzahlAufgaben;
    
    [AnzahlPopKnopf selectItemAtIndex:[AnzahlPopKnopf indexOfItemWithTag:RechnungSeriedaten.AnzahlAufgaben]];
-   [ZeitPpKnopf selectItemAtIndex:[ZeitPpKnopf indexOfItemWithTag:RechnungSeriedaten.Zeit]];
+   [ZeitPopKnopf selectItemAtIndex:[ZeitPopKnopf indexOfItemWithTag:RechnungSeriedaten.Zeit]];
    //AnzahlAufgaben=[[AnzahlPopKnopf titleOfSelectedItem]intValue];
    //NSLog(@"					AnzahlAufgaben: %d",AnzahlAufgaben);
-   //MaximalZeit=[[ZeitPpKnopf titleOfSelectedItem]intValue];
+   //MaximalZeit=[[ZeitPopKnopf titleOfSelectedItem]intValue];
    aktuelleAufgabenNummer=1;
    [StartTaste setTitle:NSLocalizedString(@"Start",@"Start")];
    [AufgabenNummerFeld setIntValue:1];
@@ -2254,8 +2319,8 @@ const short     kSerieFertig = 25003;
    if (Modus==kTrainingModus)
    {
       RechnungSeriedaten.AnzahlAufgaben=(int)[[AnzahlPopKnopf selectedItem]tag];
-      RechnungSeriedaten.Zeit=[[ZeitPpKnopf selectedItem]tag];
-      [ZeitPpKnopf setHidden:NO];
+      RechnungSeriedaten.Zeit=[[ZeitPopKnopf selectedItem]tag];
+      [ZeitPopKnopf setHidden:NO];
       [AnzahlPopKnopf setHidden:NO];
       [ZeitLimiteFeld setHidden:YES];
       [AnzahlFeld setHidden:YES];
@@ -2263,7 +2328,7 @@ const short     kSerieFertig = 25003;
    }
    else
    {
-      [ZeitPpKnopf setHidden:YES];
+      [ZeitPopKnopf setHidden:YES];
       [AnzahlPopKnopf setHidden:YES];
       [ZeitLimiteFeld setHidden:NO];
       [AnzahlFeld setHidden:NO];
@@ -2278,10 +2343,10 @@ const short     kSerieFertig = 25003;
    AnzahlAufgaben=RechnungSeriedaten.AnzahlAufgaben;
    
    [AnzahlPopKnopf selectItemAtIndex:[AnzahlPopKnopf indexOfItemWithTag:RechnungSeriedaten.AnzahlAufgaben]];
-   [ZeitPpKnopf selectItemAtIndex:[ZeitPpKnopf indexOfItemWithTag:RechnungSeriedaten.Zeit]];
+   [ZeitPopKnopf selectItemAtIndex:[ZeitPopKnopf indexOfItemWithTag:RechnungSeriedaten.Zeit]];
    //AnzahlAufgaben=[[AnzahlPopKnopf titleOfSelectedItem]intValue];
    //NSLog(@"					AnzahlAufgaben: %d",AnzahlAufgaben);
-   //MaximalZeit=[[ZeitPpKnopf titleOfSelectedItem]intValue];
+   //MaximalZeit=[[ZeitPopKnopf titleOfSelectedItem]intValue];
    aktuelleAufgabenNummer=1;
    [StartTaste setTitle:NSLocalizedString(@"Start",@"LOS")];
    [AufgabenNummerFeld setIntValue:1];
@@ -2543,7 +2608,7 @@ const short     kSerieFertig = 25003;
    rSeriedaten* tempSerieDaten;
    tempSerieDaten.AnzahlAufgaben=[[AnzahlPopKnopf titleOfSelectedItem]intValue];
    
-   tempSerieDaten.Zeit=[[ZeitPpKnopf titleOfSelectedItem]intValue];
+   tempSerieDaten.Zeit=[[ZeitPopKnopf titleOfSelectedItem]intValue];
    
    //Multiplikation
    NSDictionary* tempReihenSettingsDic=[ReihenSettings getSettings];
@@ -2788,7 +2853,7 @@ const short     kSerieFertig = 25003;
    NSMutableDictionary* tempDic=[[NSMutableDictionary alloc]initWithCapacity:0];
    [tempDic setObject:[NSNumber numberWithInt:[[AnzahlPopKnopf titleOfSelectedItem]intValue]] forKey:@"anzahlaufgaben"];
    //	NSLog(@"SerieDatenDicAusSettings	1");
-   [tempDic setObject:[NSNumber numberWithInt:[[ZeitPpKnopf titleOfSelectedItem]intValue]] forKey:@"zeit"];
+   [tempDic setObject:[NSNumber numberWithInt:[[ZeitPopKnopf titleOfSelectedItem]intValue]] forKey:@"zeit"];
    //	NSLog(@"SerieDatenDicAusSettings	2");
    //Multiplikation
    NSDictionary* tempReihenSettingsDic=[ReihenSettings getSettings];
@@ -2903,7 +2968,7 @@ const short     kSerieFertig = 25003;
 {
    return;
    [NamenPopKnopf setEnabled:derStatus];
-   [ZeitPpKnopf setEnabled:derStatus];
+   [ZeitPopKnopf setEnabled:derStatus];
    [AnzahlPopKnopf setEnabled:derStatus];
    [OKTaste setEnabled:derStatus];
    [StartTaste setEnabled:derStatus];
@@ -2985,7 +3050,10 @@ const short     kSerieFertig = 25003;
    {
       //[sender setTitle:NSLocalizedString(@"End",@"Fertig")];
       //NSLog(@"AufgabeAb: aktuelleAufgabenNummer==AnzahlAufgaben");
-      
+      if ([AblaufzeitTimer isValid])
+      {
+         [AblaufzeitTimer invalidate];
+      }
    }
    
    else
@@ -3019,10 +3087,7 @@ const short     kSerieFertig = 25003;
    }
    //aktuelleAufgabenNummer++;
    verify=YES;
-   
-   TimerValid=YES;
-   
-   
+   teilZeit = 0;
    
    [ResultatFeld setEnabled:YES];
    [ResultatFeld setEditable:YES];
@@ -3172,7 +3237,7 @@ const short     kSerieFertig = 25003;
 {
    
    [ErgebnisRahmenFeld setHidden:YES];
-   //NSLog(@"SndCalcController AufgabelesenFertigAktion: note: %@",[[note userInfo]description]);
+   //NSLog(@"SndCalcController AufgabelesenFertigAktion: note: %@ timervalid: %d",[[note userInfo]description],TimerValid);
    NSNumber* AufgabenStatusNumber=(NSNumber*)[[note userInfo]objectForKey:@"fertig"];
    int status=(int)[AufgabenStatusNumber intValue];
    
@@ -3197,7 +3262,7 @@ const short     kSerieFertig = 25003;
    //NSLog(@"AufgabelesenFertigAktion AblaufzeitTimer gestartet");
    TimerValid=YES;
    AufgabeOK=YES;
-   [self setOK:YES];
+   [self setOK:YES]; // tut nichts
   // NSLog(@"AufgabelesenFertigAktion: Titel: %@ ",NSLocalizedString(@"Repeat",@"Wiederholen"));
 
  //  [StartTaste setTitle:NSLocalizedString(@"Repeat",@"Wiederholen")];
@@ -3223,12 +3288,13 @@ const short     kSerieFertig = 25003;
 
 - (void)AblaufzeitTimerFunktion:(NSTimer*)derTimer
 {
+   //NSLog(@"AblaufzeitTimer abgelaufeneZeit: %d TimerValid: %d",abgelaufeneZeit,TimerValid);
+
    if (TimerValid)
    {
       abgelaufeneZeit+=1;
       teilZeit++;
       [Zeitanzeige setZehntelZeit:abgelaufeneZeit];
-      //NSLog(@"Timer: %d valid: %d",abgelaufeneZeit,[derTimer isValid]);
       //if (abgelaufeneZeit%10==0)
       if (teilZeit==10)
       {
@@ -3239,9 +3305,10 @@ const short     kSerieFertig = 25003;
       }
       if (abgelaufeneZeit/10>=MaximalZeit)
       {
-         //[AblaufzeitTimer invalidate];
+         [AblaufzeitTimer invalidate];
          [derTimer invalidate];
          [self FertigSoundAb];
+         TimerValid=NO;
          NSDictionary* ErgebnisDic=[self SerieErgebnisDic];
          [self SerieFertig:ErgebnisDic];
       }
@@ -3604,7 +3671,7 @@ const short     kSerieFertig = 25003;
    int TastenCode=(int)[KeyCodeNumber intValue];
    //NSLog(@"ErgebnisFertigAktion: note: %@ verify: %d: TastenCode: %d",[[note userInfo]description],verify,TastenCode);
    
-   if (TastenCode==36 &&verify)
+   if (TastenCode==36 && verify)
    {
       //NSLog(@"AblaufzeitTimer invalidate: Timer valid: %d",[AblaufzeitTimer isValid]);
       [AblaufzeitTimer invalidate];
@@ -3613,9 +3680,14 @@ const short     kSerieFertig = 25003;
       [OKTaste setEnabled:NO];
       TimerValid=NO;
       BOOL tempOK=[self checkAufgabe];
-      //verify=NO;
+      verify=NO;
       //NSLog(@"ErgebnisFertigAktion:nach self checkAufgabe");
    }
+   else
+   {
+      verify=NO;
+   }
+   
 }
 
 - (void)textDidChange:(NSNotification *)aNotification
@@ -3689,26 +3761,37 @@ const short     kSerieFertig = 25003;
    //verify=YES;
    //NSLog(@"nextAufgabeAbTimerFunktion nach nextAufgabeAb");
 }
+#pragma mark checkaufgabe
 
 - (BOOL)checkAufgabe
 {
   // NSLog(@"checkAufgabe Nummer: %d",aktuelleAufgabenNummer);
    BOOL checkOK=NO;
    //NSLog(@"checkAufgabe  AufgabenArray: %@",[AufgabenArray description]);
-   
+   TimerValid=NO;
+   teilZeit=0;
+ 
    NSDictionary* tempAufgabenDic=[AufgabenArray objectAtIndex:aktuelleAufgabenNummer-1];
   // NSLog(@"checkAufgabe  tempAufgabenDic: %@",[tempAufgabenDic description]);
    if (verify && tempAufgabenDic)
    {
+      if ([AblaufzeitTimer isValid])
+      {
+        
+         [AblaufzeitTimer invalidate];
+         
+       
+         //NSLog(@"AufgabelesenFertigAktion AblaufzeitTimer invalidate");
+
+      }
       
       NSNumber* sollNumber=[tempAufgabenDic objectForKey:@"var2"];
-      
-      if (sollNumber)
+       if (sollNumber)
       {
          int soll=[sollNumber intValue];
          //			int ist=[[ErgebnisView string]intValue];
          int ist=[ResultatFeld intValue];
-       //  NSLog(@"checkAufgabe: soll: %d  ist: %d",soll,ist);
+         //  NSLog(@"checkAufgabe: soll: %d  ist: %d",soll,ist);
          if (soll==ist)
          {
             //NSLog(@"checkAufgabe: richtig: Nummer: %d",aktuelleAufgabenNummer);
@@ -3749,14 +3832,16 @@ const short     kSerieFertig = 25003;
                      [StartTaste setTitle:NSLocalizedString(@"Next",@"Weiter")];
                      [StartTaste setKeyEquivalent:@"\r"];
                      [[self window]makeFirstResponder:StartTaste];
-                     verify=NO;
                      
-                     NSTimer* DelayTimer=[NSTimer scheduledTimerWithTimeInterval:1.0
-                                                                          target:self
-                                                                        selector:@selector(nextAufgabeAbTimerFunktion:)
-                                                                        userInfo:nil
-                                                                         repeats:NO];
-
+                     //     verify=NO;
+                     if ([TrainingAutoCheckbox state])
+                     {
+                        NSTimer* DelayTimer=[NSTimer scheduledTimerWithTimeInterval:1.5
+                                                                             target:self
+                                                                           selector:@selector(nextAufgabeAbTimerFunktion:)
+                                                                           userInfo:nil
+                                                                            repeats:NO];
+                     }
                   }break;
                      
                   case kTestModus:
@@ -3767,11 +3852,12 @@ const short     kSerieFertig = 25003;
                      //							NSLog(@"checkAufgabe: vor Timer");
                      
                      
-                     NSTimer* DelayTimer=[NSTimer scheduledTimerWithTimeInterval:1.0
-                                                                           target:self
-                                                                         selector:@selector(nextAufgabeAbTimerFunktion:)
-                                                                         userInfo:nil
-                                                                          repeats:NO];
+                     NSTimer* DelayTimer=[NSTimer scheduledTimerWithTimeInterval:1.5
+                                                                          target:self
+                                                                        selector:@selector(nextAufgabeAbTimerFunktion:)
+                                                                        userInfo:nil
+                                                                         repeats:NO];
+                     
                      //							NSLog(@"checkAufgabe: nach Timer");
                      
                      
@@ -3802,7 +3888,16 @@ const short     kSerieFertig = 25003;
                   [StartTaste setEnabled:YES];
                   [StartTaste setKeyEquivalent:@"\r"];
                   [[self window]makeFirstResponder:StartTaste];
+                  
                   verify=NO;
+                  if ([TrainingAutoCheckbox state])
+                  {
+                     NSTimer* DelayTimer=[NSTimer scheduledTimerWithTimeInterval:1.5
+                                                                          target:self
+                                                                        selector:@selector(nextAufgabeAbTimerFunktion:)
+                                                                        userInfo:nil
+                                                                         repeats:NO];
+                  }
 
                }break;
                case kTestModus:
@@ -3810,10 +3905,10 @@ const short     kSerieFertig = 25003;
                   [StartTaste setEnabled:YES];
                   [OKTaste setEnabled:NO];
                   NSTimer* DelayTimer=[NSTimer scheduledTimerWithTimeInterval:1.5
-                                                                        target:self
-                                                                      selector:@selector(nextAufgabeAbTimerFunktion:)
-                                                                      userInfo:nil
-                                                                       repeats:NO];
+                                                                       target:self
+                                                                     selector:@selector(nextAufgabeAbTimerFunktion:)
+                                                                     userInfo:nil
+                                                                      repeats:NO];
                   
                   //in TestTimerFunktion:
                   //							[self xxAufgabeAb:NULL];
@@ -3839,14 +3934,15 @@ const short     kSerieFertig = 25003;
       
       
    }//if tempAufgabenDic
-   //NSLog(@"checkAufgabe end");
+   //NSLog(@"checkAufgabe end TimerValid: %d",TimerValid);
+   TimerValid=NO;
    return checkOK;
 }
 
 
 - (void)RichtigSoundAb
 {
-   
+  
    NSMutableDictionary* tempQuittungDic=[[NSMutableDictionary alloc]initWithCapacity:0];
    
    //Richtig
@@ -3862,6 +3958,8 @@ const short     kSerieFertig = 25003;
 
 - (void)FalschSoundAb
 {
+   
+   
    NSMutableDictionary* tempQuittungDic=[[NSMutableDictionary alloc]initWithCapacity:0];
    [tempQuittungDic setObject:[NSNumber numberWithInt:AUFGABEFALSCH]
                        forKey:@"quittung"];
@@ -4106,7 +4204,7 @@ const short     kSerieFertig = 25003;
                   [StartTaste setEnabled:NO];
                   [neueSerieTaste  setEnabled:YES];
                   [AnzahlPopKnopf  setEnabled:YES];
-                  [ZeitPpKnopf  setEnabled:YES];
+                  [ZeitPopKnopf  setEnabled:YES];
                   [StartTaste setKeyEquivalent:@""];
                   //						[SettingsPfeil setKeyEquivalent:@"\r"];
                   //						[[self window]makeFirstResponder:SettingsPfeil];
@@ -4167,7 +4265,7 @@ const short     kSerieFertig = 25003;
       [StartTaste setEnabled:NO];
       [neueSerieTaste  setEnabled:YES];
       [AnzahlPopKnopf  setEnabled:YES];
-      [ZeitPpKnopf  setEnabled:YES];
+      [ZeitPopKnopf  setEnabled:YES];
       [StartTaste setKeyEquivalent:@""];
       [SettingAlsTestSichernTaste setKeyEquivalent:@"\r"];
       [[self window]makeFirstResponder:SettingAlsTestSichernTaste];
@@ -4181,7 +4279,7 @@ const short     kSerieFertig = 25003;
 
 - (IBAction)reportSettingAlsTestSichern:(id)sender
 {
-   NSLog(@"reportSettingAlsTestSichern");
+   //NSLog(@"reportSettingAlsTestSichern");
    SerieDatenDic=(NSMutableDictionary*)[self SerieDatenDicAusSettings];
    //NSLog(@"reportSettingAlsTestSichern: SerieDatenDic: %@",[SerieDatenDic description]);
    
@@ -4190,14 +4288,14 @@ const short     kSerieFertig = 25003;
    [self showTestPanel:NULL];
    [TestPanel selectEingabeFeld];
    [TestPanel setAnzahl:(int)[AnzahlPopKnopf indexOfSelectedItem]];
-   [TestPanel setZeit:(int)[ZeitPpKnopf indexOfSelectedItem]];
+   [TestPanel setZeit:(int)[ZeitPopKnopf indexOfSelectedItem]];
    
 }
 - (IBAction)reportSettingsAnwenden:(id)sender
 {
   // NSLog(@"reportSettingsAnwenden");
    SerieDatenDic=(NSMutableDictionary*)[self SerieDatenDicAusSettings];
-   //NSLog(@"reportSettingsAnwenden: SerieDatenDic: %@",[SerieDatenDic description]);
+   DLog(@"reportSettingsAnwenden: SerieDatenDic: %@",[SerieDatenDic description]);
    [self neueSerie:nil];
  
 }
@@ -4877,34 +4975,35 @@ const short     kSerieFertig = 25003;
       [self closeSessionDrawer:NULL];
       Modus=kTestModus;
       [AnzahlPopKnopf setEnabled:NO];
-      [ZeitPpKnopf setEnabled:NO];
+      [ZeitPopKnopf setEnabled:NO];
       [SettingsPfeil setEnabled: NO];
       [self closeDrawer:NULL];
       [self resetTest];
       [self neueSerie:NULL];
       [NamenPopKnopf setEnabled:YES];
       [TestPopKnopf setEnabled:NO];
-      [ZeitPpKnopf setHidden:YES];
+      [ZeitPopKnopf setHidden:YES];
       [AnzahlPopKnopf setHidden:YES];
       [ZeitLimiteFeld setHidden:NO];
       [AnzahlFeld setHidden:NO];
-      
+      [TrainingAutoCheckbox setHidden:YES];
+      [TrainingAutoCheckbox setEnabled:NO];
    }
    else
    {
       Modus=kTrainingModus;
       [AnzahlPopKnopf setEnabled:YES];
-      [ZeitPpKnopf setEnabled:YES];
+      [ZeitPopKnopf setEnabled:YES];
       [SettingsPfeil setEnabled: YES];
       [NamenPopKnopf setEnabled:NO];
       [TestPopKnopf setEnabled:NO];
       [self stopTimeout];
-      [ZeitPpKnopf setHidden:NO];
+      [ZeitPopKnopf setHidden:NO];
       [AnzahlPopKnopf setHidden:NO];
       [ZeitLimiteFeld setHidden:YES];
       [AnzahlFeld setHidden:YES];
-      
-      
+      [TrainingAutoCheckbox setHidden:NO];
+      [TrainingAutoCheckbox setEnabled:YES];
    }
    if (Modus)
    {
@@ -5974,7 +6073,7 @@ const short     kSerieFertig = 25003;
          TestPanel=[[rTestPanel alloc]init];
          //NSLog(@"init TestPanel TestChanged: %d",[TestPanel TestChanged]);
       }
-      
+       [TestPanel.window makeKeyAndOrderFront:nil];
       //NSLog(@"TestPanel window: %@",[[TestPanel window] description]);
       [self stopAdminTimeout];
       
@@ -6006,11 +6105,11 @@ const short     kSerieFertig = 25003;
          
          if (Modus==kTrainingModus)
          {
-            [TestPanel setZeitItems:[ZeitPpKnopf itemTitles] mitItem:[ZeitPpKnopf indexOfSelectedItem]];
+            [TestPanel setZeitItems:[ZeitPopKnopf itemTitles] mitItem:[ZeitPopKnopf indexOfSelectedItem]];
          }
          else
          {
-            [TestPanel setZeitItems:[ZeitPpKnopf itemTitles] mitItem:0];
+            [TestPanel setZeitItems:[ZeitPopKnopf itemTitles] mitItem:0];
          }
          
       }
@@ -6042,11 +6141,13 @@ const short     kSerieFertig = 25003;
          int modalAntwort=0;
          //		modalAntwort=[NSApp runModalForWindow:[TestPanel window]];
      //    [TestPanel showWindow:NULL];
-         [TestPanel setAnzahlItems:[AnzahlPopKnopf itemTitles] mitItem:[AnzahlPopKnopf indexOfSelectedItem]];
-         [TestPanel setZeitItems:[ZeitPpKnopf itemTitles] mitItem:[ZeitPpKnopf indexOfSelectedItem]];
+         [TestPanel setAnzahlItems:[AnzahlPopKnopf itemTitles] mitItem:(int)[AnzahlPopKnopf indexOfSelectedItem]];
+
+         [TestPanel setAnzahlItems:[AnzahlPopKnopf itemTitles] mitItem:(int)[AnzahlPopKnopf indexOfSelectedItem]];
+         [TestPanel setZeitItems:[ZeitPopKnopf itemTitles] mitItem:(int)[ZeitPopKnopf indexOfSelectedItem]];
          [[TestPanel window] makeKeyAndOrderFront:NULL];
          
-         //		[NSApp endModalSession:TestLauf];
+         //		[NSApp endModalSession:TestLauf];<
          
          //		[self startTimeout];
       }//Kein NamenDicArray
@@ -6090,7 +6191,7 @@ const short     kSerieFertig = 25003;
     //  [TestPanel showWindow:nil];
      // NSLog(@"TestPanel window: %@",[TestPanel window]);
 
-      [TestPanel.window makeKeyAndOrderFront:nil];
+ //     [TestPanel.window makeKeyAndOrderFront:nil];
    }//passwort
 }
 
@@ -6130,7 +6231,7 @@ const short     kSerieFertig = 25003;
             Modus=kTestModus;
             [ModusOption selectCellAtRow:0 column:0];
             [AnzahlPopKnopf setEnabled:NO];
-            [ZeitPpKnopf setEnabled:NO];
+            [ZeitPopKnopf setEnabled:NO];
             
             
             
@@ -6262,7 +6363,7 @@ const short     kSerieFertig = 25003;
       if ([[note userInfo]objectForKey:@"zeit"])
       {
          NSString* ZeitString=[[note userInfo]objectForKey:@"zeit"];
-         [ZeitPpKnopf selectItemWithTitle:[[note userInfo]objectForKey:@"zeit"]];
+         [ZeitPopKnopf selectItemWithTitle:[[note userInfo]objectForKey:@"zeit"]];
          [ZeitFeld setIntValue:[ZeitString intValue]];
       }
       
@@ -6274,7 +6375,7 @@ const short     kSerieFertig = 25003;
       [self openDrawer:self];
    }
    
-   [TestPanel setZeitItems:[ZeitPpKnopf itemTitles] mitItem:[ZeitPpKnopf indexOfSelectedItem]];
+   [TestPanel setZeitItems:[ZeitPopKnopf itemTitles] mitItem:[ZeitPopKnopf indexOfSelectedItem]];
    [TestPanel setAnzahlItems:[AnzahlPopKnopf itemTitles] mitItem:[AnzahlPopKnopf indexOfSelectedItem]];
    
    BOOL en=NO;
@@ -6527,6 +6628,16 @@ const short     kSerieFertig = 25003;
       [PListDic setObject:[[note userInfo]objectForKey:@"farbig"]forKey:@"farbig"];
       farbig=[[[note userInfo]objectForKey:@"farbig"]boolValue];
    }
+   if ([[note userInfo]objectForKey:@"anzahlarray"])
+   {
+      [PListDic setObject:[[note userInfo]objectForKey:@"anzahlarray"]forKey:@"anzahlarray"];
+   }
+   if ([[note userInfo]objectForKey:@"zeitarray"])
+   {
+      [PListDic setObject:[[note userInfo]objectForKey:@"zeitarray"]forKey:@"zeitarray"];
+   }
+
+   
    
 }
 
@@ -6548,17 +6659,35 @@ const short     kSerieFertig = 25003;
       }
       //NSLog(@"EinstellungenPanel window: %d",[[EinstellungenPanel window] description]);
       [self stopAdminTimeout];
+      
+      
+
       NSModalSession EinstellungenSession=[NSApp beginModalSessionForWindow:[EinstellungenPanel window]];
       //Array der vorhandenen Namen
+      [EinstellungenPanel setAdminTimeout:AdminTimeout];
+      [EinstellungenPanel setUserTimeout:UserTimeout];
+      [EinstellungenPanel setFarbig:farbig];
       
+      if ([PListDic objectForKey:@"anzahlarray"])
+      {
+         [EinstellungenPanel setzeAnzahlFeld:[PListDic objectForKey:@"anzahlarray"]];
+      }
+      else
+      {
+         [EinstellungenPanel setzeAnzahlFeld:[NSArray arrayWithObjects:@"32",@"24",@"16",@"12",@" 6",nil ]];
+      }
+      if ([PListDic objectForKey:@"zeitarray"])
+      {
+         [EinstellungenPanel setzeZeitFeld:[PListDic objectForKey:@"zeitarray"]];
+      }
+      else
+      {
+         [EinstellungenPanel setzeZeitFeld:[NSArray arrayWithObjects:@"120 s",@" 90 s",@" 60 s",@" 30 s",@" 10 s",nil]];
+      }
       
       //	NSArray* NamenDicArrayAusPList=[Utils NamenDicArrayAnPfad:SndCalcPfad];
       
       
-      
-      [EinstellungenPanel setAdminTimeout:AdminTimeout];
-      [EinstellungenPanel setUserTimeout:UserTimeout];
-      [EinstellungenPanel setFarbig:farbig];
       
       
       int modalAntwort = [NSApp runModalForWindow:[EinstellungenPanel window]];
@@ -6573,6 +6702,8 @@ const short     kSerieFertig = 25003;
          }break;
          case 1://Schliessen
          {
+            [self setZeitPop];
+            [self setAnzahlPop];
             //NSLog(@"\n\n");NSLog(@"\n\n");
          }break;
       }//switch antwort
@@ -7159,6 +7290,7 @@ objectValueForTableColumn:(NSTableColumn *)aTableColumn
    //NSLog(@"TimeoutTimerFunktion fire 4");
    [self neueSerie:NULL];
     [neueSerieTaste setEnabled: YES];
+   [ModusOption setEnabled:YES];
    //NSLog(@"TimeoutTimerFunktion fire end");
    
 }
@@ -7384,7 +7516,7 @@ objectValueForTableColumn:(NSTableColumn *)aTableColumn
 
 - (void)NeueQuittungAktion:(NSNotification*)note
 {
-   NSLog(@"NeueQuittungAktion:note userInfo: %@",[[note userInfo]description]);
+   //NSLog(@"NeueQuittungAktion:note userInfo: %@",[[note userInfo]description]);
    NSString* neueQuittung=[[note userInfo]objectForKey:@"neuequittung"];
    NSString* tempKlasse=[[note userInfo]objectForKey:@"klassename"];
    
@@ -7430,7 +7562,7 @@ objectValueForTableColumn:(NSTableColumn *)aTableColumn
    
    [PListDic setObject:[self SerieDatenDicAusSettings] forKey:@"seriedatendic"];
    
-   //NSLog(@"savePListAktion: tempPListDic: %@",[tempPListDic description]);
+   //NSLog(@"savePListAktion: PListDic: %@",[PListDic objectForKey:@"anzahlarray"]);
    
    
    
@@ -7466,6 +7598,7 @@ objectValueForTableColumn:(NSTableColumn *)aTableColumn
          {
             tempPListDic=[[NSMutableDictionary alloc]initWithCapacity:0];
          }
+         [tempPListDic addEntriesFromDictionary:PListDic];
          //[tempPListDic setObject:[NSNumber numberWithInt:AnzahlAufgaben] forKey:@"anzahlaufgaben"];
          //[tempPListDic setObject:[NSNumber numberWithInt:MaximalZeit] forKey:@"zeit"];
          [tempPListDic setObject:[NSNumber numberWithInt:AdminTimeout] forKey:@"admintimeout"];
@@ -7523,7 +7656,7 @@ objectValueForTableColumn:(NSTableColumn *)aTableColumn
       }
       else//keinPasswort
       {
-         NSLog(@"checkAdminZugang pw="": neues Passwort eingeben");
+         //NSLog(@"checkAdminZugang pw="": neues Passwort eingeben");
          NSDictionary* tempNeuesPWDic=[Utils changePasswort:[tempAdminPWDic copy]];
          //NSLog(@"tempNeuesPWDic: %@",[tempNeuesPWDic description]);
          if ([[tempNeuesPWDic objectForKey:@"pw"]length])//neues PW ist da
@@ -7534,7 +7667,7 @@ objectValueForTableColumn:(NSTableColumn *)aTableColumn
             
             AdminPasswortDic =[tempNeuesPWDic copy];
             
-            NSLog(@"PListDic in checkAdminZugang: %@",[PListDic description]);
+            //NSLog(@"PListDic in checkAdminZugang: %@",[PListDic description]);
             BOOL adminPWOK=[Utils saveAdminPW:tempNeuesPWDic anPfad:SndCalcPfad];
             ZugangOK=YES;				
          }
@@ -7561,7 +7694,7 @@ objectValueForTableColumn:(NSTableColumn *)aTableColumn
    
    //NSDictionary* neuesPWDic=[Utils changePasswort:AdminPasswortDic];
    NSDictionary* neuesPWDic=[Utils changePasswort:[[PListDic objectForKey:@"pwdic"]copy]];
-   NSLog(@"neues admin PWDic: %@",[neuesPWDic description]);
+   //NSLog(@"neues admin PWDic: %@",[neuesPWDic description]);
    if (neuesPWDic)
    {
       [AdminPasswortDic setDictionary:neuesPWDic];

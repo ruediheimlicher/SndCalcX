@@ -16,7 +16,6 @@
                 <outlet property="IconFeld" destination="43" id="45"/>
                 <outlet property="NamenWahlTaste" destination="125" id="131"/>
                 <outlet property="NamenZuTestTable" destination="165" id="176"/>
-                <outlet property="SaveSettingsAsTestTaste" destination="heE-Zj-gmt" id="rQs-A6-mAa"/>
                 <outlet property="SaveTestTaste" destination="152" id="153"/>
                 <outlet property="SchliessenTaste" destination="8" id="13"/>
                 <outlet property="SetTestForAllTaste" destination="197" id="213"/>
@@ -43,12 +42,12 @@
         <window title="Test" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" animationBehavior="default" id="5" userLabel="Window">
             <windowStyleMask key="styleMask" titled="YES" miniaturizable="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" bottomStrut="YES"/>
-            <rect key="contentRect" x="46" y="305" width="639" height="436"/>
+            <rect key="contentRect" x="46" y="305" width="634" height="436"/>
             <rect key="screenRect" x="0.0" y="0.0" width="1680" height="1028"/>
             <value key="minSize" type="size" width="614" height="425"/>
             <value key="maxSize" type="size" width="615" height="426"/>
             <view key="contentView" id="6">
-                <rect key="frame" x="0.0" y="0.0" width="639" height="436"/>
+                <rect key="frame" x="0.0" y="0.0" width="634" height="436"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <button verticalHuggingPriority="750" id="9">
@@ -108,7 +107,7 @@
                                                     <popUpButton verticalHuggingPriority="750" id="107">
                                                         <rect key="frame" x="207" y="5" width="59" height="26"/>
                                                         <autoresizingMask key="autoresizingMask"/>
-                                                        <popUpButtonCell key="cell" type="push" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" borderStyle="borderAndBezel" inset="2" arrowPosition="arrowAtCenter" preferredEdge="maxY" id="285">
+                                                        <popUpButtonCell key="cell" type="push" bezelStyle="rounded" alignment="center" lineBreakMode="truncatingTail" borderStyle="borderAndBezel" inset="2" arrowPosition="arrowAtCenter" preferredEdge="maxY" id="285">
                                                             <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
                                                             <font key="font" metaFont="cellTitle"/>
                                                             <menu key="menu" title="OtherViews" id="108">
@@ -276,9 +275,9 @@
                                             </connections>
                                         </button>
                                         <popUpButton verticalHuggingPriority="750" id="95">
-                                            <rect key="frame" x="278" y="13" width="73" height="26"/>
+                                            <rect key="frame" x="278" y="13" width="68" height="26"/>
                                             <autoresizingMask key="autoresizingMask"/>
-                                            <popUpButtonCell key="cell" type="push" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" borderStyle="borderAndBezel" inset="2" arrowPosition="arrowAtCenter" preferredEdge="maxY" id="282">
+                                            <popUpButtonCell key="cell" type="push" bezelStyle="rounded" alignment="right" lineBreakMode="truncatingTail" borderStyle="borderAndBezel" inset="2" arrowPosition="arrowAtCenter" preferredEdge="maxY" id="282">
                                                 <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
                                                 <font key="font" metaFont="cellTitle"/>
                                                 <menu key="menu" title="OtherViews" id="96">
@@ -677,7 +676,7 @@ DQ
             <connections>
                 <outlet property="delegate" destination="-2" id="MLJ-HI-dHu"/>
             </connections>
-            <point key="canvasLocation" x="316.5" y="349"/>
+            <point key="canvasLocation" x="314" y="349"/>
         </window>
         <drawer preferredEdge="minY" trailingOffset="15" id="214">
             <size key="contentSize" width="200" height="200"/>
@@ -690,7 +689,7 @@ DQ
             </connections>
         </drawer>
         <customView id="218" userLabel="View">
-            <rect key="frame" x="0.0" y="0.0" width="653" height="162"/>
+            <rect key="frame" x="0.0" y="0.0" width="634" height="162"/>
             <autoresizingMask key="autoresizingMask"/>
             <subviews>
                 <tabView id="219">
@@ -712,21 +711,10 @@ DQ
                         </tabViewItem>
                     </tabViewItems>
                 </tabView>
-                <button verticalHuggingPriority="750" id="heE-Zj-gmt">
-                    <rect key="frame" x="500" y="79" width="105" height="23"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                    <buttonCell key="cell" type="squareTextured" title="Als Test sichern" bezelStyle="texturedSquare" alignment="center" borderStyle="border" inset="2" id="1dm-QD-XbW">
-                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                        <font key="font" metaFont="system"/>
-                    </buttonCell>
-                    <connections>
-                        <action selector="reportSettingAlsTestSichern:" target="-2" id="kVR-lI-jqn"/>
-                    </connections>
-                </button>
                 <button verticalHuggingPriority="750" id="225">
-                    <rect key="frame" x="494" y="13" width="117" height="32"/>
+                    <rect key="frame" x="494" y="13" width="98" height="32"/>
                     <autoresizingMask key="autoresizingMask"/>
-                    <buttonCell key="cell" type="push" title="Schliessen" bezelStyle="rounded" alignment="center" borderStyle="border" inset="2" id="302">
+                    <buttonCell key="cell" type="push" title="Abbrechen" bezelStyle="rounded" alignment="center" borderStyle="border" inset="2" id="302">
                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                         <font key="font" metaFont="system"/>
                     </buttonCell>
@@ -735,7 +723,7 @@ DQ
                     </connections>
                 </button>
             </subviews>
-            <point key="canvasLocation" x="276.5" y="667"/>
+            <point key="canvasLocation" x="309" y="696"/>
         </customView>
     </objects>
 </document>

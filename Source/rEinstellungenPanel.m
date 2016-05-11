@@ -17,7 +17,7 @@
 
 - (void) setAdminTimeout:(int)dieZeit
 {
-NSLog(@"setAdminTimeout Zeit: %d ",dieZeit);
+//NSLog(@"setAdminTimeout Zeit: %d ",dieZeit);
 [AdminTimeoutTaste selectItemWithTitle:[[NSNumber numberWithInt:dieZeit]stringValue]];
 }
 
@@ -41,6 +41,22 @@ NSLog(@"setFarbig farbigDrucken: %d ",farbigDrucken);
 
 }
 
+- (void)setzeZeitFeld:(NSArray*)zeitArray
+{
+   //NSLog(@"setzeZeitFeld zeitArray: %@",zeitArray);
+   
+   ZeitFeld.string = [zeitArray componentsJoinedByString:@"\n"];
+}
+
+
+- (void)setzeAnzahlFeld:(NSArray*)anzArray
+{
+   //NSLog(@"setzeAnzahlFeld anzArray: %@",anzArray);
+   NSString* anzstring =[anzArray componentsJoinedByString:@"\n"];;
+   //NSLog(@"setzeAnzahlFeld anzstring: %@",anzstring);
+  [AnzahlFeld setString:[anzArray componentsJoinedByString:@"\n"]];
+}
+
 
 
 - (IBAction)reportCancel:(id)sender
@@ -58,8 +74,10 @@ NSLog(@"reportCancel ");
 	[NotificationDic setObject:[NSNumber numberWithInt:[[AdminTimeoutTaste selectedItem]tag]] forKey:@"admintimeout"];
 	[NotificationDic setObject:[NSNumber numberWithInt:[[UserTimeoutTaste selectedItem]tag]] forKey:@"usertimeout"];
 	[NotificationDic setObject:[NSNumber numberWithInt:[FarbigTaste state]] forKey:@"farbig"];
+   [NotificationDic setObject:[[AnzahlFeld string]componentsSeparatedByString:@"\n" ] forKey:@"anzahlarray"];
+   [NotificationDic setObject:[[ZeitFeld string]componentsSeparatedByString:@"\n" ] forKey:@"zeitarray"];
 
-	NSLog(@"reportClose: NotificationDic: %@",[NotificationDic description]);
+	//NSLog(@"reportClose: NotificationDic: %@",[NotificationDic description]);
 	NSNotificationCenter* nc=[NSNotificationCenter defaultCenter];
 	[nc postNotificationName:@"Einstellungen" object:self userInfo:NotificationDic];
 

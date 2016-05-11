@@ -55,7 +55,6 @@
 		BD7947B31CC13AD700604B3D /* SCStimmenPanel.nib in Resources */ = {isa = PBXBuildFile; fileRef = BD79479C1CC13AD700604B3D /* SCStimmenPanel.nib */; };
 		BD7947B51CC13AD700604B3D /* SCTestPanel.nib in Resources */ = {isa = PBXBuildFile; fileRef = BD79479E1CC13AD700604B3D /* SCTestPanel.nib */; };
 		BD7947B71CC13AD700604B3D /* SCVolumes.nib in Resources */ = {isa = PBXBuildFile; fileRef = BD7947A01CC13AD700604B3D /* SCVolumes.nib */; };
-		BD7947CF1CC1444E00604B3D /* Icons in Resources */ = {isa = PBXBuildFile; fileRef = BD7947C11CC1444E00604B3D /* Icons */; };
 		BD7947E51CC2C60D00604B3D /* rRechnungserie.m in Sources */ = {isa = PBXBuildFile; fileRef = BD7947E41CC2C60D00604B3D /* rRechnungserie.m */; };
 		BD7948331CC56A5000604B3D /* Zahlen_AIFF in Resources */ = {isa = PBXBuildFile; fileRef = BD7948321CC56A5000604B3D /* Zahlen_AIFF */; };
 		BD7948381CC56C1B00604B3D /* Quittung.plist in Resources */ = {isa = PBXBuildFile; fileRef = BD7948361CC56C1B00604B3D /* Quittung.plist */; };
@@ -162,7 +161,6 @@
 		BD79479C1CC13AD700604B3D /* SCStimmenPanel.nib */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; path = SCStimmenPanel.nib; sourceTree = "<group>"; };
 		BD79479E1CC13AD700604B3D /* SCTestPanel.nib */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; path = SCTestPanel.nib; sourceTree = "<group>"; };
 		BD7947A01CC13AD700604B3D /* SCVolumes.nib */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; path = SCVolumes.nib; sourceTree = "<group>"; };
-		BD7947C11CC1444E00604B3D /* Icons */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Icons; sourceTree = "<group>"; };
 		BD7947E31CC2C60D00604B3D /* rRechnungserie.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = rRechnungserie.h; sourceTree = "<group>"; };
 		BD7947E41CC2C60D00604B3D /* rRechnungserie.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = rRechnungserie.m; sourceTree = "<group>"; };
 		BD7948321CC56A5000604B3D /* Zahlen_AIFF */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Zahlen_AIFF; sourceTree = "<group>"; };
@@ -228,7 +226,6 @@
 				BD7948361CC56C1B00604B3D /* Quittung.plist */,
 				BD7948371CC56C1B00604B3D /* Zahlen.plist */,
 				BD7948321CC56A5000604B3D /* Zahlen_AIFF */,
-				BD7947C11CC1444E00604B3D /* Icons */,
 				BD7947BB1CC1443700604B3D /* Bilder */,
 				BD79478A1CC13AB800604B3D /* nibs */,
 				BD7947711CC02FDF00604B3D /* Passwort */,
@@ -386,6 +383,7 @@
 				TargetAttributes = {
 					BD79470E1CC024F300604B3D = {
 						CreatedOnToolsVersion = 7.2.1;
+						DevelopmentTeam = 7896K3WX2G;
 					};
 				};
 			};
@@ -421,7 +419,6 @@
 				BD7947A21CC13AD700604B3D /* SCDiplomFenster.nib in Resources */,
 				BD7947191CC024F300604B3D /* Assets.xcassets in Resources */,
 				BD79471C1CC024F300604B3D /* MainMenu.xib in Resources */,
-				BD7947CF1CC1444E00604B3D /* Icons in Resources */,
 				BDD8A4D01CC8CFD500349CEA /* SessionNOImg.tif in Resources */,
 				BD7947B21CC13AD700604B3D /* SCStatistik.nib in Resources */,
 				BDD8A4CF1CC8CFD500349CEA /* MarkOnImg.tif in Resources */,
@@ -543,7 +540,7 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "-";
+				CODE_SIGN_IDENTITY = "3rd Party Mac Developer Application";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -586,7 +583,7 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "-";
+				CODE_SIGN_IDENTITY = "3rd Party Mac Developer Application";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
@@ -609,11 +606,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "3rd Party Mac Developer Application";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "3rd Party Mac Developer Application";
 				COMBINE_HIDPI_IMAGES = YES;
 				INFOPLIST_FILE = SndCalcX/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = RH.SndCalcX;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -621,11 +621,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "3rd Party Mac Developer Application";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "3rd Party Mac Developer Application";
 				COMBINE_HIDPI_IMAGES = YES;
 				INFOPLIST_FILE = SndCalcX/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = RH.SndCalcX;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};

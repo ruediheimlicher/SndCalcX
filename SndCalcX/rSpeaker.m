@@ -1235,11 +1235,11 @@ const short  kMaxElemente=12;
        */
       NSArray* var0Array = [self URLArrayvonZahl:var0];
       NSArray* var1Array = [self URLArrayvonZahl:var1];
-      NSArray* var2Array = [self URLArrayvonZahl:var2];
+  //    NSArray* var2Array = [self URLArrayvonZahl:var2];
       
       NSURL* op0URL = [self URLvonOperation:op0];
       // NSURL* richtigURL = [self URLvonQuittung:@"richtig"];
-      NSURL* richtigURL = [self URLvonQuittung:AUFGABERICHTIG];
+ //     NSURL* richtigURL = [self URLvonQuittung:AUFGABERICHTIG];
       
       
       //    NSLog(@"var0Array: %@",var0Array);
@@ -1274,7 +1274,7 @@ const short  kMaxElemente=12;
        }
        */
       AufgabenPlayerX.volume = PlayerVolume;
-      NSLog(@"volume vor play: %2.2f",AufgabenPlayerX.volume   );
+      //NSLog(@"volume vor play: %2.2f",AufgabenPlayerX.volume   );
       [AufgabenPlayerX play];
       
       
@@ -1289,10 +1289,16 @@ const short  kMaxElemente=12;
 }
 - (void)playerItemDidReachEnd:(NSNotification *)notification {
    // Do stuff here
-   //NSLog(@"AufgabenPlayerX actionAtItemEnd: %ld",AufgabenPlayerX.actionAtItemEnd);
+   //NSLog(@"AufgabenPlayerX actionAtItemEnd: %@",notification);
    if (AufgabenPlayerX.currentItem == AufgabenPlayerX.items.lastObject)
    {
-      //NSLog(@"letztes item da");
+      NSString* last =[AufgabenPlayerX.items.lastObject description];
+      //NSLog(@"letztes item da: %@",last);
+      if ([last containsString:@"Quittung_AIFF"]) // Quittungen abfangen, sollen kein postnotification auslösen
+      {
+         //NSLog(@"letztes item Quittung da: %@",last);
+         return;
+      }
       NSNotificationCenter *nc = [NSNotificationCenter defaultCenter];
       // [nc removeObserver:self name:@"QTMovieDidEndNotification" object:nil];
       
@@ -1335,10 +1341,11 @@ const short  kMaxElemente=12;
 
 - (BOOL)QuittungAb:(NSDictionary*)dieQuittung
 {
-   NSLog(@"QuittungAb: quittung: %@",dieQuittung);
+   //NSLog(@"QuittungAb: quittung: %@",dieQuittung);
    BOOL QuittungOK=YES;
    int tempQuittung = [[dieQuittung  objectForKey:@"quittung"]intValue];
    NSURL* quittungURL = [self URLvonQuittung:tempQuittung];
+   
    if (quittungURL)
    {
       [QueueArray removeAllObjects];

@@ -29,7 +29,7 @@
 
 - (void)windowDidLoad
 {
-  // NSLog(@"Testpanel windowDidLoad");
+   NSLog(@"Testpanel windowDidLoad");
 
 }
 
@@ -57,7 +57,12 @@
    //[[[TestTable tableColumnWithIdentifier:@"alle"]dataCell]setButtonType:NSMomentaryPushInButton];
    
    [[[TestTable tableColumnWithIdentifier:@"alle"]dataCell]setAction:@selector(ForAllCheckboxAktion:)];
+   int anz[] = {24,16,12,8,6};
+   NSArray* anzahlarray = [NSArray arrayWithObjects:@"24",@"16",@"12",@"8",nil ];
    
+   [AnzahlPopTaste addItemsWithTitles:anzahlarray];
+   
+   [ZeitPopTaste addItemsWithTitles:[NSArray arrayWithObjects:@"90 s",@"60 s",@"30 s",@"10 s",nil]];
    TestZuNamenDS=[[rTestZuNamenDS alloc]init];
    [TestZuNamenTable setDataSource:TestZuNamenDS];
    [TestZuNamenTable setDelegate:TestZuNamenDS];
@@ -670,7 +675,7 @@
       [Warnung setMessageText:NSLocalizedString(@"Delete Test?",@"Test löschen?")];
       
       NSString* s1=NSLocalizedString(@"The test and the results of all users with this test are deleted.",@"Der Test und die Ergebnisse aller Benutzer mit dem Test werden entfernt.");
-      NSString* s2=NSLocalizedString(@"\nNote:\nDeactivating only hides the test and the results.",@"Anmerkung:\nDeaktivieren verbirgt lediglich den Test und die Ergebnisse.");
+      NSString* s2=NSLocalizedString(@"Note: Deactivating only hides the test and the results.",@"Anmerkung:\nDeaktivieren verbirgt lediglich den Test und die Ergebnisse.");
       NSString* s3=NSLocalizedString(@"Single results can be removed in the statistics window.",@"Einzelne Ergebnisse können im Statistikfenster entfernt werden.");
       
       NSString* InformationString=[NSString stringWithFormat:@"%@\n%@\n%@",s1,s2,s3];
@@ -1076,19 +1081,21 @@
 
 - (void)reportSaveTestTaste:(id)sender
 {
-   NSLog(@"	reportSaveTestTaste Titel der Taste: %@ TestName: %@",[sender title],[EingabeFeld stringValue]);
+   //NSLog(@"	reportSaveTestTaste Titel der Taste: %@ TestName: %@",[sender title],[EingabeFeld stringValue]);
    /*
     Neuen Test sichern
     */
    if ([[sender title] isEqualToString:@"Neuer Test"])
    {
-      NSLog(@"reportSaveTestTaste vor setTitle");
+      //NSLog(@"reportSaveTestTaste vor setTitle");
       [sender setTitle:@"Test sichern"];
-      NSLog(@"reportSaveTestTaste nach setTitle");
+      //NSLog(@"reportSaveTestTaste nach setTitle");
       [TestTable deselectAll:NULL];
       [[self window]makeFirstResponder: EingabeFeld];
       [self openDrawer:NULL];
       [EingabeFeld setEnabled:YES];
+      [[self window]makeFirstResponder:EingabeFeld];
+
       NSMutableDictionary* TestsichernDicDic=[[NSMutableDictionary alloc]initWithCapacity:0];
       [TestsichernDicDic setObject:[NSNumber numberWithInt:1] forKey:@"sichtbar"];
       NSNotificationCenter* beendennc=[NSNotificationCenter defaultCenter];
@@ -1114,18 +1121,18 @@
                [EingabeFeld setEnabled:NO];
                //[SettingsDrawer close:NULL];
                NSArray* tempTestNamenArray=[TestDicArray valueForKey:@"testname"];//Alle vorhandenen Tests
-               NSLog(@"tempTestNamenArray: %@",[tempTestNamenArray description]);
+               //NSLog(@"tempTestNamenArray: %@",[tempTestNamenArray description]);
                
                NSString* neuerTestName=[EingabeFeld stringValue];//Name für einen neuen Test
                NSLog(@"neuerTestName: %@",neuerTestName);
                NSUInteger doppelIndex=[tempTestNamenArray indexOfObject:neuerTestName];
                NSInteger insertIndex=-1;
-               NSLog(@"doppelIndex: %d",doppelIndex);
+               //NSLog(@"doppelIndex: %d",doppelIndex);
                //NSLog(@"tempTestNamenArray: %@   neuerTestName: %@  doppelIndex: %d",[tempTestNamenArray description],neuerTestName,doppelIndex);
                
                if (((doppelIndex<NSNotFound)))//neuer Name ist schon da
                {
-                  NSLog(@"Doppelter Name");
+                  //NSLog(@"Doppelter Name");
                   NSAlert* OrdnerWarnung=[[NSAlert alloc]init];
                   [OrdnerWarnung addButtonWithTitle:NSLocalizedString(@"Go Back",@"Zurück")];
                   [OrdnerWarnung addButtonWithTitle:NSLocalizedString(@"Replace Test",@"Test ersetzen")];
@@ -1174,7 +1181,7 @@
                   
                   [neuerTestNamenDic setObject:[NSNumber numberWithInt:[forAllCheckbox state]]forKey:@"alle"];
                   
-                  NSLog(@"reportSaveTest	neuerTestNamenDic: %@",[neuerTestNamenDic description]);
+                  //NSLog(@"reportSaveTest	neuerTestNamenDic: %@",[neuerTestNamenDic description]);
                   if (insertIndex>=0)
                   {
                      [TestDicArray replaceObjectAtIndex:insertIndex withObject:[neuerTestNamenDic copy]];
@@ -2452,7 +2459,7 @@
    
    //[TestPanel selectEingabeFeld];
    //[TestPanel setAnzahl:[AnzahlPopKnopf indexOfSelectedItem]];
-   //[TestPanel setZeit:[ZeitPpKnopf indexOfSelectedItem]];
+   //[TestPanel setZeit:[ZeitPopKnopf indexOfSelectedItem]];
    
 }
 
@@ -2708,7 +2715,7 @@
 
 -(IBAction)openDrawer:(id)sender
 {
-   NSLog(@"openTestDrawer");
+   //NSLog(@"openTestDrawer");
    //if (OK)
    {
       if (SerieDatenDic)
@@ -2717,10 +2724,10 @@
          NSLog(@"openDrawer: SerieDatenDic: %@",[SerieDatenDic description]);
          //	[self setSettingsMitDic:SerieDatenDic];
       }
-      NSLog(@"openDrawer: 2");
+      //NSLog(@"openDrawer: 2");
       //	[AblaufzeitTimer invalidate];
       [SettingsDrawer open:NULL];
-      NSLog(@"openDrawer: 3");
+      //NSLog(@"openDrawer: 3");
       //[SettingsPfeil setState:YES];
       //	[AblaufzeitTimer invalidate];
       
@@ -2728,7 +2735,7 @@
       //	[DrawerSchliessenTaste setHidden:(!(sender==NULL))];
       //[SettingsDrawer toggle:sender];
       //				[self startTimeout];
-      NSLog(@"openDrawer  SettingsDrawer is opening");
+      //NSLog(@"openDrawer  SettingsDrawer is opening");
       [AnzahlPopTaste  setEnabled:YES];
       [ZeitPopTaste  setEnabled:YES];
       //	[closeDrawerTaste setKeyEquivalent:@"\r"];

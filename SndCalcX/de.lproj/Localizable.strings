@@ -13,7 +13,7 @@
 "After login, the user must be choosen in the LEFTMOST COLUMN." = "Nach dem Login muss der Benutzer in der Kolonne ganz links ausgewählt werden.";
 
 /* Anmerkung:Deaktivieren verbirgt lediglich den Test und die Ergebnisse. */
-"Note: Deactivating only hides the test and the results." = "Anmerkung:\\nDeaktivieren verbirgt lediglich den Test und die Ergebnisse.";
+"Note: Deactivating only hides the test and the results." = "Anmerkung:\nDeaktivieren verbirgt lediglich den Test und die Ergebnisse.";
 
 /* LB auf welchem Comp? */
 "On which Machine IN THE 2nd. COLUMN should be the lecturebox?" = "Auf welchem Computer befinden sich die Schülerdaten";

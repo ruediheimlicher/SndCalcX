@@ -34,17 +34,17 @@
                 <outlet property="SessionDatumFeld" destination="fa6-52-HLq" id="8ls-fC-uZq"/>
                 <outlet property="SessionDrawer" destination="ykh-gL-Fka" id="zaP-Ib-ssS"/>
                 <outlet property="SessionTable" destination="wLu-oD-aPw" id="zy0-7K-rMC"/>
-                <outlet property="SettingAlsTestSichernTaste" destination="LbE-8H-Zgc" id="N1K-WR-Tj7"/>
                 <outlet property="SettingsBox" destination="64W-zZ-r89" id="AaK-aK-JOK"/>
                 <outlet property="SettingsDrawer" destination="ykh-gL-Fka" id="q5m-SV-ukk"/>
                 <outlet property="SettingsPfeil" destination="O7j-3f-4nk" id="8YY-Bf-9nW"/>
                 <outlet property="StartTaste" destination="Ekv-i0-nnw" id="I7U-1h-QfK"/>
                 <outlet property="TestPopKnopf" destination="eIH-ID-Kel" id="oF4-cc-5z1"/>
+                <outlet property="TrainingAutoCheckbox" destination="syM-77-tJJ" id="Rqr-Lt-wI2"/>
                 <outlet property="VolumeSchieber" destination="0kM-KI-Hmz" id="IfJ-t5-OQu"/>
                 <outlet property="ZeitBox" destination="QYv-ru-evk" id="hg1-Md-Jt7"/>
                 <outlet property="ZeitFeld" destination="VqP-Ix-2G9" id="d2f-En-oNM"/>
                 <outlet property="ZeitLimiteFeld" destination="APM-ZC-vLe" id="IJV-9h-AYr"/>
-                <outlet property="ZeitPpKnopf" destination="6KR-eb-dHv" id="J3P-ib-lNm"/>
+                <outlet property="ZeitPopKnopf" destination="6KR-eb-dHv" id="J3P-ib-lNm"/>
                 <outlet property="neueSerieTaste" destination="EDN-OK-hL0" id="Kuj-AF-9Te"/>
                 <outlet property="window" destination="QvC-M9-y7g" id="gIp-Ho-8D9"/>
             </connections>
@@ -63,7 +63,12 @@
                                 </connections>
                             </menuItem>
                             <menuItem isSeparatorItem="YES" id="VOq-y0-SEH"/>
-                            <menuItem title="Preferences…" keyEquivalent="," id="BOF-NM-1cW"/>
+                            <menuItem title="Preferences…" id="BOF-NM-1cW">
+                                <modifierMask key="keyEquivalentModifierMask"/>
+                                <connections>
+                                    <action selector="showEinstellungen:" target="Voe-Tx-rLC" id="XOt-Tk-KSj"/>
+                                </connections>
+                            </menuItem>
                             <menuItem isSeparatorItem="YES" id="wFC-TO-SCJ"/>
                             <menuItem title="Services" id="NMo-om-nkz">
                                 <modifierMask key="keyEquivalentModifierMask"/>
@@ -705,7 +710,7 @@
             <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
             <rect key="contentRect" x="335" y="390" width="672" height="391"/>
-            <rect key="screenRect" x="0.0" y="0.0" width="1680" height="1027"/>
+            <rect key="screenRect" x="0.0" y="0.0" width="1280" height="777"/>
             <view key="contentView" id="EiT-Mj-1SZ">
                 <rect key="frame" x="0.0" y="0.0" width="672" height="391"/>
                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -792,7 +797,7 @@
                                         </button>
                                         <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9Yy-OA-lOA">
                                             <rect key="frame" x="322" y="120" width="132" height="17"/>
-                                            <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Label" id="DCI-Kv-RD5">
+                                            <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="right" title="Label" id="DCI-Kv-RD5">
                                                 <font key="font" metaFont="system"/>
                                                 <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                                 <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
@@ -868,7 +873,7 @@
                                             </connections>
                                         </popUpButton>
                                         <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="O7j-3f-4nk">
-                                            <rect key="frame" x="156" y="10" width="135" height="23"/>
+                                            <rect key="frame" x="156" y="10" width="107" height="23"/>
                                             <buttonCell key="cell" type="squareTextured" title="Einstellungen" bezelStyle="texturedSquare" alignment="center" enabled="NO" borderStyle="border" inset="2" id="Ydg-QU-SDi">
                                                 <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
                                                 <font key="font" metaFont="system"/>
@@ -876,6 +881,13 @@
                                             <connections>
                                                 <action selector="toggleDrawer:" target="Voe-Tx-rLC" id="9tU-c2-cCv"/>
                                             </connections>
+                                        </button>
+                                        <button hidden="YES" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="syM-77-tJJ">
+                                            <rect key="frame" x="269" y="13" width="180" height="18"/>
+                                            <buttonCell key="cell" type="check" title="Automatisch weiterfahren" bezelStyle="regularSquare" imagePosition="left" enabled="NO" state="on" inset="2" id="81B-II-nZm">
+                                                <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                                <font key="font" metaFont="system"/>
+                                            </buttonCell>
                                         </button>
                                     </subviews>
                                 </view>
@@ -989,7 +1001,7 @@
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <textField verticalHuggingPriority="750" fixedFrame="YES" preferredMaxLayoutWidth="48" translatesAutoresizingMaskIntoConstraints="NO" id="QaZ-SO-Lqn">
-                                            <rect key="frame" x="310" y="37" width="52" height="16"/>
+                                            <rect key="frame" x="300" y="35" width="52" height="16"/>
                                             <textFieldCell key="cell" sendsActionOnEndEditing="YES" alignment="right" title="Limite:" id="TM6-7F-Esb">
                                                 <font key="font" metaFont="system"/>
                                                 <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
@@ -1013,10 +1025,10 @@
                                             </textFieldCell>
                                         </textField>
                                         <popUpButton fixedFrame="YES" tag="120" translatesAutoresizingMaskIntoConstraints="NO" id="6KR-eb-dHv">
-                                            <rect key="frame" x="386" y="33" width="62" height="18"/>
-                                            <popUpButtonCell key="cell" type="bevel" title="30 s" bezelStyle="rounded" alignment="center" controlSize="small" lineBreakMode="truncatingTail" state="on" tag="30" inset="2" arrowPosition="arrowAtCenter" preferredEdge="maxY" selectedItem="w5K-BP-LJU" id="s2w-7r-ite">
-                                                <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
-                                                <font key="font" metaFont="smallSystem"/>
+                                            <rect key="frame" x="374" y="28" width="75" height="26"/>
+                                            <popUpButtonCell key="cell" type="push" title="30 s" bezelStyle="rounded" alignment="center" lineBreakMode="truncatingTail" state="on" borderStyle="border" tag="30" inset="2" selectedItem="w5K-BP-LJU" id="s2w-7r-ite">
+                                                <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                                <font key="font" metaFont="menu"/>
                                                 <menu key="menu" title="OtherViews" id="NDw-bs-8Hn">
                                                     <items>
                                                         <menuItem title="120 s" tag="120" id="NXH-ez-FAx"/>
@@ -1032,9 +1044,9 @@
                                             </connections>
                                         </popUpButton>
                                         <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="APM-ZC-vLe">
-                                            <rect key="frame" x="366" y="31" width="91" height="21"/>
+                                            <rect key="frame" x="356" y="26" width="101" height="25"/>
                                             <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" state="on" alignment="right" id="yiY-lD-8ur">
-                                                <font key="font" metaFont="cellTitle"/>
+                                                <font key="font" metaFont="system" size="14"/>
                                                 <color key="textColor" red="1" green="0.2118092775" blue="0.026102542879999999" alpha="1" colorSpace="calibratedRGB"/>
                                                 <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                             </textFieldCell>
@@ -1051,7 +1063,7 @@
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <textField verticalHuggingPriority="750" fixedFrame="YES" preferredMaxLayoutWidth="56" translatesAutoresizingMaskIntoConstraints="NO" id="ZqM-Ak-CsG">
-                                            <rect key="frame" x="305" y="40" width="60" height="17"/>
+                                            <rect key="frame" x="295" y="40" width="60" height="17"/>
                                             <textFieldCell key="cell" sendsActionOnEndEditing="YES" alignment="right" title="Anzahl:" id="zhY-qV-mUK">
                                                 <font key="font" metaFont="system"/>
                                                 <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
@@ -1067,7 +1079,7 @@
                                             </textFieldCell>
                                         </textField>
                                         <popUpButton verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fv7-2l-GhJ">
-                                            <rect key="frame" x="379" y="35" width="76" height="26"/>
+                                            <rect key="frame" x="390" y="35" width="58" height="26"/>
                                             <popUpButtonCell key="cell" type="push" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" borderStyle="border" inset="2" id="9Hg-3I-guA">
                                                 <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
                                                 <font key="font" metaFont="menu"/>
@@ -1086,9 +1098,9 @@
                                             </connections>
                                         </popUpButton>
                                         <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fwt-sq-Ojn">
-                                            <rect key="frame" x="376" y="37" width="81" height="21"/>
-                                            <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" state="on" alignment="right" drawsBackground="YES" id="WsC-82-Ph9">
-                                                <font key="font" metaFont="cellTitle"/>
+                                            <rect key="frame" x="371" y="35" width="88" height="22"/>
+                                            <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" state="on" alignment="right" id="WsC-82-Ph9">
+                                                <font key="font" metaFont="system" size="14"/>
                                                 <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
                                                 <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                             </textFieldCell>
@@ -1140,23 +1152,13 @@
                     </buttonCell>
                 </button>
                 <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Q7h-CK-zFA">
-                    <rect key="frame" x="492" y="22" width="133" height="23"/>
-                    <buttonCell key="cell" type="squareTextured" title="Schliessen" bezelStyle="texturedSquare" alignment="center" borderStyle="border" inset="2" id="nB8-4m-7ns">
+                    <rect key="frame" x="492" y="20" width="133" height="25"/>
+                    <buttonCell key="cell" type="squareTextured" title="Abbrechen" bezelStyle="texturedSquare" alignment="center" borderStyle="border" inset="2" id="nB8-4m-7ns">
                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                         <font key="font" metaFont="system"/>
                     </buttonCell>
                     <connections>
                         <action selector="closeDrawer:" target="Voe-Tx-rLC" id="Tyb-Mv-2cl"/>
-                    </connections>
-                </button>
-                <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="LbE-8H-Zgc">
-                    <rect key="frame" x="492" y="50" width="133" height="40"/>
-                    <buttonCell key="cell" type="squareTextured" title="Als Test sichern" bezelStyle="texturedSquare" alignment="center" borderStyle="border" inset="2" id="yqZ-VN-JDg">
-                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                        <font key="font" metaFont="system" size="16"/>
-                    </buttonCell>
-                    <connections>
-                        <action selector="reportSettingAlsTestSichern:" target="Voe-Tx-rLC" id="mFO-XQ-KQe"/>
                     </connections>
                 </button>
             </subviews>

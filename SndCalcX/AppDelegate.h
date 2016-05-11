@@ -65,7 +65,7 @@ struct cSeriedaten;
    IBOutlet NSMenu*           AblaufMenu;
    
    IBOutlet NSPopUpButton*    NamenPopKnopf;
-   IBOutlet NSPopUpButton*		ZeitPpKnopf;
+   IBOutlet NSPopUpButton*		ZeitPopKnopf;
    IBOutlet NSPopUpButton*		AnzahlPopKnopf;
    
    
@@ -85,6 +85,7 @@ struct cSeriedaten;
    IBOutlet NSTabView *       SettingsBox;
    IBOutlet NSButton *			SettingAlsTestSichernTaste;
    IBOutlet NSButton *			DrawerSchliessenTaste;
+   IBOutlet NSButton *			TrainingAutoCheckbox;
    //IBOutlet NSTextField *	ErgebnisFeld;
    //	IBOutlet rErgebnisView *	ErgebnisView;
    //IBOutlet rErgebnisFeld *	ErgebnisFeld;
@@ -120,7 +121,7 @@ struct cSeriedaten;
    
    rEinstellungenPanel*		EinstellungenPanel;
    
-   NSString*				SndCalcPfad;
+   NSString*               SndCalcPfad;
    IBOutlet NSButton *		goToBeginningButton;
    IBOutlet NSButton *		goToEndButton;
    IBOutlet NSMenuItem *	moviePropertiesMenuItem;
@@ -152,6 +153,8 @@ struct cSeriedaten;
    int						anzRichtig;
    int						anzFehler;
    BOOL                 verify;
+   int                  training;
+   
    IBOutlet NSImageView*			Bild;
    int						Modus;
    int						Status;
@@ -184,6 +187,8 @@ struct cSeriedaten;
 - (void)setTestPopKnopfMitArray:(NSArray*)derTestDicArray;
 - (void)setTestPopKnopfForUser:(NSString*)derUser;
 
+- (void)setAnzahlPop;
+- (void)setZeitPop;
 //
 - (IBAction)OKTastenAktion:(id)sender;
 - (IBAction)setMaxZeit:(id)sender;
