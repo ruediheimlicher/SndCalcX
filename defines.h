@@ -14,5 +14,14 @@
 #define     AUFGABERICHTIG    25001
 #define     SERIEFERTIG       25003
 
+#define     TRAININGMANUELL   1
+#define     TRAININGAUTO      2
 
+#ifdef DEBUG
+#    define DLog(...) NSLog(__VA_ARGS__)
+#else
+#    define DLog(...) /* */
+#endif
+#define ALog(...) NSLog(__VA_ARGS__)
 #endif /* defines_h */
+
