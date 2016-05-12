@@ -106,9 +106,9 @@
 - (void)adjustPageHeightNew:(float *)newBottom top:(float)top bottom:(float)proposedBottom limit:(float)bottomLimit
 {
    
-   int	 cutoffRow = [self rowAtPoint:NSMakePoint(0, proposedBottom-100)];
+   long	 cutoffRow = [self rowAtPoint:NSMakePoint(0, proposedBottom-100)];
    int zhh=	[self rectOfRow:0].size.height;
-   NSLog(@"cutoffRow: %d	zhh: %d 	zh: %1.2f		z: %d	h: %d",cutoffRow,zhh,[self rowHeight],[self numberOfRows],[self numberOfRows]*(zhh));
+   NSLog(@"cutoffRow: %ld	zhh: %d 	zh: %1.2f		z: %ld	h: %ld",cutoffRow,zhh,[self rowHeight],(long)[self numberOfRows],[self numberOfRows]*(zhh));
    NSRect	 rowBounds;
    
    if (cutoffRow != -1)
@@ -756,7 +756,7 @@ float Notebreite=28.0;
    //Change von Noten sichern
    [TestTable deselectAll:NULL];
    [DeleteTestKnopf setEnabled:NO];
-   int tabIndex=[StatistikTab indexOfTabViewItem:[StatistikTab selectedTabViewItem]];
+   long tabIndex=[StatistikTab indexOfTabViewItem:[StatistikTab selectedTabViewItem]];
    
    if (tabIndex==0)//Tests fuer Namen
    {
@@ -843,10 +843,10 @@ float Notebreite=28.0;
          //NSLog(@"reportTestnamen	tempDate: %@",[tempDate description]);
          if (tempDate)
          {
-            int tag=[tempDate dayOfMonth];
-            int monat=[tempDate monthOfYear];
-            int jahr=[tempDate yearOfCommonEra];
-            NSString* Tag=[NSString stringWithFormat:@"%d.%d.%d",tag,monat,jahr];
+            long tag=[tempDate dayOfMonth];
+            long monat=[tempDate monthOfYear];
+            long jahr=[tempDate yearOfCommonEra];
+            NSString* Tag=[NSString stringWithFormat:@"%ld.%ld.%ld",tag,monat,jahr];
             [tempErgebnisDic setObject:Tag forKey:@"datumtext"];
             [tempErgebnisDic setObject:[einDic objectForKey:@"datum"] forKey:@"datum"];
             //NSLog(@"setTestDicVon: %@  Tag: %@",tempDate,Tag);
@@ -926,7 +926,7 @@ float Notebreite=28.0;
 
 - (IBAction)reportMittelwertOption:(id)sender
 {
-   int Zeile=[sender selectedRow];
+   long Zeile=[sender selectedRow];
    //NSLog(@"reportMittelwertOption	Zeile: %d",Zeile);
    [TestTable deselectAll:NULL];
    [DeleteTestKnopf setEnabled:NO];
@@ -1067,7 +1067,7 @@ float Notebreite=28.0;
    {
       [self updateAdminStatistikDicArrayMitNoteChangedArray:tempChangedArray];
    }
-   int anzItems=[sender numberOfItems];
+   long anzItems=[sender numberOfItems];
    if ([sender indexOfSelectedItem]==anzItems-1)//alle
    {
       [TestAnzahlFeld setEnabled:NO];
@@ -1118,7 +1118,7 @@ float Notebreite=28.0;
 
 - (void)reportAnzahlForNameZeigen:(id)sender
 {
-   int anzZeigen=[[AnzahlForNameZeigenPopKnopf selectedItem]tag];
+   long anzZeigen=[[AnzahlForNameZeigenPopKnopf selectedItem]tag];
    //NSLog(@"setTableForUser: selectedItem: %@ anzZeigen: %d",[[AnzahlForNameZeigenPopKnopf selectedItem]description],anzZeigen);
    if ([TestNamenPopKnopf indexOfSelectedItem]==[TestNamenPopKnopf numberOfItems]-1)//alle Tests
    {
@@ -1143,7 +1143,7 @@ float Notebreite=28.0;
    [DeleteWarnung setMessageText:t];
    [DeleteWarnung setInformativeText:i1];
    
-   int modalAntwort=[DeleteWarnung runModal];
+   long modalAntwort=[DeleteWarnung runModal];
    //NSLog(@"modalAntwort: %d",modalAntwort);
    if (modalAntwort==1001)//Cancel
    {
@@ -1153,7 +1153,7 @@ float Notebreite=28.0;
    
    NSMutableDictionary* deleteDic;//=(NSMutableDictionary*)[[TestTable dataSource]DicForRow:deleteIndex];
    
-   NSLog(@"reportDeleteTest	deleteIndex: %d	:deleteDic: %@",deleteIndex,[deleteDic description]);
+   NSLog(@"reportDeleteTest	deleteIndex: %lu	:deleteDic: %@",(unsigned long)deleteIndex,[deleteDic description]);
    if (deleteDic)
    {
       [deleteDic setObject:[NSNumber numberWithInt:-1] forKey:@"art"];
@@ -1236,7 +1236,7 @@ float Notebreite=28.0;
 
 - (void)setAdminTestTableForAllTests
 {
-   int anzTests=[AdminTestNamenPopKnopf numberOfItems];
+   long anzTests=[AdminTestNamenPopKnopf numberOfItems];
    [AdminTestNamenPopKnopf selectItemAtIndex:anzTests-1];
    NSArray* tempDicArray=[self ErgebnisDicArrayForAllTests];
    //NSLog(@"setAdminTestTableForAllTests	 tempDicArray: %@",[tempDicArray description]);
@@ -1325,11 +1325,11 @@ float Notebreite=28.0;
             //NSLog(@"reportTestnamen	tempDate: %@",[tempDate description]);
             if (tempDate)
             {
-               int test=[[NSCalendarDate calendarDate] dayOfMonth];
+               long test=[[NSCalendarDate calendarDate] dayOfMonth];
                //NSLog(@"Heute ganz: %@ test heute: %d",[NSCalendarDate calendarDate],test);
-               int tag=[tempDate dayOfMonth];
-               int monat=[tempDate monthOfYear];
-               int jahr=[tempDate yearOfCommonEra];
+               long tag=[tempDate dayOfMonth];
+               long monat=[tempDate monthOfYear];
+               long jahr=[tempDate yearOfCommonEra];
                NSString* Tag=[NSString stringWithFormat:@"%d.%d.%d",tag,monat,jahr];
                [tempErgebnisDic setObject:Tag forKey:@"datumtext"];
                [tempErgebnisDic setObject:[einDic objectForKey:@"datum"] forKey:@"datum"];
@@ -1484,7 +1484,7 @@ float Notebreite=28.0;
             NSEnumerator* ErgebnisEnum=[tempErgebnisDicArray objectEnumerator];
             id einDic;
             int index=0;
-            int anzZeigen=[[AnzahlForNameZeigenPopKnopf selectedItem]tag];
+            long anzZeigen=[[AnzahlForNameZeigenPopKnopf selectedItem]tag];
             //NSLog(@"setTableForUser: selectedItem: %@ anzZeigen: %d",[[AnzahlForNameZeigenPopKnopf selectedItem]description],anzZeigen);
             while ((einDic=[ErgebnisEnum nextObject])&&(index<anzZeigen))
             {
@@ -1512,11 +1512,11 @@ float Notebreite=28.0;
                //NSLog(@"reportTestnamen	tempDate: %@",[tempDate description]);
                if (tempDate)
                {
-                  int test=[[NSCalendarDate calendarDate] dayOfMonth];
+                  long test=[[NSCalendarDate calendarDate] dayOfMonth];
                   //NSLog(@"Heute ganz: %@ test heute: %d",[NSCalendarDate calendarDate],test);
-                  int tag=[tempDate dayOfMonth];
-                  int monat=[tempDate monthOfYear];
-                  int jahr=[tempDate yearOfCommonEra];
+                  long tag=[tempDate dayOfMonth];
+                  long monat=[tempDate monthOfYear];
+                  long jahr=[tempDate yearOfCommonEra];
                   NSString* JahrString=[[NSNumber numberWithInt:jahr]stringValue];
                   JahrString=[JahrString substringFromIndex:2];
                   NSString* Tag=[NSString stringWithFormat:@"%d.%d.%@",tag,monat,JahrString];
@@ -1670,11 +1670,11 @@ float Notebreite=28.0;
                //NSLog(@"reportTestnamen	tempDate: %@",[tempDate description]);
                if (tempDate)
                {
-                  int test=[[NSCalendarDate calendarDate] dayOfMonth];
+                  long test=[[NSCalendarDate calendarDate] dayOfMonth];
                   //NSLog(@"Heute ganz: %@ test heute: %d",[NSCalendarDate calendarDate],test);
-                  int tag=[tempDate dayOfMonth];
-                  int monat=[tempDate monthOfYear];
-                  int jahr=[tempDate yearOfCommonEra];
+                  long tag=[tempDate dayOfMonth];
+                  long monat=[tempDate monthOfYear];
+                  long jahr=[tempDate yearOfCommonEra];
                   NSString* JahrString=[[NSNumber numberWithInt:jahr]stringValue];
                   JahrString=[JahrString substringFromIndex:2];
                   NSString* Tag=[NSString stringWithFormat:@"%d.%d.%@",tag,monat,JahrString];
@@ -1865,7 +1865,7 @@ float Notebreite=28.0;
                NSEnumerator* MittelwertEnum=[tempErgebnisForTestDicArray objectEnumerator];
                id einDic;
                int index=0;
-               int anzZeigen=[[AnzahlForNameZeigenPopKnopf selectedItem]tag];
+               long anzZeigen=[[AnzahlForNameZeigenPopKnopf selectedItem]tag];
                
                while ((einDic=[MittelwertEnum nextObject])&&(index<anzZeigen))
                {
@@ -1894,14 +1894,14 @@ float Notebreite=28.0;
                   //NSLog(@"reportTestnamen	tempDate: %@",[tempDate description]);
                   if (tempDate)
                   {
-                     int test=[[NSCalendarDate calendarDate] dayOfMonth];
+                     long test=[[NSCalendarDate calendarDate] dayOfMonth];
                      //NSLog(@"Heute ganz: %@ test heute: %d",[NSCalendarDate calendarDate],test);
-                     int tag=[tempDate dayOfMonth];
-                     int monat=[tempDate monthOfYear];
-                     int jahr=[tempDate yearOfCommonEra];
+                     long tag=[tempDate dayOfMonth];
+                     long monat=[tempDate monthOfYear];
+                     long jahr=[tempDate yearOfCommonEra];
                      NSString* JahrString=[[NSNumber numberWithInt:jahr]stringValue];
                      JahrString=[JahrString substringFromIndex:2];
-                     NSString* Tag=[NSString stringWithFormat:@"%d.%d.%@",tag,monat,JahrString];
+                     NSString* Tag=[NSString stringWithFormat:@"%d.%ld.%@",tag,monat,JahrString];
                      [tempErgebnisDic setObject:Tag forKey:@"datumtext"];
                      [tempErgebnisDic setObject:[einDic objectForKey:@"datum"] forKey:@"datum"];
                      //NSLog(@"reportTestnamen: %@  Tag: %@",tempDate,Tag);
@@ -2339,7 +2339,7 @@ float Notebreite=28.0;
             
             tempErgebnisDicArray=[tempErgebnisDicArray sortedArrayUsingDescriptors:SorterArray];
             
-            int AnzTest=[tempErgebnisDicArray count];
+            long AnzTest=[tempErgebnisDicArray count];
             //NSLog(@"ErgebnisDicArrayVonTest: AnzTest: %d",AnzTest);
             NSEnumerator* TestEnum=[tempErgebnisDicArray objectEnumerator];
             id einTestDic;
@@ -2569,7 +2569,7 @@ float Notebreite=28.0;
 - (void)keyDown:(NSEvent *)theEvent
 {
    NSString* c=[theEvent characters];
-   NSLog(@"Statistik keyDown: c: %@  code: %d modifier: %d ",c,[theEvent keyCode],[theEvent modifierFlags]);
+   NSLog(@"Statistik keyDown: c: %@  code: %d modifier: %lu ",c,[theEvent keyCode],(unsigned long)[theEvent modifierFlags]);
 }
 
 - (void)reportPrint:(id)sender
@@ -2640,7 +2640,7 @@ float Notebreite=28.0;
    //NSTextView* DruckView=[[[NSTextView alloc]init]autorelease];
    //NSLog (@"Kommentar: printDicArray DicArray: %@",[derDicArray description]);
    NSPrintInfo* PrintInfo=[NSPrintInfo sharedPrintInfo];
-   [PrintInfo setOrientation:NSPortraitOrientation];
+   [PrintInfo setOrientation:NSPaperOrientationPortrait];
    
    [PrintInfo setVerticalPagination: NSAutoPagination];
    
@@ -2705,7 +2705,7 @@ float Notebreite=28.0;
    //NSTextView* DruckView=[[[NSTextView alloc]init]autorelease];
    //NSLog (@"Kommentar: printDicArray DicArray: %@",[derDicArray description]);
    NSPrintInfo* PrintInfo=[NSPrintInfo sharedPrintInfo];
-   [PrintInfo setOrientation:NSPortraitOrientation];
+   [PrintInfo setOrientation:NSPaperOrientationPortrait];
    
    [PrintInfo setVerticalPagination: NSAutoPagination];
    
@@ -2770,7 +2770,7 @@ float Notebreite=28.0;
    //NSTextView* DruckView=[[[NSTextView alloc]init]autorelease];
    //	NSLog (@"Statistik: printDicArray DicArray: %@ forUser: %@",[derDicArray description],derUser);
    NSPrintInfo* PrintInfo=[NSPrintInfo sharedPrintInfo];
-   [PrintInfo setOrientation:NSPortraitOrientation];
+   [PrintInfo setOrientation:NSPaperOrientationPortrait];
    
    [PrintInfo setVerticalPagination: NSAutoPagination];
    
@@ -2836,7 +2836,7 @@ float Notebreite=28.0;
    //NSTextView* DruckView=[[[NSTextView alloc]init]autorelease];
    //NSLog (@"Kommentar: printDicArray DicArray: %@",[derDicArray description]);
    NSPrintInfo* PrintInfo=[NSPrintInfo sharedPrintInfo];
-   [PrintInfo setOrientation:NSPortraitOrientation];
+   [PrintInfo setOrientation:NSPaperOrientationPortrait];
    
    [PrintInfo setVerticalPagination: NSAutoPagination];
    
@@ -3157,7 +3157,7 @@ float Notebreite=28.0;
    [TabDic setObject:[NSNumber numberWithInt:TabellenOffset1]forKey:@"tabellenoffset1"];
    [TabDic setObject:[NSNumber numberWithInt:TabellenOffset2]forKey:@"tabellenoffset2"];
    [TabDic setObject:[NSNumber numberWithInt:Zeilenhoehe]forKey:@"zeilenhoehe"];
-   [TabDic setObject:[NSNumber numberWithInt:[derDicArray count]]forKey:@"anzahlzeilen"];
+   [TabDic setObject:[NSNumber numberWithLong:[derDicArray count]]forKey:@"anzahlzeilen"];
    
    NSArray* TabKopfStringArray=[NSArray arrayWithObjects:@"Datum",@"Name",@"Zeit",@"Grafik",@"Fehler",@"",@"Note",nil];
    NSString* TabellenkopfString=[TabKopfStringArray componentsJoinedByString:@"\t"];
@@ -3328,7 +3328,7 @@ float Notebreite=28.0;
    int TabSchriftgroesse=Schriftgroesse;
    int Zeilenhoehe=11;
    int Reihenhoehe=Zeilenhoehe+2;
-   int AnzDruckzeilen=[derDicArray count];
+   long AnzDruckzeilen=[derDicArray count];
    int AnzZeilen1=(DruckRect.size.height-TabellenOffset1)/Reihenhoehe;
    int AnzZeilen2=(DruckRect.size.height-TabellenOffset2)/Reihenhoehe;
    int Seiten=1;
@@ -3448,7 +3448,7 @@ float Notebreite=28.0;
    [TabDic setObject:[NSNumber numberWithInt:TabellenOffset1]forKey:@"tabellenoffset1"];
    [TabDic setObject:[NSNumber numberWithInt:TabellenOffset2]forKey:@"tabellenoffset2"];
    [TabDic setObject:[NSNumber numberWithInt:Zeilenhoehe]forKey:@"zeilenhoehe"];
-   [TabDic setObject:[NSNumber numberWithInt:[derDicArray count]]forKey:@"anzahlzeilen"];
+   [TabDic setObject:[NSNumber numberWithLong:[derDicArray count]]forKey:@"anzahlzeilen"];
    
    NSArray* TabKopfStringArray=[NSArray arrayWithObjects:@"Datum",@"Name",@"Zeit",@"Grafik",@"Fehler",@"",@"Note",nil];
    NSString* TabellenkopfString=[TabKopfStringArray componentsJoinedByString:@"\t"];
@@ -3621,7 +3621,7 @@ float Notebreite=28.0;
    int TabSchriftgroesse=Schriftgroesse;
    int Zeilenhoehe=11;
    int Reihenhoehe=Zeilenhoehe+2;
-   int AnzDruckzeilen=[derDicArray count];
+   long AnzDruckzeilen=[derDicArray count];
    int AnzZeilen1=(DruckRect.size.height-TabellenOffset1)/Reihenhoehe;
    int AnzZeilen2=(DruckRect.size.height-TabellenOffset2)/Reihenhoehe;
    int Seiten=1;
@@ -3778,7 +3778,7 @@ float Notebreite=28.0;
    [TabDic setObject:[NSNumber numberWithInt:TabellenOffset1]forKey:@"tabellenoffset1"];
    [TabDic setObject:[NSNumber numberWithInt:TabellenOffset2]forKey:@"tabellenoffset2"];
    [TabDic setObject:[NSNumber numberWithInt:Zeilenhoehe]forKey:@"zeilenhoehe"];
-   [TabDic setObject:[NSNumber numberWithInt:[derDicArray count]]forKey:@"anzahlzeilen"];
+   [TabDic setObject:[NSNumber numberWithLong:[derDicArray count]]forKey:@"anzahlzeilen"];
    
    NSArray* TabKopfStringArray=[NSArray arrayWithObjects:@"Datum",@"Name",@"Zeit",@"Grafik",@"Fehler",@"",@"Note",nil];
    NSString* TabellenkopfString=[TabKopfStringArray componentsJoinedByString:@"\t"];
@@ -4671,7 +4671,7 @@ float Notebreite=28.0;
 
 - (void)NoteCellAktion:(id)sender
 {
-   int zeile=[TestTable selectedRow];
+   long zeile=[TestTable selectedRow];
    NSDictionary* tempDic=[DatenQuelle DicForRow:zeile];
    //[NoteDic setDictionary:[DatenQuelle DicForRow:zeile]];
    //NSLog(@"NoteCellAktion: %@	tempDic: %@",[sender stringValue],[tempDic description]);
@@ -4687,8 +4687,8 @@ float Notebreite=28.0;
    [Warnung setMessageText:NSLocalizedString(@"Delete All Grades",@"Alle Noten löschen")];
    //NSString* I1=NSLocalizedString(@"Do you really want do delete the name %@?",@"Namen %@wiklich entfernen?");
    NSString* I1=NSLocalizedString(@"Do you really want do delete all quotes?",@"Noten wirklich löschen?");
-   [Warnung setInformativeText:[NSString stringWithFormat:I1]];
-   int antwort=[Warnung runModal];
+   [Warnung setInformativeText:[NSString stringWithFormat:NSLocalizedString(@"Do you really want do delete all quotes?",@"Noten wirklich löschen?")]];
+   long antwort=[Warnung runModal];
    switch (antwort)
 	  {
         case NSAlertFirstButtonReturn://Loeschen

@@ -220,7 +220,7 @@
 #pragma mark -
 #pragma mark SessionTable Data Source:
 
-- (int)numberOfRowsInTableView:(NSTableView *)aTableView
+- (long)numberOfRowsInTableView:(NSTableView *)aTableView
 {
    return [NamenZuTestDicArray count];
 }
@@ -228,7 +228,7 @@
 
 - (id)tableView:(NSTableView *)aTableView
 objectValueForTableColumn:(NSTableColumn *)aTableColumn
-            row:(int)rowIndex
+            row:(long)rowIndex
 {
    //NSLog(@"objectValueForTableColumn");
    NSDictionary *einNamenDic;
@@ -246,7 +246,7 @@ objectValueForTableColumn:(NSTableColumn *)aTableColumn
 - (void)tableView:(NSTableView *)aTableView
    setObjectValue:(id)anObject
    forTableColumn:(NSTableColumn *)aTableColumn
-              row:(int)rowIndex
+              row:(long)rowIndex
 {
    //NSLog(@"NamenZuTestDS setObjectValueForTableColumn: %@  zeile: %d",[aTableColumn identifier],rowIndex);
    if (rowIndex<[NamenZuTestDicArray count])
@@ -268,13 +268,13 @@ objectValueForTableColumn:(NSTableColumn *)aTableColumn
    }
 }
 
-- (BOOL)tableView:(NSTableView *)tableView shouldSelectRow:(int)row
+- (BOOL)tableView:(NSTableView *)tableView shouldSelectRow:(long)row
 {
    //NSLog(@"shouldSelectRow");  
    return YES;
 }
 
-- (void)tableView:(NSTableView *)tableView willDisplayCell:(id)cell forTableColumn:(NSTableColumn *)tableColumn row:(int)row
+- (void)tableView:(NSTableView *)tableView willDisplayCell:(id)cell forTableColumn:(NSTableColumn *)tableColumn row:(long)row
 {
    
    

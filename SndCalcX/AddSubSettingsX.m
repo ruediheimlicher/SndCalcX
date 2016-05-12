@@ -393,30 +393,30 @@ enum
 {
    NSMutableDictionary* SettingsDic=[[NSMutableDictionary alloc]initWithCapacity:0];
    
-   [SettingsDic setObject:[NSNumber numberWithInt:[EinschaltTaste state]] forKey:@"addsubein"];
+   [SettingsDic setObject:[NSNumber numberWithLong:[EinschaltTaste state]] forKey:@"addsubein"];
    
    [SettingsDic setObject:[NSNumber numberWithInt:[[AddSubTastenArray objectAtIndex:kMitAdditionTaste] state]] 
                    forKey:@"addition"];
    
    [SettingsDic setObject:[NSNumber numberWithInt:[[AddSubTastenArray objectAtIndex:kMitSubtraktionTaste] state]]
                    forKey:@"subtraktion"];
-   int index;
+   long index;
    
    index=[(NSPopUpButton*)[AddSubTastenArray objectAtIndex:kBereichPopMenu] indexOfSelectedItem];
    //NSLog(@"kBereichPopMenu index: %d",index);				
-   [SettingsDic setObject:[NSNumber numberWithInt:index] forKey:@"bereich"];
+   [SettingsDic setObject:[NSNumber numberWithLong:index] forKey:@"bereich"];
    
    index=[(NSPopUpButton*)[AddSubTastenArray objectAtIndex:kZweiteZahlPopMenu] indexOfSelectedItem];
    //NSLog(@"						zweitezahl:		kBereichPopMenu index: %d",index);				
-   [SettingsDic setObject:[NSNumber numberWithInt:index] forKey:@"zweitezahl"];
+   [SettingsDic setObject:[NSNumber numberWithLong:index] forKey:@"zweitezahl"];
    
    index=[(NSPopUpButton*)[AddSubTastenArray objectAtIndex:kZehnerUPopMenu] indexOfSelectedItem];
    //NSLog(@"kZehnerUPopMenu index: %d",index);				
-   [SettingsDic setObject:[NSNumber numberWithInt:index] forKey:@"zehneru"];
+   [SettingsDic setObject:[NSNumber numberWithLong:index] forKey:@"zehneru"];
    
    index=[(NSPopUpButton*)[AddSubTastenArray objectAtIndex:kHunderterUPopMenu] indexOfSelectedItem];
    //NSLog(@"kHunderterUPopMenu index: %d",index);				
-   [SettingsDic setObject:[NSNumber numberWithInt:index] forKey:@"hunderteru"];
+   [SettingsDic setObject:[NSNumber numberWithLong:index] forKey:@"hunderteru"];
    
    return SettingsDic;
 }

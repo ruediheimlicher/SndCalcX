@@ -2,7 +2,7 @@
 
 #import <Cocoa/Cocoa.h>
 #import "rEingabeFeld.h"
-@interface rNamenListe : NSWindowController
+@interface rNamenListe : NSWindowController <NSTableViewDataSource,NSTableViewDelegate,NSTextFieldDelegate>
 {
   rEingabeFeld* NameFeld;
   rEingabeFeld* VornameFeld;

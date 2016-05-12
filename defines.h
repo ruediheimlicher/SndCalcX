@@ -17,6 +17,7 @@
 #define     TRAININGMANUELL   1
 #define     TRAININGAUTO      2
 
+
 #ifdef DEBUG
 #    define DLog(...) NSLog(__VA_ARGS__)
 #else

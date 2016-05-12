@@ -141,6 +141,11 @@ struct cSeriedaten;
    IBOutlet NSTextField *	movieTimeScale;
    IBOutlet NSTextField *	movieDuration;
    
+   
+   
+   IBOutlet NSTextField* PfadFeld;
+   IBOutlet NSButton*      AuswahlenKnopf;
+   
    NSMutableArray	*		movieTrackMediaTypesArray;
    // QTKit
    NSString*				SndCalcDatenPfad;

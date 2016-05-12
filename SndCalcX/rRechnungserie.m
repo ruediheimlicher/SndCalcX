@@ -464,7 +464,7 @@ short Minvon(short ersteZahl, short zweiteZahl);
             //printf("%d\t%d\n",i,AddSubResultatvektor[i]);
          }
 
-         //printf("neueSerie: 2\n");
+         printf("neueSerie: 2\n");
          
          // 3. Generelle Grenzen der zweiten Zahl bestimmen
          short i=0;
@@ -476,7 +476,7 @@ short Minvon(short ersteZahl, short zweiteZahl);
          {
             //printf("%d\t AddSubResultatvektor: %d \tAaKontrollvektor: %d\n",i,AddSubResultatvektor[i],AaKontrollvektor[i]);
          }
-
+         printf("neueSerie: 3\n");
          short minVar1=1,maxVar1=1;
          switch (dieSeriedaten.ASzweiteZahl)
          {
@@ -499,7 +499,7 @@ short Minvon(short ersteZahl, short zweiteZahl);
                maxVar1=999;
                break;
          }//switch ASzweiteZahl
-         //printf("neueSerie: 4\n");
+         printf("neueSerie: 4\n");
          //printf("minVar1: %d \t maxVar1 %d\n",minVar1,maxVar1);
          //5.	Fuer jede Aufgabe die Grenzen korrigieren, sofern noetig
          short hoppla=0;
@@ -578,7 +578,7 @@ short Minvon(short ersteZahl, short zweiteZahl);
             
          }//for nummer
          
-         //printf("neueSerie: 5\n");
+         printf("neueRechnungserie: 5\n");
          for (short ii=0;ii<kArraygrenze;ii++)
          {
             //printf("%d\t OGrenze: %d\t UGrenze: %d\t Bereich: %d\t Ergebnis: %d\n",ii,AddSubDaten[ii].OGrenze,AddSubDaten[ii].UGrenze,AddSubDaten[ii].Bereich,AddSubDaten[ii].Ergebnis);
@@ -594,7 +594,7 @@ short Minvon(short ersteZahl, short zweiteZahl);
          
          short tempBereich=maxVar1;								//max moeglicher Bereich, bei erster Var ist er 1
          
-        // printf("neueSerie  anzaufgaben: %d tempBereich: %d\n",anzaufgaben,tempBereich);
+         printf("neueSerie 7 anzaufgaben: %d tempBereich: %d\n",anzaufgaben,tempBereich);
          
          //Kleinsten Bereich in Array AddSubDaten suchen. Das ist die Aufgabe mit kleinsten Auswahlmöglichkeiten
 
@@ -705,7 +705,7 @@ short Minvon(short ersteZahl, short zweiteZahl);
                   tempSummandvektor[i]=AddSubResultatvektor[AufgabenNrvektor[i]]%10;
                }
             }//else
-            //printf("neueSerie: 9\n");
+            printf("neueSerie: 9\n");
             
             for (short ii=0;ii<anzaufgaben;ii++)
             {
@@ -739,7 +739,7 @@ short Minvon(short ersteZahl, short zweiteZahl);
          }
   
          
-         //printf("neueSerie: 10\n");
+         printf("neueSerie: 10\n");
          Aufgabennummer=0,Laufnummer=0,Durchgang=0;
          schonDa=0;
          tempSummand=0;
@@ -789,7 +789,7 @@ short Minvon(short ersteZahl, short zweiteZahl);
          }//while Aufgabennummer
          
          
-         //printf("neueSerie: 12\n");
+         printf("neueSerie: 12\n");
       }//Add oder Sub
       
       //printf("AddSubResultatvektor 3\n");
@@ -803,7 +803,7 @@ short Minvon(short ersteZahl, short zweiteZahl);
       
       if (dieSeriedaten.Multiplikation &&dieSeriedaten.AnzahlReihen)
       {
-         //printf("neueSerie 14\n");
+         printf("neueSerie 14\n");
          struct rRep{short ersteVar,zweiteVar;}	MultRep[GRENZE];
          
          for (short i=0;i<kArraygrenze;i++)
@@ -845,7 +845,7 @@ short Minvon(short ersteZahl, short zweiteZahl);
          short	tempPos=0;
          short	tempFaktor=0;
          short tempReihe=0;
-         
+         printf("neueSerie: 15\n");
          while ((Aufgabennummer<dieSeriedaten.AnzahlAufgaben)&&(Laufnummer<kMaxAnzahlAufgaben)
                 &&(Durchgang<10))
          {
@@ -887,7 +887,7 @@ short Minvon(short ersteZahl, short zweiteZahl);
             }
          }//while
       }//if SerieDaten.AnzahlReihen
-      
+      printf("neueSerie: 16\n");
       //																							Resultate f√ºr Add und Sub verteilen
       //AddResultatvektor=new short[SerieDaten.AnzahlAufgaben];
       //SubResultatvektor=new short[SerieDaten.AnzahlAufgaben];
@@ -928,7 +928,7 @@ short Minvon(short ersteZahl, short zweiteZahl);
       int anz=dieSeriedaten.AnzahlAufgaben;
       //printf("neueSerie 4: anz: %d\n",anz);
       
-      
+      printf("neueSerie: 17\n");
       for (int nummer=0;nummer<dieSeriedaten.AnzahlAufgaben;nummer++)
       {
          //printf("neueSerie: Nummer: %d\n",nummer);	
@@ -1003,7 +1003,7 @@ short Minvon(short ersteZahl, short zweiteZahl);
       //{AaKontrollvektor[i]=Operation1vektor[i];}
       
       //fprintf(stderr,"neueSerie Ende\n");
-      
+      printf("neueSerie: 18\n");
       
       //delete[]	AddResultatvektor;
       //free	(Operation1vektor);
@@ -1019,7 +1019,7 @@ short Minvon(short ersteZahl, short zweiteZahl);
       //printf("neueSerie %d returnAufgabenArray var0: %d,\n",i,tempAufgabendaten->var[0]);
    }
   // free (Operation1vektor);
-   //printf("neueSerie ganz zu Ende\n");
+   printf("neueSerie ganz zu Ende\n");
    return returnAufgabenArray ;
 }
 //*****************************************************************

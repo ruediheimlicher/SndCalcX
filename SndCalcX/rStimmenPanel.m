@@ -129,7 +129,7 @@
 - (IBAction)reportClose:(id)sender
 {
    NSNotificationCenter* nc=[NSNotificationCenter defaultCenter];
-   int selektierteZeile=[StimmenTable selectedRow];
+   long selektierteZeile=[StimmenTable selectedRow];
    
    //Ausgewählte Stimme an Controller schicken, um neue Zifern-Soundfiles zu laden
    
@@ -153,7 +153,7 @@
 
 - (NSString*) StimmenName
 {
-   int selektierteZeile=[StimmenTable selectedRow];
+   long selektierteZeile=[StimmenTable selectedRow];
    
    NSString* selectedStimme=[[StimmenTableArray objectAtIndex:selektierteZeile]objectForKey:@"stimmenname"];
    NSLog(@"StimmenName: selektierteZeile: %d	selectedStimme: %@",selektierteZeile, selectedStimme);
@@ -178,7 +178,7 @@
    [Warnung setAlertStyle:NSWarningAlertStyle];
    
    //[Warnung setIcon:RPImage];
-   int antwort=[Warnung runModal];
+   long antwort=[Warnung runModal];
    
    switch (antwort)
    {
@@ -227,7 +227,7 @@
    [Warnung setAlertStyle:NSWarningAlertStyle];
    
    //[Warnung setIcon:RPImage];
-   int antwort=[Warnung runModal];
+   long antwort=[Warnung runModal];
    
    switch (antwort)
 	  {
@@ -260,7 +260,7 @@
 
 - (IBAction)reportQuittungPlusMinus:(id)sender
 {
-   NSLog(@"reportQuittungPlusMinus: tag: %d",[sender selectedSegment]);
+   NSLog(@"reportQuittungPlusMinus: tag: %ld",(long)[sender selectedSegment]);
    switch ([sender selectedSegment])
    {
       case 0: //Quittung importieren
@@ -342,7 +342,7 @@
       [Warnung setAlertStyle:NSWarningAlertStyle];
       
       //[Warnung setIcon:RPImage];
-      int antwort=[Warnung runModal];
+      long antwort=[Warnung runModal];
       
       switch (antwort)
       {
@@ -630,12 +630,12 @@
       //	NSString* InformationString=[NSString stringWithFormat:@"%@\n%@",s1,s2];
       //	[Warnung setInformativeText:InformationString];
       [Warnung setAlertStyle:NSWarningAlertStyle];
-      int antwort=[Warnung runModal];
+      long antwort=[Warnung runModal];
       return NO;
    }
    if ([fehlendeZiffernArray count])
    {
-      int fehlendeZiffern=[fehlendeZiffernArray count];
+      long fehlendeZiffern=[fehlendeZiffernArray count];
       NSString* Fehler=[fehlendeZiffernArray componentsJoinedByString:@", "];
       NSAlert *Warnung = [[NSAlert alloc] init];
       [Warnung addButtonWithTitle:@"Zurück"];
@@ -648,7 +648,7 @@
       //	NSString* InformationString=[NSString stringWithFormat:@"%@\n%@",s1,s2];
       //	[Warnung setInformativeText:InformationString];
       [Warnung setAlertStyle:NSWarningAlertStyle];
-      int antwort=[Warnung runModal];
+      long antwort=[Warnung runModal];
       if (antwort==NSAlertSecondButtonReturn)
       {
          
@@ -888,7 +888,7 @@
       [Warnung setAlertStyle:NSWarningAlertStyle];
       
       //[Warnung setIcon:RPImage];
-      int antwort=[Warnung runModal];
+      long antwort=[Warnung runModal];
       
       switch (antwort)
       {
@@ -953,7 +953,7 @@
 
 - (IBAction)reportStimmePlusMinus:(id)sender
 {
-   NSLog(@"reportStimmePlusMinus: tag: %d",[sender selectedSegment]);
+   NSLog(@"reportStimmePlusMinus: tag: %ld",(long)[sender selectedSegment]);
    switch ([sender selectedSegment])
    {
       case 0: //Stimme importieren

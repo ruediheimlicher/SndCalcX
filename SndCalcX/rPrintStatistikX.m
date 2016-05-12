@@ -60,7 +60,7 @@
    NSTextView* DruckView=[[NSTextView alloc]init];
    //NSLog (@"Kommentar: printDicArray DicArray: %@",[derDicArray description]);
    NSPrintInfo* PrintInfo=[NSPrintInfo sharedPrintInfo];
-   [PrintInfo setOrientation:NSPortraitOrientation];
+   [PrintInfo setOrientation:NSPaperOrientationPortrait];
    
    
    [PrintInfo setVerticalPagination: NSAutoPagination];

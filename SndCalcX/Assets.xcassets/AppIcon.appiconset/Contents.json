@@ -21,7 +21,7 @@
     {
       "size" : "32x32",
       "idiom" : "mac",
-      "filename" : "SndCalc_32x32@2x.png",
+      "filename" : "SndCalc_64x64-1.png",
       "scale" : "2x"
     },
     {
@@ -51,7 +51,7 @@
     {
       "size" : "512x512",
       "idiom" : "mac",
-      "filename" : "SndCalc_512x512.png",
+      "filename" : "SndCalc_256x256@2x-1.png",
       "scale" : "1x"
     },
     {

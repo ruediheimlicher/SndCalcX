@@ -146,14 +146,14 @@ else
 #pragma mark -
 #pragma mark ProjectTable Data Source:
 
-- (int)numberOfRowsInTableView:(NSTableView *)aTableView
+- (long)numberOfRowsInTableView:(NSTableView *)aTableView
 {
     return [PasswortArray count];
 }
 
 - (id)tableView:(NSTableView *)aTableView
     objectValueForTableColumn:(NSTableColumn *)aTableColumn 
-			row:(int)rowIndex
+			row:(long)rowIndex
 {
 //NSLog(@"objectValueForTableColumn: %@",[PasswortArray description]);
    NSDictionary* einPasswortDic;
@@ -178,7 +178,7 @@ return [einPasswortDic objectForKey:[aTableColumn identifier]];
 - (void)tableView:(NSTableView *)aTableView 
    setObjectValue:(id)anObject 
    forTableColumn:(NSTableColumn *)aTableColumn 
-			  row:(int)rowIndex
+			  row:(long)rowIndex
 {
     NSMutableDictionary* einPasswortDic;
     if (rowIndex<[PasswortArray count])
@@ -189,7 +189,7 @@ return [einPasswortDic objectForKey:[aTableColumn identifier]];
 	  }
 }
 
-- (BOOL)tableView:(NSTableView *)tableView shouldSelectRow:(int)row
+- (BOOL)tableView:(NSTableView *)tableView shouldSelectRow:(long)row
 {
 	{
 		//NSLog(@"shouldSelectRow im Bereich: row %d",row);
@@ -211,7 +211,7 @@ return [einPasswortDic objectForKey:[aTableColumn identifier]];
 	  }
 }
 
-- (void)tableView:(NSTableView *)tableView willDisplayCell:(id)cell forTableColumn:(NSTableColumn *)tableColumn row:(int)row
+- (void)tableView:(NSTableView *)tableView willDisplayCell:(id)cell forTableColumn:(NSTableColumn *)tableColumn row:(long)row
 {
 	NSFont* Tablefont;
 	Tablefont=[NSFont fontWithName:@"Helvetica" size: 14];

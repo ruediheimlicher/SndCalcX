@@ -17,7 +17,7 @@
 
 - (void) awakeFromNib
 {
-   //NSLog(@"rVolumes: awakeFromNib");
+   NSLog(@"rVolumes: awakeFromNib");
    //[VolumesPopUp addItemWithTitle:@"Hallo"];
    UserDic=[[NSMutableDictionary alloc] initWithCapacity:0];
    neuerHostName=[[NSMutableString alloc] initWithCapacity:0];

@@ -24,7 +24,7 @@
 - (void) setFarbig:(BOOL)farbigDrucken;
 - (void)setzeAnzahlFeld:(NSArray*)anzArray;
 - (void)setzeZeitFeld:(NSArray*)anzArray;
-- (int)cleanOK;
-- (int)AnzahlBehalten;
+- (long)cleanOK;
+- (long)AnzahlBehalten;
 
 @end

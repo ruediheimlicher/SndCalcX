@@ -66,7 +66,7 @@
          [nc postNotificationName:@"FalschesZeichen" object:self userInfo:NotificationDic];
          
       }
-      anzStellen=[partialString length];
+      anzStellen=(int)[partialString length];
       
    }
    return EingabeOK;

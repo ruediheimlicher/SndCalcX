@@ -51,8 +51,120 @@ const short     kSerieFertig = 25003;
 
 @implementation AppDelegate
 
+- (NSString*)chooseNetworkLeseboxPfad
+{
+   
+   NSOpenPanel * LeseboxDialog=[NSOpenPanel openPanel];
+   NSImage* OpenPanelImg=[NSImage imageNamed:@"MicroIcon120.png"];
+   NSRect cellFeld = NSMakeRect(0, 0, 60, 60);
+   NSImageView* OpenPanelView = [[NSImageView alloc] initWithFrame:cellFeld];
+   [OpenPanelView setImage:OpenPanelImg];
+   LeseboxDialog.accessoryView = OpenPanelView;
+   LeseboxDialog.title = @"Lesebox suchen";
+   [LeseboxDialog setCanChooseDirectories:YES];
+   [LeseboxDialog setCanChooseFiles:NO];
+   [LeseboxDialog setAllowsMultipleSelection:NO];
+   LeseboxDialog.prompt = @"Ordner auswählen";
+   [LeseboxDialog setDirectoryURL:[NSURL fileURLWithPath:[NSHomeDirectory()stringByAppendingPathComponent:@"Documents"]]];
+   NSString* s1=@"Wo ist die Lesebox zu finden?";
+   NSString* s2=@"Wenn noch keine Lesebox vorhanden ist, kann sie auch nach dem Login eingerichtet werden";
+   NSString* s3=@"Auswahl des Orders, in dem die Lesebox liegt oder dem die Lesebox eingerichtet werden soll";
+   s3=@"";
+   NSFont* TitelFont=[NSFont fontWithName:@"Helvetica" size: 24];
+   NSString* DialogTitelString=[NSString stringWithFormat:@"%@\r%@\r%@",s1,s2,s3];
+   //[DialogTitelString setFont:TitelFont];
+   
+   [LeseboxDialog setMessage:DialogTitelString];
+   
+   [LeseboxDialog setCanCreateDirectories:YES];
+   NSString* tempLeseboxPfad;
+   int LeseboxHit=0;
+   
+   //LeseboxHit=[LeseboxDialog runModalForDirectory:NSHomeDirectory() file:@"Network" types:NULL];
+   //LeseboxHit=[LeseboxDialog runModalForDirectory:NetzPfad file:@"Network" types:NULL];
+   
+   [LeseboxDialog beginSheetModalForWindow:[self window] completionHandler:^(NSInteger result)
+    
+    {
+       
+       if (result == NSModalResponseOK)
+       {
+          //NSLog(@"NSModalResponseOK pfad: %@",[[LeseboxDialog URL]path]);
+         	NSMutableDictionary* LeseboxDic=[NSMutableDictionary dictionaryWithObject:[LeseboxDialog URL] forKey:@"url"];
+          [LeseboxDic setObject:[NSNumber numberWithInt:1]forKey:@"LeseboxDa"];
+          NSNotificationCenter* nc=[NSNotificationCenter defaultCenter];
+          [nc postNotificationName:@"VolumeWahl" object:self userInfo:LeseboxDic];
 
-
+          [PfadFeld setStringValue:[[LeseboxDialog URL]path]];
+          [AuswahlenKnopf setEnabled:YES];
+          [AuswahlenKnopf setKeyEquivalent:@"\r"];
+          // [[self window]makeFirstResponder:AuswahlenKnopf];
+          
+       }
+       
+    }];
+   
+   /*
+    [LeseboxDialog beginSheetForDirectory:NetzPfad file:NULL types:NULL
+    modalForWindow:[self window]
+    modalDelegate:self
+    didEndSelector:@selector(LeseboxpfadChoosed: returnCode: contextInfo:)
+    contextInfo:NULL];
+    */
+   /*
+		  [Warnung beginSheetModalForWindow:AdminFenster
+    modalDelegate:self
+    didEndSelector:@selector(alertDidEnd: returnCode: contextInfo:)
+    contextInfo:@"TextchangedWarnung"];
+    
+    */
+   
+   // Nicht verwendet, von CompletionHandler uebersprungen
+   /*
+    if (LeseboxHit==NSModalResponseOK)
+    {
+    tempLeseboxPfad=[[LeseboxDialog URL]path]; //gewähltes "home"
+    //NSLog(@"choose: LeseboxPfad roh: %@",tempLeseboxPfad);
+    NSArray* tempPfadArray=[tempLeseboxPfad pathComponents];
+    //NSLog(@"tempPfadArray: %@",[tempPfadArray description]);
+    if ([tempPfadArray count]>2)
+    {
+    NSArray* UserPfadArray=[tempPfadArray subarrayWithRange:NSMakeRange(0,3)];
+    NSString* UserPfad=[NSString pathWithComponents:UserPfadArray];
+    //NSLog(@"UserPfad: %@",UserPfad);
+    
+    BOOL LeseboxCheck=[self checkUserAnPfad:tempLeseboxPfad];
+    //NSLog(@"tempLeseboxPfad: %@  LeseboxCheck: %d",tempLeseboxPfad,LeseboxCheck);
+    
+    }
+    else
+    {
+    //Kein gültiger Pfad
+    NSAlert *Warnung = [[NSAlert alloc] init];
+    [Warnung addButtonWithTitle:@"OK"];
+    [Warnung setMessageText:@"Kein gültiger Pfad"];
+    [Warnung setAlertStyle:NSWarningAlertStyle];
+    
+    //[Warnung setIcon:RPImage];
+    [Warnung runModal];
+    
+    tempLeseboxPfad=[NSString string];
+    }
+    
+    }
+    else//Abbrechen
+    {
+    //tempLeseboxPfad=[NSString string];
+    //NSNumber* n=[NSNumber numberWithBool:NO];
+    //NSMutableDictionary* LeseboxDic=[NSMutableDictionary dictionaryWithObject:n forKey:@"LeseboxDa"];
+    //NSNotificationCenter* nc=[NSNotificationCenter defaultCenter];
+    //[nc postNotificationName:@"VolumeWahl" object:self userInfo:LeseboxDic];
+    tempLeseboxPfad=[NSString string];
+    
+    }
+    */
+   return tempLeseboxPfad;
+}
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
@@ -244,7 +356,8 @@ const short     kSerieFertig = 25003;
       [[AblaufMenu itemWithTag:10001] setTarget:self];//
       
       NSString* HomeDatenPfad=[Utils HomeSndCalcDatenPfad];
-     DLog(@"HomeDatenPfad: %@ Debug: %d",HomeDatenPfad,DEBUG);
+      DLog(@"HomeDatenPfad: %@ Debug: %d",HomeDatenPfad,DEBUG);
+     //NSLog(@"HomeDatenPfad: %@ Debug: %d",HomeDatenPfad,DEBUG);
       //NSArray*  NetzwerkVolumesArray = [Utils NetzwerkVolumesArray];
       //NSLog(@"NetzwerkVolumesArray: %@",[NetzwerkVolumesArray description]);
       NSArray* NetworkDatenArray=[Utils UsersMitSndCalcDatenArray];
@@ -482,7 +595,7 @@ const short     kSerieFertig = 25003;
                [TestDicArray addObject:einTestDic];
             }
          }
-         else	//Seriedaten unvollständig
+         else	//66 unvollständig
          {
             NSLog(@"Test nicht geladen %@:",[einTestDic description]);
             [einTestDic setObject:[NSNumber numberWithBool:NO]forKey:@"aktiv"];
@@ -1841,7 +1954,7 @@ const short     kSerieFertig = 25003;
       {
          case 0://keine Operation aktiviert
          {
-            //NSLog(@"neueSerie: ex");
+            NSLog(@"neueSerie: ex");
          }break;
             
             
@@ -1937,11 +2050,13 @@ const short     kSerieFertig = 25003;
    
    if (AufgabenDicArray)
    {
+      NSLog(@"AufgabenDicArray schon da");
       //NSLog(@"AufgabenDicArray schon da: RechnungSeriedaten: %@",RechnungSeriedaten);
        AufgabenDicArray = [AufgabenSerie neueRechnungserie:RechnungSeriedaten];
    }
    else
    {
+      NSLog(@"AufgabenDicArray neu");
        //NSLog(@"AufgabenDicArray neu: RechnungSeriedaten: %@",RechnungSeriedaten);
       AufgabenDicArray = [[NSArray alloc]initWithArray:[AufgabenSerie neueRechnungserie:RechnungSeriedaten]]; // NSArray
    }
@@ -2007,6 +2122,7 @@ const short     kSerieFertig = 25003;
             Operator=@"*";
          }break;
       }//switch
+      
       [tempAufgabenDic setObject:Operator
                           forKey:@"operatorzeichen"];
       
@@ -2032,7 +2148,7 @@ const short     kSerieFertig = 25003;
    //[ErgebnisFeld resetFalschesZeichen];
    [ResultatFeld resetFalschesZeichen];
    //[self startTimeout];
-   //NSLog(@"neue Serie ende");
+   NSLog(@"neue Serie ende");
    return nil;
 }
 
@@ -2273,7 +2389,7 @@ const short     kSerieFertig = 25003;
    
    [self closeSessionDrawer:NULL];
    //NSLog(@"neue Serie begin");
-   //NSLog(@"neueSerie Anfang: SeriedatenDic: %@\n",[SerieDatenDic description]);
+   NSLog(@"neueSerie Anfang: SeriedatenDic: %@\n",[SerieDatenDic description]);
    [ErgebnisRahmenFeld setHidden:YES];
    [self closeAufgabenDrawer:NULL];
    
@@ -2291,7 +2407,7 @@ const short     kSerieFertig = 25003;
       {
          case 0://keine Operation aktiviert
          {
-            //NSLog(@"neueSerie: ex");
+            NSLog(@"neueSerie: ex");
          }break;
             
             

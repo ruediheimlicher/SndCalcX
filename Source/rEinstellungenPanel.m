@@ -71,8 +71,8 @@ NSLog(@"reportCancel ");
 - (IBAction)reportClose:(id)sender
 {
 	NSMutableDictionary* NotificationDic=[[NSMutableDictionary alloc]initWithCapacity:0];
-	[NotificationDic setObject:[NSNumber numberWithInt:[[AdminTimeoutTaste selectedItem]tag]] forKey:@"admintimeout"];
-	[NotificationDic setObject:[NSNumber numberWithInt:[[UserTimeoutTaste selectedItem]tag]] forKey:@"usertimeout"];
+	[NotificationDic setObject:[NSNumber numberWithLong:[[AdminTimeoutTaste selectedItem]tag]] forKey:@"admintimeout"];
+	[NotificationDic setObject:[NSNumber numberWithLong:[[UserTimeoutTaste selectedItem]tag]] forKey:@"usertimeout"];
 	[NotificationDic setObject:[NSNumber numberWithInt:[FarbigTaste state]] forKey:@"farbig"];
    [NotificationDic setObject:[[AnzahlFeld string]componentsSeparatedByString:@"\n" ] forKey:@"anzahlarray"];
    [NotificationDic setObject:[[ZeitFeld string]componentsSeparatedByString:@"\n" ] forKey:@"zeitarray"];
@@ -93,12 +93,12 @@ NSLog(@"reportCancel ");
 
 }
 
-- (int)cleanOK
+- (long)cleanOK
 {
 return ([CleanTaste state]);
 }
 
-- (int)AnzahlBehalten
+- (long)AnzahlBehalten
 {
 return ([[ErgebnisseBehaltenTaste selectedItem]tag]);
 }

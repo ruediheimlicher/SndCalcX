@@ -2,7 +2,7 @@
 
 #import <Cocoa/Cocoa.h>
 
-@interface rPasswortListe : NSWindowController
+@interface rPasswortListe : NSWindowController <NSTableViewDataSource,NSTableViewDelegate>
 {
     IBOutlet id BearbeitenTaste;
     IBOutlet id LesestudioString;
