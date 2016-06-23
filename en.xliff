@@ -1,0 +1,1592 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="1.2" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 http://docs.oasis-open.org/xliff/v1.2/os/xliff-core-1.2-strict.xsd">
+    <file original="SndCalcX/Base.lproj/MainMenu.xib" source-language="en" datatype="plaintext" target-language="de">
+        <header>
+            <tool tool-id="com.apple.dt.xcode" tool-name="Xcode" tool-version="7.2.1" build-num="7C1002"></tool>
+        </header>
+        <body>
+            <trans-unit id="0eJ-X3-koZ.title">
+                <source>Testliste</source>
+                <note>Class = "NSMenuItem"; title = "Testliste"; ObjectID = "0eJ-X3-koZ";</note>
+            </trans-unit>
+            <trans-unit id="1UK-8n-QPP.title">
+                <source>Customize Toolbar…</source>
+                <note>Class = "NSMenuItem"; title = "Customize Toolbar…"; ObjectID = "1UK-8n-QPP";</note>
+            </trans-unit>
+            <trans-unit id="1Xt-HY-uBw.title">
+                <source>SndCalcX</source>
+                <note>Class = "NSMenuItem"; title = "SndCalcX"; ObjectID = "1Xt-HY-uBw";</note>
+            </trans-unit>
+            <trans-unit id="1b7-l0-nxx.title">
+                <source>Find</source>
+                <note>Class = "NSMenu"; title = "Find"; ObjectID = "1b7-l0-nxx";</note>
+                <target>Finden</target>
+            </trans-unit>
+            <trans-unit id="1tx-W0-xDw.title">
+                <source>Lower</source>
+                <note>Class = "NSMenuItem"; title = "Lower"; ObjectID = "1tx-W0-xDw";</note>
+            </trans-unit>
+            <trans-unit id="1vp-QU-vEo.title">
+                <source>OtherViews</source>
+                <note>Class = "NSMenu"; title = "OtherViews"; ObjectID = "1vp-QU-vEo";</note>
+            </trans-unit>
+            <trans-unit id="1xc-We-O3Z.title">
+                <source>Statistik</source>
+                <note>Class = "NSMenuItem"; title = "Statistik"; ObjectID = "1xc-We-O3Z";</note>
+            </trans-unit>
+            <trans-unit id="2Ci-E0-0qg.title">
+                <source>Training</source>
+                <note>Class = "NSMenuItem"; title = "Training"; ObjectID = "2Ci-E0-0qg";</note>
+            </trans-unit>
+            <trans-unit id="2h7-ER-AoG.title">
+                <source>Raise</source>
+                <note>Class = "NSMenuItem"; title = "Raise"; ObjectID = "2h7-ER-AoG";</note>
+            </trans-unit>
+            <trans-unit id="2oI-Rn-ZJC.title">
+                <source>Transformations</source>
+                <note>Class = "NSMenuItem"; title = "Transformations"; ObjectID = "2oI-Rn-ZJC";</note>
+            </trans-unit>
+            <trans-unit id="2tX-cO-3Jb.title">
+                <source>Nummer</source>
+                <note>Class = "NSTextFieldCell"; title = "Nummer"; ObjectID = "2tX-cO-3Jb";</note>
+            </trans-unit>
+            <trans-unit id="3IN-sU-3Bg.title">
+                <source>Spelling</source>
+                <note>Class = "NSMenu"; title = "Spelling"; ObjectID = "3IN-sU-3Bg";</note>
+            </trans-unit>
+            <trans-unit id="3Nd-ic-ygr.headerCell.title">
+                <source>Name</source>
+                <note>Class = "NSTableColumn"; headerCell.title = "Name"; ObjectID = "3Nd-ic-ygr";</note>
+            </trans-unit>
+            <trans-unit id="3Om-Ey-2VK.title">
+                <source>Use Default</source>
+                <note>Class = "NSMenuItem"; title = "Use Default"; ObjectID = "3Om-Ey-2VK";</note>
+            </trans-unit>
+            <trans-unit id="3rS-ZA-NoH.title">
+                <source>Speech</source>
+                <note>Class = "NSMenu"; title = "Speech"; ObjectID = "3rS-ZA-NoH";</note>
+            </trans-unit>
+            <trans-unit id="4EN-yA-p0u.title">
+                <source>Find</source>
+                <note>Class = "NSMenuItem"; title = "Find"; ObjectID = "4EN-yA-p0u";</note>
+                <target>Finden</target>
+            </trans-unit>
+            <trans-unit id="4hP-6c-3fA.title">
+                <source>Lautstärke:
+</source>
+                <note>Class = "NSTextFieldCell"; title = "Lautstärke:\n"; ObjectID = "4hP-6c-3fA";</note>
+            </trans-unit>
+            <trans-unit id="4kE-4j-TNt.title">
+                <source>Session:</source>
+                <note>Class = "NSTextFieldCell"; title = "Session:"; ObjectID = "4kE-4j-TNt";</note>
+                <target>Neue Session</target>
+            </trans-unit>
+            <trans-unit id="4sb-4s-VLi.title">
+                <source>Quit SndCalcX</source>
+                <note>Class = "NSMenuItem"; title = "Quit SndCalcX"; ObjectID = "4sb-4s-VLi";</note>
+                <target>SndCalc beenden</target>
+            </trans-unit>
+            <trans-unit id="5LQ-NU-ssQ.title">
+                <source>Box</source>
+                <note>Class = "NSBox"; title = "Box"; ObjectID = "5LQ-NU-ssQ";</note>
+            </trans-unit>
+            <trans-unit id="5QF-Oa-p0T.title">
+                <source>Edit</source>
+                <note>Class = "NSMenuItem"; title = "Edit"; ObjectID = "5QF-Oa-p0T";</note>
+                <target>Bearbeiten</target>
+            </trans-unit>
+            <trans-unit id="5Vv-lz-BsD.title">
+                <source>Copy Style</source>
+                <note>Class = "NSMenuItem"; title = "Copy Style"; ObjectID = "5Vv-lz-BsD";</note>
+            </trans-unit>
+            <trans-unit id="5kV-Vb-QxS.title">
+                <source>About SndCalcX</source>
+                <note>Class = "NSMenuItem"; title = "About SndCalcX"; ObjectID = "5kV-Vb-QxS";</note>
+                <target>Über SndCalc</target>
+            </trans-unit>
+            <trans-unit id="6Hy-KK-zDs.title">
+                <source>12</source>
+                <note>Class = "NSMenuItem"; title = "12"; ObjectID = "6Hy-KK-zDs";</note>
+            </trans-unit>
+            <trans-unit id="6Pt-b8-x7J.title">
+                <source>OK</source>
+                <note>Class = "NSButtonCell"; title = "OK"; ObjectID = "6Pt-b8-x7J";</note>
+            </trans-unit>
+            <trans-unit id="6RW-oX-7WK.title">
+                <source>Stimmen</source>
+                <note>Class = "NSMenuItem"; title = "Stimmen"; ObjectID = "6RW-oX-7WK";</note>
+            </trans-unit>
+            <trans-unit id="6dh-zS-Vam.title">
+                <source>Redo</source>
+                <note>Class = "NSMenuItem"; title = "Redo"; ObjectID = "6dh-zS-Vam";</note>
+            </trans-unit>
+            <trans-unit id="8Wf-Zs-7J2.title">
+                <source>Start</source>
+                <note>Class = "NSButtonCell"; title = "Start"; ObjectID = "8Wf-Zs-7J2";</note>
+            </trans-unit>
+            <trans-unit id="8mr-sm-Yjd.title">
+                <source>Writing Direction</source>
+                <note>Class = "NSMenu"; title = "Writing Direction"; ObjectID = "8mr-sm-Yjd";</note>
+            </trans-unit>
+            <trans-unit id="9ic-FL-obx.title">
+                <source>Substitutions</source>
+                <note>Class = "NSMenuItem"; title = "Substitutions"; ObjectID = "9ic-FL-obx";</note>
+            </trans-unit>
+            <trans-unit id="9yt-4B-nSM.title">
+                <source>Smart Copy/Paste</source>
+                <note>Class = "NSMenuItem"; title = "Smart Copy/Paste"; ObjectID = "9yt-4B-nSM";</note>
+            </trans-unit>
+            <trans-unit id="46P-cB-AYj.title">
+                <source>Tighten</source>
+                <note>Class = "NSMenuItem"; title = "Tighten"; ObjectID = "46P-cB-AYj";</note>
+            </trans-unit>
+            <trans-unit id="78Y-hA-62v.title">
+                <source>Correct Spelling Automatically</source>
+                <note>Class = "NSMenuItem"; title = "Correct Spelling Automatically"; ObjectID = "78Y-hA-62v";</note>
+            </trans-unit>
+            <trans-unit id="523-1u-pna.title">
+                <source>Box</source>
+                <note>Class = "NSBox"; title = "Box"; ObjectID = "523-1u-pna";</note>
+            </trans-unit>
+            <trans-unit id="AYu-sK-qS6.title">
+                <source>Main Menu</source>
+                <note>Class = "NSMenu"; title = "Main Menu"; ObjectID = "AYu-sK-qS6";</note>
+            </trans-unit>
+            <trans-unit id="BOF-NM-1cW.title">
+                <source>Preferences…</source>
+                <note>Class = "NSMenuItem"; title = "Preferences…"; ObjectID = "BOF-NM-1cW";</note>
+                <target>Einstellungen</target>
+            </trans-unit>
+            <trans-unit id="Bfx-fr-yMC.title">
+                <source>Ergebnisse zeigen</source>
+                <note>Class = "NSButtonCell"; title = "Ergebnisse zeigen"; ObjectID = "Bfx-fr-yMC";</note>
+            </trans-unit>
+            <trans-unit id="BgM-ve-c93.title">
+                <source>	Left to Right</source>
+                <note>Class = "NSMenuItem"; title = "\tLeft to Right"; ObjectID = "BgM-ve-c93";</note>
+            </trans-unit>
+            <trans-unit id="Bw7-FT-i3A.title">
+                <source>Save As…</source>
+                <note>Class = "NSMenuItem"; title = "Save As…"; ObjectID = "Bw7-FT-i3A";</note>
+                <target>Sichern als...</target>
+            </trans-unit>
+            <trans-unit id="DCI-Kv-RD5.title">
+                <source>Label</source>
+                <note>Class = "NSTextFieldCell"; title = "Label"; ObjectID = "DCI-Kv-RD5";</note>
+            </trans-unit>
+            <trans-unit id="DVo-aG-piG.title">
+                <source>Close</source>
+                <note>Class = "NSMenuItem"; title = "Close"; ObjectID = "DVo-aG-piG";</note>
+                <target>Schliessen</target>
+            </trans-unit>
+            <trans-unit id="Dv1-io-Yv7.title">
+                <source>Spelling and Grammar</source>
+                <note>Class = "NSMenuItem"; title = "Spelling and Grammar"; ObjectID = "Dv1-io-Yv7";</note>
+            </trans-unit>
+            <trans-unit id="EmU-5n-Dtn.label">
+                <source>Reihen</source>
+                <note>Class = "NSTabViewItem"; label = "Reihen"; ObjectID = "EmU-5n-Dtn";</note>
+            </trans-unit>
+            <trans-unit id="F2S-fz-NVQ.title">
+                <source>Help</source>
+                <note>Class = "NSMenu"; title = "Help"; ObjectID = "F2S-fz-NVQ";</note>
+            </trans-unit>
+            <trans-unit id="FKE-Sm-Kum.title">
+                <source>SndCalcX Help</source>
+                <note>Class = "NSMenuItem"; title = "SndCalcX Help"; ObjectID = "FKE-Sm-Kum";</note>
+            </trans-unit>
+            <trans-unit id="Fal-I4-PZk.title">
+                <source>Text</source>
+                <note>Class = "NSMenuItem"; title = "Text"; ObjectID = "Fal-I4-PZk";</note>
+            </trans-unit>
+            <trans-unit id="FeM-D8-WVr.title">
+                <source>Substitutions</source>
+                <note>Class = "NSMenu"; title = "Substitutions"; ObjectID = "FeM-D8-WVr";</note>
+            </trans-unit>
+            <trans-unit id="GB9-OM-e27.title">
+                <source>Bold</source>
+                <note>Class = "NSMenuItem"; title = "Bold"; ObjectID = "GB9-OM-e27";</note>
+            </trans-unit>
+            <trans-unit id="GEO-Iw-cKr.title">
+                <source>Format</source>
+                <note>Class = "NSMenu"; title = "Format"; ObjectID = "GEO-Iw-cKr";</note>
+            </trans-unit>
+            <trans-unit id="GKO-f6-A3e.title">
+                <source>Namenliste</source>
+                <note>Class = "NSMenuItem"; title = "Namenliste"; ObjectID = "GKO-f6-A3e";</note>
+            </trans-unit>
+            <trans-unit id="GUa-eO-cwY.title">
+                <source>Use Default</source>
+                <note>Class = "NSMenuItem"; title = "Use Default"; ObjectID = "GUa-eO-cwY";</note>
+            </trans-unit>
+            <trans-unit id="Gi5-1S-RQB.title">
+                <source>Font</source>
+                <note>Class = "NSMenuItem"; title = "Font"; ObjectID = "Gi5-1S-RQB";</note>
+            </trans-unit>
+            <trans-unit id="H1b-Si-o9J.title">
+                <source>Writing Direction</source>
+                <note>Class = "NSMenuItem"; title = "Writing Direction"; ObjectID = "H1b-Si-o9J";</note>
+            </trans-unit>
+            <trans-unit id="H8h-7b-M4v.title">
+                <source>View</source>
+                <note>Class = "NSMenuItem"; title = "View"; ObjectID = "H8h-7b-M4v";</note>
+            </trans-unit>
+            <trans-unit id="HFQ-gK-NFA.title">
+                <source>Text Replacement</source>
+                <note>Class = "NSMenuItem"; title = "Text Replacement"; ObjectID = "HFQ-gK-NFA";</note>
+            </trans-unit>
+            <trans-unit id="HFo-cy-zxI.title">
+                <source>Show Spelling and Grammar</source>
+                <note>Class = "NSMenuItem"; title = "Show Spelling and Grammar"; ObjectID = "HFo-cy-zxI";</note>
+            </trans-unit>
+            <trans-unit id="HKp-hS-5FX.title">
+                <source>Training</source>
+                <note>Class = "NSMenuItem"; title = "Training"; ObjectID = "HKp-hS-5FX";</note>
+            </trans-unit>
+            <trans-unit id="HyV-fh-RgO.title">
+                <source>View</source>
+                <note>Class = "NSMenu"; title = "View"; ObjectID = "HyV-fh-RgO";</note>
+            </trans-unit>
+            <trans-unit id="I0S-gh-46l.title">
+                <source>Subscript</source>
+                <note>Class = "NSMenuItem"; title = "Subscript"; ObjectID = "I0S-gh-46l";</note>
+            </trans-unit>
+            <trans-unit id="IAo-SY-fd9.title">
+                <source>Open…</source>
+                <note>Class = "NSMenuItem"; title = "Open…"; ObjectID = "IAo-SY-fd9";</note>
+            </trans-unit>
+            <trans-unit id="IOg-lh-Bzk.title">
+                <source>Neue Serie</source>
+                <note>Class = "NSButtonCell"; title = "Neue Serie"; ObjectID = "IOg-lh-Bzk";</note>
+            </trans-unit>
+            <trans-unit id="Idz-Mr-Yf0.title">
+                <source>Session aktualisieren</source>
+                <note>Class = "NSMenuItem"; title = "Session aktualisieren"; ObjectID = "Idz-Mr-Yf0";</note>
+            </trans-unit>
+            <trans-unit id="J5U-5w-g23.title">
+                <source>Justify</source>
+                <note>Class = "NSMenuItem"; title = "Justify"; ObjectID = "J5U-5w-g23";</note>
+            </trans-unit>
+            <trans-unit id="J7y-lM-qPV.title">
+                <source>Use None</source>
+                <note>Class = "NSMenuItem"; title = "Use None"; ObjectID = "J7y-lM-qPV";</note>
+            </trans-unit>
+            <trans-unit id="KNn-cc-jfh.title">
+                <source>Gast</source>
+                <note>Class = "NSMenuItem"; title = "Gast"; ObjectID = "KNn-cc-jfh";</note>
+            </trans-unit>
+            <trans-unit id="KaW-ft-85H.title">
+                <source>Revert to Saved</source>
+                <note>Class = "NSMenuItem"; title = "Revert to Saved"; ObjectID = "KaW-ft-85H";</note>
+            </trans-unit>
+            <trans-unit id="Kd2-mp-pUS.title">
+                <source>Show All</source>
+                <note>Class = "NSMenuItem"; title = "Show All"; ObjectID = "Kd2-mp-pUS";</note>
+            </trans-unit>
+            <trans-unit id="LE2-aR-0XJ.title">
+                <source>Bring All to Front</source>
+                <note>Class = "NSMenuItem"; title = "Bring All to Front"; ObjectID = "LE2-aR-0XJ";</note>
+            </trans-unit>
+            <trans-unit id="LVM-kO-fVI.title">
+                <source>Paste Ruler</source>
+                <note>Class = "NSMenuItem"; title = "Paste Ruler"; ObjectID = "LVM-kO-fVI";</note>
+            </trans-unit>
+            <trans-unit id="Lbh-J2-qVU.title">
+                <source>	Left to Right</source>
+                <note>Class = "NSMenuItem"; title = "\tLeft to Right"; ObjectID = "Lbh-J2-qVU";</note>
+            </trans-unit>
+            <trans-unit id="MkV-Pr-PK5.title">
+                <source>Copy Ruler</source>
+                <note>Class = "NSMenuItem"; title = "Copy Ruler"; ObjectID = "MkV-Pr-PK5";</note>
+            </trans-unit>
+            <trans-unit id="N6g-9d-32L.title">
+                <source>Ergebnis
+</source>
+                <note>Class = "NSTextFieldCell"; title = "Ergebnis\n"; ObjectID = "N6g-9d-32L";</note>
+            </trans-unit>
+            <trans-unit id="NDw-bs-8Hn.title">
+                <source>OtherViews</source>
+                <note>Class = "NSMenu"; title = "OtherViews"; ObjectID = "NDw-bs-8Hn";</note>
+            </trans-unit>
+            <trans-unit id="NMo-om-nkz.title">
+                <source>Services</source>
+                <note>Class = "NSMenuItem"; title = "Services"; ObjectID = "NMo-om-nkz";</note>
+            </trans-unit>
+            <trans-unit id="NXH-ez-FAx.title">
+                <source>120 s</source>
+                <note>Class = "NSMenuItem"; title = "120 s"; ObjectID = "NXH-ez-FAx";</note>
+            </trans-unit>
+            <trans-unit id="Nop-cj-93Q.title">
+                <source>	Default</source>
+                <note>Class = "NSMenuItem"; title = "\tDefault"; ObjectID = "Nop-cj-93Q";</note>
+            </trans-unit>
+            <trans-unit id="OY7-WF-poV.title">
+                <source>Minimize</source>
+                <note>Class = "NSMenuItem"; title = "Minimize"; ObjectID = "OY7-WF-poV";</note>
+            </trans-unit>
+            <trans-unit id="OaQ-X3-Vso.title">
+                <source>Baseline</source>
+                <note>Class = "NSMenuItem"; title = "Baseline"; ObjectID = "OaQ-X3-Vso";</note>
+            </trans-unit>
+            <trans-unit id="OkA-d6-K8N.title">
+                <source>24</source>
+                <note>Class = "NSMenuItem"; title = "24"; ObjectID = "OkA-d6-K8N";</note>
+            </trans-unit>
+            <trans-unit id="Olw-nP-bQN.title">
+                <source>Hide SndCalcX</source>
+                <note>Class = "NSMenuItem"; title = "Hide SndCalcX"; ObjectID = "Olw-nP-bQN";</note>
+            </trans-unit>
+            <trans-unit id="OwM-mh-QMV.title">
+                <source>Find Previous</source>
+                <note>Class = "NSMenuItem"; title = "Find Previous"; ObjectID = "OwM-mh-QMV";</note>
+            </trans-unit>
+            <trans-unit id="Oyz-dy-DGm.title">
+                <source>Stop Speaking</source>
+                <note>Class = "NSMenuItem"; title = "Stop Speaking"; ObjectID = "Oyz-dy-DGm";</note>
+            </trans-unit>
+            <trans-unit id="Psw-0N-Kka.title">
+                <source>90 s</source>
+                <note>Class = "NSMenuItem"; title = "90 s"; ObjectID = "Psw-0N-Kka";</note>
+            </trans-unit>
+            <trans-unit id="Ptp-SP-VEL.title">
+                <source>Bigger</source>
+                <note>Class = "NSMenuItem"; title = "Bigger"; ObjectID = "Ptp-SP-VEL";</note>
+            </trans-unit>
+            <trans-unit id="Q5e-8K-NDq.title">
+                <source>Show Fonts</source>
+                <note>Class = "NSMenuItem"; title = "Show Fonts"; ObjectID = "Q5e-8K-NDq";</note>
+            </trans-unit>
+            <trans-unit id="QYv-ru-evk.title">
+                <source>Box</source>
+                <note>Class = "NSBox"; title = "Box"; ObjectID = "QYv-ru-evk";</note>
+            </trans-unit>
+            <trans-unit id="QvC-M9-y7g.title">
+                <source>SndCalc</source>
+                <note>Class = "NSWindow"; title = "SndCalc"; ObjectID = "QvC-M9-y7g";</note>
+            </trans-unit>
+            <trans-unit id="R4o-n2-Eq4.title">
+                <source>Zoom</source>
+                <note>Class = "NSMenuItem"; title = "Zoom"; ObjectID = "R4o-n2-Eq4";</note>
+            </trans-unit>
+            <trans-unit id="RB4-Sm-HuC.title">
+                <source>	Right to Left</source>
+                <note>Class = "NSMenuItem"; title = "\tRight to Left"; ObjectID = "RB4-Sm-HuC";</note>
+            </trans-unit>
+            <trans-unit id="RXE-FM-QQS.title">
+                <source>PW ändern</source>
+                <note>Class = "NSMenuItem"; title = "PW ändern"; ObjectID = "RXE-FM-QQS";</note>
+            </trans-unit>
+            <trans-unit id="Rqc-34-cIF.title">
+                <source>Superscript</source>
+                <note>Class = "NSMenuItem"; title = "Superscript"; ObjectID = "Rqc-34-cIF";</note>
+            </trans-unit>
+            <trans-unit id="Ruw-6m-B2m.title">
+                <source>Select All</source>
+                <note>Class = "NSMenuItem"; title = "Select All"; ObjectID = "Ruw-6m-B2m";</note>
+            </trans-unit>
+            <trans-unit id="S0p-oC-mLd.title">
+                <source>Jump to Selection</source>
+                <note>Class = "NSMenuItem"; title = "Jump to Selection"; ObjectID = "S0p-oC-mLd";</note>
+            </trans-unit>
+            <trans-unit id="Sug-iM-Ztg.title">
+                <source>10 s</source>
+                <note>Class = "NSMenuItem"; title = "10 s"; ObjectID = "Sug-iM-Ztg";</note>
+            </trans-unit>
+            <trans-unit id="TM6-7F-Esb.title">
+                <source>Limite:</source>
+                <note>Class = "NSTextFieldCell"; title = "Limite:"; ObjectID = "TM6-7F-Esb";</note>
+            </trans-unit>
+            <trans-unit id="Td7-aD-5lo.title">
+                <source>Window</source>
+                <note>Class = "NSMenu"; title = "Window"; ObjectID = "Td7-aD-5lo";</note>
+                <target>Fenster</target>
+            </trans-unit>
+            <trans-unit id="UEZ-Bs-lqG.title">
+                <source>Capitalize</source>
+                <note>Class = "NSMenuItem"; title = "Capitalize"; ObjectID = "UEZ-Bs-lqG";</note>
+            </trans-unit>
+            <trans-unit id="VFA-cH-HVj.title">
+                <source>Box</source>
+                <note>Class = "NSBox"; title = "Box"; ObjectID = "VFA-cH-HVj";</note>
+            </trans-unit>
+            <trans-unit id="VIY-Ag-zcb.title">
+                <source>Center</source>
+                <note>Class = "NSMenuItem"; title = "Center"; ObjectID = "VIY-Ag-zcb";</note>
+            </trans-unit>
+            <trans-unit id="Vdr-fp-XzO.title">
+                <source>Hide Others</source>
+                <note>Class = "NSMenuItem"; title = "Hide Others"; ObjectID = "Vdr-fp-XzO";</note>
+            </trans-unit>
+            <trans-unit id="Vjx-xi-njq.title">
+                <source>Italic</source>
+                <note>Class = "NSMenuItem"; title = "Italic"; ObjectID = "Vjx-xi-njq";</note>
+            </trans-unit>
+            <trans-unit id="W48-6f-4Dl.title">
+                <source>Edit</source>
+                <note>Class = "NSMenu"; title = "Edit"; ObjectID = "W48-6f-4Dl";</note>
+            </trans-unit>
+            <trans-unit id="WRG-CD-K1S.title">
+                <source>Underline</source>
+                <note>Class = "NSMenuItem"; title = "Underline"; ObjectID = "WRG-CD-K1S";</note>
+            </trans-unit>
+            <trans-unit id="Was-JA-tGl.title">
+                <source>neue Serie...</source>
+                <note>Class = "NSMenuItem"; title = "neue Serie..."; ObjectID = "Was-JA-tGl";</note>
+            </trans-unit>
+            <trans-unit id="WeT-3V-zwk.title">
+                <source>Paste and Match Style</source>
+                <note>Class = "NSMenuItem"; title = "Paste and Match Style"; ObjectID = "WeT-3V-zwk";</note>
+            </trans-unit>
+            <trans-unit id="X6o-lb-MSI.title">
+                <source>Test</source>
+                <note>Class = "NSMenuItem"; title = "Test"; ObjectID = "X6o-lb-MSI";</note>
+            </trans-unit>
+            <trans-unit id="Xz5-n4-O0W.title">
+                <source>Find…</source>
+                <note>Class = "NSMenuItem"; title = "Find…"; ObjectID = "Xz5-n4-O0W";</note>
+            </trans-unit>
+            <trans-unit id="YEy-JH-Tfz.title">
+                <source>Find and Replace…</source>
+                <note>Class = "NSMenuItem"; title = "Find and Replace…"; ObjectID = "YEy-JH-Tfz";</note>
+            </trans-unit>
+            <trans-unit id="YGs-j5-SAR.title">
+                <source>	Default</source>
+                <note>Class = "NSMenuItem"; title = "\tDefault"; ObjectID = "YGs-j5-SAR";</note>
+            </trans-unit>
+            <trans-unit id="Ydg-QU-SDi.title">
+                <source>Einstellungen</source>
+                <note>Class = "NSButtonCell"; title = "Einstellungen"; ObjectID = "Ydg-QU-SDi";</note>
+            </trans-unit>
+            <trans-unit id="Ynk-f8-cLZ.title">
+                <source>Start Speaking</source>
+                <note>Class = "NSMenuItem"; title = "Start Speaking"; ObjectID = "Ynk-f8-cLZ";</note>
+            </trans-unit>
+            <trans-unit id="ZM1-6Q-yy1.title">
+                <source>Align Left</source>
+                <note>Class = "NSMenuItem"; title = "Align Left"; ObjectID = "ZM1-6Q-yy1";</note>
+            </trans-unit>
+            <trans-unit id="Zeg-4j-L6I.title">
+                <source>Rechnen</source>
+                <note>Class = "NSTextFieldCell"; title = "Rechnen"; ObjectID = "Zeg-4j-L6I";</note>
+            </trans-unit>
+            <trans-unit id="ZvO-Gk-QUH.title">
+                <source>Paragraph</source>
+                <note>Class = "NSMenuItem"; title = "Paragraph"; ObjectID = "ZvO-Gk-QUH";</note>
+            </trans-unit>
+            <trans-unit id="aTl-1u-JFS.title">
+                <source>Print…</source>
+                <note>Class = "NSMenuItem"; title = "Print…"; ObjectID = "aTl-1u-JFS";</note>
+            </trans-unit>
+            <trans-unit id="aUF-d1-5bR.title">
+                <source>Window</source>
+                <note>Class = "NSMenuItem"; title = "Window"; ObjectID = "aUF-d1-5bR";</note>
+                <target>Fenster</target>
+            </trans-unit>
+            <trans-unit id="aXa-aM-Jaq.title">
+                <source>Font</source>
+                <note>Class = "NSMenu"; title = "Font"; ObjectID = "aXa-aM-Jaq";</note>
+            </trans-unit>
+            <trans-unit id="agt-UL-0e3.title">
+                <source>Use Default</source>
+                <note>Class = "NSMenuItem"; title = "Use Default"; ObjectID = "agt-UL-0e3";</note>
+            </trans-unit>
+            <trans-unit id="bgn-CT-cEk.title">
+                <source>Show Colors</source>
+                <note>Class = "NSMenuItem"; title = "Show Colors"; ObjectID = "bgn-CT-cEk";</note>
+            </trans-unit>
+            <trans-unit id="bib-Uj-vzu.title">
+                <source>File</source>
+                <note>Class = "NSMenu"; title = "File"; ObjectID = "bib-Uj-vzu";</note>
+                <target>Ablage</target>
+            </trans-unit>
+            <trans-unit id="bnI-2h-L9h.title">
+                <source>Ablauf</source>
+                <note>Class = "NSMenuItem"; title = "Ablauf"; ObjectID = "bnI-2h-L9h";</note>
+            </trans-unit>
+            <trans-unit id="buJ-ug-pKt.title">
+                <source>Use Selection for Find</source>
+                <note>Class = "NSMenuItem"; title = "Use Selection for Find"; ObjectID = "buJ-ug-pKt";</note>
+            </trans-unit>
+            <trans-unit id="c8a-y6-VQd.title">
+                <source>Transformations</source>
+                <note>Class = "NSMenu"; title = "Transformations"; ObjectID = "c8a-y6-VQd";</note>
+            </trans-unit>
+            <trans-unit id="cDB-IK-hbR.title">
+                <source>Use None</source>
+                <note>Class = "NSMenuItem"; title = "Use None"; ObjectID = "cDB-IK-hbR";</note>
+            </trans-unit>
+            <trans-unit id="cqv-fj-IhA.title">
+                <source>Selection</source>
+                <note>Class = "NSMenuItem"; title = "Selection"; ObjectID = "cqv-fj-IhA";</note>
+            </trans-unit>
+            <trans-unit id="cwL-P1-jid.title">
+                <source>Smart Links</source>
+                <note>Class = "NSMenuItem"; title = "Smart Links"; ObjectID = "cwL-P1-jid";</note>
+            </trans-unit>
+            <trans-unit id="d9M-CD-aMd.title">
+                <source>Make Lower Case</source>
+                <note>Class = "NSMenuItem"; title = "Make Lower Case"; ObjectID = "d9M-CD-aMd";</note>
+            </trans-unit>
+            <trans-unit id="d9c-me-L2H.title">
+                <source>Text</source>
+                <note>Class = "NSMenu"; title = "Text"; ObjectID = "d9c-me-L2H";</note>
+            </trans-unit>
+            <trans-unit id="dMs-cI-mzQ.title">
+                <source>File</source>
+                <note>Class = "NSMenuItem"; title = "File"; ObjectID = "dMs-cI-mzQ";</note>
+                <target>Ablage</target>
+            </trans-unit>
+            <trans-unit id="dRJ-4n-Yzg.title">
+                <source>Undo</source>
+                <note>Class = "NSMenuItem"; title = "Undo"; ObjectID = "dRJ-4n-Yzg";</note>
+            </trans-unit>
+            <trans-unit id="dS2-2V-wXx.title">
+                <source>Zeit</source>
+                <note>Class = "NSTextFieldCell"; title = "Zeit"; ObjectID = "dS2-2V-wXx";</note>
+            </trans-unit>
+            <trans-unit id="fEu-FA-vVz.title">
+                <source>Training</source>
+                <note>Class = "NSButtonCell"; title = "Training"; ObjectID = "fEu-FA-vVz";</note>
+            </trans-unit>
+            <trans-unit id="g45-K3-Tdp.title">
+                <source>Name:</source>
+                <note>Class = "NSTextFieldCell"; title = "Name:"; ObjectID = "g45-K3-Tdp";</note>
+            </trans-unit>
+            <trans-unit id="gUu-bY-viP.title">
+                <source>neue Session</source>
+                <note>Class = "NSMenuItem"; title = "neue Session"; ObjectID = "gUu-bY-viP";</note>
+            </trans-unit>
+            <trans-unit id="gVA-U4-sdL.title">
+                <source>Paste</source>
+                <note>Class = "NSMenuItem"; title = "Paste"; ObjectID = "gVA-U4-sdL";</note>
+            </trans-unit>
+            <trans-unit id="hQb-2v-fYv.title">
+                <source>Smart Quotes</source>
+                <note>Class = "NSMenuItem"; title = "Smart Quotes"; ObjectID = "hQb-2v-fYv";</note>
+            </trans-unit>
+            <trans-unit id="hUY-hi-HlR.title">
+                <source>Training</source>
+                <note>Class = "NSMenuItem"; title = "Training"; ObjectID = "hUY-hi-HlR";</note>
+            </trans-unit>
+            <trans-unit id="hz2-CU-CR7.title">
+                <source>Check Document Now</source>
+                <note>Class = "NSMenuItem"; title = "Check Document Now"; ObjectID = "hz2-CU-CR7";</note>
+            </trans-unit>
+            <trans-unit id="hz9-B4-Xy5.title">
+                <source>Services</source>
+                <note>Class = "NSMenu"; title = "Services"; ObjectID = "hz9-B4-Xy5";</note>
+            </trans-unit>
+            <trans-unit id="i1d-Er-qST.title">
+                <source>Smaller</source>
+                <note>Class = "NSMenuItem"; title = "Smaller"; ObjectID = "i1d-Er-qST";</note>
+            </trans-unit>
+            <trans-unit id="i9L-oQ-srd.title">
+                <source>Modus</source>
+                <note>Class = "NSTextFieldCell"; title = "Modus"; ObjectID = "i9L-oQ-srd";</note>
+            </trans-unit>
+            <trans-unit id="ijk-EB-dga.title">
+                <source>Baseline</source>
+                <note>Class = "NSMenu"; title = "Baseline"; ObjectID = "ijk-EB-dga";</note>
+            </trans-unit>
+            <trans-unit id="j3I-62-v9E.title">
+                <source>OtherViews</source>
+                <note>Class = "NSMenu"; title = "OtherViews"; ObjectID = "j3I-62-v9E";</note>
+            </trans-unit>
+            <trans-unit id="j3y-FM-MfV.title">
+                <source>Aufgaben</source>
+                <note>Class = "NSTextFieldCell"; title = "Aufgaben"; ObjectID = "j3y-FM-MfV";</note>
+            </trans-unit>
+            <trans-unit id="jBQ-r6-VK2.title">
+                <source>Kern</source>
+                <note>Class = "NSMenuItem"; title = "Kern"; ObjectID = "jBQ-r6-VK2";</note>
+            </trans-unit>
+            <trans-unit id="jFO-bi-Iym.title">
+                <source>Radio</source>
+                <note>Class = "NSButtonCell"; title = "Radio"; ObjectID = "jFO-bi-Iym";</note>
+            </trans-unit>
+            <trans-unit id="jFq-tB-4Kx.title">
+                <source>	Right to Left</source>
+                <note>Class = "NSMenuItem"; title = "\tRight to Left"; ObjectID = "jFq-tB-4Kx";</note>
+            </trans-unit>
+            <trans-unit id="jxT-CU-nIS.title">
+                <source>Format</source>
+                <note>Class = "NSMenuItem"; title = "Format"; ObjectID = "jxT-CU-nIS";</note>
+            </trans-unit>
+            <trans-unit id="kvk-CC-u2e.title">
+                <source>60 s</source>
+                <note>Class = "NSMenuItem"; title = "60 s"; ObjectID = "kvk-CC-u2e";</note>
+            </trans-unit>
+            <trans-unit id="mK6-2p-4JG.title">
+                <source>Check Grammar With Spelling</source>
+                <note>Class = "NSMenuItem"; title = "Check Grammar With Spelling"; ObjectID = "mK6-2p-4JG";</note>
+            </trans-unit>
+            <trans-unit id="nB8-4m-7ns.title">
+                <source>Schliessen</source>
+                <note>Class = "NSButtonCell"; title = "Schliessen"; ObjectID = "nB8-4m-7ns";</note>
+            </trans-unit>
+            <trans-unit id="o6e-r0-MWq.title">
+                <source>Ligatures</source>
+                <note>Class = "NSMenuItem"; title = "Ligatures"; ObjectID = "o6e-r0-MWq";</note>
+            </trans-unit>
+            <trans-unit id="oXv-V7-AAJ.label">
+                <source>Addition/Subtraktion</source>
+                <note>Class = "NSTabViewItem"; label = "Addition/Subtraktion"; ObjectID = "oXv-V7-AAJ";</note>
+            </trans-unit>
+            <trans-unit id="oas-Oc-fiZ.title">
+                <source>Open Recent</source>
+                <note>Class = "NSMenu"; title = "Open Recent"; ObjectID = "oas-Oc-fiZ";</note>
+            </trans-unit>
+            <trans-unit id="ogc-rX-tC1.title">
+                <source>Loosen</source>
+                <note>Class = "NSMenuItem"; title = "Loosen"; ObjectID = "ogc-rX-tC1";</note>
+            </trans-unit>
+            <trans-unit id="ojF-1c-lbO.title">
+                <source>Box</source>
+                <note>Class = "NSBox"; title = "Box"; ObjectID = "ojF-1c-lbO";</note>
+            </trans-unit>
+            <trans-unit id="pa3-QI-u2k.title">
+                <source>Delete</source>
+                <note>Class = "NSMenuItem"; title = "Delete"; ObjectID = "pa3-QI-u2k";</note>
+            </trans-unit>
+            <trans-unit id="pnD-f3-KOm.title">
+                <source>6</source>
+                <note>Class = "NSMenuItem"; title = "6"; ObjectID = "pnD-f3-KOm";</note>
+            </trans-unit>
+            <trans-unit id="pof-33-Iqy.title">
+                <source>Training</source>
+                <note>Class = "NSMenuItem"; title = "Training"; ObjectID = "pof-33-Iqy";</note>
+            </trans-unit>
+            <trans-unit id="pxx-59-PXV.title">
+                <source>Save…</source>
+                <note>Class = "NSMenuItem"; title = "Save…"; ObjectID = "pxx-59-PXV";</note>
+            </trans-unit>
+            <trans-unit id="q8F-ug-wYY.title">
+                <source>Test</source>
+                <note>Class = "NSButtonCell"; title = "Test"; ObjectID = "q8F-ug-wYY";</note>
+            </trans-unit>
+            <trans-unit id="q09-fT-Sye.title">
+                <source>Find Next</source>
+                <note>Class = "NSMenuItem"; title = "Find Next"; ObjectID = "q09-fT-Sye";</note>
+            </trans-unit>
+            <trans-unit id="qIS-W8-SiK.title">
+                <source>Page Setup…</source>
+                <note>Class = "NSMenuItem"; title = "Page Setup…"; ObjectID = "qIS-W8-SiK";</note>
+            </trans-unit>
+            <trans-unit id="rbD-Rh-wIN.title">
+                <source>Check Spelling While Typing</source>
+                <note>Class = "NSMenuItem"; title = "Check Spelling While Typing"; ObjectID = "rbD-Rh-wIN";</note>
+            </trans-unit>
+            <trans-unit id="rgM-f4-ycn.title">
+                <source>Smart Dashes</source>
+                <note>Class = "NSMenuItem"; title = "Smart Dashes"; ObjectID = "rgM-f4-ycn";</note>
+            </trans-unit>
+            <trans-unit id="snW-S8-Cw5.title">
+                <source>Show Toolbar</source>
+                <note>Class = "NSMenuItem"; title = "Show Toolbar"; ObjectID = "snW-S8-Cw5";</note>
+            </trans-unit>
+            <trans-unit id="sv4-eE-GqV.title">
+                <source>Ablauf</source>
+                <note>Class = "NSMenu"; title = "Ablauf"; ObjectID = "sv4-eE-GqV";</note>
+            </trans-unit>
+            <trans-unit id="tRr-pd-1PS.title">
+                <source>Data Detectors</source>
+                <note>Class = "NSMenuItem"; title = "Data Detectors"; ObjectID = "tRr-pd-1PS";</note>
+            </trans-unit>
+            <trans-unit id="tXI-mr-wws.title">
+                <source>Open Recent</source>
+                <note>Class = "NSMenuItem"; title = "Open Recent"; ObjectID = "tXI-mr-wws";</note>
+            </trans-unit>
+            <trans-unit id="tlD-Oa-oAM.title">
+                <source>Kern</source>
+                <note>Class = "NSMenu"; title = "Kern"; ObjectID = "tlD-Oa-oAM";</note>
+            </trans-unit>
+            <trans-unit id="uQy-DD-JDr.title">
+                <source>SndCalcX</source>
+                <note>Class = "NSMenu"; title = "SndCalcX"; ObjectID = "uQy-DD-JDr";</note>
+            </trans-unit>
+            <trans-unit id="uRl-iY-unG.title">
+                <source>Cut</source>
+                <note>Class = "NSMenuItem"; title = "Cut"; ObjectID = "uRl-iY-unG";</note>
+            </trans-unit>
+            <trans-unit id="vKC-jM-MkH.title">
+                <source>Paste Style</source>
+                <note>Class = "NSMenuItem"; title = "Paste Style"; ObjectID = "vKC-jM-MkH";</note>
+            </trans-unit>
+            <trans-unit id="vLm-3I-IUL.title">
+                <source>Show Ruler</source>
+                <note>Class = "NSMenuItem"; title = "Show Ruler"; ObjectID = "vLm-3I-IUL";</note>
+            </trans-unit>
+            <trans-unit id="vNY-rz-j42.title">
+                <source>Clear Menu</source>
+                <note>Class = "NSMenuItem"; title = "Clear Menu"; ObjectID = "vNY-rz-j42";</note>
+            </trans-unit>
+            <trans-unit id="vmV-6d-7jI.title">
+                <source>Make Upper Case</source>
+                <note>Class = "NSMenuItem"; title = "Make Upper Case"; ObjectID = "vmV-6d-7jI";</note>
+            </trans-unit>
+            <trans-unit id="w0m-vy-SC9.title">
+                <source>Ligatures</source>
+                <note>Class = "NSMenu"; title = "Ligatures"; ObjectID = "w0m-vy-SC9";</note>
+            </trans-unit>
+            <trans-unit id="w5K-BP-LJU.title">
+                <source>30 s</source>
+                <note>Class = "NSMenuItem"; title = "30 s"; ObjectID = "w5K-BP-LJU";</note>
+            </trans-unit>
+            <trans-unit id="wb2-vD-lq4.title">
+                <source>Align Right</source>
+                <note>Class = "NSMenuItem"; title = "Align Right"; ObjectID = "wb2-vD-lq4";</note>
+            </trans-unit>
+            <trans-unit id="wpr-3q-Mcd.title">
+                <source>Help</source>
+                <note>Class = "NSMenuItem"; title = "Help"; ObjectID = "wpr-3q-Mcd";</note>
+            </trans-unit>
+            <trans-unit id="x3v-GG-iWU.title">
+                <source>Copy</source>
+                <note>Class = "NSMenuItem"; title = "Copy"; ObjectID = "x3v-GG-iWU";</note>
+            </trans-unit>
+            <trans-unit id="xQD-1f-W4t.title">
+                <source>Use All</source>
+                <note>Class = "NSMenuItem"; title = "Use All"; ObjectID = "xQD-1f-W4t";</note>
+            </trans-unit>
+            <trans-unit id="xrE-MZ-jX0.title">
+                <source>Speech</source>
+                <note>Class = "NSMenuItem"; title = "Speech"; ObjectID = "xrE-MZ-jX0";</note>
+            </trans-unit>
+            <trans-unit id="yqZ-VN-JDg.title">
+                <source>Als Test sichern</source>
+                <note>Class = "NSButtonCell"; title = "Als Test sichern"; ObjectID = "yqZ-VN-JDg";</note>
+            </trans-unit>
+            <trans-unit id="z6F-FW-3nz.title">
+                <source>Show Substitutions</source>
+                <note>Class = "NSMenuItem"; title = "Show Substitutions"; ObjectID = "z6F-FW-3nz";</note>
+            </trans-unit>
+            <trans-unit id="zhY-qV-mUK.title">
+                <source>Anzahl:</source>
+                <note>Class = "NSTextFieldCell"; title = "Anzahl:"; ObjectID = "zhY-qV-mUK";</note>
+            </trans-unit>
+        </body>
+    </file>
+    <file original="SndCalcX/Info.plist" source-language="en" datatype="plaintext" target-language="de">
+        <header>
+            <tool tool-id="com.apple.dt.xcode" tool-name="Xcode" tool-version="7.2.1" build-num="7C1002"></tool>
+        </header>
+        <body>
+            <trans-unit id="CFBundleName">
+                <source>$(PRODUCT_NAME)</source>
+            </trans-unit>
+            <trans-unit id="CFBundleShortVersionString">
+                <source>1.0</source>
+            </trans-unit>
+            <trans-unit id="NSHumanReadableCopyright">
+                <source>Copyright © 2016 Ruedi Heimlicher. All rights reserved.</source>
+            </trans-unit>
+        </body>
+    </file>
+    <file original="SndCalcX/Localizable.strings" source-language="en" datatype="plaintext" target-language="de">
+        <header>
+            <tool tool-id="com.apple.dt.xcode" tool-name="Xcode" tool-version="7.2.1" build-num="7C1002"></tool>
+        </header>
+        <body>
+            <trans-unit id=" Results will be definetly deleted.">
+                <source> Results will be definetly deleted.</source>
+                <note>Ergebnisse werden endgültig gelöscht.</note>
+                <target>Ergebnisse werden endgültig gelöscht.</target>
+            </trans-unit>
+            <trans-unit id=" and it must have the suffix .aif.">
+                <source> and it must have the suffix .aif.</source>
+                <note>Suffix .aif</note>
+                <target>und es muss das Suffix .aif aufweisen.</target>
+            </trans-unit>
+            <trans-unit id=" and they must have the suffix .aif.">
+                <source> and they must have the suffix .aif.</source>
+                <note>Suffix .aif</note>
+                <target>und es muss das Suffix .aif aufweisen.</target>
+            </trans-unit>
+            <trans-unit id="%@ is the only test activatet for user %@.">
+                <source>%1$@ is the only test activatet for user %2$@.</source>
+                <note>%@ ist der einzige Test für %@.</note>
+            </trans-unit>
+            <trans-unit id="Active tests are shown to the user.">
+                <source>Active tests are shown to the user.</source>
+                <note>Aktive Tests sind für den Benutzer sichtbar.</note>
+                <target>Aktive Tests sind für den Benutzer sichtbar.</target>
+            </trans-unit>
+            <trans-unit id="Addition and/or subtraction must be choosed.">
+                <source>Addition and/or subtraction must be choosed.</source>
+                <note>Addition und/oder Subtraktion muss ausgewählt sein.</note>
+                <target>Addition und/oder Subtraktion muss ausgewählt sein.</target>
+            </trans-unit>
+            <trans-unit id="Again">
+                <source>Again</source>
+                <note>Nochmals</note>
+                <target>Nochmals</target>
+            </trans-unit>
+            <trans-unit id="Append the clicked test for all users.">
+                <source>Append the clicked test for all users.</source>
+                <note>Angeklickten Test für alle Benutzer einsetzen.</note>
+                <target>Angeklickten Test für alle Benutzer einsetzen.</target>
+            </trans-unit>
+            <trans-unit id="Append the new test to the list.">
+                <source>Append the new test to the list.</source>
+                <note>Den neuen Test in die Liste einsetzen.</note>
+                <target>Den neuen Test in die Liste einsetzen.</target>
+            </trans-unit>
+            <trans-unit id="Are You Shure?">
+                <source>Are You Shure?</source>
+                <note>Namen wirklich entfernen?</note>
+                <target>Namen wirklich entfernen?</target>
+            </trans-unit>
+            <trans-unit id="As A Guest">
+                <source>As A Guest</source>
+                <note>Als Gast</note>
+                <target>Als Gast</target>
+            </trans-unit>
+            <trans-unit id="At least one name must be defined in menu Options &gt; Namelist.">
+                <source>At least one name must be defined in menu Options &gt; Namelist.</source>
+                <note>Es muss im Menü Ablauf-&gt; Namenliste zuerst mindestens ein Name angegeben werden.</note>
+                <target>Es muss im Menü Ablauf-&gt; Namenliste zuerst mindestens ein Name angegeben werden.</target>
+            </trans-unit>
+            <trans-unit id="At least one operation must be choosed.">
+                <source>At least one operation must be choosed.</source>
+                <note>Mindestens eine Operation muss ausgewähltsein.</note>
+                <target>Mindestens eine Operation muss ausgewähltsein.</target>
+            </trans-unit>
+            <trans-unit id="At least one row must be choosed.">
+                <source>At least one row must be choosed.</source>
+                <note>Mindestens eine Reihe muss ausgewählt sein.</note>
+                <target>Mindestens eine Reihe muss ausgewählt sein.</target>
+            </trans-unit>
+            <trans-unit id="At least one test must be present.">
+                <source>At least one test must be present.</source>
+                <note>Mindestens ein Test muss vorhanden sein.</note>
+                <target>Mindestens ein Test muss vorhanden sein.</target>
+            </trans-unit>
+            <trans-unit id="Beenden">
+                <source>Beenden</source>
+                <note>Beenden</note>
+                <target>Beenden</target>
+            </trans-unit>
+            <trans-unit id="Begin a new session of tests for all members of the list.">
+                <source>Begin a new session of tests for all members of the list.</source>
+                <note>Neue Session</note>
+                <target>Eine neue Session für alle Miglieder der Liste beginnen.</target>
+            </trans-unit>
+            <trans-unit id="Cancel">
+                <source>Cancel</source>
+                <note>Abbrechen</note>
+                <target>Abbrechen</target>
+            </trans-unit>
+            <trans-unit id="Change Password">
+                <source>Change Password</source>
+                <note>Passwort bearbeiten</note>
+                <target>Passwort bearbeiten</target>
+            </trans-unit>
+            <trans-unit id="Check the result.">
+                <source>Check the result.</source>
+                <note>Ergebnis testen.</note>
+                <target>Ergebnis testen.</target>
+            </trans-unit>
+            <trans-unit id="Choose A Name">
+                <source>Choose A Name</source>
+                <note>Einen Namen wählen</note>
+                <target>Einen Namen wählen</target>
+            </trans-unit>
+            <trans-unit id="Choose Name">
+                <source>Choose Name</source>
+                <note>Namen wählen</note>
+                <target>Namen wählen</target>
+            </trans-unit>
+            <trans-unit id="Choose Test">
+                <source>Choose Test</source>
+                <note>Test wählen</note>
+                <target>Test wählen</target>
+            </trans-unit>
+            <trans-unit id="Choose a name.">
+                <source>Choose a name.</source>
+                <note>Einen Namen auswählen.</note>
+                <target>Einen Namen auswählen.</target>
+            </trans-unit>
+            <trans-unit id="Choose a test.">
+                <source>Choose a test.</source>
+                <note>Einen Test auswählen.</note>
+                <target>Einen Test auswählen.</target>
+            </trans-unit>
+            <trans-unit id="Choose test whoose user settings shall be shown.\nThe settings can be edited.">
+                <source>Choose test whoose user settings shall be shown.
+The settings can be edited.</source>
+                <note>Test wählen, für den die Einstellungen der Benutzer angezeigt werden sollen.\nDie Einstellungen können angepasst werden.</note>
+                <target>Test wählen, für den die Einstellungen der Benutzer angezeigt werden sollen.\nDie Einstellungen können angepasst werden.</target>
+            </trans-unit>
+            <trans-unit id="Choose the klicked user.">
+                <source>Choose the klicked user.</source>
+                <note>Den angeklickten Benutzer auswählen.</note>
+                <target>Den angeklickten Benutzer auswählen.</target>
+            </trans-unit>
+            <trans-unit id="Choose the volume of the speaker.">
+                <source>Choose the volume of the speaker.</source>
+                <note>Die Lautstärke einstellen.</note>
+                <target>Die Lautstärke einstellen.</target>
+            </trans-unit>
+            <trans-unit id="Choose user whoose settings shall be shown.\nThe settings can be edited.">
+                <source>Choose user whoose settings shall be shown.
+The settings can be edited.</source>
+                <note>Benutzer wählen, für den die aktiven Tests angezeigt werden sollen.\nDie Einstellungen können angepasst werden.</note>
+                <target>Benutzer wählen, für den die aktiven Tests angezeigt werden sollen.\nDie Einstellungen können angepasst werden.</target>
+            </trans-unit>
+            <trans-unit id="Chose mode.">
+                <source>Chose mode.</source>
+                <note>Modus einstellen.</note>
+                <target>Modus einstellen.</target>
+            </trans-unit>
+            <trans-unit id="Close">
+                <source>Close</source>
+                <note>Schliessen</note>
+                <target>Schliessen</target>
+            </trans-unit>
+            <trans-unit id="Comments">
+                <source>Comments</source>
+                <note>Anmerkungen</note>
+                <target>Anmerkungen</target>
+            </trans-unit>
+            <trans-unit id="Create">
+                <source>Create</source>
+                <note>Anlegen</note>
+                <target>Anlegen</target>
+            </trans-unit>
+            <trans-unit id="Create Lecturebox:">
+                <source>Create Lecturebox:</source>
+                <note>SndCalcDaten einrichten:</note>
+                <target>SndCalcDaten einrichten:</target>
+            </trans-unit>
+            <trans-unit id="Create New Lecturebox:">
+                <source>Create New Lecturebox:</source>
+                <note>Neue SndCalcDaten einrichten:</note>
+                <target>Neue SndCalcDaten einrichten:</target>
+            </trans-unit>
+            <trans-unit id="Create a new serie of tasks.">
+                <source>Create a new serie of tasks.</source>
+                <note>Eine neue Aufgabenserie bereitstellen.</note>
+                <target>Eine neue Aufgabenserie bereitstellen.</target>
+            </trans-unit>
+            <trans-unit id="Creating The Archive:">
+                <source>Creating The Archive:</source>
+                <note>Archiv einrichten:</note>
+                <target>Archiv einrichten:</target>
+            </trans-unit>
+            <trans-unit id="Data Folder Busy">
+                <source>Data Folder Busy</source>
+                <note>Datenordner besetzt</note>
+                <target>Datenordner besetzt</target>
+            </trans-unit>
+            <trans-unit id="Delete">
+                <source>Delete</source>
+                <note>Löschen</note>
+                <target>Löschen</target>
+            </trans-unit>
+            <trans-unit id="Delete All Grades">
+                <source>Delete All Grades</source>
+                <note>Alle Noten löschen</note>
+                <target>Alle Noten löschen</target>
+            </trans-unit>
+            <trans-unit id="Delete Test">
+                <source>Delete Test</source>
+                <note>Test löschen</note>
+                <target>Test löschen?</target>
+            </trans-unit>
+            <trans-unit id="Delete Test?">
+                <source>Delete Test?</source>
+                <note>Test löschen?</note>
+                <target>Test löschen?</target>
+            </trans-unit>
+            <trans-unit id="Delete clicked Test.">
+                <source>Delete clicked Test.</source>
+                <note>Angeklickten Test löschen</note>
+                <target>Angeklickten Test löschen</target>
+            </trans-unit>
+            <trans-unit id="Delete invalid results">
+                <source>Delete invalid results</source>
+                <note>Ungültige Ergebnisse löschen</note>
+                <target>Ungültige Ergebnisse löschen</target>
+            </trans-unit>
+            <trans-unit id="Do you really want do delete all quotes?">
+                <source>Do you really want do delete all quotes?</source>
+                <note>Noten wirklich löschen?</note>
+                <target>Noten wirklich löschen?</target>
+            </trans-unit>
+            <trans-unit id="Do you really want do delete the name %@?">
+                <source>Do you really want do delete the name %@?</source>
+                <note>Namen %@wiklich entfernen?
+   Namen %@wirklich entfernen?</note>
+            </trans-unit>
+            <trans-unit id="Do you really want to delete this test?">
+                <source>Do you really want to delete this test?</source>
+                <note>Diesen Text wirklisch löschen?</note>
+                <target>Diesen Text wirklisch löschen?</target>
+            </trans-unit>
+            <trans-unit id="Do you want to reset its state before terminating?">
+                <source>Do you want to reset its state before terminating?</source>
+                <note>Soll sein Status vor dem Beenden zurückgesetzt werden?</note>
+                <target>Soll sein Status vor dem Beenden zurückgesetzt werden?</target>
+            </trans-unit>
+            <trans-unit id="Doing this, you made %d errors">
+                <source>Doing this, you made %d errors</source>
+                <note>Dabei hast du %d Fehler gemacht.</note>
+            </trans-unit>
+            <trans-unit id="Edit the clicked test.">
+                <source>Edit the clicked test.</source>
+                <note>Angeklickten Test bearbeiten.</note>
+                <target>Angeklickten Test bearbeiten.</target>
+            </trans-unit>
+            <trans-unit id="Elapsed time.">
+                <source>Elapsed time.</source>
+                <note>Abgelaufene Zeit.</note>
+                <target>Abgelaufene Zeit.</target>
+            </trans-unit>
+            <trans-unit id="End">
+                <source>End</source>
+                <note>Fertig</note>
+                <target>Fertig</target>
+            </trans-unit>
+            <trans-unit id="Enter a name for the test.">
+                <source>Enter a name for the test.</source>
+                <note>Einen Namen für den Test eingeben.</note>
+                <target>Einen Namen für den Test eingeben.</target>
+            </trans-unit>
+            <trans-unit id="Error:">
+                <source>Error:</source>
+                <note>Fehler:</note>
+                <target>Fehler:</target>
+            </trans-unit>
+            <trans-unit id="Find the Lecturebox in the network">
+                <source>Find the Lecturebox in the network</source>
+                <note>Lesebox im Netz suchen</note>
+                <target>Datenorder im Netz suchen</target>
+            </trans-unit>
+            <trans-unit id="Go Back">
+                <source>Go Back</source>
+                <note>Zurück</note>
+                <target>Zurück</target>
+            </trans-unit>
+            <trans-unit id="How do you want to continue?">
+                <source>How do you want to continue?</source>
+                <note>Wie weiterfahren?
+   Wie willst du weiterfahren?</note>
+                <target>Wie willst du weiterfahren?</target>
+            </trans-unit>
+            <trans-unit id="How to go on?">
+                <source>How to go on?</source>
+                <note>Wie willst du weiterfahren?</note>
+                <target>Wie willst du weiterfahren?</target>
+            </trans-unit>
+            <trans-unit id="HunderterU">
+                <source>HunderterU</source>
+                <note>Hunderterübergang:</note>
+                <target>Hunderterübergang:</target>
+            </trans-unit>
+            <trans-unit id="Input Error">
+                <source>Input Error</source>
+                <note>Eingabefehler</note>
+                <target>Eingabefehler:</target>
+            </trans-unit>
+            <trans-unit id="Input Error:">
+                <source>Input Error:</source>
+                <note>Eingabefehler:</note>
+                <target>Eingabefehler:</target>
+            </trans-unit>
+            <trans-unit id="Input field">
+                <source>Input field</source>
+                <note>Eingabefeld</note>
+                <target>Eingabefeld</target>
+            </trans-unit>
+            <trans-unit id="It is momentarly used by annother user.">
+                <source>It is momentarly used by annother user.</source>
+                <note>Er wird im Moment von einem anderen Computer benutzt</note>
+                <target>Er wird im Moment von einem anderen Computer benutzt</target>
+            </trans-unit>
+            <trans-unit id="Just terminate">
+                <source>Just terminate</source>
+                <note>Sofort beenden</note>
+                <target>Sofort beenden</target>
+            </trans-unit>
+            <trans-unit id="Lecturebox">
+                <source>Lecturebox</source>
+                <note>Lesebox</note>
+            </trans-unit>
+            <trans-unit id="List of avalilable tests.\nOnly activated tests are shown to the user.">
+                <source>List of avalilable tests.
+Only activated tests are shown to the user.</source>
+                <note>Testliste.</note>
+                <target>Liste der vorhandenen Tests. Dem Benutzer werden nur die für ihn aktivierten Tests gezeigt.</target>
+            </trans-unit>
+            <trans-unit id="List of logged in users.">
+                <source>List of logged in users.</source>
+                <note>Liste der angemeldeten Benutzer.</note>
+                <target>Liste der angemeldeten Benutzer.</target>
+            </trans-unit>
+            <trans-unit id="Magic from the painting 'Melencholia I' of Leonardo">
+                <source>Magic from the painting 'Melencholia I' of Leonardo</source>
+                <note>Leonardo</note>
+                <target>Magisches Quadrat aus der Zeichnung 'Melencholia I' von Leonardo.</target>
+            </trans-unit>
+            <trans-unit id="Name Already Exists">
+                <source>Name Already Exists</source>
+                <note>Name schon vorhanden</note>
+                <target>Der Name ist schon vorhanden</target>
+            </trans-unit>
+            <trans-unit id="Name: ">
+                <source>Name: </source>
+                <note>Name:</note>
+                <target>Weiter</target>
+            </trans-unit>
+            <trans-unit id="Next">
+                <source>Next</source>
+                <note>Weiter</note>
+                <target>Weiter</target>
+            </trans-unit>
+            <trans-unit id="No Name for Test.">
+                <source>No Name for Test.</source>
+                <note>Der Test hat keinen Namen.</note>
+                <target>Der Test hat keinen Namen.</target>
+            </trans-unit>
+            <trans-unit id="No Operation Choosed.">
+                <source>No Operation Choosed.</source>
+                <note>Keine Operation ausgewählt
+   Keine Operation ausgewählt.</note>
+                <target>Keine Operation ausgewählt.</target>
+            </trans-unit>
+            <trans-unit id="No Results">
+                <source>No Results</source>
+                <note>Keine Ergebnisse</note>
+                <target>Keine Ergebnisse</target>
+            </trans-unit>
+            <trans-unit id="No Row Choosed">
+                <source>No Row Choosed</source>
+                <note>Keine Reihe ausgewählt</note>
+                <target>Keine Reihe ausgewählt.</target>
+            </trans-unit>
+            <trans-unit id="No Row Choosed.">
+                <source>No Row Choosed.</source>
+                <note>Keine Reihe ausgewählt.</note>
+                <target>Keine Reihe ausgewählt.</target>
+            </trans-unit>
+            <trans-unit id="No Test">
+                <source>No Test</source>
+                <note>Kein Test</note>
+                <target>Kein Test</target>
+            </trans-unit>
+            <trans-unit id="No comments for this Project">
+                <source>No comments for this Project</source>
+                <note>Keine Kommentare für dieses Projekt</note>
+                <target>Keine Kommentare für dieses Projekt</target>
+            </trans-unit>
+            <trans-unit id="No data for serie.">
+                <source>No data for serie.</source>
+                <note>Keine cSeriedaten vorhanden.</note>
+                <target>Keine cSeriedaten vorhanden.</target>
+            </trans-unit>
+            <trans-unit id="No test is selected for you.">
+                <source>No test is selected for you.</source>
+                <note>Für dich ist kein Test ausgewählt.</note>
+                <target>Für dich ist kein Test ausgewählt.</target>
+            </trans-unit>
+            <trans-unit id="Number of tasks in the choosen serie.">
+                <source>Number of tasks in the choosen serie.</source>
+                <note>Anzahl Aufgaben der gewählten Serie.</note>
+                <target>Anzahl Aufgaben der gewählten Serie.</target>
+            </trans-unit>
+            <trans-unit id="Of the given %d Samples you have solved %d. ">
+                <source>Of the given %1$d Samples you have solved %2$d. </source>
+                <note>von den gegebenen %d Aufgaben hast du %d gelöst</note>
+            </trans-unit>
+            <trans-unit id="Only in training mode:\n Maximal amount of time for a serie.">
+                <source>Only in training mode:
+ Maximal amount of time for a serie.</source>
+                <note>Zeit wählen.</note>
+                <target>Zeit wählen.</target>
+            </trans-unit>
+            <trans-unit id="Only in training mode:\n Numer of tasks in a serie.">
+                <source>Only in training mode:
+ Numer of tasks in a serie.</source>
+                <note>Anzahl wählen.</note>
+                <target>Anzahl wählen.</target>
+            </trans-unit>
+            <trans-unit id="Open NameList">
+                <source>Open NameList</source>
+                <note>Namenliste öffnen</note>
+                <target>Namenliste öffnen</target>
+            </trans-unit>
+            <trans-unit id="Open a panel to connect to a network user.">
+                <source>Open a panel to connect to a network user.</source>
+                <note>√ñffnet ein Dialogfeld, um die Verbindung zu einen Benutzer im Netzwerk einzurichten.</note>
+                <target>Öffnet ein Dialogfeld, um die Verbindung zu einen Benutzer im Netzwerk einzurichten.</target>
+            </trans-unit>
+            <trans-unit id="Open settingwindow for tasks.">
+                <source>Open settingwindow for tasks.</source>
+                <note>Einstellungsfenster für die Aufgaben öffnen.</note>
+                <target>Einstellungsfenster für die Aufgaben öffnen.</target>
+            </trans-unit>
+            <trans-unit id="Perhaps the user permissions do not allow this">
+                <source>Perhaps the user permissions do not allow this</source>
+                <note>Benutzungsrechte fraglich</note>
+                <target>Benutzungsrechte sind eventuell fraglich</target>
+            </trans-unit>
+            <trans-unit id="Project: ">
+                <source>Project: </source>
+                <note>Projekt:</note>
+                <target>Projekt:</target>
+            </trans-unit>
+            <trans-unit id="Quit">
+                <source>Quit</source>
+                <note>Beenden</note>
+                <target>Beenden</target>
+            </trans-unit>
+            <trans-unit id="Quit Applikation">
+                <source>Quit Applikation</source>
+                <note>Programm beenden</note>
+                <target>Programm beenden.</target>
+            </trans-unit>
+            <trans-unit id="Quit application.">
+                <source>Quit application.</source>
+                <note>Programm beenden.</note>
+                <target>Programm beenden.</target>
+            </trans-unit>
+            <trans-unit id="Remove the clicked Test for all users.">
+                <source>Remove the clicked Test for all users.</source>
+                <note>Angeklickten Test bei allen Benutzern entfernen.</note>
+                <target>Angeklickten Test bei allen Benutzern entfernen.</target>
+            </trans-unit>
+            <trans-unit id="Repeat">
+                <source>Repeat</source>
+                <note>Wiederholen</note>
+                <target>Wiederholen</target>
+            </trans-unit>
+            <trans-unit id="Replace Test">
+                <source>Replace Test</source>
+                <note>Test ersetzen</note>
+                <target>Test ersetzen</target>
+            </trans-unit>
+            <trans-unit id="Reset Data Folder">
+                <source>Reset Data Folder</source>
+                <note>Datenordner zurücksetzen</note>
+                <target>Datenordner zurücksetzen</target>
+            </trans-unit>
+            <trans-unit id="Results from ">
+                <source>Results from </source>
+                <note>Ergebnisse vom</note>
+                <target>Ergebnisse vom</target>
+            </trans-unit>
+            <trans-unit id="Save Password">
+                <source>Save Password</source>
+                <note>Passwort sichern</note>
+                <target>Passwort sichern</target>
+            </trans-unit>
+            <trans-unit id="Save Test">
+                <source>Save Test</source>
+                <note>Test sichern</note>
+                <target>Test sichern</target>
+            </trans-unit>
+            <trans-unit id="Save the new or edited test.">
+                <source>Save the new or edited test.</source>
+                <note>Bearbeiteten Test wieder sichern.</note>
+                <target>Bearbeiteten Test wieder sichern.</target>
+            </trans-unit>
+            <trans-unit id="Set or remove the choosen test for all users.">
+                <source>Set or remove the choosen test for all users.</source>
+                <note>Den ausgewählten Test für alle Benutzer setzen oder entfernen.</note>
+                <target>Den ausgewählten Test für alle Benutzer setzen oder entfernen.</target>
+            </trans-unit>
+            <trans-unit id="Settings are only available in Training Modus">
+                <source>Settings are only available in Training Modus</source>
+                <note>Die Einstellungen sind nur im Trainigsmodus zugänglich</note>
+                <target>Die Einstellungen sind nur im Trainigsmodus zugänglich</target>
+            </trans-unit>
+            <trans-unit id="Settings for test: %@ incorrect">
+                <source>Settings for test: %@ incorrect</source>
+                <note>Einstellungen für Test: '%@' sind nicht korrekt</note>
+            </trans-unit>
+            <trans-unit id="Settings for this test are incorrect">
+                <source>Settings for this test are incorrect</source>
+                <note>Einstellungen für diesen Test sind nicht korrekt</note>
+                <target>Einstellungen für diesen Test sind nicht korrekt</target>
+            </trans-unit>
+            <trans-unit id="Shift clicked test up and down.">
+                <source>Shift clicked test up and down.</source>
+                <note>Verschieben eines angeklickten Tests nach oben oder unten</note>
+                <target>Verschieben eines angeklickten Tests nach oben oder unten</target>
+            </trans-unit>
+            <trans-unit id="Show my results.">
+                <source>Show my results.</source>
+                <note>Meine Ergebnisse zeigen.</note>
+                <target>Meine Ergebnisse zeigen.</target>
+            </trans-unit>
+            <trans-unit id="Single results can be removed in the statistics window.">
+                <source>Single results can be removed in the statistics window.</source>
+                <note>Einzelne Ergebnisse können im Statistikfenster entfernt werden.</note>
+                <target>Einzelne Ergebnisse können im Statistikfenster entfernt werden.</target>
+            </trans-unit>
+            <trans-unit id="SndCalc.plist">
+                <source>SndCalc.plist</source>
+                <note>SndCalc.plist</note>
+            </trans-unit>
+            <trans-unit id="SndCalcDaten">
+                <source>SndCalcDaten</source>
+                <note>SndCalcDaten</note>
+            </trans-unit>
+            <trans-unit id="Start">
+                <source>Start</source>
+                <note>LOS
+   Start</note>
+                <target>LOS</target>
+            </trans-unit>
+            <trans-unit id="Start the serie of tasks.">
+                <source>Start the serie of tasks.</source>
+                <note>Die Aufgabenserie starten.</note>
+                <target>Die Aufgabenserie starten.</target>
+            </trans-unit>
+            <trans-unit id="Synchronize session list with other computers logged in">
+                <source>Synchronize session list with other computers logged in</source>
+                <note>Sessionsliste mit andern eingeloggten Computern synchronisieren</note>
+                <target>Sessionsliste mit andern eingeloggten Computern synchronisieren</target>
+            </trans-unit>
+            <trans-unit id="Table of aktive tests with settings for the choosen user./nActive tests are shown to the user.">
+                <source>Table of aktive tests with settings for the choosen user./nActive tests are shown to the user.</source>
+                <note>Liste der aktiven Tests für den ausgewählten Benutzer.\nActive Tests sind für den Benutzer wählbar.</note>
+                <target>Liste der aktiven Tests für den ausgewählten Benutzer.\nActive Tests sind für den Benutzer wählbar.</target>
+            </trans-unit>
+            <trans-unit id="Table of registered users and settings for the choosen test./nActive tests are shown to the choosen User.">
+                <source>Table of registered users and settings for the choosen test./nActive tests are shown to the choosen User.</source>
+                <note>Liste der Benutzer und der Einstellung für den gewählten Test.\nAktive Tests sind für den Benutzer wählbar</note>
+                <target>Liste der Benutzer und der Einstellung für den gewählten Test.\nAktive Tests sind für den Benutzer wählbar</target>
+            </trans-unit>
+            <trans-unit id="Task number">
+                <source>Task number</source>
+                <note>Aufgabennummer</note>
+                <target>Aufgabennummer</target>
+            </trans-unit>
+            <trans-unit id="That's it">
+                <source>That's it</source>
+                <note>Das wär's</note>
+                <target>Das wär's</target>
+            </trans-unit>
+            <trans-unit id="The Test is not deleted.">
+                <source>The Test is not deleted.</source>
+                <note>Der Test wird nicht gelöscht</note>
+                <target>Der Test wird nicht gelöscht</target>
+            </trans-unit>
+            <trans-unit id="The data folder cannot be opened.">
+                <source>The data folder cannot be opened.</source>
+                <note>Der Datenordner kann nicht geöffnet werden</note>
+                <target>Der Datenordner kann nicht geöffnet werden</target>
+            </trans-unit>
+            <trans-unit id="The folder 'Archive' cannot be created on the choosen computer">
+                <source>The folder 'Archive' cannot be created on the choosen computer</source>
+                <note>Auf dem Computer kein Archiv eingerichtet</note>
+                <target>Der Ordner 'Archiv' kann auf dem ausgewählten Computer nicht eingerichtet werden.</target>
+            </trans-unit>
+            <trans-unit id="The folder 'Lecturebox' can be created on the choosen computer">
+                <source>The folder 'Lecturebox' can be created on the choosen computer</source>
+                <note>SndCalcDaten kann anlegt werden</note>
+                <target>Der Ordner 'SndCalcDaten' kann auf dem ausgewählten Computer eingerichtet werden.</target>
+            </trans-unit>
+            <trans-unit id="The folder 'Lecturebox' cannot be created on the choosen computer">
+                <source>The folder 'Lecturebox' cannot be created on the choosen computer</source>
+                <note>Keine SndCalcDaten auf Computer</note>
+                <target>Der Ordner 'SndCalcDaten' kann auf dem ausgewählten Computer nicht eingerichtet werden.</target>
+            </trans-unit>
+            <trans-unit id="The lecturebox can also be created after login.">
+                <source>The lecturebox can also be created after login.</source>
+                <note>Lesebox auch nach login</note>
+            </trans-unit>
+            <trans-unit id="The lecturebox must be created manually on the choosen computer">
+                <source>The lecturebox must be created manually on the choosen computer</source>
+                <note>LB manuelleinrichten</note>
+                <target>Der Datenordner muss auf dem ausgewählten Computer manuell eingerichtet werden.</target>
+            </trans-unit>
+            <trans-unit id="The old password is wrong">
+                <source>The old password is wrong</source>
+                <note>Das alte Passwort ist falsch.</note>
+                <target>Das alte Passwort ist falsch.</target>
+            </trans-unit>
+            <trans-unit id="The password may not be empty">
+                <source>The password may not be empty</source>
+                <note>Das Passwort darf nicht leer sein.</note>
+                <target>Das Passwort darf nicht leer sein.</target>
+            </trans-unit>
+            <trans-unit id="The second input does not match the first">
+                <source>The second input does not match the first</source>
+                <note>Die zweite Eingabe stimmt nicht mit der ersten überein.</note>
+                <target>Die zweite Eingabe stimmt nicht mit der ersten überein.</target>
+            </trans-unit>
+            <trans-unit id="The settings are deleted.">
+                <source>The settings are deleted.</source>
+                <note>Die Einstellungen werden gelöscht.</note>
+                <target>Die Einstellungen werden gelöscht.</target>
+            </trans-unit>
+            <trans-unit id="The test and the results of all users with this test are deleted.">
+                <source>The test and the results of all users with this test are deleted.</source>
+                <note>Der Test und die Ergebnisse aller Benutzer mit dem Test werden entfernt.</note>
+                <target>Der Test und die Ergebnisse aller Benutzer mit dem Test werden entfernt.</target>
+            </trans-unit>
+            <trans-unit id="The test is set for all users">
+                <source>The test is set for all users</source>
+                <note>Der Test ist für alle Benutzer gesetzt.</note>
+                <target>Der Test ist für alle Benutzer gesetzt.</target>
+            </trans-unit>
+            <trans-unit id="The test must have another name to be saved.">
+                <source>The test must have another name to be saved.</source>
+                <note>Der Test muss einen andern Namen bekommen, um gesichert werden zu können.</note>
+                <target>Der Test muss einen andern Namen bekommen, um gesichert werden zu können.</target>
+            </trans-unit>
+            <trans-unit id="The test must have anpther name to be saved.">
+                <source>The test must have anpther name to be saved.</source>
+                <note>Der Test muss einen andern Namen bekommen, um gesichert werden zu können.</note>
+                <target>Der Test muss einen andern Namen bekommen, um gesichert werden zu können.</target>
+            </trans-unit>
+            <trans-unit id="The time for admin access is over.">
+                <source>The time for admin access is over.</source>
+                <note>Die Zeit für den Adminzugang ist abgelaufen.</note>
+                <target>Die Zeit für den Adminzugang ist abgelaufen.</target>
+            </trans-unit>
+            <trans-unit id="There is a problem with the state of thedata folder.">
+                <source>There is a problem with the state of thedata folder.</source>
+                <note>Es gibt ein Problem mit dem Status des Datenordners.</note>
+                <target>Es gibt ein Problem mit dem Status des Datenordners.</target>
+            </trans-unit>
+            <trans-unit id="This is a Test">
+                <source>This is a Test</source>
+                <note>Das ist ein Test</note>
+                <target>Das ist ein Test</target>
+            </trans-unit>
+            <trans-unit id="This is not a valable path for the application">
+                <source>This is not a valable path for the application</source>
+                <note>Kein g√ºltiger Pfad</note>
+                <target>Das ist kein gültiger Pfad</target>
+            </trans-unit>
+            <trans-unit id="This took %d secconds">
+                <source>This took %d secconds</source>
+                <note>Dafür hast du %d Sekunden gebraucht.</note>
+            </trans-unit>
+            <trans-unit id="This was trial ">
+                <source>This was trial </source>
+                <note>Das war Versuch</note>
+                <target>Das war Versuch</target>
+            </trans-unit>
+            <trans-unit id="Time remaining.">
+                <source>Time remaining.</source>
+                <note>Verbleibende Zeit.</note>
+                <target>Verbleibende Zeit.</target>
+            </trans-unit>
+            <trans-unit id="Timeout For Admin">
+                <source>Timeout For Admin</source>
+                <note>Timeout für Admin</note>
+                <target>Timeout für Admin</target>
+            </trans-unit>
+            <trans-unit id="Userlist with marked users having done the test in the current session.">
+                <source>Userlist with marked users having done the test in the current session.</source>
+                <note>Liste mit markierten Usern</note>
+                <target>Liste mit markierten Usern</target>
+            </trans-unit>
+            <trans-unit id="Where is the folder with the sound files of the digits?">
+                <source>Where is the folder with the sound files of the digits?</source>
+                <note>Sndfiles fuer Ziffern</note>
+                <target>Wo sind die Files für die Ziffern?</target>
+            </trans-unit>
+            <trans-unit id="Where is the sound file of the tone?">
+                <source>Where is the sound file of the tone?</source>
+                <note>Sndfile fuer Quittung</note>
+                <target>Wo ist das Soundfile für die Quittung</target>
+            </trans-unit>
+            <trans-unit id="Who are You?">
+                <source>Who are You?</source>
+                <note>Wer bist du?</note>
+                <target>Wer bist du?</target>
+            </trans-unit>
+            <trans-unit id="Wrong Password">
+                <source>Wrong Password</source>
+                <note>Falsches Passwort</note>
+                <target>Falsches Passwort</target>
+            </trans-unit>
+            <trans-unit id="You Are here as a guest">
+                <source>You Are here as a guest</source>
+                <note>Du bist als Gast hier</note>
+                <target>Du bist als Gast hier</target>
+            </trans-unit>
+            <trans-unit id="You cannot change the count of tasks">
+                <source>You cannot change the count of tasks</source>
+                <note>Du kannst die Anzahl der Aufgaben nicht ändern.</note>
+                <target>Du kannst die Anzahl der Aufgaben nicht ändern.</target>
+            </trans-unit>
+            <trans-unit id="You cannot change the time">
+                <source>You cannot change the time</source>
+                <note>Du kannst die Zeit nicht ändern.</note>
+                <target>Du kannst die Zeit nicht ändern.</target>
+            </trans-unit>
+            <trans-unit id="You have 3 trials">
+                <source>You have 3 trials</source>
+                <note>Es sind 3 Versuche möglich</note>
+                <target>Es sind 3 Versuche möglich</target>
+            </trans-unit>
+            <trans-unit id="You have not yet passed a test.">
+                <source>You have not yet passed a test.</source>
+                <note>Du hast noch keinen Test bestanden.</note>
+                <target>Du hast noch keinen Test bestanden.</target>
+            </trans-unit>
+            <trans-unit id="You have to choose a name to continue">
+                <source>You have to choose a name to continue</source>
+                <note>Du musst einen Namen wählen, um weiterzufahren</note>
+                <target>Du musst einen Namen wählen, um weiterzufahren</target>
+            </trans-unit>
+            <trans-unit id="ZehnerU">
+                <source>ZehnerU</source>
+                <note>Zehnerübergang:</note>
+                <target>Zehnerübergang</target>
+            </trans-unit>
+            <trans-unit id="\nA list of names in format .doc, .rtf, or .txt is needed">
+                <source>
+A list of names in format .doc, .rtf, or .txt is needed</source>
+                <note>rtf-Klassenliste muss vorhanden sein</note>
+            </trans-unit>
+            <trans-unit id="\nAfter login, the user must be choosen in the LEFTMOST COLUMN.\n">
+                <source>
+After login, the user must be choosen in the LEFTMOST COLUMN.
+</source>
+                <note>Ausw√§hlen in Kol- ganz links</note>
+                <target>Nach dem Login muss der Benutzer in der Kolonne ganz links ausgewählt werden.</target>
+            </trans-unit>
+            <trans-unit id="\nNote:\nDeactivating only hides the test and the results.">
+                <source>
+Note:
+Deactivating only hides the test and the results.</source>
+                <note>Anmerkung:\nDeaktivieren verbirgt lediglich den Test und die Ergebnisse.</note>
+                <target>Anmerkung:\nDeaktivieren verbirgt lediglich den Test und die Ergebnisse.</target>
+            </trans-unit>
+            <trans-unit id="\nOn which Machine IN THE 2nd. COLUMN should be the lecturebox?">
+                <source>
+On which Machine IN THE 2nd. COLUMN should be the lecturebox?</source>
+                <note>LB auf welchem Comp?</note>
+                <target>Auf welchem Computer befinden sich die Schülerdaten</target>
+            </trans-unit>
+            <trans-unit id="\nThe file must be in AIFF format,">
+                <source>
+The file must be in AIFF format,</source>
+                <note>File als AIFF</note>
+                <target>File muss als AIFF vorliegen.</target>
+            </trans-unit>
+            <trans-unit id="\nThe files must be in AIFF format,">
+                <source>
+The files must be in AIFF format,</source>
+                <note>Files als AIFF</note>
+            </trans-unit>
+            <trans-unit id="in string">
+                <source>in string</source>
+                <note>teil 2</note>
+                <target>Der Name</target>
+            </trans-unit>
+            <trans-unit id="wrong input">
+                <source>wrong input</source>
+                <note>teil 1</note>
+                <target>enthält falsche Zeichen.</target>
+            </trans-unit>
+        </body>
+    </file>
+</xliff>
