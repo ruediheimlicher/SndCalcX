@@ -61,7 +61,7 @@
       [Warnung setMessageText:NSLocalizedString(@"Are You Shure?",@"Namen wirklich entfernen?")];
       NSString* I1=NSLocalizedString(@"Do you really want do delete the name %@?",@"Namen %@wirklich entfernen?");
       [Warnung setInformativeText:[NSString stringWithFormat:I1,deleteName]];
-      [Warnung setAlertStyle:NSWarningAlertStyle];
+      [Warnung setAlertStyle:NSAlertStyleWarning];
       
       //[Warnung setIcon:RPImage];
       NSInteger modalAntwort=[Warnung runModal];

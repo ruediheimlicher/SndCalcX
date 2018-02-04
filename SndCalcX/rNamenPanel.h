@@ -21,7 +21,7 @@
    NSString* neuerName;
    IBOutlet id		IconFeld;
 }
-- (BOOL)doesMatchRegStringExp:(NSString *)string;
+//- (BOOL)doesMatchRegStringExp:(NSString *)string;
 - (IBAction)reportCancel:(id)sender;
 - (IBAction)reportEntfernen:(id)sender;
 - (IBAction)reportClose:(id)sender;

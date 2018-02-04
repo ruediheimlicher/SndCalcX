@@ -47,6 +47,12 @@ rPasswortDialog*			PasswortDialogPanel;
 - (BOOL)DataValidAnPfad:(NSString*)derDataPfad;
 - (BOOL)deletePListAnPfad:(NSString*)derSndCalcDatenPfad;
 - (void)saveNote:(NSString*)dieNote forUser:(NSString*)derUser anPfad:(NSString*)derPfad;
+
+- (NSInteger)tagDesJahresVonDate:(NSDate*)datum;
+- (NSString*) lokalDatumVonDate:(NSDate*)datum;
+- (NSInteger)jahrVonDate:(NSDate*)datum;
+- (NSInteger)monatVonDate:(NSDate*)datum;
+- (NSInteger)tagVonDate:(NSDate*)datum;
 - (BOOL)saveSessionDatum:(NSDate*)dasDatum anPfad:(NSString*)derPfad;
 - (NSDate*)SessionDatumAnPfad:(NSString*)derPfad;
 - (BOOL)saveSessionBehalten:(BOOL)behaltenOK anPfad:(NSString*)derPfad;

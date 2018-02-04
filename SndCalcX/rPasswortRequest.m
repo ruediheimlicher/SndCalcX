@@ -88,7 +88,7 @@
          NSString* s2=NSLocalizedString(@"This was trial ",@"Das war Versuch ");
          NSString* InformationString=[NSString stringWithFormat:@"%@\n%@ %d",s1,s2,PasswortFehler+1];
          [Warnung setInformativeText:InformationString];
-         [Warnung setAlertStyle:NSWarningAlertStyle];
+         [Warnung setAlertStyle:NSAlertStyleWarning];
          
          //[Warnung setIcon:RPImage];
          int antwort=[Warnung runModal];

@@ -91,7 +91,7 @@
 "Choose a name." = "Einen Namen auswählen.";
 
 /* Einen Test auswählen. */
-"Choose a test." = "Einen Test auswählen.";
+"Choose a test." = "Einen Test auswählen. Du musst einen Namen ausgewählt haben.";
 
 /* Test wählen, für den die Einstellungen der Benutzer angezeigt werden sollen.\nDie Einstellungen können angepasst werden. */
 "Choose test whoose user settings shall be shown. The settings can be edited." = "Test wählen, für den die Einstellungen der Benutzer angezeigt werden sollen.\\nDie Einstellungen können angepasst werden.";
@@ -325,7 +325,7 @@
 "Shift clicked test up and down." = "Verschieben eines angeklickten Tests nach oben oder unten";
 
 /* Meine Ergebnisse zeigen. */
-"Show my results." = "Meine Ergebnisse zeigen.";
+"Show my results." = "Meine Ergebnisse zeigen. Du musst einen Namen ausgewählt haben.";
 
 /* Einzelne Ergebnisse können im Statistikfenster entfernt werden. */
 "Single results can be removed in the statistics window." = "Einzelne Ergebnisse können im Statistikfenster entfernt werden.";

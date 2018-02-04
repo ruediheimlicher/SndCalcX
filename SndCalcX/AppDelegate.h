@@ -60,7 +60,7 @@ struct cSeriedaten;
   
    NSArray*                   AufgabenArray;
    NSArray*                   AufgabenDicArray;
-   IBOutlet NSDrawer*          AufgabenDrawer;
+   IBOutlet NSDrawer*         AufgabenDrawer;
    NSTextView*                DrawerView;
    IBOutlet NSMenu*           AblaufMenu;
    
@@ -182,6 +182,10 @@ struct cSeriedaten;
    
    NSTimer*             falschesZeichenTimer;
 
+   
+   NSString*                  heuteDatumString;
+   long                        heuteTagDesJahres;
+   
 }
 - (NSWindow*)window;
 - (NSString*)chooseSndCalcPfadMitUserArray:(NSArray*)derUserArray;

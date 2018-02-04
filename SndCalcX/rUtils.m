@@ -326,105 +326,7 @@
             
             
             
-            /*
-             NSMutableArray* KlassenordnerArray=(NSMutableArray*)[Filemanager contentsOfDirectoryAtPath:NetzVolumePfad error:NULL];
-             //NSLog(@"KlassenordnerArray: %@",[KlassenordnerArray description]);
-             
-             int KlassenordnerIndex=0;
-             for (KlassenordnerIndex=0;KlassenordnerIndex<[KlassenordnerArray count];KlassenordnerIndex++)
-             {
-             
-             
-             NSMutableDictionary* tempUserDic=[[[NSMutableDictionary alloc]initWithCapacity:0]autorelease];//Dic fuer Volume
-             NSString* tempVolumeName=[KlassenordnerArray objectAtIndex:KlassenordnerIndex];
-             NSLog(@"tempVolumeName: %@",tempVolumeName);
-             
-             
-             NSString* tempNetzVolumePfad=[NetzVolumePfad stringByAppendingPathComponent:[KlassenordnerArray objectAtIndex:KlassenordnerIndex]];
-             
-             
-             NSLog(@"index: %d tempNetzVolumePfad: %@",KlassenordnerIndex,tempNetzVolumePfad);
-             
-             
-             [tempUserDic setObject:[KlassenordnerArray objectAtIndex:KlassenordnerIndex] forKey:@"username"];		//Name des Users oder Volumes
-             [tempUserDic setObject:[KlassenordnerArray objectAtIndex:KlassenordnerIndex] forKey:@"host"];
-             [tempUserDic setObject:tempNetzVolumePfad forKey:@"netzvolumepfad"];//Pfad des Volumes
-             [tempUserDic setObject:[NSNumber numberWithBool:YES] forKey:@"loginOK"];
-             
-             
-             
-             //Pruefen, ob auf 'NetzVolumePfad' ein 'Documents'-Ordner mit einer SndCalcDaten vorhanden ist
-             
-             //Pfad fuer SndCalcDaten in 'Documents'
-             NSString*tempNetzUserSndCalcDatenPfad=[tempNetzVolumePfad stringByAppendingFormat:@"/Documents/%@",SndCalcDatenOrdnerName];
-             //NSLog(@"tempNetzUserSndCalcDatenPfad: %@",tempNetzUserSndCalcDatenPfad);
-             BOOL UserSndCalcDatenOK=NO;	//Wird YES wenn SndCalcDaten in Documents des users ist
-             
-             //Pfad fuer SndCalcDaten auf Volume
-             //NSString*tempNetzVolumeSndCalcDatenPfad=[tempNetzVolumePfad stringByAppendingPathComponent:SndCalcDatenOrdnerName];
-             //NSLog(@"tempNetzVolumeSndCalcDatenPfad: %@",tempNetzVolumeSndCalcDatenPfad);
-             BOOL VolumeSndCalcDatenOK=NO;	//Wird YES, wenn SndCalcDaten auf Volume ist
-             
-             int SndCalcDatenOrt=0;		//wird 1 wenn SndCalcDaten auf Volume ist, 2 wenn in 'Documents'
-             
-             //leere Strings einsetzen
-             [tempUserDic setObject:[NSString string] forKey:@"userSndCalcDatenpfad"];
-             [tempUserDic setObject:[NSString string] forKey:@"volumeSndCalcDatenpfad"];//leerer String
-             
-             if ([Filemanager fileExistsAtPath:tempNetzUserSndCalcDatenPfad isDirectory:&istOrdner]&&istOrdner)
-             {
-             NSMutableArray* tempArray=(NSMutableArray*)[Filemanager contentsOfDirectoryAtPath:tempNetzUserSndCalcDatenPfad error:NULL];
-             [tempArray removeObject:@".DS_Store"];
-             if ([tempArray count])
-             {
-             if ([tempArray  containsObject:@"Data"])
-             {
-             //SndCalcDaten in 'Documents'
-             //NSLog(@"SndCalcDaten in 'Documents':	tempNetzUserSndCalcDatenPfad: %@",tempNetzUserSndCalcDatenPfad);
-             //NSLog(@"SndCalcDaten in 'Documents':	tempNetzUserSndCalcDaten: %@",[[Filemanager directoryContentsAtPath:tempNetzUserSndCalcDatenPfad]description]);
-             UserSndCalcDatenOK=YES;//SndCalcDaten ist da
-             SndCalcDatenOrt=2;		//in 'Documents'
-             UserMitSndCalcDatenDa=YES;
-             
-             [tempUserDic setObject:tempNetzUserSndCalcDatenPfad forKey:@"volumeSndCalcDatenpfad"];
-             }
-             }
-             
-             }
-             
-             //Pruefen, ob auf 'tempNetzVolumePfad' eine ordner SndCalcDaten vorhanden ist
-             else if ([Filemanager fileExistsAtPath:tempNetzVolumePfad isDirectory:&istOrdner]&&istOrdner)
-             {
-             NSMutableArray* tempArray=(NSMutableArray*)[Filemanager contentsOfDirectoryAtPath:tempNetzVolumePfad error:NULL];
-             [tempArray removeObject:@".DS_Store"];
-             //NSLog(@"SndCalcDaten auf VolumePfad:	tempNetzVolumePfad: %@",[tempArray description]);
-             if ([tempArray count])
-             {
-             if ([tempArray  containsObject:@"SndCalc.plist"])
-             {
-             //SndCalcDaten auf Volume
-             //NSLog(@"SndCalcDaten auf Volume:		tempNetzVolumeSndCalcDatenPfad: %@",tempNetzVolumeSndCalcDatenPfad);
-             //NSLog(@"SndCalcDaten auf Volume:	tempNetzVolumeSndCalcDatenPfad: %@",[[Filemanager directoryContentsAtPath:tempNetzVolumePfad]description]);
-             VolumeSndCalcDatenOK=YES;//SndCalcDaten ist da
-             UserMitSndCalcDatenDa=YES;
-             SndCalcDatenOrt=1;	//auf Volume
-             [tempUserDic setObject:tempNetzVolumePfad forKey:@"volumeSndCalcDatenpfad"];
-             }
-             }
-             
-             }
-             
-             //           if (VolumeSndCalcDatenOK)
-             {
-             [tempUserDic setObject:[NSNumber numberWithBool:UserSndCalcDatenOK] forKey:@"userSndCalcDatenOK"];
-             [tempUserDic setObject:[NSNumber numberWithBool:VolumeSndCalcDatenOK] forKey:@"volumeSndCalcDatenOK"];
-             [tempUserDic setObject:[NSNumber numberWithInt:SndCalcDatenOrt] forKey:@"SndCalcDatenort"];
-             
-             [UserMitSndCalcDatenArray addObject:tempUserDic];//Dic fuerr das Volume anfuegen;
-             }
-             } // for KlassenordnerIndex
-             */
-            //
+             //
          }
       }//for volumesIndex
       
@@ -1294,16 +1196,60 @@
    return saveOK;
 }
 
+- (NSString*) lokalDatumVonDate:(NSDate*)datum
+{
+   // http://stackoverflow.com/questions/1268509/convert-utc-nsdate-to-local-timezone-objective-c
+   NSString* localDate = [NSDateFormatter localizedStringFromDate:datum dateStyle:NSDateFormatterMediumStyle timeStyle:NSDateFormatterMediumStyle];//  12.09.2015 19:20:26
+   return localDate;
+}
+
+- (NSInteger)tagDesJahresVonDate:(NSDate*)datum
+{
+   NSInteger tagDesJahres = [[NSCalendar currentCalendar] ordinalityOfUnit:NSCalendarUnitDay inUnit:NSCalendarUnitYear forDate:datum];
+   return tagDesJahres;
+}
+
+- (NSInteger)jahrVonDate:(NSDate*)datum
+{
+   NSCalendar* datumcalendar = [NSCalendar currentCalendar];
+   NSDateComponents* components = [datumcalendar components:NSCalendarUnitYear|NSCalendarUnitMonth|NSCalendarUnitDay fromDate:datum]; // Get necessary date components
+   NSInteger datumTag = [components day]; //gives you day
+   NSInteger datumJahr = [components year];
+   NSInteger datumMonat = [components month];
+   NSInteger datumInterval=[datum timeIntervalSinceReferenceDate];
+   NSLog(@"datumTag: %ld datumMonat: %ld datumJahr: %ld",datumTag,datumMonat,datumJahr);
+   return datumJahr;
+}
+
+- (NSInteger)monatVonDate:(NSDate*)datum
+{
+   NSCalendar* datumcalendar = [NSCalendar currentCalendar];
+   NSDateComponents* components = [datumcalendar components:NSCalendarUnitYear|NSCalendarUnitMonth|NSCalendarUnitDay fromDate:datum]; // Get necessary date components
+   NSInteger datumTag = [components day]; //gives you day
+   NSInteger datumJahr = [components year];
+   NSInteger datumMonat = [components month];
+   NSInteger datumInterval=[datum timeIntervalSinceReferenceDate];
+   NSLog(@"datumTag: %ld datumMonat: %ld datumJahr: %ld",datumTag,datumMonat,datumJahr);
+   return datumMonat;
+}
+
+- (NSInteger)tagVonDate:(NSDate*)datum
+{
+   NSCalendar* datumcalendar = [NSCalendar currentCalendar];
+   NSDateComponents* components = [datumcalendar components:NSCalendarUnitYear|NSCalendarUnitMonth|NSCalendarUnitDay fromDate:datum]; // Get necessary date components
+   NSInteger datumTag = [components day]; //gives you day
+   NSInteger datumJahr = [components year];
+   NSInteger datumMonat = [components month];
+   NSInteger datumInterval=[datum timeIntervalSinceReferenceDate];
+   NSLog(@"datumTag: %ld datumMonat: %ld datumJahr: %ld",datumTag,datumMonat,datumJahr);
+   return datumTag;
+}
+
+
 - (NSDate*)SessionDatumAnPfad:(NSString*)derPfad
 {
    NSDate* tempSessionDatum=[NSDate date];
-   NSCalendarDate* heute=[NSCalendarDate date];
-   //	[heute setCalendarFormat:@"%d.%m.%Y    Zeit: %H:%M"];
-   [heute setCalendarFormat:@"%d.%m.%Y"];
-   int lastSessionTag=[heute dayOfYear];
-   int heuteTag=[heute dayOfYear];
-   int heuteMonat=[heute monthOfYear];
-   //NSLog(@"SessionDatumAnPfad: heute: %@",[heute description]);
+   
    NSString* PListName=NSLocalizedString(@"SndCalc.plist",@"SndCalc.plist");
    NSFileManager *Filemanager=[NSFileManager defaultManager];
    BOOL istOrdner=NO;
@@ -1361,7 +1307,7 @@
 {
    BOOL saveOK=NO;
    BOOL istOrdner=NO;
-   NSLog(@"saveSessionBehalten: %d	anPfad: %@",behaltenOK,derPfad);
+   NSLog(@"saveSessionBehalten OK: %d	anPfad: %@",behaltenOK,derPfad);
    NSString* PListName=NSLocalizedString(@"SndCalc.plist",@"SndCalc.plist");
    NSFileManager *Filemanager=[NSFileManager defaultManager];
    if ([Filemanager fileExistsAtPath:derPfad isDirectory:&istOrdner]&&istOrdner)
@@ -1372,6 +1318,7 @@
       {
          [tempPListDic setObject:[NSNumber numberWithBool:behaltenOK] forKey:@"sessionbehalten"];
          saveOK=[tempPListDic writeToFile:tempPListPfad atomically:YES];
+         NSLog(@"saveSessionBehalten set OK saveOK: %d  ",saveOK);
       }//if tempPlistDic
       else
       {
@@ -1379,6 +1326,7 @@
          [tempPListDic setObject:[NSNumber numberWithBool:NO] forKey:@"sessionbehalten"];
          
          saveOK=[tempPListDic writeToFile:tempPListPfad atomically:YES];
+         NSLog(@"saveSessionBehalten err");
       }
       
       
@@ -1447,8 +1395,19 @@
    NSString* PListName=NSLocalizedString(@"SndCalc.plist",@"SndCalc.plist");
    NSFileManager *Filemanager=[NSFileManager defaultManager];
    BOOL istOrdner=NO;
-   NSCalendarDate* heute=[NSCalendarDate date];
-   int SessionBehaltenTag=[heute dayOfYear]-1;//wenn keine andere Angabe
+   //NSCalendarDate* oldheute=[NSCalendarDate date];
+   //int oldSessionBehaltenTag=[oldheute dayOfYear]-1;//wenn keine andere Angabe
+  
+   //http://ioscake.com/nsdate-beginning-of-day-and-end-of-day.html
+   //int currentDay;
+   //NSDateFormatter*dateFormatter = [[NSDateFormatter alloc] init];
+   //[dateFormatter setDateFormat:@"D"]; // The “D” is the flag for day of year.
+   //NSDate* heute = [NSDate date];
+//   int SessionBehaltenTag = [[dateFormatter stringFromDate:heute] intValue]-1;
+   
+   NSInteger SessionBehaltenTag = [[NSCalendar currentCalendar] ordinalityOfUnit:NSCalendarUnitDay inUnit:NSCalendarUnitYear forDate:[NSDate date]] -1;
+
+   
    if ([Filemanager fileExistsAtPath:derPfad isDirectory:&istOrdner]&&istOrdner)//SndCaldDaten sind da
    {
       NSString* tempPListPfad=[derPfad stringByAppendingPathComponent:PListName];
@@ -1461,7 +1420,7 @@
          
       }
    }
-   return SessionBehaltenTag;
+   return (int)SessionBehaltenTag;
 }
 
 

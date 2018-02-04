@@ -140,6 +140,7 @@
    
    NSCalendarDate* heute=[NSCalendarDate date];
    [heute setCalendarFormat:@"%d.%m.%Y    Zeit: %H:%M"];
+  
    
    NSString* TitelString=NSLocalizedString(@"Results from ",@"Ergebnisse vom ");
    NSString* KopfString=[NSString stringWithFormat:@"%@  %@%@",TitelString,[heute description],@"\r\r"];

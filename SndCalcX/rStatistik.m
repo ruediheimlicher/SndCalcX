@@ -696,7 +696,7 @@ float Notebreite=28.0;
    NSTextFieldCell* NoteCell=[[NSTextFieldCell alloc]init];
    //NSArray* NotenArray=[NSArray arrayWithObjects:@"6",@"5-6",@"5",@"4-5",@"4",@"3-4",@"3",@"2-3",nil];
    [NoteCell  setFont:[NSFont fontWithName:@"Helvetica" size:Schriftgroesse]];
-   [NoteCell setAlignment:NSCenterTextAlignment];
+   [NoteCell setAlignment:NSTextAlignmentCenter];
    [NoteCell setEditable:YES];
    /*
     if (farbig)
@@ -840,6 +840,7 @@ float Notebreite=28.0;
          NSMutableDictionary* tempErgebnisDic=[[NSMutableDictionary alloc]initWithCapacity:0];
          [tempErgebnisDic setObject: [einDic objectForKey:@"abgelaufenezeit"] forKey:@"zeit"];
          NSCalendarDate* tempDate=[[NSCalendarDate alloc]initWithString:[[einDic objectForKey:@"datum"]description]];
+         
          //NSLog(@"reportTestnamen	tempDate: %@",[tempDate description]);
          if (tempDate)
          {
@@ -2960,7 +2961,7 @@ float Notebreite=28.0;
    NSTableHeaderCell* ZeitKopfZelle=[[NSTableHeaderCell alloc]init];
    [ZeitKopfZelle  setFont:[NSFont fontWithName:@"Helvetica" size:Schriftgroesse]];
    [ZeitKopfZelle setStringValue:@"Zeit"];
-   [ZeitKopfZelle setAlignment:NSRightTextAlignment];
+   [ZeitKopfZelle setAlignment:NSTextAlignmentRight];
    [ZeitKolonne setHeaderCell:ZeitKopfZelle];
    
    [[ZeitKolonne dataCell] setFont:[NSFont fontWithName:@"Helvetica" size:Schriftgroesse]];
@@ -2972,7 +2973,7 @@ float Notebreite=28.0;
    NSTableColumn* GrafikKolonne=[[NSTableColumn alloc]initWithIdentifier:@"grafik"];
    [GrafikKolonne setHeaderCell:[[NSTableHeaderCell alloc] initTextCell:@"Grafik"]];
    [[GrafikKolonne headerCell]setFont:[NSFont fontWithName:@"Helvetica" size:Schriftgroesse]];
-   [[GrafikKolonne headerCell] setAlignment:NSCenterTextAlignment];
+   [[GrafikKolonne headerCell] setAlignment:NSTextAlignmentCenter];
    
    [[GrafikKolonne dataCell] setFont:[NSFont fontWithName:@"Helvetica" size:Schriftgroesse]];
    [GrafikKolonne setWidth:Grafikbreite];
@@ -2983,7 +2984,7 @@ float Notebreite=28.0;
    
    NSTableColumn* AnzFehlerKolonne=[[NSTableColumn alloc]initWithIdentifier:@"fehler"];
    [[AnzFehlerKolonne dataCell] setFont:[NSFont fontWithName:@"Helvetica" size:Schriftgroesse]];
-   [[AnzFehlerKolonne dataCell] setAlignment:NSRightTextAlignment];
+   [[AnzFehlerKolonne dataCell] setAlignment:NSTextAlignmentRight];
    [AnzFehlerKolonne setWidth:AnzFehlerbreite];
    //	[ErgebnisTable addTableColumn:AnzFehlerKolonne];
    
@@ -2992,7 +2993,7 @@ float Notebreite=28.0;
    [[MittelKolonne headerCell]setFont:[NSFont fontWithName:@"Helvetica" size:Schriftgroesse]];
    [[MittelKolonne dataCell] setFont:[NSFont fontWithName:@"Helvetica" size:Schriftgroesse]];
    [MittelKolonne setWidth:Mittelbreite];
-   [[MittelKolonne dataCell] setAlignment:NSRightTextAlignment];
+   [[MittelKolonne dataCell] setAlignment:NSTextAlignmentRight];
    [returnErgebnisTable addTableColumn:MittelKolonne];
    //[returnErgebnisTable setAutoresizesAllColumnsToFit:YES];
    
@@ -3010,7 +3011,7 @@ float Notebreite=28.0;
    [[NoteKolonne headerCell]setFont:[NSFont fontWithName:@"Helvetica" size:Schriftgroesse]];
    
    [[NoteKolonne dataCell] setFont:[NSFont fontWithName:@"Helvetica" size:Schriftgroesse]];
-   [[NoteKolonne dataCell] setAlignment:NSCenterTextAlignment];
+   [[NoteKolonne dataCell] setAlignment:NSTextAlignmentCenter];
    [NoteKolonne setWidth:Notebreite];
    [returnErgebnisTable addTableColumn:NoteKolonne];
    

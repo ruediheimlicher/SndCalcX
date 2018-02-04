@@ -242,7 +242,7 @@ short Minvon(short ersteZahl, short zweiteZahl);
 
 - (cSeriedaten)getcSeriedaten
 {
-   cSeriedaten tempSeriedaten;
+   cSeriedaten tempSeriedaten ;
    
    return tempSeriedaten;
 }

@@ -168,7 +168,7 @@ const short     kSerieFertig = 25003;
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
-   
+ 
    char	s[16]={""},  p[16];
    short zeile=3;
    short spalte=420;
@@ -397,7 +397,7 @@ const short     kSerieFertig = 25003;
       
       NSFileManager* Filemanager=[NSFileManager defaultManager];
       
-      VolumesPanel=[[rVolumes alloc]init];
+      VolumesPanel= [[rVolumes alloc]init];
       
       SndCalcPfad=[self chooseSndCalcPfadMitUserArray:NetworkDatenArray];
      // NSLog(@"awake: SndCalcPfad: %@",SndCalcPfad);
@@ -609,56 +609,8 @@ const short     kSerieFertig = 25003;
       //NSLog(@"ZeitArray aus Pop: %@",[[ZeitPopKnopf itemArray] description]);
       NSArray* ZeitArray=[NSArray arrayWithObjects:@"120 s",@"90 s",@"60 s",@"30 s",@"10 s",nil];
       //NSLog(@"ZeitArray: %@",[ZeitArray description]);
-      /*
-      [ZeitPopKnopf removeAllItems];
-      
-      if ([PListDic objectForKey:@"zeitarray"] && [[PListDic objectForKey:@"zeitarray"]count])
-      {
-         [ZeitPopKnopf addItemsWithTitles:[PListDic objectForKey:@"zeitarray"]];
-      }
-      else
-      {
-         [ZeitPopKnopf addItemsWithTitles:ZeitArray];
-      
-      }
-     
-      [self setZeitPop];
-      //	[self DebugStep:@"nach ZeitPopKnopf"];
-      NSEnumerator* ItemEnum=[[ZeitPopKnopf itemArray] objectEnumerator];
-      id einItem;
-      while (einItem=[ItemEnum nextObject])
-      {
-         int tempTag=[[einItem title]intValue];
-         [einItem setTag:[[einItem title]intValue]];
-         NSLog(@"Titel: %@ tag neu: %ld",[einItem title],[einItem tag]);
-      }//while
-       */
-      [self setZeitPop];
+       [self setZeitPop];
       [self setAnzahlPop];
-      /*
-       [AnzahlPopKnopf removeAllItems];
-      if ([PListDic objectForKey:@"anzahlarray"] && [[PListDic objectForKey:@"anzahlarray"]count])
-      {
-         [AnzahlPopKnopf addItemsWithTitles:[PListDic objectForKey:@"anzahlarray"]];
-      }
-      else
-      {
-         [AnzahlPopKnopf addItemsWithTitles:[NSArray arrayWithObjects:@"24",@"16",@"12",@"6",@"2",nil]];
-      }
-      NSEnumerator* AnzItemEnum=[[AnzahlPopKnopf itemArray] objectEnumerator];
-      id einAnzItem;
-      while (einAnzItem=[AnzItemEnum nextObject])
-      {
-         int tempTag=[[einAnzItem title]intValue];
-         [einAnzItem setTag:[[einAnzItem title]intValue]];
-         //NSLog(@"Titel: %@ tag neu: %d",[einAnzItem title],[einAnzItem tag]);
-      }//while
-      
-      
-      
-      //NSLog(@"ZeitArray aus Pop nach load: %@",[[ZeitPopKnopf itemArray] description]);
-      [ZeitPopKnopf selectItemAtIndex:0];
-      */
       if (TestDicArray &&[TestDicArray count])
       {
          int i;
@@ -834,20 +786,39 @@ const short     kSerieFertig = 25003;
 
 - (BOOL)readPListAnPfad:(NSString*)derSndCalcPfad
 {
+   NSString* localDate = [NSDateFormatter localizedStringFromDate:[NSDate date] dateStyle:NSDateFormatterMediumStyle timeStyle:NSDateFormatterMediumStyle];//  12.09.2015 19:20:26
+   //NSLog(@"localDate: %@",localDate);
+   heuteDatumString = [NSDateFormatter localizedStringFromDate:[NSDate date] dateStyle:NSDateFormatterMediumStyle timeStyle:NSDateFormatterMediumStyle];//  12.09.2015 19:20:26
+   NSLog(@"heuteDatumString: %@",heuteDatumString);
+
    
    //NSLog(@"    **  readPListAnPfad: %@",derSndCalcPfad);
    NSString* PListName=NSLocalizedString(@"SndCalc.plist",@"SndCalc.plist");
    NSFileManager *Filemanager=[NSFileManager defaultManager];
-   
+   /*
    NSCalendarDate* Heute=[NSCalendarDate date];
    NSInteger HeuteTag=[Heute dayOfMonth];
    NSInteger HeuteMonat=[Heute monthOfYear];
    NSInteger HeuteJahr=[Heute yearOfCommonEra];
+  */
+   heuteDatumString = [NSDateFormatter localizedStringFromDate:[NSDate date] dateStyle:NSDateFormatterMediumStyle timeStyle:NSDateFormatterMediumStyle];//  12.09.2015 19:20:26
+   heuteTagDesJahres = [[NSCalendar currentCalendar] ordinalityOfUnit:NSCalendarUnitDay inUnit:NSCalendarUnitYear forDate:[NSDate date]];
+
+   NSDate *currentDate = [NSDate date];
+   NSCalendar* calendar = [NSCalendar currentCalendar];
+   NSDateComponents* components = [calendar components:NSCalendarUnitYear|NSCalendarUnitMonth|NSCalendarUnitDay fromDate:currentDate]; // Get necessary date components
+   
+   NSInteger HeuteMonat = [components month]; //gives you month
+   NSInteger HeuteTag = [components day]; //gives you day
+   NSInteger HeuteJahr = [components year]; // gives you year
+   
+   //NSLog(@"tag: %ld monat: %ld jahr: %ld",tag,monat,jahr);
    //NSLog(@"Heute: %d %d %d",HeuteTag,HeuteMonat,HeuteJahr);
    //NSString* Heutestring = [NSString stringWithFormat:@"%ld.%ld.%ld",(long)HeuteTag,(long)HeuteMonat,(long)HeuteJahr];
-   [Heute setCalendarFormat:@"%d.%m.%Y"];
+  // [Heute setCalendarFormat:@"%d.%m.%Y"];
    //NSLog(@"Heute: %@",[Heute description]);
-   DatumFeld.stringValue = (NSString*)Heute;
+   //DatumFeld.stringValue = (NSString*)Heute;
+   DatumFeld.stringValue = heuteDatumString;
    NSString* SCVersionString=[NSString stringWithFormat:@"%ld.%ld",(long)HeuteJahr%2000,(long)HeuteMonat];
    //NSLog(@"SCVersionString: %@",SCVersionString);
    //	NSString* ResourcenPfad=[[[NSBundle mainBundle]bundlePath]stringByAppendingPathComponent:@"Contents/Resources"];
@@ -917,7 +888,7 @@ const short     kSerieFertig = 25003;
                NSString* s2=NSLocalizedString(@"It is momentarly used by annother user.",@"Er wird im Moment von einem anderen Computer benutzt");
                NSString* InformationString=[NSString stringWithFormat:@"%@\n%@",s1,s2];
                [Warnung setInformativeText:InformationString];
-               [Warnung setAlertStyle:NSWarningAlertStyle];
+               [Warnung setAlertStyle:NSAlertStyleWarning];
                
                //[Warnung setIcon:RPImage];
                NSInteger antwort=[Warnung runModal];
@@ -947,7 +918,7 @@ const short     kSerieFertig = 25003;
                      NSString* s2=NSLocalizedString(@"Do you want to reset its state before terminating?",@"Soll sein Status vor dem Beenden zurückgesetzt werden?");
                      NSString* InformationString=[NSString stringWithFormat:@"%@\n%@",s1,s2];
                      [BusyWarnung setInformativeText:InformationString];
-                     [BusyWarnung setAlertStyle:NSWarningAlertStyle];
+                     [BusyWarnung setAlertStyle:NSAlertStyleWarning];
                      
                      //[Warnung setIcon:RPImage];
                      NSInteger antwort=[BusyWarnung runModal];
@@ -1046,6 +1017,7 @@ const short     kSerieFertig = 25003;
       {
          Volume=0.6;
          [PListDic setObject:[NSNumber numberWithFloat:Volume]forKey:@"volume"];
+      
       }
       
       
@@ -1103,30 +1075,67 @@ const short     kSerieFertig = 25003;
       
       if ([PListDic objectForKey:@"sessiondatum"])
       {
-         SessionDatum=[PListDic objectForKey:@"sessiondatum"];
-         //NSLog(@"SessionDatum: %@",[SessionDatum description]);
-         NSCalendarDate* heute=[NSCalendarDate date];
-         NSCalendarDate* lastSession=[[NSCalendarDate alloc]initWithString:[SessionDatum description]];
-         NSInteger lastSessionTag=[lastSession dayOfYear];
-         double lastSessionInterval=[SessionDatum timeIntervalSinceReferenceDate];
-         double heuteInterval=[heute timeIntervalSinceReferenceDate];
-         NSInteger lastJahr=[lastSession yearOfCommonEra];
-         NSInteger heuteJahr=[heute yearOfCommonEra];
+         // letzte Session lesen
+         SessionDatum=[PListDic objectForKey:@"sessiondatum"]; // letzte gesicherte Session NSDate
+         NSLog(@"SessionDatum: %@",[SessionDatum description]);
+         //NSCalendarDate* heute=[NSCalendarDate date];
+         
+         NSString* lastSessionDatumString = [NSDateFormatter localizedStringFromDate:SessionDatum dateStyle:NSDateFormatterMediumStyle timeStyle:NSDateFormatterMediumStyle];//  12.09.2015 19:20:26
+         NSInteger lastSessionTag = [Utils tagDesJahresVonDate:SessionDatum];
+         NSInteger lastSessionJahr = [Utils jahrVonDate:SessionDatum];
+         /*
+         NSCalendar* lastcalendar = [NSCalendar currentCalendar];
+         NSDateComponents* lastcomponents = [lastcalendar components:NSCalendarUnitYear|NSCalendarUnitMonth|NSCalendarUnitDay fromDate:SessionDatum]; // Get necessary date components
+         NSInteger lastTag = [components day]; //gives you day
+         NSInteger lastJahr = [components year];
+         NSInteger lastMonat = [components month];
+         NSInteger lastSessionInterval=[SessionDatum timeIntervalSinceReferenceDate];
+         NSLog(@"lastSessionTag: %ld lastMonat: %ld lastJahr: %ld",lastSessionTag,lastMonat,lastJahr);
+*/
+         
+         // heute lesen
+         NSDate *heute = [NSDate date];
+           
+         NSInteger heuteMonat = [Utils monatVonDate:heute]; //gives you month
+         NSInteger heuteTag = [Utils tagVonDate:heute]; //gives you day
+         NSInteger heuteJahr = [Utils jahrVonDate:heute];
+         
+          NSInteger heuteSessionTag = [Utils tagDesJahresVonDate:heute];
+         NSLog(@"heuteTag: %ld heuteMonat: %ld jahr: %ld",heuteTag,heuteMonat,heuteJahr);
+         
+         //NSCalendarDate* lastSession=[[NSCalendarDate alloc]initWithString:[SessionDatum description]];
+         
+         //NSInteger lastSessionTag=[lastSession dayOfYear];
+         //double lastSessionInterval=[SessionDatum timeIntervalSinceReferenceDate];
+         //double heuteInterval=[heute timeIntervalSinceReferenceDate];
+         //NSInteger lastJahr=[lastSession yearOfCommonEra];
+       //  NSInteger heuteJahr=[heute yearOfCommonEra];
          //(@"lastSessionInterval: %f		heuteInterval: %f",lastSessionInterval,heuteInterval);
          //NSLog(@"lastJahr: %d		heuteJahr: %d",lastJahr,heuteJahr);
          
-         NSInteger heuteTag=[heute dayOfYear];
-         if (lastJahr<heuteJahr)//Datum vom letzten Jahr, Tag des Jahres kann höher sein)
+         //NSInteger heuteTag=[heute dayOfYear];
+         
+         NSInteger heuteTagdesJahres = [[NSCalendar currentCalendar] ordinalityOfUnit:NSCalendarUnitDay inUnit:NSCalendarUnitYear forDate:[NSDate date]] ;
+
+         
+         if (lastSessionJahr<heuteJahr)//Datum vom letzten Jahr, Tag des Jahres kann höher sein)
          {
-            lastSessionTag=1;
+           // lastSessionTag=1;
          }
-         //NSLog(@"lastSessionTag: %d		heute: %d",lastSessionTag,heuteTag);
-         BOOL SessionBehalten=[Utils SessionBehaltenAnPfad:SndCalcPfad];
+         NSLog(@"lastSessionTag: %d		heuteSessionTag: %d",lastSessionTag,heuteSessionTag);
+         
+         BOOL SessiontagOK=[Utils saveSessionDatum:heute anPfad:SndCalcPfad];
+         [PListDic setObject: heute forKey:@"sessiondatum"]; // Sessiondatum updaten auf heute
+
+         //BOOL SessionBehalten=[Utils SessionBehaltenAnPfad:SndCalcPfad];
          int SessionBehaltenTag=[Utils SessionBehaltenTagAnPfad:SndCalcPfad];
          
-         if ((heuteTag>lastSessionTag)&&(SessionBehaltenTag<heuteTag))	//letzteSession ist mindestens von gestern
-         {																//SessionBehaltenTag ist von gestern
-            [Utils saveSessionBehaltenTag:(int)heuteTag anPfad:SndCalcPfad];//SessionBehaltenTag ist heute, nicht mehr nach Session fragen
+         if ((lastSessionJahr<heuteJahr) || ((heuteSessionTag>lastSessionTag)&&(SessionBehaltenTag<heuteSessionTag)))	
+            //letzteSession ist mindestens von gestern und Sessionbehaltentag ist nicht heute (nur einmal am Tag nach neuer Session fragen) 
+         {		
+            
+            [Utils saveSessionBehaltenTag:(int)heuteSessionTag anPfad:SndCalcPfad];//SessionBehaltenTag ist heute, nicht mehr nach Session fragen
+            [PListDic setObject: [NSNumber numberWithInt:heuteSessionTag] forKey:@"sessionbehaltentag"];
             NSAlert *Warnung = [[NSAlert alloc] init];
             [Warnung addButtonWithTitle:@"Neue Session"];
             [Warnung addButtonWithTitle:@"Session weiterführen"];
@@ -1146,7 +1155,9 @@ const short     kSerieFertig = 25003;
                {
                   //NSLog(@"neue Session");
                   [self neueSession:NULL];
+                  
                   BOOL SessionbehaltenOK=[Utils saveSessionBehalten:NO anPfad:SndCalcPfad];
+                  [PListDic setObject: [NSNumber numberWithBool:NO] forKey:@"sessionbehalten"];
                }break;
                   
                case NSAlertSecondButtonReturn://alte Session weiterführen
@@ -1158,10 +1169,11 @@ const short     kSerieFertig = 25003;
                   //				NSLog(@"readPList	SessionOK: %d",SessionOK);
                   //				[PListDic setObject:[NSDate date] forKey:@"sessiondatum"];
                   BOOL SessionbehaltenOK=[Utils saveSessionBehalten:YES anPfad:SndCalcPfad];
+                  [PListDic setObject: [NSNumber numberWithBool:YES] forKey:@"sessionbehalten"];
                }break;
             }//switch
          }
-      }
+      } 
       else
       {
          SessionDatum=[NSDate date];
@@ -1169,6 +1181,7 @@ const short     kSerieFertig = 25003;
          //				NSLog(@"readPList	SessionOK: %d",SessionOK);
          [PListDic setObject:[NSDate date] forKey:@"sessiondatum"];
          BOOL SessionbehaltenOK=[Utils saveSessionBehalten:NO anPfad:SndCalcPfad];
+         [PListDic setObject: [NSNumber numberWithBool:NO] forKey:@"sessionbehalten"];
       }
       
       
@@ -1192,6 +1205,7 @@ const short     kSerieFertig = 25003;
          //NSLog(@"kein farbig");
          farbig=YES;
          [PListDic setObject:[NSNumber numberWithBool:farbig] forKey:@"farbig"];
+         
       }
       
       //		NSLog(@"SndCalcController readPList: Stimme: %@",Stimme);
@@ -4461,9 +4475,11 @@ const short     kSerieFertig = 25003;
    NSSize s=[[[self window]contentView]frame].size;
    //NSLog(@"AufgabenDrawer: dx: %f dy: %f b: %f h: %f",p.x,p.y, s.width, s.height);
    NSDrawerState state = (NSDrawerState)[AufgabenDrawer state];
-   if (NSDrawerOpeningState == state || NSDrawerOpenState == state) {
+   if (NSDrawerOpeningState == state || NSDrawerOpenState == state)
+   {
       [AufgabenDrawer close];
-   } else
+   }
+   else
    {
       
      // if (!AufgabenDrawer)

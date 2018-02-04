@@ -175,7 +175,7 @@
    NSString* s2=@"wirklich entfernt werden?";
    NSString* InformationString=[NSString stringWithFormat:@"%@ %@\n%@",s1,deleteStimme,s2];
    [Warnung setInformativeText:InformationString];
-   [Warnung setAlertStyle:NSWarningAlertStyle];
+   [Warnung setAlertStyle:NSAlertStyleWarning];
    
    //[Warnung setIcon:RPImage];
    long antwort=[Warnung runModal];
@@ -224,7 +224,7 @@
    NSString* s2=@"wirklich entfernt werden?";
    NSString* InformationString=[NSString stringWithFormat:@"%@ %@\n%@",s1,deleteStimme,s2];
    [Warnung setInformativeText:InformationString];
-   [Warnung setAlertStyle:NSWarningAlertStyle];
+   [Warnung setAlertStyle:NSAlertStyleWarning];
    
    //[Warnung setIcon:RPImage];
    long antwort=[Warnung runModal];
@@ -307,7 +307,7 @@
    
    [QuittungOpenPanel beginSheetModalForWindow:[self window] completionHandler:^(NSInteger result)
     {
-       if (result == NSOKButton)
+       if (result == NSModalResponseOK)
        {
           
        }
@@ -339,7 +339,7 @@
       NSString* s2=@"ist schon vorhanden.";
       NSString* InformationString=[NSString stringWithFormat:@"%@ %@\n%@",s1,[QuittungNameFeld stringValue],s2];
       [Warnung setInformativeText:InformationString];
-      [Warnung setAlertStyle:NSWarningAlertStyle];
+      [Warnung setAlertStyle:NSAlertStyleWarning];
       
       //[Warnung setIcon:RPImage];
       long antwort=[Warnung runModal];
@@ -461,7 +461,7 @@
    
    switch (returnCode)
    {
-      case NSOKButton:
+      case NSModalResponseOK:
       {
          NSLog(@"Open: OK");
          NSFileManager* Filemanager=[NSFileManager defaultManager];
@@ -500,7 +500,7 @@
          
       }break;
          
-      case NSCancelButton:
+      case NSModalResponseCancel:
       {
          NSLog(@"ZahlenOpenPanel: Cancel");
          [[self window]makeFirstResponder:StimmenTable];
@@ -519,7 +519,7 @@
    
    switch (returnCode)
    {
-      case NSOKButton:
+      case NSModalResponseOK:
       {
          NSLog(@"Quittung Open: OK");
          NSFileManager* Filemanager=[NSFileManager defaultManager];
@@ -557,7 +557,7 @@
          
       }break;
          
-      case NSCancelButton:
+      case NSModalResponseCancel:
       {
          NSLog(@"QuittungOpenPanel: Cancel");
          
@@ -629,7 +629,7 @@
       //	NSString* s2=@"Er kann auch sofort entfernt werden. Diese Aktion ist aber nicht rückgängig zu machen.";
       //	NSString* InformationString=[NSString stringWithFormat:@"%@\n%@",s1,s2];
       //	[Warnung setInformativeText:InformationString];
-      [Warnung setAlertStyle:NSWarningAlertStyle];
+      [Warnung setAlertStyle:NSAlertStyleWarning];
       long antwort=[Warnung runModal];
       return NO;
    }
@@ -860,7 +860,7 @@
     */
    [ZahlenOpenPanel beginSheetModalForWindow:[self window] completionHandler:^(NSInteger result)
     {
-       if (result == NSOKButton)
+       if (result == NSModalResponseOK)
        {
           
        }
@@ -885,7 +885,7 @@
       NSString* s2=@"ist schon vorhanden.";
       NSString* InformationString=[NSString stringWithFormat:@"%@ %@\n%@",s1,[StimmenNameFeld stringValue],s2];
       [Warnung setInformativeText:InformationString];
-      [Warnung setAlertStyle:NSWarningAlertStyle];
+      [Warnung setAlertStyle:NSAlertStyleWarning];
       
       //[Warnung setIcon:RPImage];
       long antwort=[Warnung runModal];

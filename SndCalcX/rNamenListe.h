@@ -43,6 +43,6 @@
 - (IBAction)reportEingebenVariante:(id)sender;
 - (IBAction)reportEinsetzenVariante:(id)sender;
 - (void)setNamenListeArray:(NSArray*)derArray vonProjekt:(NSString*)dasProjekt;
--(void)neuerNameInArray:(NSString*)derName;
+- (void)neuerNameInArray:(NSString*)derName;
 
 @end
