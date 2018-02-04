@@ -261,6 +261,24 @@
       }
       else
       {
+         //
+         if ([einDic objectForKey:@"datum"])
+         {
+            NSCalendar* calendar = [NSCalendar currentCalendar];
+            NSDateComponents* components = [calendar components:NSCalendarUnitYear|NSCalendarUnitMonth|NSCalendarUnitDay fromDate:[einDic objectForKey:@"datum"]]; // Get necessary date components
+            
+            long monat = [components month]; //gives you month
+            long tag = [components day]; //gives you day
+            long jahr = [components year]; // gives you year
+            NSString* Tag=[NSString stringWithFormat:@"%ld.%ld.%ld",tag,monat,jahr];
+            [tempDic setObject:[einDic objectForKey:@"datum"] forKey:@"datum"];
+            [tempDic setObject:Tag forKey:@"datumtext"];
+            //NSLog(@"reportTestnamen: %@  Tag: %@",tempDate,Tag);
+            
+         }
+
+         /*
+         //
          NSCalendarDate* tempDate=[[NSCalendarDate alloc]initWithString:[[einDic objectForKey:@"datum"]description]];
          //NSLog(@"reportTestnamen	tempDate: %@",[tempDate description]);
          if (tempDate)
@@ -279,6 +297,7 @@
             [tempDic setObject:Tag forKey:@"datumtext"];
             //NSLog(@"reportTestnamen: %@  Tag: %@",tempDate,Tag);
          }
+          */
       }
       
       if ([einDic objectForKey:@"note"])
@@ -550,14 +569,14 @@ objectValueForTableColumn:(NSTableColumn *)aTableColumn
       else
       {
          [cell setFont:[NSFont fontWithName:@"Helvetica" size: 12]];
-         [cell setAlignment:NSLeftTextAlignment];	
+         [cell setAlignment:NSTextAlignmentLeft];	
          //[cell setTextColor:[NSColor blackColor]];
       }
    }
    if ([[tableColumn identifier]isEqualToString:@"testname"])
    {
       //		NSLog(@" StatistikTable willDisplayCell Testname: Zeile: %d, ", row );
-      [cell setAlignment:NSCenterTextAlignment];
+      [cell setAlignment:NSTextAlignmentCenter];
    }
    
 }//willDisplayCell

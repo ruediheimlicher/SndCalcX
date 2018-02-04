@@ -58,7 +58,7 @@ NSMutableArray*			ErgebnisDicArray;
 BOOL					farbig;
 }
 - (void)setAdminStatistikDicArray:(NSArray*)derAdminStatistikDicArray;
-- (void)setErgebnisDicArray:(NSArray*)derErgebnisdicArray;
+//- (void)setErgebnisDicArray:(NSArray*)derErgebnisdicArray;
 - (void)setFarbig:(BOOL)farbigDrucken;
 - (void)printTestTable;
 - (NSDictionary*)DicForRow:(int)dieZeile;

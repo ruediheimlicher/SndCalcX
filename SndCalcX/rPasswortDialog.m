@@ -69,11 +69,25 @@
       [Warnung addButtonWithTitle:@"OK"];
       [Warnung setMessageText:NSLocalizedString(@"Input Error:",@"Eingabefehler:")];
       [Warnung setInformativeText:NSLocalizedString(@"The password may not be empty",@"Das Passwort darf nicht leer sein.")];
-      [Warnung setAlertStyle:NSWarningAlertStyle];
+      [Warnung setAlertStyle:NSAlertStyleWarning];
+      
+      [Warnung beginSheetModalForWindow:[self window] completionHandler:^(NSModalResponse returnCode) {
+         if (returnCode == NSAlertFirstButtonReturn) 
+         {
+            NSLog(@"PasswortDialog Eingabefehler");
+            return;
+         }
+         
+      }];
+
+      
+      /*
       [Warnung beginSheetModalForWindow:[self window]
                           modalDelegate:self
                          didEndSelector:nil
                             contextInfo:nil];
+      */
+      
       
       return;
    }
@@ -112,7 +126,7 @@
       NSString* InformationString=[NSString stringWithFormat:@"%@",s];
       [Warnung setInformativeText:InformationString];
       
-      [Warnung setAlertStyle:NSWarningAlertStyle];
+      [Warnung setAlertStyle:NSAlertStyleWarning];
       
       //[Warnung setIcon:RPImage];
       
@@ -251,7 +265,7 @@
          NSString* InformationString=[NSString stringWithFormat:@"%@",s];
          [Warnung setInformativeText:InformationString];
          
-         [Warnung setAlertStyle:NSWarningAlertStyle];
+         [Warnung setAlertStyle:NSAlertStyleWarning];
          
          //[Warnung setIcon:RPImage];
          int antwort=[Warnung runModal];

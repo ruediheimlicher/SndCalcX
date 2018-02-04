@@ -301,7 +301,7 @@ objectValueForTableColumn:(NSTableColumn *)aTableColumn
        NSString* s2=NSLocalizedString(@"The Test is not deleted.",@"Der Test wird nicht gelöscht");
        NSString* InformationString=[NSString stringWithFormat:@"%@\n%@",s1,s2];
        [Warnung setInformativeText:InformationString];
-       [Warnung setAlertStyle:NSWarningAlertStyle];
+       [Warnung setAlertStyle:NSAlertStyleWarning];
        //		int antwort=[Warnung runModal];
        */
    }

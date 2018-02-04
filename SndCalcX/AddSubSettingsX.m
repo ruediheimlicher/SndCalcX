@@ -65,7 +65,7 @@ enum
  //  [[EinschaltTaste cell]setShowsStateBy:NSChangeGrayCellMask|NSContentsCellMask];
 
    [EinschaltTaste setState:0];
-   [EinschaltTaste setAlignment:NSCenterTextAlignment];
+   [EinschaltTaste setAlignment:NSTextAlignmentCenter];
    [EinschaltTaste setAlternateTitle:@"Aufgaben mit Addition/Subtraktion"];
    [EinschaltTaste setTarget:self];
    [EinschaltTaste setAction:@selector(EinschaltAktion:)];
@@ -132,7 +132,7 @@ enum
                      NSButton* tempTaste=[[NSButton alloc]initWithFrame:FeldFrame];
                      [tempTaste setButtonType:NSPushOnPushOffButton];
                      [tempTaste setState:0];
-                     [tempTaste setAlignment:NSCenterTextAlignment];
+                     [tempTaste setAlignment:NSTextAlignmentCenter];
                      [[tempTaste cell]setBezelStyle:Knopfstil];
                      
                      //				[[tempTaste cell]setBackgroundColor:[NSColor lightGrayColor]];
@@ -150,7 +150,7 @@ enum
                      FeldFrame.size.height-=KnopfmassV/5;
                      NSTextField* BereichFeld=[[NSTextField alloc]initWithFrame:FeldFrame];
                      [BereichFeld setStringValue:@"Bereich:"];
-                     [BereichFeld setAlignment:NSRightTextAlignment];
+                     [BereichFeld setAlignment:NSTextAlignmentRight];
                      [BereichFeld setBordered:NO];
                      [BereichFeld setDrawsBackground:NO];
                      [AddSubTastenArray addObject:(NSControl*)BereichFeld];
@@ -161,7 +161,7 @@ enum
                      FeldFrame.size.height-=KnopfmassV/5;
                      NSTextField* BereichFeld=[[NSTextField alloc]initWithFrame:FeldFrame];
                      [BereichFeld setStringValue:@"Zweite Zahl:"];
-                     [BereichFeld setAlignment:NSRightTextAlignment];
+                     [BereichFeld setAlignment:NSTextAlignmentRight];
                      [BereichFeld setBordered:NO];
                      [BereichFeld setDrawsBackground:NO];
                      [AddSubTastenArray addObject:(NSControl*)BereichFeld];
@@ -193,7 +193,7 @@ enum
                      [[tempTaste cell]setBezelStyle:Knopfstil];
                      
                      [tempTaste setState:0];
-                     [tempTaste setAlignment:NSCenterTextAlignment];
+                     [tempTaste setAlignment:NSTextAlignmentCenter];
                      //				[[tempTaste cell]setBackgroundColor:[NSColor lightGrayColor]];
                      [tempTaste setTitle:@"mit Subtraktion"];
                      [tempTaste setTarget:self];
@@ -246,7 +246,7 @@ enum
                      FeldFrame.size.width=Textmass/2;
                      NSTextField* BereichFeld=[[NSTextField alloc]initWithFrame:FeldFrame];
                      [BereichFeld setStringValue:NSLocalizedString(@"ZehnerU",@"Zehnerübergang:")];
-                     [BereichFeld setAlignment:NSRightTextAlignment];
+                     [BereichFeld setAlignment:NSTextAlignmentRight];
                      [BereichFeld setBordered:NO];
                      [BereichFeld setDrawsBackground:NO];
                      [AddSubTastenArray addObject:(NSControl*)BereichFeld];
@@ -258,7 +258,7 @@ enum
                      FeldFrame.size.width=Textmass/2;
                      NSTextField* BereichFeld=[[NSTextField alloc]initWithFrame:FeldFrame];
                      [BereichFeld setStringValue:NSLocalizedString(@"HunderterU",@"Hunderterübergang:")];
-                     [BereichFeld setAlignment:NSRightTextAlignment];
+                     [BereichFeld setAlignment:NSTextAlignmentRight];
                      [BereichFeld setBordered:NO];
                      [BereichFeld setDrawsBackground:NO];
                      [AddSubTastenArray addObject:(NSControl*)BereichFeld];

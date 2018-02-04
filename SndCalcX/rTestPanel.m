@@ -45,8 +45,8 @@
    [EingabeFeld setDelegate:self];
    //	[[EingabeFeld cell]setSendsActionOnEndEditing:NO];
    [IconFeld setImage:[NSImage imageNamed:@"duerergrau"]];
-   [[AnzahlPopTaste cell]setAlignment:NSRightTextAlignment];
-   [[ZeitPopTaste cell]setAlignment:NSRightTextAlignment];
+   [[AnzahlPopTaste cell]setAlignment:NSTextAlignmentRight];
+   [[ZeitPopTaste cell]setAlignment:NSTextAlignmentRight];
    [AnzahlPopTaste setEnabled:NO];
    [ZeitPopTaste setEnabled:NO];
    [TestForAllTaste setEnabled:NO];
@@ -339,7 +339,7 @@
    [AnzahlPopTaste removeAllItems];
    
    [AnzahlPopTaste addItemsWithTitles:derArray];
-   //[[AnzahlPopTaste cell]setAlignment:NSRightTextAlignment];
+   //[[AnzahlPopTaste cell]setAlignment:NSTextAlignmentRight];
    
    [AnzahlPopTaste selectItemAtIndex:derIndex];
    dirty=NO;
@@ -351,7 +351,7 @@
    [ZeitPopTaste removeAllItems];
    
    [ZeitPopTaste addItemsWithTitles:derArray];
-   //[[ZeitPopTaste cell]setAlignment:NSRightTextAlignment];
+   //[[ZeitPopTaste cell]setAlignment:NSTextAlignmentRight];
    
    [ZeitPopTaste selectItemAtIndex:derIndex];
    dirty=NO;
@@ -557,7 +557,7 @@
 
 - (IBAction)reportClose:(id)sender
 {
-   //NSLog(@"reportClose anfang: TestDicArray: %@",[TestDicArray description]);
+   NSLog(@"reportClose anfang: TestDicArray: %@",[TestDicArray description]);
    
    NSMutableDictionary* neuerTestNamenDic=[[NSMutableDictionary alloc]initWithCapacity:0];
    //NSLog(@"close: AnzahlPopTaste: %@",[AnzahlPopTaste itemArray]);
@@ -680,7 +680,7 @@
       
       NSString* InformationString=[NSString stringWithFormat:@"%@\n%@\n%@",s1,s2,s3];
       [Warnung setInformativeText:InformationString];
-      [Warnung setAlertStyle:NSWarningAlertStyle];
+      [Warnung setAlertStyle:NSAlertStyleWarning];
       
       int antwort=[Warnung runModal];
       
@@ -1098,6 +1098,7 @@
 
       NSMutableDictionary* TestsichernDicDic=[[NSMutableDictionary alloc]initWithCapacity:0];
       [TestsichernDicDic setObject:[NSNumber numberWithInt:1] forKey:@"sichtbar"];
+      
       NSNotificationCenter* beendennc=[NSNotificationCenter defaultCenter];
       [beendennc postNotificationName:@"settingalstestsichern" object:self userInfo:TestsichernDicDic];
 
@@ -1289,7 +1290,7 @@
          NSString* s1;//=NSLocalizedString(@"Error:",@"Fehler:");
          NSString* InformationString=[NSString stringWithFormat:@"%@\n%@\n%@",s1,s2,s3];
          [Warnung setInformativeText:s2];
-         [Warnung setAlertStyle:NSWarningAlertStyle];
+         [Warnung setAlertStyle:NSAlertStyleWarning];
          
          int antwort=[Warnung runModal];
          //		[SaveTestTaste setKeyEquivalent:@""];
@@ -2188,7 +2189,7 @@
          NSString* s2=@"";//NSLocalizedString(@"The Test is not deleted.",@"Der Test wird nicht gelöscht");
          NSString* InformationString=[NSString stringWithFormat:@"%@\n%@",s1,s2];
          [Warnung setInformativeText:InformationString];
-         [Warnung setAlertStyle:NSWarningAlertStyle];
+         [Warnung setAlertStyle:NSAlertStyleWarning];
          long antwort=[Warnung runModal];
          //	NSMutableDictionary* tempNewNamenDic=(NSMutableDictionary*)[[[TestZuNamenTable dataSource]TestZuNamenDicArray] objectAtIndex:[sender selectedRow]];
          //	NSLog(@"TestZuNamenCheckboxAktion	neuer tempNamenDic: %@",[tempNewNamenDic description]);
@@ -2248,7 +2249,7 @@
             NSString* s2=@"";//NSLocalizedString(@"The Test is not deleted.",@"Der Test wird nicht gelöscht");
             NSString* InformationString=[NSString stringWithFormat:@"%@\n%@",s1,s2];
             [Warnung setInformativeText:InformationString];
-            [Warnung setAlertStyle:NSWarningAlertStyle];
+            [Warnung setAlertStyle:NSAlertStyleWarning];
             int antwort=[Warnung runModal];
             
          }
@@ -2774,7 +2775,7 @@
       [Warnung setMessageText:NSLocalizedString(@"No Operation Choosed.",@"Keine Operation ausgewählt")];
       NSString* InformationString=NSLocalizedString(@"At least one operation must be choosed.",@"Mindestens eine Operation muss ausgewähltsein.");
       [Warnung setInformativeText:InformationString];
-      [Warnung setAlertStyle:NSWarningAlertStyle];
+      [Warnung setAlertStyle:NSAlertStyleWarning];
       
       //[Warnung setIcon:RPImage];
       int antwort=[Warnung runModal];
@@ -2789,7 +2790,7 @@
          [Warnung setMessageText:NSLocalizedString(@"No Row Choosed",@"Keine Reihe ausgewählt")];
          NSString* InformationString=NSLocalizedString(@"At least one row must be choosed.",@"Mindestens eine Reihe muss ausgewählt sein.");
          [Warnung setInformativeText:InformationString];
-         [Warnung setAlertStyle:NSWarningAlertStyle];
+         [Warnung setAlertStyle:NSAlertStyleWarning];
          int antwort=[Warnung runModal];
          [self selectSettingsTab:0];
          checkOK=NO;
@@ -2801,7 +2802,7 @@
          [Warnung setMessageText:NSLocalizedString(@"No Operation Choosed.",@"Keine Operation ausgewählt")];
          NSString* InformationString=NSLocalizedString(@"Addition and/or subtraction must be choosed.",@"Addition und/oder Subtraktion muss ausgewählt sein.");
          [Warnung setInformativeText:InformationString];
-         [Warnung setAlertStyle:NSWarningAlertStyle];
+         [Warnung setAlertStyle:NSAlertStyleWarning];
          int antwort=[Warnung runModal];
          [self selectSettingsTab:1];
          checkOK=NO;
@@ -2914,7 +2915,7 @@
       NSString* s1=NSLocalizedString(@"Error:",@"Fehler:");
       NSString* InformationString=[NSString stringWithFormat:@"%@\n%@\n%@",s1,s2,s3];
       [Warnung setInformativeText:InformationString];
-      [Warnung setAlertStyle:NSWarningAlertStyle];
+      [Warnung setAlertStyle:NSAlertStyleWarning];
       
       int antwort=[Warnung runModal];
       
@@ -2947,7 +2948,7 @@
             NSString* s1=NSLocalizedString(@"Error:",@"Fehler:");
             NSString* InformationString=[NSString stringWithFormat:@"%@\n%@\n%@",s1,s2,s3];
             [Warnung setInformativeText:InformationString];
-            [Warnung setAlertStyle:NSWarningAlertStyle];
+            [Warnung setAlertStyle:NSAlertStyleWarning];
             
             //[Warnung setIcon:RPImage];
             int antwort=[Warnung runModal];
@@ -2975,7 +2976,7 @@
             NSString* s1=NSLocalizedString(@"Error:",@"Fehler:");
             NSString* InformationString=[NSString stringWithFormat:@"%@\n%@\n%@",s1,s2,s3];
             [Warnung setInformativeText:InformationString];
-            [Warnung setAlertStyle:NSWarningAlertStyle];
+            [Warnung setAlertStyle:NSAlertStyleWarning];
             
             int antwort=[Warnung runModal];
             return NO;
@@ -2999,7 +3000,7 @@
       NSString* s1=NSLocalizedString(@"Error:",@"Fehler:");
       NSString* InformationString=[NSString stringWithFormat:@"%@\n%@\n%@",s1,s2,s3];
       [Warnung setInformativeText:InformationString];
-      [Warnung setAlertStyle:NSWarningAlertStyle];
+      [Warnung setAlertStyle:NSAlertStyleWarning];
       
       //[Warnung setIcon:RPImage];
       int antwort=[Warnung runModal];

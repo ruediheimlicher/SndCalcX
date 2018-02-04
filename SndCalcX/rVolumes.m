@@ -338,7 +338,7 @@
  NSAlert *Warnung = [[[NSAlert alloc] init] autorelease];
  [Warnung addButtonWithTitle:@"OK"];
  [Warnung setMessageText:NSLocalizedString(@"This is not a valable path for the application",@"Kein g√ºltiger Pfad")];
- [Warnung setAlertStyle:NSWarningAlertStyle];
+ [Warnung setAlertStyle:NSAlertStyleWarning];
  
  //[Warnung setIcon:RPImage];
  int antwort=[Warnung runModal];
@@ -540,19 +540,31 @@
       //NSLog(@"neuerHostName: %@",neuerHostName);
       [ComputerName replaceOccurrencesOfString:@"." withString:@"-" options:NSLiteralSearch range:NSMakeRange(0, [ComputerName length])];
       [ComputerName replaceOccurrencesOfString:@" " withString:@"-" options:NSLiteralSearch range:NSMakeRange(0, [ComputerName length])];
-      NSArray* MV=[[NSWorkspace sharedWorkspace]mountedLocalVolumePaths];
+     // NSArray* MV=[[NSWorkspace sharedWorkspace]mountedLocalVolumePaths];
+      //- (NSArray<NSURL *> *)mountedVolumeURLsIncludingResourceValuesForKeys:(NSArray<NSURLResourceKey> *)propertyKeys options:(NSVolumeEnumerationOptions)options;
+
+      NSArray* MV= [[NSFileManager defaultManager]mountedVolumeURLsIncludingResourceValuesForKeys:nil options:NSVolumeEnumerationSkipHiddenVolumes];
+      
       int AnzUser=[MV count];
       NSLog(@"MV: %@  Anzahl: %d",[MV description], AnzUser);
       BOOL istOK=NO;
       NSString* afpString=@"afp://";
       NSString* ComputerNameString=[[afpString stringByAppendingString:ComputerName]stringByAppendingString:@".local"];
       
+      /*
       NSURL* ComputerURL=[NSURL URLWithString:ComputerNameString];
       NSURLRequest* ComputerRequest = [NSURLRequest requestWithURL:ComputerURL];
       NSData* ComputerData = [NSMutableData data];
       NSURLConnection *ComputerConnection;
       ComputerConnection=[NSURLConnection connectionWithRequest:ComputerRequest
-                                                       delegate:self];
+      */
+      NSURL* ComputerURL=[NSURL URLWithString:ComputerNameString];     
+      NSURLRequest* ComputerRequest = [NSURLRequest requestWithURL:ComputerURL];
+      NSData* ComputerData = [NSMutableData data];
+      NSURLConnection *ComputerConnection;
+    //  ComputerConnection=[NSURLConnection connectionWithRequest:ComputerRequest  delegate:self]; 
+      NSURLSession* URLSession = [NSURLSession sharedSession];                 
+                                                      
       istOK=[[NSWorkspace sharedWorkspace]openURL:[NSURL URLWithString:ComputerNameString]];
       if (istOK)
       {

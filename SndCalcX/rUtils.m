@@ -13,11 +13,21 @@
 
 - (void)Alert:(NSString*)derFehler
 {
+   
+  /*
    NSAlert * DebugAlert=[NSAlert alertWithMessageText:@"Debugger!"
                                         defaultButton:NULL
                                       alternateButton:NULL
                                           otherButton:NULL
                             informativeTextWithFormat:@"Mitteilung: \n%@",derFehler];
+   */
+   NSAlert *DebugAlert = [[NSAlert alloc] init];
+   [DebugAlert setMessageText:@"Debugger!"];
+   [DebugAlert setInformativeText:derFehler];
+   [DebugAlert addButtonWithTitle:@"OK"];
+   //[alert addButtonWithTitle:@"Cancel"];
+   [DebugAlert setAlertStyle: NSAlertStyleWarning];
+
    [DebugAlert runModal];
    
 }
@@ -125,16 +135,19 @@
    [HomeDic setObject:@"Home" forKey:@"host"];
    [UserMitSndCalcDatenArray addObject:HomeDic];//Dic fuer das Volume anfuegen;
    
-   
+   /*
    //Eingeloggte Volumes mit SndCalcDaten suchen
-   NSMutableArray * volumesArray=[NSMutableArray arrayWithArray:[workspace mountedLocalVolumePaths]];
+   //NSMutableArray * volumesArray=[NSMutableArray arrayWithArray:[workspace mountedLocalVolumePaths]];
+   NSArray *keys = [NSArray arrayWithObjects:NSURLVolumeNameKey, NSURLVolumeIsRemovableKey, nil];
+   NSMutableArray * volumesArray= (NSMutableArray *)[[NSFileManager defaultManager]mountedVolumeURLsIncludingResourceValuesForKeys:keys options:NSVolumeEnumerationSkipHiddenVolumes];
    
    [volumesArray removeObject:@"/"];
    [volumesArray removeObject:@"/Network"];
    [volumesArray removeObject:@"/Volumes/Untitled"];
    [volumesArray removeObject:@"/net"];
    [volumesArray removeObject:@"/Volumes/NetBootClients0"];
-   //NSLog(@"mountedLocalVolumePaths:\nvolumesArray sauber: %@   Anzahl Volumes: %d",[volumesArray description],[volumesArray count]);
+   
+   NSLog(@"mountedLocalVolumePaths:\nvolumesArray sauber: %@   Anzahl Volumes: %d",[volumesArray description],[volumesArray count]);
    int volumesIndex;
    if ([volumesArray count]) //Es sind Volumes eingeloggt
    {
@@ -143,10 +156,10 @@
          
          //	NSMutableDictionary* tempUserDic=[[[NSMutableDictionary alloc]initWithCapacity:0]autorelease];//Dic fuer Volume
          NSString* NetzVolumePfad=[NSString stringWithString:[volumesArray objectAtIndex:volumesIndex] ];
-         //**
+         
          //NSArray* PfadArray = NSSearchPathForDirectoriesInDomains(NSAdminApplicationDirectory,  NSAllDomainsMask, YES);
          //NSLog(@"PfadArray: %@",[PfadArray description]);
-         //**
+         
          //NSLog(@"NetzVolumePfad raw: %@",NetzVolumePfad);
          
          //   SCHULER
@@ -344,7 +357,7 @@
       //kein mountedVolume: OpenPanel
       
    }
-   
+   */
    //NSLog(@"***   Utils: UserMitSndCalcDatenArray: %@",[UserMitSndCalcDatenArray description]);
    return UserMitSndCalcDatenArray;
 }
@@ -489,7 +502,7 @@
                //NSLog(@"NamenDicArrayAnPfad: ordner da");
                UserNamenOrderOK=YES;
                NSString* UserDatenPfad=[UserDatenOrdnerPfad stringByAppendingPathComponent:@"Data"];//Ordner mit den Daten des Users
-               if (([Filemanager fileExistsAtPath:UserDatenPfad ]))//plist ist da
+               if (([Filemanager fileExistsAtPath:UserDatenPfad ]))//Data-Ordner ist da
                {
                   //NSLog(@"NamenDicArrayAnPfad: Data ist da");
                   NSDictionary* tempNamenDic=[NSDictionary dictionaryWithContentsOfFile:UserDatenPfad];
@@ -511,6 +524,7 @@
                //Kein Ordner fuer derName
             }
          }//while
+         
       }
       else
       {
@@ -700,6 +714,31 @@
    return saveOK;
 }
 
+- (BOOL)saveElement:(id)derElementName mitKey:(NSString*)derKey anPfad:(NSString*)derPfad
+{
+   BOOL saveOK=NO;
+   BOOL istOrdner=NO;
+   NSLog(@"Utils saveTestName: %@   anPfad: %@",derElementName,derPfad);
+   NSString* PListName=NSLocalizedString(@"SndCalc.plist",@"SndCalc.plist");
+   NSFileManager *Filemanager=[NSFileManager defaultManager];
+   if ([Filemanager fileExistsAtPath:derPfad isDirectory:&istOrdner]&&istOrdner)
+   {
+      NSString* tempPListPfad=[derPfad stringByAppendingPathComponent:PListName];
+      NSMutableDictionary* tempPListDic=(NSMutableDictionary*)[NSDictionary dictionaryWithContentsOfFile:tempPListPfad];
+      if (tempPListDic)
+      {
+         [tempPListDic setObject:derElementName forKey:derKey];
+         saveOK=[tempPListDic writeToFile:tempPListPfad atomically:YES];
+       }//if tempPlistDic
+      
+      
+   }//if exists
+   else
+   {
+      
+   }
+   return saveOK;
+}
 
 - (BOOL)saveTestName:(NSString*)derTestName anPfad:(NSString*)derPfad
 {
@@ -912,7 +951,7 @@
                      NSString* s2=@"";
                      NSString* InformationString=[NSString stringWithFormat:@"%d%@\n%@",[tempInvalidErgebnisTestNamenArray count],s1,s2];
                      [Warnung setInformativeText:InformationString];
-                     [Warnung setAlertStyle:NSWarningAlertStyle];
+                     [Warnung setAlertStyle:NSAlertStyleWarning];
                      
                      //[Warnung setIcon:RPImage];
                      int antwort=[Warnung runModal];
@@ -1835,20 +1874,34 @@
       //NSLog(@"Keine SndCalcDaten da: %@  DeleteOK: %d",derSndCalcDatenPfad,DeleteOK);
       
       NSString* LString1=NSLocalizedString(@"The folder 'Lecturebox' can be created on the choosen computer",@"SndCalcDaten kann anlegt werden");
-      NSString* LString2=NSLocalizedString(@"\nA list of names in format .doc, .rtf, or .txt is needed",@"rtf-Klassenliste muss vorhanden sein");
+      NSString* LString2=NSLocalizedString(@"\nA list of names in format .doc, .rtf, or .txt is needed",@"\nEine txt-Klassenliste muss vorhanden sein");
       NSLog(@"LString1: %@ LString2: %@",LString1,LString2);
       NSString* SndCalcDatenString=[LString1 stringByAppendingString:LString2];
       
-      int Antwort=NSRunAlertPanel(NSLocalizedString(@"Create New Lecturebox:",@"Neue SndCalcDaten einrichten:"),SndCalcDatenString,NSLocalizedString(@"Create",@"Anlegen"),NSLocalizedString(@"Quit",@"Beenden"),nil);
+      NSString* L3 = NSLocalizedString(@"Create New Lecturebox:",@"Neue SndCalcDaten einrichten:");
+      NSString * B1 = NSLocalizedString(@"Create",@"Anlegen");
+      NSString* B2 = NSLocalizedString(@"Quit",@"Beenden");
+      NSAlert *Meldung = [[NSAlert alloc] init];
+      
+      [Meldung setMessageText:L3];
+      [Meldung setInformativeText:SndCalcDatenString];
+      [Meldung addButtonWithTitle:B1];
+      [Meldung addButtonWithTitle:B2];
+      [Meldung setAlertStyle:NSAlertStyleWarning];
+      NSModalResponse antwort = [Meldung runModal];
+      
+//      int Antwort=NSRunAlertPanel(L3,SndCalcDatenString,B1,B2,nil);
+     
+      
+      
       //NSLog(@"Neue  SndCalcDaten: Antwort: %d",Antwort);
-      switch (Antwort)
+      switch (antwort)
       {
-         case 1:
+         case NSAlertSecondButtonReturn:
          {			
             //SndCalcDatenValid=[Filemanager createDirectoryAtPath:derSndCalcDatenPfad attributes:nil];
             
             SndCalcDatenValid = [Filemanager createDirectoryAtPath:derSndCalcDatenPfad withIntermediateDirectories:NO attributes:NULL error:NULL];
-            
             
             //NSLog(@"SndCalcDatenVorhandenAnPfad: SndCalcDatenVorhanden: %d",SndCalcDatenValid);
             
@@ -1861,7 +1914,18 @@
                
                
                
-               int Antwort=NSRunAlertPanel(TitelStringLB,WarnString,BeendenString, nil,nil);
+              // int Antwort=NSRunAlertPanel(TitelStringLB,WarnString,BeendenString, nil,nil);
+               NSAlert *alert = [[NSAlert alloc] init];
+               [alert setMessageText:TitelStringLB];
+               [alert setInformativeText:WarnString];
+               [alert addButtonWithTitle:BeendenString];
+              // [alert addButtonWithTitle:@"Cancel"];
+               [alert setAlertStyle: NSAlertStyleWarning];
+               
+               int antwort = [alert runModal];
+
+               
+               
                //Beenden
                NSMutableDictionary* BeendenDic=[[NSMutableDictionary alloc]initWithCapacity:0];
                [BeendenDic setObject:[NSNumber numberWithInt:1] forKey:@"beenden"];
@@ -1871,14 +1935,24 @@
             }
          }break;
             
-         case 0:
+         case NSAlertFirstButtonReturn:
          {
             NSString* WarnString=NSLocalizedString(@"The lecturebox must be created manually on the choosen computer",@"LB manuelleinrichten");
             WarnString=[WarnString stringByAppendingString:NSLocalizedString(@"Quit Applikation",@"Programm beenden")];
             NSString* TitelStringNeueLB=NSLocalizedString(@"Create New Lecturebox:",@"Neue SndCalcDaten einrichten:");
             
-            int Antwort=NSRunAlertPanel(TitelStringNeueLB, WarnString,BeendenString, nil,nil);
+            //int Antwort=NSRunAlertPanel(TitelStringNeueLB, WarnString,BeendenString, nil,nil);
             
+            
+            NSAlert *alert = [[NSAlert alloc] init];
+            [alert setMessageText:TitelStringNeueLB];
+            [alert setInformativeText:WarnString];
+            [alert addButtonWithTitle:BeendenString];
+           // [alert addButtonWithTitle:@"Cancel"];
+            [alert setAlertStyle: NSAlertStyleWarning];
+            
+            int antwort = [alert runModal];
+
             //Beenden
             NSMutableDictionary* BeendenDic=[[NSMutableDictionary alloc]initWithCapacity:0];
             [BeendenDic setObject:[NSNumber numberWithInt:1] forKey:@"beenden"];
@@ -1987,7 +2061,18 @@
       if (!ArchivValid)
       {
          NSString* WarnString=NSLocalizedString(@"The folder 'Archive' cannot be created on the choosen computer",@"Auf dem Computer kein Archiv eingerichtet");
-         int Antwort=NSRunAlertPanel(TitelStringArchiv, WarnString,BeendenString, nil,nil);
+     //    int Antwort=NSRunAlertPanel(TitelStringArchiv, WarnString,WarnString, nil,nil);
+         
+         NSAlert *alert = [[NSAlert alloc] init];
+         [alert setMessageText:TitelStringArchiv];
+         [alert setInformativeText:WarnString];
+         [alert addButtonWithTitle:WarnString];
+         //[alert addButtonWithTitle:@"Cancel"];
+         [alert setAlertStyle: NSAlertStyleWarning];
+         
+         int antwort = [alert runModal];
+
+         
          //Beenden
          NSMutableDictionary* BeendenDic=[[NSMutableDictionary alloc]initWithCapacity:0];
          [BeendenDic setObject:[NSNumber numberWithInt:1] forKey:@"beenden"];

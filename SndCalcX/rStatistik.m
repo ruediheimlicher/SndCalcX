@@ -715,7 +715,7 @@ float Notebreite=28.0;
    //	[NoteCell setAction:@selector(NoteCellAktion:)];
    [[StatistikTable tableColumnWithIdentifier:@"grafik"]setDataCell:GrafikCell];
    [[StatistikTable tableColumnWithIdentifier:@"malpoints"]setDataCell:FehlerCell];
-   //[[[StatistikTable tableColumnWithIdentifier:@"fehler"]dataCell]setAlignment:NSCenterTextAlignment];
+   //[[[StatistikTable tableColumnWithIdentifier:@"fehler"]dataCell]setAlignment:NSTextAlignmentCenter];
    
    //[[StatistikTable tableColumnWithIdentifier:@"note"]setDataCell:NoteCell];
    //[[[self window]contentView]addSubview:StatistikTab];
@@ -839,9 +839,27 @@ float Notebreite=28.0;
       {
          NSMutableDictionary* tempErgebnisDic=[[NSMutableDictionary alloc]initWithCapacity:0];
          [tempErgebnisDic setObject: [einDic objectForKey:@"abgelaufenezeit"] forKey:@"zeit"];
-         NSCalendarDate* tempDate=[[NSCalendarDate alloc]initWithString:[[einDic objectForKey:@"datum"]description]];
          
+       //  NSCalendarDate* tempDate=[[NSCalendarDate alloc]initWithString:[[einDic objectForKey:@"datum"]description]];
+         
+         //
+         if ([einDic objectForKey:@"datum"])
+         {
+            NSCalendar* calendar = [NSCalendar currentCalendar];
+            NSDateComponents* components = [calendar components:NSCalendarUnitYear|NSCalendarUnitMonth|NSCalendarUnitDay fromDate:[einDic objectForKey:@"datum"]]; // Get necessary date components
+            
+            long monat = [components month]; //gives you month
+            long tag = [components day]; //gives you day
+            long jahr = [components year]; // gives you year
+            NSString* Tag=[NSString stringWithFormat:@"%ld.%ld.%ld",tag,monat,jahr];
+            [tempErgebnisDic setObject:Tag forKey:@"datumtext"];
+            [tempErgebnisDic setObject:[einDic objectForKey:@"datum"] forKey:@"datum"];
+            NSLog(@"setTestDicVon: %@  Tag: %@",derBenutzer,Tag);
+            
+         }
+        //
          //NSLog(@"reportTestnamen	tempDate: %@",[tempDate description]);
+         /*
          if (tempDate)
          {
             long tag=[tempDate dayOfMonth];
@@ -852,7 +870,7 @@ float Notebreite=28.0;
             [tempErgebnisDic setObject:[einDic objectForKey:@"datum"] forKey:@"datum"];
             //NSLog(@"setTestDicVon: %@  Tag: %@",tempDate,Tag);
          }
-         
+         */
          [TestDicArray addObject:tempErgebnisDic];
       }//while
       //NSLog(@"setTestDicVon	TestDicArray: %@",[TestDicArray description]);
@@ -1322,16 +1340,29 @@ float Notebreite=28.0;
             
             [tempErgebnisDic setObject: [einDic objectForKey:@"abgelaufenezeit"] forKey:@"zeit"];
             
-            NSCalendarDate* tempDate=[[NSCalendarDate alloc]initWithString:[[einDic objectForKey:@"datum"]description]];
+            //NSCalendarDate* tempDate=[[NSCalendarDate alloc]initWithString:[[einDic objectForKey:@"datum"]description]];
             //NSLog(@"reportTestnamen	tempDate: %@",[tempDate description]);
-            if (tempDate)
+            /* 
+             if (tempDate)
+             {
+             
+             long test=[[NSCalendarDate calendarDate] dayOfMonth];
+             //NSLog(@"Heute ganz: %@ test heute: %d",[NSCalendarDate calendarDate],test);
+             long tag=[tempDate dayOfMonth];
+             long monat=[tempDate monthOfYear];
+             long jahr=[tempDate yearOfCommonEra];
+             NSString* Tag=[NSString stringWithFormat:@"%d.%d.%d",tag,monat,jahr];
+             */
+            if ( [einDic objectForKey:@"datum"])
             {
-               long test=[[NSCalendarDate calendarDate] dayOfMonth];
-               //NSLog(@"Heute ganz: %@ test heute: %d",[NSCalendarDate calendarDate],test);
-               long tag=[tempDate dayOfMonth];
-               long monat=[tempDate monthOfYear];
-               long jahr=[tempDate yearOfCommonEra];
+               NSCalendar* calendar = [NSCalendar currentCalendar];
+               NSDateComponents* components = [calendar components:NSCalendarUnitYear|NSCalendarUnitMonth|NSCalendarUnitDay fromDate:[NSDate date]]; // Get necessary date components
+               
+               long monat = [components month]; //gives you month
+               long tag = [components day]; //gives you day
+               long jahr = [components year]; // gives you year
                NSString* Tag=[NSString stringWithFormat:@"%d.%d.%d",tag,monat,jahr];
+               
                [tempErgebnisDic setObject:Tag forKey:@"datumtext"];
                [tempErgebnisDic setObject:[einDic objectForKey:@"datum"] forKey:@"datum"];
                //NSLog(@"reportTestnamen: %@  Tag: %@",tempDate,Tag);
@@ -1508,7 +1539,7 @@ float Notebreite=28.0;
                [tempErgebnisDic setObject: [NSNumber numberWithInt:1] forKey:@"art"];
                [tempErgebnisDic setObject: [einDic objectForKey:@"abgelaufenezeit"] forKey:@"zeit"];
                
-               
+               /*
                NSCalendarDate* tempDate=[[NSCalendarDate alloc]initWithString:[[einDic objectForKey:@"datum"]description]];
                //NSLog(@"reportTestnamen	tempDate: %@",[tempDate description]);
                if (tempDate)
@@ -1520,7 +1551,17 @@ float Notebreite=28.0;
                   long jahr=[tempDate yearOfCommonEra];
                   NSString* JahrString=[[NSNumber numberWithInt:jahr]stringValue];
                   JahrString=[JahrString substringFromIndex:2];
-                  NSString* Tag=[NSString stringWithFormat:@"%d.%d.%@",tag,monat,JahrString];
+                */
+               if ([einDic objectForKey:@"datum"])
+               {
+                  NSCalendar* calendar = [NSCalendar currentCalendar];
+                  NSDateComponents* components = [calendar components:NSCalendarUnitYear|NSCalendarUnitMonth|NSCalendarUnitDay fromDate:[einDic objectForKey:@"datum"]]; // Get necessary date components
+                  
+                  long monat = [components month]; //gives you month
+                  long tag = [components day]; //gives you day
+                  long jahr = [components year]; // gives you year
+                  
+                  NSString* Tag=[NSString stringWithFormat:@"%d.%d.%d",tag,monat,jahr-2000];
                   [tempErgebnisDic setObject:Tag forKey:@"datumtext"];
                   [tempErgebnisDic setObject:[einDic objectForKey:@"datum"] forKey:@"datum"];
                   //NSLog(@"reportTestnamen: %@  Tag: %@",tempDate,Tag);
@@ -1666,7 +1707,7 @@ float Notebreite=28.0;
                
                [tempErgebnisDic setObject: [einDic objectForKey:@"abgelaufenezeit"] forKey:@"zeit"];
                
-               
+               /*
                NSCalendarDate* tempDate=[[NSCalendarDate alloc]initWithString:[[einDic objectForKey:@"datum"]description]];
                //NSLog(@"reportTestnamen	tempDate: %@",[tempDate description]);
                if (tempDate)
@@ -1679,9 +1720,21 @@ float Notebreite=28.0;
                   NSString* JahrString=[[NSNumber numberWithInt:jahr]stringValue];
                   JahrString=[JahrString substringFromIndex:2];
                   NSString* Tag=[NSString stringWithFormat:@"%d.%d.%@",tag,monat,JahrString];
+                */
+               if ([einDic objectForKey:@"datum"])
+               {
+                  NSCalendar* calendar = [NSCalendar currentCalendar];
+                  NSDateComponents* components = [calendar components:NSCalendarUnitYear|NSCalendarUnitMonth|NSCalendarUnitDay fromDate:[einDic objectForKey:@"datum"]]; // Get necessary date components
+                  
+                  long monat = [components month]; //gives you month
+                  long tag = [components day]; //gives you day
+                  long jahr = [components year]; // gives you year
+                  
+                  NSString* Tag=[NSString stringWithFormat:@"%d.%d.%d",tag,monat,jahr-2000];
                   [tempErgebnisDic setObject:Tag forKey:@"datumtext"];
                   [tempErgebnisDic setObject:[einDic objectForKey:@"datum"] forKey:@"datum"];
                   //NSLog(@"reportTestnamen: %@  Tag: %@",tempDate,Tag);
+            
                }
                [tempErgebnisDic setObject: [einDic objectForKey:@"anzfehler"] forKey:@"anzfehler"];
                [tempErgebnisDic setObject: [einDic objectForKey:@"anzahlaufgaben"] forKey:@"anzaufgaben"];
@@ -1891,6 +1944,8 @@ float Notebreite=28.0;
                   ZeitBedarf+=abgelaufenezeit;
                   
                   [tempErgebnisDic setObject: [einDic objectForKey:@"abgelaufenezeit"] forKey:@"zeit"];
+                  
+                  /*
                   NSCalendarDate* tempDate=[[NSCalendarDate alloc]initWithString:[[einDic objectForKey:@"datum"]description]];
                   //NSLog(@"reportTestnamen	tempDate: %@",[tempDate description]);
                   if (tempDate)
@@ -1903,6 +1958,18 @@ float Notebreite=28.0;
                      NSString* JahrString=[[NSNumber numberWithInt:jahr]stringValue];
                      JahrString=[JahrString substringFromIndex:2];
                      NSString* Tag=[NSString stringWithFormat:@"%d.%ld.%@",tag,monat,JahrString];
+                   */
+                  if ([einDic objectForKey:@"datum"])
+                  {
+                     NSCalendar* calendar = [NSCalendar currentCalendar];
+                     NSDateComponents* components = [calendar components:NSCalendarUnitYear|NSCalendarUnitMonth|NSCalendarUnitDay fromDate:[einDic objectForKey:@"datum"]]; // Get necessary date components
+                     
+                     long monat = [components month]; //gives you month
+                     long tag = [components day]; //gives you day
+                     long jahr = [components year]; // gives you year
+                     
+                     NSString* Tag=[NSString stringWithFormat:@"%d.%d.%d",tag,monat,jahr-2000];
+
                      [tempErgebnisDic setObject:Tag forKey:@"datumtext"];
                      [tempErgebnisDic setObject:[einDic objectForKey:@"datum"] forKey:@"datum"];
                      //NSLog(@"reportTestnamen: %@  Tag: %@",tempDate,Tag);
@@ -2965,7 +3032,7 @@ float Notebreite=28.0;
    [ZeitKolonne setHeaderCell:ZeitKopfZelle];
    
    [[ZeitKolonne dataCell] setFont:[NSFont fontWithName:@"Helvetica" size:Schriftgroesse]];
-   [[ZeitKolonne dataCell] setAlignment:NSRightTextAlignment];
+   [[ZeitKolonne dataCell] setAlignment:NSTextAlignmentRight];
    [ZeitKolonne setWidth:Zeitbreite];
    [returnErgebnisTable addTableColumn:ZeitKolonne];
    
@@ -3070,11 +3137,15 @@ float Notebreite=28.0;
    NSFontManager *fontManager = [NSFontManager sharedFontManager];
    //NSLog(@"*Statistik  setDruckViewMitDicArray* %@",[[derDicArray valueForKey:@"name"]description]);
    
-   NSCalendarDate* heute=[NSCalendarDate date];
-   [heute setCalendarFormat:@"%d.%m.%Y    Zeit: %H:%M"];
+ //  NSCalendarDate* heute=[NSCalendarDate date];
+//   [heute setCalendarFormat:@"%d.%m.%Y    Zeit: %H:%M"];
+   
+   NSString* heuteDatumString = [NSDateFormatter localizedStringFromDate:[NSDate date] dateStyle:NSDateFormatterMediumStyle timeStyle:NSDateFormatterMediumStyle];//  12.09.2015 19:20:26
+
+   
    
    NSString* TitelString=NSLocalizedString(@"Results from ",@"Ergebnisse vom ");
-   NSString* KopfString=[NSString stringWithFormat:@"%@  %@%@",TitelString,[heute description],@"\r\r"];
+   NSString* KopfString=[NSString stringWithFormat:@"%@  %@%@",TitelString,heuteDatumString,@"\r\r"];
    
    //Font für Titelzeile
    NSFont* TitelFont;
@@ -3357,11 +3428,13 @@ float Notebreite=28.0;
    NSFontManager *fontManager = [NSFontManager sharedFontManager];
    //NSLog(@"*Statistik  setDruckViewMitDicArray* %@",[[derDicArray valueForKey:@"name"]description]);
    
-   NSCalendarDate* heute=[NSCalendarDate date];
-   [heute setCalendarFormat:@"%d.%m.%Y    Zeit: %H:%M"];
+//   NSCalendarDate* heute=[NSCalendarDate date];
+//   [heute setCalendarFormat:@"%d.%m.%Y    Zeit: %H:%M"];
    
+   NSString* heuteDatumString = [NSDateFormatter localizedStringFromDate:[NSDate date] dateStyle:NSDateFormatterMediumStyle timeStyle:NSDateFormatterMediumStyle];//  12.09.2015 19:20:26
+
    NSString* TitelString=NSLocalizedString(@"Results from ",@"Ergebnisse vom ");
-   NSString* KopfString=[NSString stringWithFormat:@"%@  %@%@",TitelString,[heute description],@"\r\r"];
+   NSString* KopfString=[NSString stringWithFormat:@"%@  %@%@",TitelString,heuteDatumString,@"\r\r"];
    
    //Font für Titelzeile
    NSFont* TitelFont;
@@ -3650,11 +3723,14 @@ float Notebreite=28.0;
    NSFontManager *fontManager = [NSFontManager sharedFontManager];
    //NSLog(@"*Statistik  setDruckViewMitDicArray* %@",[[derDicArray valueForKey:@"name"]description]);
    
-   NSCalendarDate* heute=[NSCalendarDate date];
-   [heute setCalendarFormat:@"%d.%m.%Y    Zeit: %H:%M"];
+   //NSCalendarDate* heute=[NSCalendarDate date];
+   //[heute setCalendarFormat:@"%d.%m.%Y    Zeit: %H:%M"];
+   
+   NSString* heuteDatumString = [NSDateFormatter localizedStringFromDate:[NSDate date] dateStyle:NSDateFormatterMediumStyle timeStyle:NSDateFormatterMediumStyle];//  12.09.2015 19:20:26
+
    
    NSString* TitelString=NSLocalizedString(@"Results from ",@"Ergebnisse vom ");
-   NSString* KopfString=[NSString stringWithFormat:@"%@  %@%@",TitelString,[heute description],@"\r"];
+   NSString* KopfString=[NSString stringWithFormat:@"%@  %@%@",TitelString,heuteDatumString,@"\r"];
    
    NSString* NameString=NSLocalizedString(@"Name: ",@"Name: ");
    NSString* UserString=[NSString stringWithFormat:@"%@  %@ %@",NameString,derUser,@"\r"];
@@ -3979,11 +4055,12 @@ float Notebreite=28.0;
    NSFontManager *fontManager = [NSFontManager sharedFontManager];
    //NSLog(@"*Statistik  setDruckViewMitDicArray* %@",[[derDicArray valueForKey:@"name"]description]);
    
-   NSCalendarDate* heute=[NSCalendarDate date];
-   [heute setCalendarFormat:@"%d.%m.%Y    Zeit: %H:%M"];
+//   NSCalendarDate* heute=[NSCalendarDate date];
+//   [heute setCalendarFormat:@"%d.%m.%Y    Zeit: %H:%M"];
    
+   NSString* heuteDatumString = [NSDateFormatter localizedStringFromDate:[NSDate date] dateStyle:NSDateFormatterMediumStyle timeStyle:NSDateFormatterMediumStyle];//  12.09.2015 19:20:26
    NSString* TitelString=NSLocalizedString(@"Results from ",@"Ergebnisse vom ");
-   NSString* KopfString=[NSString stringWithFormat:@"%@  %@%@",TitelString,[heute description],@"\r"];
+   NSString* KopfString=[NSString stringWithFormat:@"%@  %@%@",TitelString,heuteDatumString,@"\r"];
    
    NSString* NameString=NSLocalizedString(@"Name: ",@"Name: ");
    NSString* UserString=[NSString stringWithFormat:@"%@  %@ %@",NameString,derUser,@"\r"];
@@ -4307,10 +4384,11 @@ float Notebreite=28.0;
             DruckFeld.size.width=Datumbreite-10;
             DruckFeld.origin.x+=2;
             NSTextField* DatumFeld=[[NSTextField alloc]initWithFrame:DruckFeld];;
-            [DatumFeld setAlignment:NSRightTextAlignment];
+            [DatumFeld setAlignment:NSTextAlignmentRight];
             [DatumFeld setFont:TabellenFont];
             [DatumFeld setBordered:NO];
             
+            /*
             NSCalendarDate* tempDate=[[NSCalendarDate alloc]initWithString:[[derZeilenDic objectForKey:@"datum"]description]];
             if (tempDate)
             {
@@ -4319,8 +4397,21 @@ float Notebreite=28.0;
                int tag=[tempDate dayOfMonth];
                int monat=[tempDate monthOfYear];
                int jahr=[tempDate yearOfCommonEra];
+             */
+            if ([derZeilenDic objectForKey:@"datum"])
+            {
+               NSDate *currentDate = [NSDate date];
+               NSCalendar* calendar = [NSCalendar currentCalendar];
+               NSDateComponents* components = [calendar components:NSCalendarUnitYear|NSCalendarUnitMonth|NSCalendarUnitDay fromDate:currentDate]; // Get necessary date components
+               
+               long monat = [components month]; //gives you month
+               long tag = [components day]; //gives you day
+               long jahr = [components year]; // gives you year
+
                NSString* TagString=[NSString stringWithFormat:@"%d.%d.%d",tag,monat,jahr];
                //[TagString drawAtPoint:DruckPoint withAttributes:TabellenAttrDic];
+              
+               
                [DatumFeld setStringValue:TagString];
             }
             [ZeilenView addSubview:DatumFeld];
@@ -4334,7 +4425,7 @@ float Notebreite=28.0;
             DruckFeld.origin.x+=4;
             DruckFeld.size.width=Namebreite-6;
             NSTextField* NameFeld=[[NSTextField alloc]initWithFrame:DruckFeld];;
-            [NameFeld setAlignment:NSLeftTextAlignment];
+            [NameFeld setAlignment:NSTextAlignmentLeft];
             [NameFeld setFont:TabellenFont];
             [NameFeld setBordered:NO];
             [NameFeld setStringValue:[derZeilenDic objectForKey:@"nametext"]];
@@ -4350,7 +4441,7 @@ float Notebreite=28.0;
             DruckFeld.size.width=Zeitbreite-4;
             DruckFeld.origin.x+=2;
             NSTextField* ZeitFeld=[[NSTextField alloc]initWithFrame:DruckFeld];;
-            [ZeitFeld setAlignment:NSRightTextAlignment];
+            [ZeitFeld setAlignment:NSTextAlignmentRight];
             [ZeitFeld setFont:TabellenFont];
             [ZeitFeld setBordered:NO];
             [ZeitFeld setStringValue:[[derZeilenDic objectForKey:@"zeit"]stringValue]];
@@ -4380,7 +4471,7 @@ float Notebreite=28.0;
             DruckFeld.size.width=Mittelbreite-8;
             DruckFeld.origin.x+=2;
             NSTextField* MittelFeld=[[NSTextField alloc]initWithFrame:DruckFeld];;
-            [MittelFeld setAlignment:NSRightTextAlignment];
+            [MittelFeld setAlignment:NSTextAlignmentRight];
             [MittelFeld setFont:TabellenFont];
             [MittelFeld setBordered:NO];
             NSString* MittelString=[NSString stringWithFormat:@"%2.1f",[[derZeilenDic objectForKey:@"mittel"]floatValue]];
@@ -4411,7 +4502,7 @@ float Notebreite=28.0;
             if ([mitNoteCheck state])
             {
                NSTextField* NoteFeld=[[NSTextField alloc]initWithFrame:DruckFeld];;
-               [NoteFeld setAlignment:NSRightTextAlignment];
+               [NoteFeld setAlignment:NSTextAlignmentRight];
                [NoteFeld setFont:TabellenFont];
                [NoteFeld setBordered:NO];
                [NoteFeld setStringValue:[derZeilenDic objectForKey:@"note"]];
@@ -4434,7 +4525,7 @@ float Notebreite=28.0;
             DruckFeld.size.width=Datumbreite-10;
             DruckFeld.origin.x+=2;
             NSTextField* DatumFeld=[[NSTextField alloc]initWithFrame:DruckFeld];
-            [DatumFeld setAlignment:NSCenterTextAlignment];
+            [DatumFeld setAlignment:NSTextAlignmentCenter];
             [DatumFeld setFont:TabellenFont];
             [DatumFeld setBordered:NO];
             [DatumFeld setStringValue:[derZeilenDic objectForKey:@"datumtext"]];
@@ -4448,7 +4539,7 @@ float Notebreite=28.0;
             DruckFeld.origin.x+=4;
             DruckFeld.size.width=Namebreite-6;
             NSTextField* NameFeld=[[NSTextField alloc]initWithFrame:DruckFeld];
-            [NameFeld setAlignment:NSLeftTextAlignment];
+            [NameFeld setAlignment:NSTextAlignmentLeft];
             [NameFeld setFont:TabellenFont];
             [NameFeld setBordered:NO];
             [NameFeld setStringValue:[derZeilenDic objectForKey:@"nametext"]];
@@ -4462,7 +4553,7 @@ float Notebreite=28.0;
             DruckFeld.size.width=Zeitbreite-2;
             DruckFeld.origin.x+=1;
             NSTextField* ZeitFeld=[[NSTextField alloc]initWithFrame:DruckFeld];;
-            [ZeitFeld setAlignment:NSCenterTextAlignment];
+            [ZeitFeld setAlignment:NSTextAlignmentCenter];
             [ZeitFeld setFont:TabellenFont];
             [ZeitFeld setBordered:NO];
             [ZeitFeld setStringValue:[derZeilenDic objectForKey:@"zeit"]];
@@ -4477,7 +4568,7 @@ float Notebreite=28.0;
             DruckFeld.size.width=Grafikbreite-4;
             DruckFeld.origin.x+=2;
             NSTextField* GrafikFeld=[[NSTextField alloc]initWithFrame:DruckFeld];;
-            [GrafikFeld setAlignment:NSCenterTextAlignment];
+            [GrafikFeld setAlignment:NSTextAlignmentCenter];
             [GrafikFeld setFont:TabellenFont];
             [GrafikFeld setBordered:NO];
             [GrafikFeld setStringValue:[derZeilenDic objectForKey:@"grafik"]];
@@ -4492,7 +4583,7 @@ float Notebreite=28.0;
             DruckFeld.size.width=Mittelbreite-2;
             DruckFeld.origin.x+=1;
             NSTextField* MittelFeld=[[NSTextField alloc]initWithFrame:DruckFeld];;
-            [MittelFeld setAlignment:NSCenterTextAlignment];
+            [MittelFeld setAlignment:NSTextAlignmentCenter];
             [MittelFeld setFont:TabellenFont];
             [MittelFeld setBordered:NO];
             [MittelFeld setStringValue:[derZeilenDic objectForKey:@"mittel"]];
@@ -4508,7 +4599,7 @@ float Notebreite=28.0;
             DruckFeld.size.width=Fehlerbreite-4;
             DruckFeld.origin.x+=2;
             NSTextField* FehlerFeld=[[NSTextField alloc]initWithFrame:DruckFeld];;
-            [FehlerFeld setAlignment:NSCenterTextAlignment];
+            [FehlerFeld setAlignment:NSTextAlignmentCenter];
             [FehlerFeld setFont:TabellenFont];
             [FehlerFeld setBordered:NO];
             [FehlerFeld setStringValue:[derZeilenDic objectForKey:@"anzfehler"]];
@@ -4523,7 +4614,7 @@ float Notebreite=28.0;
             DruckFeld.size.width=Notebreite-2;
             DruckFeld.origin.x+=1;
             NSTextField* NoteFeld=[[NSTextField alloc]initWithFrame:DruckFeld];;
-            [NoteFeld setAlignment:NSCenterTextAlignment];
+            [NoteFeld setAlignment:NSTextAlignmentCenter];
             [NoteFeld setFont:TabellenFont];
             [NoteFeld setBordered:NO];
             
@@ -4553,7 +4644,7 @@ float Notebreite=28.0;
             DruckFeld.size.width=Datumbreite-10;
             DruckFeld.origin.x+=2;
             NSTextField* DatumFeld=[[NSTextField alloc]initWithFrame:DruckFeld];
-            [DatumFeld setAlignment:NSRightTextAlignment];
+            [DatumFeld setAlignment:NSTextAlignmentRight];
             [DatumFeld setFont:TestTitelFont];
             [DatumFeld setBordered:NO];
             [DatumFeld setStringValue:[derZeilenDic objectForKey:@"datumtext"]];
@@ -4569,7 +4660,7 @@ float Notebreite=28.0;
             DruckFeld.origin.x+=4;
             DruckFeld.size.width=Namebreite-6;
             NSTextField* NameFeld=[[NSTextField alloc]initWithFrame:DruckFeld];
-            [NameFeld setAlignment:NSLeftTextAlignment];
+            [NameFeld setAlignment:NSTextAlignmentLeft];
             [NameFeld setFont:TestTitelFont];
             [NameFeld setBordered:NO];
             [NameFeld setStringValue:[derZeilenDic objectForKey:@"nametext"]];
@@ -4585,7 +4676,7 @@ float Notebreite=28.0;
           DruckFeld.size.width=Zeitbreite-2;
           DruckFeld.origin.x+=1;
           NSTextField* ZeitFeld=[[[NSTextField alloc]initWithFrame:DruckFeld]autorelease];;
-          [ZeitFeld setAlignment:NSCenterTextAlignment];
+          [ZeitFeld setAlignment:NSTextAlignmentCenter];
           [ZeitFeld setFont:TabellenFont];
           [ZeitFeld setBordered:NO];
           [ZeitFeld setStringValue:[derZeilenDic objectForKey:@"zeit"]];
@@ -4601,7 +4692,7 @@ float Notebreite=28.0;
             DruckFeld.size.width=Grafikbreite-4;
             DruckFeld.origin.x+=2;
             NSTextField* GrafikFeld=[[NSTextField alloc]initWithFrame:DruckFeld];;
-            [GrafikFeld setAlignment:NSLeftTextAlignment];
+            [GrafikFeld setAlignment:NSTextAlignmentLeft];
             [GrafikFeld setFont:TabellenFont];
             [GrafikFeld setBordered:NO];
             [GrafikFeld setStringValue:[derZeilenDic objectForKey:@"grafikdatentext"]];
@@ -4617,7 +4708,7 @@ float Notebreite=28.0;
             DruckFeld.size.width=Mittelbreite-2;
             DruckFeld.origin.x+=1;
             NSTextField* MittelFeld=[[NSTextField alloc]initWithFrame:DruckFeld];;
-            [MittelFeld setAlignment:NSCenterTextAlignment];
+            [MittelFeld setAlignment:NSTextAlignmentCenter];
             [MittelFeld setFont:TabellenFont];
             [MittelFeld setBordered:NO];
             [MittelFeld setStringValue:[derZeilenDic objectForKey:@"mittel"]];
@@ -4634,7 +4725,7 @@ float Notebreite=28.0;
           DruckFeld.size.width=Fehlerbreite-4;
           DruckFeld.origin.x+=2;
           NSTextField* FehlerFeld=[[[NSTextField alloc]initWithFrame:DruckFeld]autorelease];;
-          [FehlerFeld setAlignment:NSCenterTextAlignment];
+          [FehlerFeld setAlignment:NSTextAlignmentCenter];
           [FehlerFeld setFont:TabellenFont];
           [FehlerFeld setBordered:NO];
           [FehlerFeld setStringValue:[derZeilenDic objectForKey:@"anzfehler"]];
@@ -4650,7 +4741,7 @@ float Notebreite=28.0;
           DruckFeld.size.width=Notebreite-2;
           DruckFeld.origin.x+=1;
           NSTextField* NoteFeld=[[[NSTextField alloc]initWithFrame:DruckFeld]autorelease];;
-          [NoteFeld setAlignment:NSCenterTextAlignment];
+          [NoteFeld setAlignment:NSTextAlignmentCenter];
           [NoteFeld setFont:TabellenFont];
           [NoteFeld setBordered:NO];
           

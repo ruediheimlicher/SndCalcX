@@ -133,7 +133,7 @@
    //[self setFieldEditor:YES];
   // [self setBackgroundColor:[NSColor whiteColor]];
    [self setTextColor:[NSColor blackColor]];
-   [self setAlignment:NSCenterTextAlignment];
+   [self setAlignment:NSTextAlignmentCenter];
    //[self addToolTip:@"Ergebnis"];
    NSFont* ErgebnisFont=[NSFont fontWithName:@"Helvetica" size: 28];
    [self setEditable:YES];

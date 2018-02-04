@@ -108,6 +108,11 @@ extern NSString* OK;
    [[self window] orderOut:NULL];
    
 }
+- (IBAction)reportAuswahlen:(id)sender
+{
+
+}
+
 
 - (IBAction)reportEntfernen:(id)sender
 {

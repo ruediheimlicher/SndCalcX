@@ -143,7 +143,7 @@ const short     kSerieFertig = 25003;
     NSAlert *Warnung = [[NSAlert alloc] init];
     [Warnung addButtonWithTitle:@"OK"];
     [Warnung setMessageText:@"Kein gültiger Pfad"];
-    [Warnung setAlertStyle:NSWarningAlertStyle];
+    [Warnung setAlertStyle:NSAlertStyleWarning];
     
     //[Warnung setIcon:RPImage];
     [Warnung runModal];
@@ -400,7 +400,7 @@ const short     kSerieFertig = 25003;
       VolumesPanel= [[rVolumes alloc]init];
       
       SndCalcPfad=[self chooseSndCalcPfadMitUserArray:NetworkDatenArray];
-     // NSLog(@"awake: SndCalcPfad: %@",SndCalcPfad);
+      NSLog(@"awake: SndCalcPfad: %@",SndCalcPfad);
       BOOL PListBusy=YES;
       int runde=0;
       while (PListBusy)
@@ -430,10 +430,10 @@ const short     kSerieFertig = 25003;
       
       //	NSLog(@"SndCalcPfad: %@\nPListDic: %@",SndCalcPfad,[PListDic description]);
       
-      NSColor* HintergrundFarbe=[NSColor colorWithDeviceRed:230.0/255.0 green:255.0/255.0 blue:234.0/255.0 alpha:1.0];
+      NSColor* HintergrundFarbe=[NSColor colorWithDeviceRed:0.0/255.0 green:255.0/255.0 blue:104.0/255.0 alpha:1.0];
       
-      
-      [[self window]setBackgroundColor:HintergrundFarbe];
+      [self.window setBackgroundColor:HintergrundFarbe ];
+     // [[self window]setBackgroundColor:HintergrundFarbe];
       //[[self window]setBackgroundColor:[NSColor redColor]];
       
       //[self DebugStep:@"nach setBgColor"];
@@ -557,10 +557,10 @@ const short     kSerieFertig = 25003;
       [TestPopKnopf removeAllItems];
       //[TestPopKnopf addItemWithTitle:@"Training"];
       
-      NSArray* rawTestDicArray;
+      NSMutableArray* rawTestDicArray = [[NSMutableArray alloc]initWithCapacity:0];
       if ([PListDic objectForKey:@"testarray"]&&[[PListDic objectForKey:@"testarray"] count])
       {
-         rawTestDicArray=[PListDic objectForKey:@"testarray"];
+         rawTestDicArray=(NSMutableArray* )[PListDic objectForKey:@"testarray"];
       }
       else
       {
@@ -571,7 +571,16 @@ const short     kSerieFertig = 25003;
          [tempTestDic setObject:[NSNumber numberWithInt:12] forKey:@"anzahlaufgaben"];
          [tempTestDic setObject:[NSNumber numberWithInt:1] forKey:@"alle"];
          [tempTestDic setObject:[NSNumber numberWithInt:120] forKey:@"zeit"];
-         rawTestDicArray=[NSArray arrayWithObject:tempTestDic];
+         [rawTestDicArray addObject:tempTestDic];
+         NSMutableDictionary* tempAddTestDic=[[NSMutableDictionary alloc]initWithCapacity:0];
+         [tempAddTestDic setObject:[self SerieDatenDicVonScratch] forKey:@"seriedatendic"];
+         [tempAddTestDic setObject:[NSNumber numberWithBool:YES] forKey:@"aktiv"];
+         [tempAddTestDic setObject:@"Zweistellig" forKey:@"testname"];
+         [tempAddTestDic setObject:[NSNumber numberWithInt:12] forKey:@"anzahlaufgaben"];
+         [tempAddTestDic setObject:[NSNumber numberWithInt:1] forKey:@"alle"];
+         [tempAddTestDic setObject:[NSNumber numberWithInt:120] forKey:@"zeit"];
+        
+         
          [PListDic setObject:rawTestDicArray forKey:@"testarray"];
          [self savePListAktion:nil];
       }
@@ -581,7 +590,7 @@ const short     kSerieFertig = 25003;
       id einTestDic;
       while (einTestDic=(NSMutableDictionary*)[TestEnum nextObject])
       {
-         //NSLog(@"finishlaunching TestDic: %@",[einTestDic description]);
+         NSLog(@"finishlaunching TestDic: %@",[einTestDic description]);
          
          if ([einTestDic objectForKey:@"seriedatendic"])
          {
@@ -606,20 +615,23 @@ const short     kSerieFertig = 25003;
       
       //NSMutableArray* TestDicArray=(NSMutableArray*)
       
+      
+      
+      
       //NSLog(@"ZeitArray aus Pop: %@",[[ZeitPopKnopf itemArray] description]);
       NSArray* ZeitArray=[NSArray arrayWithObjects:@"120 s",@"90 s",@"60 s",@"30 s",@"10 s",nil];
       //NSLog(@"ZeitArray: %@",[ZeitArray description]);
-       [self setZeitPop];
+      [self setZeitPop];
       [self setAnzahlPop];
       if (TestDicArray &&[TestDicArray count])
       {
          int i;
          for (i=0;i<[TestDicArray count];i++)
          {
-            //NSLog(@"TestDic: %@",[[TestDicArray objectAtIndex:i]description]);
+            NSLog(@"TestDic: %@",[[TestDicArray objectAtIndex:i]description]);
             if ([[[TestDicArray objectAtIndex:i]objectForKey:@"aktiv"]intValue])
             {
-               //NSLog(@"addieren: TestDic: %@",[[TestDicArray objectAtIndex:i]objectForKey:@"testname"]);
+               NSLog(@"addieren: TestDic: %@",[[TestDicArray objectAtIndex:i]objectForKey:@"testname"]);
                if ([[TestDicArray objectAtIndex:i]objectForKey:@"testname"])
                {
                   [TestPopKnopf addItemWithTitle:[[TestDicArray objectAtIndex:i]objectForKey:@"testname"]];
@@ -1144,7 +1156,7 @@ const short     kSerieFertig = 25003;
             NSString* s2=@"Wie weiterfahren?";
             NSString* InformationString=[NSString stringWithFormat:@"%@\n%@",s1,s2];
             [Warnung setInformativeText:InformationString];
-            [Warnung setAlertStyle:NSWarningAlertStyle];
+            [Warnung setAlertStyle:NSAlertStyleWarning];
             
             //[Warnung setIcon:RPImage];
             NSInteger antwort=[Warnung runModal];
@@ -1338,7 +1350,7 @@ const short     kSerieFertig = 25003;
       NSString* s2=@"";
       NSString* InformationString=[NSString stringWithFormat:@"%@\n%@",s1,s2];
       [Warnung setInformativeText:InformationString];
-      [Warnung setAlertStyle:NSWarningAlertStyle];
+      [Warnung setAlertStyle:NSAlertStyleWarning];
       
       //[Warnung setIcon:RPImage];
       int antwort=[Warnung runModal];
@@ -1457,8 +1469,10 @@ const short     kSerieFertig = 25003;
    }
    else
    {
-      [AnzahlPopKnopf addItemsWithTitles:[NSArray arrayWithObjects:@"120 s",@" 90 s",@" 60 s",@" 30 s",@" 10 s",nil]];
-      
+      NSArray* anzahlarray = [NSArray arrayWithObjects:@"32",@"24",@"16",@"12",@"8",nil];
+      [AnzahlPopKnopf addItemsWithTitles:anzahlarray];
+      [PListDic setObject:anzahlarray forKey:@"anzahlarray"];
+      [Utils saveElement:anzahlarray mitKey:@"anzahlarray" anPfad:SndCalcPfad];
    }
    NSEnumerator* AnzItemEnum=[[AnzahlPopKnopf itemArray] objectEnumerator];
    id einAnzItem;
@@ -1677,7 +1691,7 @@ const short     kSerieFertig = 25003;
 
 - (void)SettingAlsTestSichernAktion:(NSNotification*)note
 {
-   //NSLog(@"SettingAlsTestSichernAktion: note: %@",[[note userInfo]description]);
+   NSLog(@"SettingAlsTestSichernAktion: note: %@",[[note userInfo]description]);
    if ([[note userInfo]objectForKey:@"sichtbar"] && [[[note userInfo]objectForKey:@"sichtbar"]intValue])
    {
       [SettingAlsTestSichernTaste setHidden:NO];
@@ -1703,7 +1717,7 @@ const short     kSerieFertig = 25003;
       [Warnung setMessageText:NSLocalizedString(@"No Operation Choosed.",@"Keine Operation ausgewählt")];
       NSString* InformationString=NSLocalizedString(@"At least one operation must be choosed.",@"Mindestens eine Operation muss ausgewähltsein.");
       [Warnung setInformativeText:InformationString];
-      [Warnung setAlertStyle:NSWarningAlertStyle];
+      [Warnung setAlertStyle:NSAlertStyleWarning];
       
       //[Warnung setIcon:RPImage];
       long antwort=[Warnung runModal];
@@ -1718,7 +1732,7 @@ const short     kSerieFertig = 25003;
          [Warnung setMessageText:NSLocalizedString(@"No Row Choosed",@"Keine Reihe ausgewählt")];
          NSString* InformationString=NSLocalizedString(@"At least one row must be choosed.",@"Mindestens eine Reihe muss ausgewählt sein.");
          [Warnung setInformativeText:InformationString];
-         [Warnung setAlertStyle:NSWarningAlertStyle];
+         [Warnung setAlertStyle:NSAlertStyleWarning];
          int antwort=[Warnung runModal];
          [self selectSettingsTab:0];
          checkOK=NO;
@@ -1730,7 +1744,7 @@ const short     kSerieFertig = 25003;
          [Warnung setMessageText:NSLocalizedString(@"No Operation Choosed.",@"Keine Operation ausgewählt")];
          NSString* InformationString=NSLocalizedString(@"Addition and/or subtraction must be choosed.",@"Addition und/oder Subtraktion muss ausgewählt sein.");
          [Warnung setInformativeText:InformationString];
-         [Warnung setAlertStyle:NSWarningAlertStyle];
+         [Warnung setAlertStyle:NSAlertStyleWarning];
          long antwort=[Warnung runModal];
          [self selectSettingsTab:1];
          checkOK=NO;
@@ -1835,7 +1849,7 @@ const short     kSerieFertig = 25003;
       NSString* s1=NSLocalizedString(@"Error:",@"Fehler:");
       NSString* InformationString=[NSString stringWithFormat:@"%@\n%@\n%@",s1,s2,s3];
       [Warnung setInformativeText:InformationString];
-      [Warnung setAlertStyle:NSWarningAlertStyle];
+      [Warnung setAlertStyle:NSAlertStyleWarning];
       
       long antwort=[Warnung runModal];
       
@@ -1870,7 +1884,7 @@ const short     kSerieFertig = 25003;
             NSString* s1=NSLocalizedString(@"Error:",@"Fehler:");
             NSString* InformationString=[NSString stringWithFormat:@"%@\n%@\n%@",s1,s2,s3];
             [Warnung setInformativeText:InformationString];
-            [Warnung setAlertStyle:NSWarningAlertStyle];
+            [Warnung setAlertStyle:NSAlertStyleWarning];
             
             //[Warnung setIcon:RPImage];
             long antwort=[Warnung runModal];
@@ -1901,7 +1915,7 @@ const short     kSerieFertig = 25003;
             NSString* s1=NSLocalizedString(@"Error:",@"Fehler:");
             NSString* InformationString=[NSString stringWithFormat:@"%@\n%@\n%@",s1,s2,s3];
             [Warnung setInformativeText:InformationString];
-            [Warnung setAlertStyle:NSWarningAlertStyle];
+            [Warnung setAlertStyle:NSAlertStyleWarning];
             
             int antwort=(int)[Warnung runModal];
             return NO;
@@ -1926,7 +1940,7 @@ const short     kSerieFertig = 25003;
       NSString* s1=NSLocalizedString(@"Error:",@"Fehler:");
       NSString* InformationString=[NSString stringWithFormat:@"%@\n%@\n%@",s1,s2,s3];
       [Warnung setInformativeText:InformationString];
-      [Warnung setAlertStyle:NSWarningAlertStyle];
+      [Warnung setAlertStyle:NSAlertStyleWarning];
       
       //[Warnung setIcon:RPImage];
       long antwort=[Warnung runModal];
@@ -2403,7 +2417,7 @@ const short     kSerieFertig = 25003;
    
    [self closeSessionDrawer:NULL];
    //NSLog(@"neue Serie begin");
-   NSLog(@"neueSerie Anfang: SeriedatenDic: %@\n",[SerieDatenDic description]);
+   //NSLog(@"neueSerie Anfang: SeriedatenDic: %@\n",[SerieDatenDic description]);
    [ErgebnisRahmenFeld setHidden:YES];
    [self closeAufgabenDrawer:NULL];
    
@@ -3296,12 +3310,22 @@ const short     kSerieFertig = 25003;
       
       if (anzFalschesZeichen<=3)
       {
+         /*
          NSAlert * FalschesZeichenAlert=[NSAlert alertWithMessageText:@"Falsches Zeichen!"
                                                         defaultButton:NULL
                                                       alternateButton:NULL
                                                           otherButton:NULL
                                             informativeTextWithFormat:@"%@",InfText];
+          */
+         NSAlert *FalschesZeichenAlert = [[NSAlert alloc] init];
+         [FalschesZeichenAlert setMessageText:@"Falsches Zeichen!"];
+         [FalschesZeichenAlert setInformativeText:InfText];
+         [FalschesZeichenAlert addButtonWithTitle:@"OK"];
+         //[alert addButtonWithTitle:@"Cancel"];
+         [FalschesZeichenAlert setAlertStyle: NSAlertStyleWarning];
          
+        
+
          
          [[NSRunLoop currentRunLoop] addTimer: falschesZeichenTimer forMode:NSModalPanelRunLoopMode];
          
@@ -3719,7 +3743,7 @@ const short     kSerieFertig = 25003;
          }//if not gast
       }break;
          
-      case NSRunAbortedResponse: //-1001: Abbruch durch Timer
+      case NSModalResponseAbort: //-1001: Abbruch durch Timer
       {
          //			NSLog(@"\nshowDiplomFensterMitErg: Abbruch durch Timer\n");
          //			[self SerieDatenSichernVon:[NamenPopKnopf titleOfSelectedItem]];
@@ -4604,6 +4628,8 @@ const short     kSerieFertig = 25003;
       //NSLog(@"setupSessionDrawer 3");
       [SessionTable reloadData];
       //NSLog(@"setupSessionDrawer 4");
+      
+      /*
       NSCalendarDate* tempDate=[[NSCalendarDate alloc]initWithString:[SessionDatum description]];
       
       int tag=(int)[tempDate dayOfMonth];
@@ -4611,6 +4637,15 @@ const short     kSerieFertig = 25003;
       int jahr=(int)[tempDate yearOfCommonEra];
       int stunde=(int)[tempDate hourOfDay];
       int minute=(int)[tempDate minuteOfHour];
+      */
+      NSCalendar* calendar = [NSCalendar currentCalendar];
+      NSDateComponents* components = [calendar components:NSCalendarUnitYear|NSCalendarUnitMonth|NSCalendarUnitDay|NSCalendarUnitHour|NSCalendarUnitMinute fromDate:SessionDatum]; // Get necessary date components
+      
+      long monat = [components month]; //gives you month
+      long tag = [components day]; //gives you day
+      long jahr = [components year]; // gives you year
+      long stunde = [components hour];
+      long minute = [components minute];
       
       NSString* JahrString=[[NSNumber numberWithInt:jahr]stringValue];
       JahrString=[JahrString substringFromIndex:2];
@@ -5067,7 +5102,7 @@ const short     kSerieFertig = 25003;
                      NSString* s1=NSLocalizedString(@"Error:",@"Fehler:");
                      NSString* InformationString=[NSString stringWithFormat:@"%@\n%@",s1,s2];
                      [Warnung setInformativeText:InformationString];
-                     [Warnung setAlertStyle:NSWarningAlertStyle];
+                     [Warnung setAlertStyle:NSAlertStyleWarning];
                      
                      //[Warnung setIcon:RPImage];
                      int antwort=[Warnung runModal];
@@ -5423,7 +5458,7 @@ const short     kSerieFertig = 25003;
          NSString* s2=@"";
          NSString* InformationString=[NSString stringWithFormat:@"%@\n%@",s1,s2];
          [Warnung setInformativeText:InformationString];
-         [Warnung setAlertStyle:NSWarningAlertStyle];
+         [Warnung setAlertStyle:NSAlertStyleWarning];
          
          //[Warnung setIcon:RPImage];
          int antwort=[Warnung runModal];
@@ -5542,7 +5577,7 @@ const short     kSerieFertig = 25003;
             NSString* s2=@"";
             NSString* InformationString=[NSString stringWithFormat:@"%@\n%@",s1,s2];
             [Warnung setInformativeText:InformationString];
-            [Warnung setAlertStyle:NSWarningAlertStyle];
+            [Warnung setAlertStyle:NSAlertStyleWarning];
             
             //[Warnung setIcon:RPImage];
             int antwort=[Warnung runModal];
@@ -5570,7 +5605,7 @@ const short     kSerieFertig = 25003;
          NSString* s2=@"";
          NSString* InformationString=[NSString stringWithFormat:@"%@\n%@",s1,s2];
          [Warnung setInformativeText:InformationString];
-         [Warnung setAlertStyle:NSWarningAlertStyle];
+         [Warnung setAlertStyle:NSAlertStyleWarning];
          
          //[Warnung setIcon:RPImage];
          int antwort=[Warnung runModal];
@@ -5603,7 +5638,7 @@ const short     kSerieFertig = 25003;
       NSString* s2=@"";
       NSString* InformationString=[NSString stringWithFormat:@"%@\n%@",s1,s2];
       [Warnung setInformativeText:InformationString];
-      [Warnung setAlertStyle:NSWarningAlertStyle];
+      [Warnung setAlertStyle:NSAlertStyleWarning];
       
       //[Warnung setIcon:RPImage];
       int antwort=[Warnung runModal];
@@ -5771,7 +5806,7 @@ const short     kSerieFertig = 25003;
                }
             }
             [NamenPopKnopf insertItemWithTitle:@"Namen wählen" atIndex:0];
-            //NSLog(@"Nach Schliessen: NamenPanel tempNamenDicArray: %@",[tempNamenDicArray description]);
+            NSLog(@"Nach Schliessen: NamenPanel tempNamenDicArray: %@",[tempNamenDicArray description]);
             //[PListDic setObject:NamenDicArray  forKey:@"namendicarray"];
             
             BOOL CheckOK=[Utils checkChangeNamenListe:tempNamenDicArray anPfad:SndCalcPfad];
@@ -6107,7 +6142,12 @@ const short     kSerieFertig = 25003;
 - (IBAction)updateUserdaten:(id)sender
 {
   // NSLog(@"updateUserdaten");
-   NSMutableArray* tempOldNamenDicArray=(NSMutableArray*)[PListDic objectForKey:@"namendicarray"];
+   NSMutableArray* tempOldNamenDicArray = [[NSMutableArray alloc]initWithCapacity:0];
+   if ([PListDic objectForKey:@"namendicarray"])
+   {
+   tempOldNamenDicArray=(NSMutableArray*)[PListDic objectForKey:@"namendicarray"];
+   }
+  
    //NSLog(@"showAdminStatistik	tempOldNamenDicArray: %@",[tempOldNamenDicArray description]);
    NSMutableArray* tempNamenDicArray=(NSMutableArray*)[Utils NamenDicArrayAnPfad:SndCalcPfad];
    //NSLog(@"showAdminStatistik	tempNamenDicArray: %@",[tempNamenDicArray description]);
@@ -6230,6 +6270,7 @@ const short     kSerieFertig = 25003;
          }
          else
          {
+            NSLog(@"TestPanel items: %@",[AnzahlPopKnopf itemTitles]);
             [TestPanel setAnzahlItems:[AnzahlPopKnopf itemTitles] mitItem:0];
          }
          
@@ -6273,9 +6314,9 @@ const short     kSerieFertig = 25003;
          int modalAntwort=0;
          //		modalAntwort=[NSApp runModalForWindow:[TestPanel window]];
      //    [TestPanel showWindow:NULL];
+         NSLog(@"TestPanel items: %@",[AnzahlPopKnopf itemTitles]);
          [TestPanel setAnzahlItems:[AnzahlPopKnopf itemTitles] mitItem:(int)[AnzahlPopKnopf indexOfSelectedItem]];
 
-         [TestPanel setAnzahlItems:[AnzahlPopKnopf itemTitles] mitItem:(int)[AnzahlPopKnopf indexOfSelectedItem]];
          [TestPanel setZeitItems:[ZeitPopKnopf itemTitles] mitItem:(int)[ZeitPopKnopf indexOfSelectedItem]];
          [[TestPanel window] makeKeyAndOrderFront:NULL];
          
@@ -6299,7 +6340,7 @@ const short     kSerieFertig = 25003;
          NSString* s2=@"";
          NSString* InformationString=[NSString stringWithFormat:@"%@\n%@",s1,s2];
          [Warnung setInformativeText:InformationString];
-         [Warnung setAlertStyle:NSWarningAlertStyle];
+         [Warnung setAlertStyle:NSAlertStyleWarning];
          
          //[Warnung setIcon:RPImage];
          int antwort=[Warnung runModal];
@@ -6508,6 +6549,7 @@ const short     kSerieFertig = 25003;
    }
    
    [TestPanel setZeitItems:[ZeitPopKnopf itemTitles] mitItem:[ZeitPopKnopf indexOfSelectedItem]];
+  NSLog(@"TestPanel items: %@",[AnzahlPopKnopf itemTitles]);
    [TestPanel setAnzahlItems:[AnzahlPopKnopf itemTitles] mitItem:[AnzahlPopKnopf indexOfSelectedItem]];
    
    BOOL en=NO;
@@ -7488,7 +7530,7 @@ objectValueForTableColumn:(NSTableColumn *)aTableColumn
    NSString* s2=@"";
    NSString* InformationString=[NSString stringWithFormat:@"%@\n%@",s1,s2];
    [Warnung setInformativeText:InformationString];
-   [Warnung setAlertStyle:NSWarningAlertStyle];
+   [Warnung setAlertStyle:NSAlertStyleWarning];
    rPWTimeout* AdminPWTimeoutPanel=[[rPWTimeout alloc]init];
    if (AdminPWTimeoutPanel)
    {
@@ -7801,6 +7843,7 @@ objectValueForTableColumn:(NSTableColumn *)aTableColumn
             
             //NSLog(@"PListDic in checkAdminZugang: %@",[PListDic description]);
             BOOL adminPWOK=[Utils saveAdminPW:tempNeuesPWDic anPfad:SndCalcPfad];
+            
             ZugangOK=YES;				
          }
          else

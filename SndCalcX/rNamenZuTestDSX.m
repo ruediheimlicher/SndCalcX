@@ -122,7 +122,7 @@
    //NSLog(@"setNamenliste: aktuellerTest: %@  NamenZuTestDicArray: %@",aktuellerTest,[NamenZuTestDicArray description]);
    return;
    
-   
+   /*
    NSEnumerator* TestEnum=[NamenZuTestDicArray objectEnumerator];
    id einTestDic;
    int anzTest=0;
@@ -155,7 +155,7 @@
       
    }
    dirty=NO;
-   
+   */
 }//setTestlisteZuNamen
 
 

@@ -647,7 +647,7 @@
       //	NSString* s2=@"Er kann auch sofort entfernt werden. Diese Aktion ist aber nicht rückgängig zu machen.";
       //	NSString* InformationString=[NSString stringWithFormat:@"%@\n%@",s1,s2];
       //	[Warnung setInformativeText:InformationString];
-      [Warnung setAlertStyle:NSWarningAlertStyle];
+      [Warnung setAlertStyle:NSAlertStyleWarning];
       long antwort=[Warnung runModal];
       if (antwort==NSAlertSecondButtonReturn)
       {

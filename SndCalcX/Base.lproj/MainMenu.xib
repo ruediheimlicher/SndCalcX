@@ -703,6 +703,7 @@
                     </menu>
                 </menuItem>
             </items>
+            <point key="canvasLocation" x="103" y="451"/>
         </menu>
         <window title="SndCalc" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" animationBehavior="default" id="QvC-M9-y7g">
             <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
@@ -841,7 +842,7 @@
                                             </buttonCell>
                                         </button>
                                         <popUpButton verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="eIH-ID-Kel">
-                                            <rect key="frame" x="77" y="40" width="363" height="22"/>
+                                            <rect key="frame" x="77" y="40" width="363" height="26"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                             <popUpButtonCell key="cell" type="push" title="Test" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" enabled="NO" state="on" borderStyle="border" inset="2" arrowPosition="arrowAtCenter" preferredEdge="maxY" selectedItem="X6o-lb-MSI" id="NN4-Dz-Pc4">
                                                 <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
@@ -1090,7 +1091,7 @@
                                             </connections>
                                         </popUpButton>
                                         <textField verticalHuggingPriority="750" fixedFrame="YES" allowsCharacterPickerTouchBarItem="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fwt-sq-Ojn">
-                                            <rect key="frame" x="371" y="35" width="88" height="22"/>
+                                            <rect key="frame" x="367" y="37" width="88" height="22"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                             <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" state="on" alignment="right" id="WsC-82-Ph9">
                                                 <font key="font" metaFont="system" size="14"/>
@@ -1105,6 +1106,11 @@
                     </view>
                 </subviews>
             </view>
+            <userDefinedRuntimeAttributes>
+                <userDefinedRuntimeAttribute type="color" keyPath="backgroundColor">
+                    <color key="value" red="0.739033946743197" green="1" blue="0.82768775355189672" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                </userDefinedRuntimeAttribute>
+            </userDefinedRuntimeAttributes>
             <connections>
                 <outlet property="delegate" destination="Voe-Tx-rLC" id="wvW-H8-0t5"/>
             </connections>
@@ -1191,7 +1197,7 @@
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <clipView key="contentView" ambiguous="YES" id="Evk-we-AqZ">
                         <rect key="frame" x="1" y="0.0" width="169" height="278"/>
-                        <autoresizingMask key="autoresizingMask"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" columnReordering="NO" multipleSelection="NO" autosaveColumns="NO" rowHeight="14" headerView="ZUP-Fn-hqf" id="wLu-oD-aPw">
                                 <rect key="frame" x="0.0" y="0.0" width="169" height="255"/>

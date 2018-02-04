@@ -138,12 +138,14 @@
    NSFontManager *fontManager = [NSFontManager sharedFontManager];
    NSLog(@"*Statistik  setDruckViewMitDicArray* %@",[[derDicArray valueForKey:@"name"]description]);
    
-   NSCalendarDate* heute=[NSCalendarDate date];
-   [heute setCalendarFormat:@"%d.%m.%Y    Zeit: %H:%M"];
+//   NSCalendarDate* heute=[NSCalendarDate date];
+//   [heute setCalendarFormat:@"%d.%m.%Y    Zeit: %H:%M"];
   
+   NSString* heuteDatumString = [NSDateFormatter localizedStringFromDate:[NSDate date] dateStyle:NSDateFormatterMediumStyle timeStyle:NSDateFormatterMediumStyle];//  12.09.2015 19:20:26
+
    
    NSString* TitelString=NSLocalizedString(@"Results from ",@"Ergebnisse vom ");
-   NSString* KopfString=[NSString stringWithFormat:@"%@  %@%@",TitelString,[heute description],@"\r\r"];
+   NSString* KopfString=[NSString stringWithFormat:@"%@  %@%@",TitelString,heuteDatumString,@"\r\r"];
    
    //Font für Titelzeile
    NSFont* TitelFont;
